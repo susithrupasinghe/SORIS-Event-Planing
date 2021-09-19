@@ -9,17 +9,17 @@
     <meta name="author" content="zytheme"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="description" content="Multi-purpose Business html5 landing page"/>
-    <link href="landing/assets/images/favicon/favicon.png" rel="icon"/>
+    <link href="assets/landing/assets/images/favicon/favicon.png" rel="icon"/>
     <!--  Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;display=swap" rel="stylesheet" type="text/css"/>
     <!-- Stylesheets-->
-    <link href="landing/assets/css/vendor.css" rel="stylesheet"/>
-    <link href="landing/assets/css/style.css" rel="stylesheet"/>
+    <link href="assets/landing/assets/css/vendor.css" rel="stylesheet"/>
+    <link href="assets/landing/assets/css/style.css" rel="stylesheet"/>
     <!--
     Document Title
     =============================================
     -->
-    <title>Landing Click | LeLand - Isometric Business HTML Landing Page</title>
+    <title>SORIS Event Planning Platform</title>
 </head>
 <body class="body-scroll">
 <!--
@@ -33,14 +33,13 @@ Document Wrapper
     -->
     <header class="header header-transparent header-sticky">
         <nav class="navbar navbar-sticky navbar-expand-lg" id="primary-menu">
-            <div class="container"> <a class="logo navbar-brand" href="index.html"><img class="logo logo-dark" src="landing/assets/images/logo/logo-dark.png" alt="Leland Logo"/><img class="logo logo-light" src="landing/assets/images/logo/logo-light.png" alt="Leland Logo"/></a>
+            <div class="container"> <a class="logo navbar-brand" href="index.html"><img class="logo logo-dark" src="assets/landing/assets/images/logo/logo-dark.png" alt="Leland Logo"/><img class="logo logo-light" src="assets/landing/assets/images/logo/logo-light.png" alt="Leland Logo"/></a>
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarContent" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" data-scroll="scrollTo" href="#hero">Home</a></li>
                         <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#feature">Features</a></li>
                         <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#pricing">Pricing</a></li>
                         <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#testimonials">Testimonials</a></li>
                         <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#cta">Start Now</a></li>
                     </ul>
@@ -63,11 +62,11 @@ Document Wrapper
                 <div class="modal-body">
                     <div class="popup-contact-form">
                         <div class="heading heading-5">
-                            <div class="heading-title">start your free trial</div>
+                            <div class="heading-title">Start planning now </div>
                             <div class="heading-desc">Supporting call-to-actiongoes here</div>
                         </div>
                         <div class="contact-body">
-                            <form class="contactForm mb-0" method="post" action="landing/assets/php/contact.php">
+                            <form class="contactForm mb-0" method="post" action="assets/landing/assets/php/contact.php">
                                 <div class="row">
                                     <div class="col-12">
                                         <input class="form-control" type="text" name="contact-name" placeholder="your name" required="required"/>
@@ -79,7 +78,7 @@ Document Wrapper
                                         <input class="form-control" type="text" name="contact-phone" placeholder="your phone" required="required"/>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn--block btn btn--primary btn--arrows mt-20 mb-20"><span>Get Start Now<i class="icon-right-arrow"></i></span></button>
+                                        <button class="btn--block btn btn--primary btn--arrows mt-20 mb-20"><span>Start planning now <i class="icon-right-arrow"></i></span></button>
                                     </div>
                                     <div class="col-12">
                                         <p class="notice">Start by trying our service for 30 days free triar no credit card required.</p>
@@ -98,15 +97,15 @@ Document Wrapper
     </div>
     <!-- Start hero #1-->
     <section class="hero bg-gradient" id="hero">
-        <div class="bg-section"><img src="landing/assets/images/background/bg-gradient.svg" alt="background"/></div>
+        <div class="bg-section"><img src="assets/landing/assets/images/background/bg-gradient.svg" alt="background"/></div>
         <div class="container">
             <div class="hero-cotainer text--center">
                 <div class="row">
                     <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
                         <div class="hero-content">
-                            <div class="hero-headline">we are fully services digital agency</div>
-                            <div class="hero-bio">We are LeLand agency, our strategists will help you set an objective and choose your tools, developing a plan that is custom built for your business.</div>
-                            <div class="hero-action text-center"><a class="btn btn--primary btn--rounded btn--arrows mx-auto" href="javascript:void(0)" data-toggle="modal" data-target="#contactUsModal"><span>Get Start Now <i class="icon-right-arrow"></i></span></a></div>
+                            <div class="hero-headline">we are fully services event planing platform</div>
+                            <div class="hero-bio">SORIS Offers you tools and services  to Successfully plan events of any type. you can manage your guest lists , plan your budget and schedule your events easily</div>
+                            <div class="hero-action text-center"><a class="btn btn--primary btn--rounded btn--arrows mx-auto" href="javascript:void(0)" data-toggle="modal" data-target="#contactUsModal"><span>Start planning now <i class="icon-right-arrow"></i></span></a></div>
                         </div>
                     </div>
                 </div>
@@ -118,7 +117,7 @@ Document Wrapper
         <div class="mockup">
             <div class="container">
                 <div class="row">
-                    <div class="col"><img class="img-fluid" src="landing/assets/images/illustration/illustration-1.png" alt="illustration vector"/></div>
+                    <div class="col"><img class="img-fluid" src="assets/landing/assets/images/illustration/illustration-1.png" alt="illustration vector"/></div>
                 </div>
             </div>
         </div>
@@ -140,17 +139,17 @@ Document Wrapper
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="owl-carousel " data-slide="5" data-slide-res="3" data-autoplay="true" data-nav="false" data-dots="false" data-space="30" data-loop="true" data-speed="800">
                         <!--  Client #1   -->
-                        <div class="client"><img src="landing/assets/images/clients/client-1.png" alt="client-pic"/></div>
+                        <div class="client"><img src="assets/landing/assets/images/clients/client-1.png" alt="client-pic"/></div>
                         <!--  Client #2   -->
-                        <div class="client"><img src="landing/assets/images/clients/client-2.png" alt="client-pic"/></div>
+                        <div class="client"><img src="assets/landing/assets/images/clients/client-2.png" alt="client-pic"/></div>
                         <!--  Client #3-->
-                        <div class="client"><img src="landing/assets/images/clients/client-3.png" alt="client-pic"/></div>
+                        <div class="client"><img src="assets/landing/assets/images/clients/client-3.png" alt="client-pic"/></div>
                         <!--  Client #4-->
-                        <div class="client"><img src="landing/assets/images/clients/client-4.png" alt="client-pic"/></div>
+                        <div class="client"><img src="assets/landing/assets/images/clients/client-4.png" alt="client-pic"/></div>
                         <!--  Client #5-->
-                        <div class="client"><img src="landing/assets/images/clients/client-5.png" alt="client-pic"/></div>
+                        <div class="client"><img src="assets/landing/assets/images/clients/client-5.png" alt="client-pic"/></div>
                         <!--  Client #6-->
-                        <div class="client"><img src="landing/assets/images/clients/client-6.png" alt="client-pic"/></div>
+                        <div class="client"><img src="assets/landing/assets/images/clients/client-6.png" alt="client-pic"/></div>
                     </div>
                 </div>
                 <!-- End .row-->
@@ -166,8 +165,8 @@ Document Wrapper
             <div class="row clearfix">
                 <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                     <div class="heading heading-1 text--center">
-                        <h2 class="heading-title">We help you to Start Your Project</h2>
-                        <p class="heading-desc">This should be used to tell a story and let your users know a little more about your product or service. How can you benefit them?</p>
+                        <h2 class="heading-title">We help you to Plan Your Event</h2>
+                        <p class="heading-desc">Proper Planning Is the most important step in any event's success. using SORIS event Planning you can create a unique plan for any one of your events to ensure a engaging and fulfilling event for your guests.</p>
                     </div>
                 </div>
                 <!-- End .col-lg-6 -->
@@ -179,8 +178,8 @@ Document Wrapper
                     <div class="feature-panel">
                         <div class="feature-icon"><i class="flaticon-archive-3"></i></div>
                         <div class="feature-content">
-                            <h3>great results</h3>
-                            <p>This should be used to tell a story and let your users know more about your service. How can you benefit them?</p>
+                            <h3>Safe storages</h3>
+                            <p>Store your guest details, event details and other information safely on the platform </p>
                         </div>
                     </div>
                     <!-- .feature-panel end  -->
@@ -191,8 +190,8 @@ Document Wrapper
                     <div class="feature-panel active">
                         <div class="feature-icon"><i class="flaticon-albums"></i></div>
                         <div class="feature-content">
-                            <h3>page builder</h3>
-                            <p>This should be used to tell a story and let your users know more about your service. How can you benefit them?</p>
+                            <h3>Multiple Events</h3>
+                            <p>Easily handle multiple events in different stages of planning</p>
                         </div>
                     </div>
                     <!-- .feature-panel end  -->
@@ -203,8 +202,8 @@ Document Wrapper
                     <div class="feature-panel">
                         <div class="feature-icon"><i class="flaticon-fingerprint"></i></div>
                         <div class="feature-content">
-                            <h3>new design</h3>
-                            <p>This should be used to tell a story and let your users know more about your service. How can you benefit them?</p>
+                            <h3>All your plans on a fingertip </h3>
+                            <p>Access your plans easily on a multi-platform website supporting different devices</p>
                         </div>
                     </div>
                     <!-- .feature-panel end  -->
@@ -221,20 +220,20 @@ Document Wrapper
                 <div class="col-12 col-md-6">
                     <div class="service-card pt-40">
                         <div class="heading heading-2">
-                            <h2 class="heading-title">Create a Beautiful Landing Page <br/>In Minute Not Weeks</h2>
-                            <p class="heading-desc">This should be used to tell a story and let your users know a little more about your product or service</p>
+                            <h2 class="heading-title">We already worked with<br/>Thousands of event hosts and service providers</h2>
+                            <p class="heading-desc">SORIS is working together with wide variety of vendors in order to provide services for a growing number of Event planners</p>
                         </div>
                         <div class="counters-card">
                             <div class="counters"><i class="flaticon-settings-6"></i>
-                                <div class="counters-content"><span class="counting">6815</span><span class="type">project</span></div>
+                                <div class="counters-content"><span class="counting">500</span><span class="type">Service Providers</span></div>
                             </div>
                             <div class="counters"><i class="flaticon-user-3"></i>
-                                <div class="counters-content"><span class="counting">9657</span><span class="type">clients</span></div>
+                                <div class="counters-content"><span class="counting">1500</span><span class="type">Event Host</span></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6"><img class="img-fluid service-img" src="landing/assets/images/illustration/illustration-2.png" alt="vector"/></div>
+                <div class="col-12 col-md-6"><img class="img-fluid service-img" src="assets/landing/assets/images/illustration/illustration-2.png" alt="vector"/></div>
             </div>
         </div>
     </section>
@@ -246,188 +245,23 @@ Document Wrapper
     <section class="services bg-gray" id="services2">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-6"><img class="img-fluid service-img" src="landing/assets/images/illustration/illustration-3.png" alt="vector"/></div>
+                <div class="col-12 col-md-6"><img class="img-fluid service-img" src="assets/landing/assets/images/illustration/illustration-3.png" alt="vector"/></div>
                 <div class="col-12 col-md-6">
                     <div class="service-card pt-30">
                         <div class="heading heading-2">
-                            <h2 class="heading-title">Working Together To Deliver Value <br/>To Your Business</h2>
-                            <p class="heading-desc">This should be used to tell a story and let your users know a little more about your product or service</p>
+                            <h2 class="heading-title">Working Together To Deliver Value <br/>To Your Event</h2>
+                            <p class="heading-desc">Our  partners Supply many of the services necessary to host a event.</p>
                         </div>
                         <ul class="list-unstyled service-list pr-60">
-                            <li><span class="icon-tick-inside-circle"></span> Ocicat cougar, cougar manx. Cornish rex cougar.</li>
-                            <li><span class="icon-tick-inside-circle"></span> American shorthair tabby russian blue. Turkish angora leopard yet malkin.</li>
+                            <li><span class="icon-tick-inside-circle"></span> Each one of our partners are verified by the platform staff.</li>
+                            <li><span class="icon-tick-inside-circle"></span> You can find contact details of our partners directly from platform.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--
-    Pricing Table #1
-    =============================================
-    -->
-    <section class="pricing bg-clouds-red" id="pricing">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                    <div class="heading text-center">
-                        <h2 class="heading-title">no hidden charges choose your plan</h2>
-                        <p class="heading-desc">This should be used to tell a story and let your users know a little more about your product or service. How can you benefit them?</p>
-                    </div>
-                </div>
-                <!-- End .col-lg-6  -->
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="pricing-switcher">
-                        <input id="monthly" type="checkbox"/>
-                        <input id="yearly" type="checkbox"/>
-                        <label class="type active" for="monthly">monthly</label>
-                        <div class="indicator"><span class="ball monthly"></span></div>
-                        <label class="type" for="yearly">yearly</label>
-                    </div>
-                </div>
-            </div>
-            <!-- End .row-->
-            <div class="pricing-container monthly">
-                <div class="row">
-                    <!-- Start Pricing Packge #1 -->
-                    <div class="col-12 col-md-4 col-lg-4 price-table">
-                        <div class="pricing-panel monthly visible">
-                            <!--  Pricing heading   -->
-                            <div class="pricing-head">
-                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
-                                <div class="pricing-type"><span class="type">free</span></div>
-                                <div class="pricing-name">basic</div>
-                            </div>
-                            <!--  Pricing body-->
-                            <div class="pricing-body">
-                                <ul class="pricing-list list-unstyled">
-                                    <li>crm auto cync</li>
-                                    <li>click to call back</li>
-                                    <li class="disabled">track energy costs </li>
-                                    <li class="disabled">predictive dialing </li>
-                                </ul><a class="btn btn--secondary btn--arrows" href="javascript:void(0)"><span>Get Started <i class="icon-right-arrow"></i></span></a>
-                                <p class="pricing-desc">Start by trying our service for 30 days free trial no credit card required.</p>
-                            </div>
-                        </div>
-                        <div class="pricing-panel yearly hidden">
-                            <!--  Pricing heading   -->
-                            <div class="pricing-head">
-                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
-                                <div class="pricing-type"><span class="type">free</span></div>
-                                <div class="pricing-name">basic</div>
-                            </div>
-                            <!--  Pricing body-->
-                            <div class="pricing-body">
-                                <ul class="pricing-list list-unstyled">
-                                    <li>crm auto cync</li>
-                                    <li>click to call back</li>
-                                    <li class="disabled">track energy costs </li>
-                                    <li class="disabled">predictive dialing </li>
-                                </ul><a class="btn btn--secondary btn--arrows" href="javascript:void(0)"> <span>Get Started <i class="icon-right-arrow"></i></span></a>
-                                <p class="pricing-desc">Start by trying our service for 30 days free trial no credit card required.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End .pricing-table  -->
-                    <!-- Start Pricing Packge #2-->
-                    <div class="col-12 col-md-4 col-lg-4 price-table">
-                        <div class="pricing-panel active monthly visible">
-                            <!--  Pricing heading   -->
-                            <div class="pricing-head">
-                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-primary.svg" alt="alt"/></div>
-                                <div class="pricing-type"><span class="currency">$</span><span class="price">19</span><span class="per">/mo</span></div>
-                                <div class="pricing-name">start up</div>
-                                <div class="best-banner">best choice</div>
-                            </div>
-                            <!--  Pricing body-->
-                            <div class="pricing-body">
-                                <ul class="pricing-list list-unstyled">
-                                    <li>crm auto cync</li>
-                                    <li>click to call back</li>
-                                    <li>track energy costs </li>
-                                    <li class="disabled">predictive dialing </li>
-                                </ul><a class="btn btn--primary btn--arrows" href="javascript:void(0)"><span>Get Started <i class="icon-right-arrow"></i></span></a>
-                                <p class="pricing-desc">Start by trying our service for 30 days free trial no credit card required.</p>
-                            </div>
-                        </div>
-                        <div class="pricing-panel active yearly hidden">
-                            <!--  Pricing heading   -->
-                            <div class="pricing-head">
-                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-primary.svg" alt="alt"/></div>
-                                <div class="pricing-type"><span class="currency">$</span><span class="price">180</span><span class="per">/year</span></div>
-                                <div class="pricing-name">start up</div>
-                                <div class="best-banner">best choice</div>
-                            </div>
-                            <!--  Pricing body-->
-                            <div class="pricing-body">
-                                <ul class="pricing-list list-unstyled">
-                                    <li>crm auto cync</li>
-                                    <li>click to call back</li>
-                                    <li>track energy costs </li>
-                                    <li class="disabled">predictive dialing </li>
-                                </ul><a class="btn btn--primary btn--arrows" href="javascript:void(0)"> <span>Get Started <i class="icon-right-arrow"></i></span></a>
-                                <p class="pricing-desc">Start by trying our service for 30 days free trial no credit card required.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End .pricing-table  -->
-                    <!-- Start Pricing Packge #3-->
-                    <div class="col-12 col-md-4 col-lg-4 price-table">
-                        <div class="pricing-panel monthly visible">
-                            <!--  Pricing heading   -->
-                            <div class="pricing-head">
-                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
-                                <div class="pricing-type"><span class="currency">$</span><span class="price">29</span><span class="per">/mo</span></div>
-                                <div class="pricing-name">coroprate</div>
-                            </div>
-                            <!--  Pricing body-->
-                            <div class="pricing-body">
-                                <ul class="pricing-list list-unstyled">
-                                    <li>crm auto cync</li>
-                                    <li>click to call back</li>
-                                    <li>track energy costs </li>
-                                    <li>predictive dialing </li>
-                                </ul><a class="btn btn--secondary btn--arrows" href="javascript:void(0)"><span>Get Started <i class="icon-right-arrow"></i></span></a>
-                                <p class="pricing-desc">Start by trying our service for 30 days free trial no credit card required.</p>
-                            </div>
-                        </div>
-                        <div class="pricing-panel yearly hidden">
-                            <!--  Pricing heading   -->
-                            <div class="pricing-head">
-                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
-                                <div class="pricing-type"><span class="currency">$</span><span class="price">240</span><span class="per">/year</span></div>
-                                <div class="pricing-name">coroprate</div>
-                            </div>
-                            <!--  Pricing body-->
-                            <div class="pricing-body">
-                                <ul class="pricing-list list-unstyled">
-                                    <li>crm auto cync</li>
-                                    <li>click to call back</li>
-                                    <li>track energy costs </li>
-                                    <li>predictive dialing </li>
-                                </ul><a class="btn btn--secondary btn--arrows" href="javascript:void(0)"> <span>Get Started <i class="icon-right-arrow"></i></span></a>
-                                <p class="pricing-desc">Start by trying our service for 30 days free trial no credit card required.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End .pricing-table-->
-                </div>
-            </div>
-            <!-- End .pricing-container-->
-            <div class="row">
-                <div class="col-12">
-                    <div class="connect"><span>Need a custom solution for our organization </span>
-                        <div class="connect-link"><a href="javascript:void(0)"> <span>contact us here</span><i class="icon-right-arrow"></i></a></div>
-                    </div>
-                </div>
-            </div>
-            <!-- End .row-->
-        </div>
-        <!-- End .container  -->
-    </section>
-    <!-- #pricing1 end  -->
+
     <!-- Start Testimonials-->
     <section class="testimonials bg-gray" id="testimonials">
         <div class="container">
@@ -440,7 +274,7 @@ Document Wrapper
                                 <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
                                 <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
                                 <div class="testimonial-author">
-                                    <div class="testimonial-img"><img src="landing/assets/images/testimonials/avatar-1.png" alt="avatar author"/></div>
+                                    <div class="testimonial-img"><img src="assets/landing/assets/images/testimonials/avatar-1.png" alt="avatar author"/></div>
                                     <p>Vera Duncan @Envato Inc.</p>
                                 </div>
                             </div>
@@ -451,7 +285,7 @@ Document Wrapper
                                 <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
                                 <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
                                 <div class="testimonial-author">
-                                    <div class="testimonial-img"><img src="landing/assets/images/testimonials/avatar-2.png" alt="author"/></div>
+                                    <div class="testimonial-img"><img src="assets/landing/assets/images/testimonials/avatar-2.png" alt="author"/></div>
                                     <p>Vera Duncan @Envato Inc.</p>
                                 </div>
                             </div>
@@ -462,7 +296,7 @@ Document Wrapper
                                 <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
                                 <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
                                 <div class="testimonial-author">
-                                    <div class="testimonial-img"><img src="landing/assets/images/testimonials/avatar-3.png" alt="author"/></div>
+                                    <div class="testimonial-img"><img src="assets/landing/assets/images/testimonials/avatar-3.png" alt="author"/></div>
                                     <p>Vera Duncan @Envato Inc.</p>
                                 </div>
                             </div>
@@ -479,12 +313,12 @@ Document Wrapper
     =============================================
     -->
     <section class="cta text-center" id="cta">
-        <div class="bg-section"><img src="landing/assets/images/background/bg-gradient-2.svg" alt="background"/></div>
+        <div class="bg-section"><img src="assets/landing/assets/images/background/bg-gradient-2.svg" alt="background"/></div>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 text-center">
-                    <h3>Whatever the challenge, we always deliver a solution.</h3>
-                    <p>Bengal. Birman. American shorthair tabby russian blue. Turkish angora leopard yet malkin and ocicat cougar, cougar manx. Cornish rex cougar but bombay, cheetah.</p><a class="btn btn--primary btn--arrows mx-auto" href="javascript:void(0)" data-toggle="modal" data-target="#contactUsModal"> <span>get started now <i class="icon-right-arrow"></i></span></a>
+                    <h3>Whatever the event, we always deliver a plan.</h3>
+                    <p>Join us and create  plans for your memorable events.</p><a class="btn btn--primary btn--arrows mx-auto" href="javascript:void(0)" data-toggle="modal" data-target="#contactUsModal"> <span>get started now <i class="icon-right-arrow"></i></span></a>
                 </div>
                 <!-- End .col-md-12-->
             </div>
@@ -505,7 +339,7 @@ Document Wrapper
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12 text--center">
-                    <div class="footer--copyright"><span>2020 &copy; <a href="http://themeforest.net/user/zytheme/portfolio?ref=zytheme">zytheme</a>. All rights reserved.</span></div>
+                    <div class="footer--copyright"><span>2020 &copy; SORIS</a>. All rights reserved.</span></div>
                 </div>
             </div>
         </div>
@@ -517,8 +351,8 @@ Document Wrapper
 Footer Scripts
 =============================================
 -->
-<script src="landing/assets/js/vendor/jquery-3.4.1.min.js"></script>
-<script src="landing/assets/js/vendor.js"></script>
-<script src="landing/assets/js/functions.js"></script>
+<script src="assets/landing/assets/js/vendor/jquery-3.4.1.min.js"></script>
+<script src="assets/landing/assets/js/vendor.js"></script>
+<script src="assets/landing/assets/js/functions.js"></script>
 </body>
 </html>

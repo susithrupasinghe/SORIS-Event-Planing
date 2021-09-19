@@ -5,19 +5,19 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>Saas Dashboard | Skote - Admin & Dashboard Template</title>
+        <title>SORIS Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="dashboard/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/dashboard/assets/images/favicon.ico">
 
         <!-- Bootstrap Css -->
-        <link href="dashboard/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="dashboard/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="assets/dashboard/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -36,19 +36,19 @@
                         <div class="navbar-brand-box">
                             <a href="index.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="dashboard/assets/images/logo.svg" alt="" height="22">
+                                    <img src="assets/dashboard/assets/images/logo.svg" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="dashboard/assets/images/logo-dark.png" alt="" height="17">
+                                    <img src="assets/dashboard/assets/images/logo-dark.png" alt="" height="17">
                                 </span>
                             </a>
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="dashboard/assets/images/logo-light.svg" alt="" height="22">
+                                    <img src="assets/dashboard/assets/images/logo-light.svg" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="dashboard/assets/images/logo-light.png" alt="" height="19">
+                                    <img src="assets/dashboard/assets/images/logo-light.png" alt="" height="19">
                                 </span>
                             </a>
                         </div>
@@ -186,7 +186,7 @@
 
                                             <div class="col-sm-5">
                                                 <div>
-                                                    <img src="dashboard/assets/images/megamenu-img.png" alt="" class="img-fluid mx-auto d-block">
+                                                    <img src="assets/dashboard/assets/images/megamenu-img.png" alt="" class="img-fluid mx-auto d-block">
                                                 </div>
                                             </div>
                                         </div>
@@ -223,32 +223,32 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img id="header-lang-img" src="dashboard/assets/images/flags/us.jpg" alt="Header Language" height="16">
+                                <img id="header-lang-img" src="assets/dashboard/assets/images/flags/us.jpg" alt="Header Language" height="16">
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">
-                                    <img src="dashboard/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
+                                    <img src="assets/dashboard/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
                                 </a>
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
-                                    <img src="dashboard/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                                    <img src="assets/dashboard/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
                                 </a>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr">
-                                    <img src="dashboard/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                                    <img src="assets/dashboard/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
                                 </a>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it">
-                                    <img src="dashboard/assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                                    <img src="assets/dashboard/assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
                                 </a>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru">
-                                    <img src="dashboard/assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                                    <img src="assets/dashboard/assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
                                 </a>
                             </div>
                         </div>
@@ -263,19 +263,19 @@
                                     <div class="row g-0">
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#">
-                                                <img src="dashboard/assets/images/brands/github.png" alt="Github">
+                                                <img src="assets/dashboard/assets/images/brands/github.png" alt="Github">
                                                 <span>GitHub</span>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#">
-                                                <img src="dashboard/assets/images/brands/bitbucket.png" alt="bitbucket">
+                                                <img src="assets/dashboard/assets/images/brands/bitbucket.png" alt="bitbucket">
                                                 <span>Bitbucket</span>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#">
-                                                <img src="dashboard/assets/images/brands/dribbble.png" alt="dribbble">
+                                                <img src="assets/dashboard/assets/images/brands/dribbble.png" alt="dribbble">
                                                 <span>Dribbble</span>
                                             </a>
                                         </div>
@@ -284,19 +284,19 @@
                                     <div class="row g-0">
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#">
-                                                <img src="dashboard/assets/images/brands/dropbox.png" alt="dropbox">
+                                                <img src="assets/dashboard/assets/images/brands/dropbox.png" alt="dropbox">
                                                 <span>Dropbox</span>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#">
-                                                <img src="dashboard/assets/images/brands/mail_chimp.png" alt="mail_chimp">
+                                                <img src="assets/dashboard/assets/images/brands/mail_chimp.png" alt="mail_chimp">
                                                 <span>Mail Chimp</span>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <a class="dropdown-icon-item" href="#">
-                                                <img src="dashboard/assets/images/brands/slack.png" alt="slack">
+                                                <img src="assets/dashboard/assets/images/brands/slack.png" alt="slack">
                                                 <span>Slack</span>
                                             </a>
                                         </div>
@@ -348,7 +348,7 @@
                                     </a>
                                     <a href="javascript: void(0);" class="text-reset notification-item">
                                         <div class="d-flex">
-                                            <img src="dashboard/assets/images/users/avatar-3.jpg"
+                                            <img src="assets/dashboard/assets/images/users/avatar-3.jpg"
                                                 class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-grow-1">
                                                 <h6 class="mb-1">James Lemire</h6>
@@ -378,7 +378,7 @@
 
                                     <a href="javascript: void(0);" class="text-reset notification-item">
                                         <div class="d-flex">
-                                            <img src="dashboard/assets/images/users/avatar-4.jpg"
+                                            <img src="assets/dashboard/assets/images/users/avatar-4.jpg"
                                                 class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-grow-1">
                                                 <h6 class="mb-1">Salena Layfield</h6>
@@ -401,7 +401,7 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="dashboard/assets/images/users/avatar-1.jpg"
+                                <img class="rounded-circle header-profile-user" src="assets/dashboard/assets/images/users/avatar-1.jpg"
                                     alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -833,7 +833,7 @@
                                             <div class="col-lg-4">
                                                 <div class="d-flex">
                                                     <div class="flex-shrink-0 me-3">
-                                                        <img src="dashboard/assets/images/users/avatar-1.jpg" alt="" class="avatar-md rounded-circle img-thumbnail">
+                                                        <img src="assets/dashboard/assets/images/users/avatar-1.jpg" alt="" class="avatar-md rounded-circle img-thumbnail">
                                                     </div>
                                                     <div class="flex-grow-1 align-self-center">
                                                         <div class="text-muted">
@@ -910,7 +910,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-5 align-self-end">
-                                                <img src="dashboard/assets/images/profile-img.png" alt="" class="img-fluid">
+                                                <img src="assets/dashboard/assets/images/profile-img.png" alt="" class="img-fluid">
                                             </div>
                                         </div>
                                     </div>
@@ -1622,7 +1622,7 @@
 
                 <div class="p-4">
                     <div class="mb-2">
-                        <img src="dashboard/assets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="layout images">
+                        <img src="assets/dashboard/assets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="layout images">
                     </div>
 
                     <div class="form-check form-switch mb-3">
@@ -1631,7 +1631,7 @@
                     </div>
     
                     <div class="mb-2">
-                        <img src="dashboard/assets/images/layouts/layout-2.jpg" class="img-thumbnail" alt="layout images">
+                        <img src="assets/dashboard/assets/images/layouts/layout-2.jpg" class="img-thumbnail" alt="layout images">
                     </div>
                     <div class="form-check form-switch mb-3">
                         <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">
@@ -1639,7 +1639,7 @@
                     </div>
     
                     <div class="mb-2">
-                        <img src="dashboard/assets/images/layouts/layout-3.jpg" class="img-thumbnail" alt="layout images">
+                        <img src="assets/dashboard/assets/images/layouts/layout-3.jpg" class="img-thumbnail" alt="layout images">
                     </div>
                     <div class="form-check form-switch mb-3">
                         <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch">
@@ -1647,7 +1647,7 @@
                     </div>
 
                     <div class="mb-2">
-                        <img src="dashboard/assets/images/layouts/layout-4.jpg" class="img-thumbnail" alt="layout images">
+                        <img src="assets/dashboard/assets/images/layouts/layout-4.jpg" class="img-thumbnail" alt="layout images">
                     </div>
                     <div class="form-check form-switch mb-5">
                         <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
@@ -1665,19 +1665,19 @@
         <div class="rightbar-overlay"></div>
 
         <!-- JAVASCRIPT -->
-        <script src="dashboard/assets/libs/jquery/jquery.min.js"></script>
-        <script src="dashboard/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="dashboard/assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="dashboard/assets/libs/node-waves/waves.min.js"></script>
+        <script src="assets/dashboard/assets/libs/jquery/jquery.min.js"></script>
+        <script src="assets/dashboard/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="assets/dashboard/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/dashboard/assets/libs/node-waves/waves.min.js"></script>
 
         <!-- apexcharts -->
-        <script src="dashboard/assets/libs/apexcharts/apexcharts.min.js"></script>
+        <script src="assets/dashboard/assets/libs/apexcharts/apexcharts.min.js"></script>
         
         <!-- Saas dashboard init -->
-        <script src="dashboard/assets/js/pages/saas-dashboard.init.js"></script>
+        <script src="assets/dashboard/assets/js/pages/saas-dashboard.init.js"></script>
 
-        <script src="dashboard/assets/js/app.js"></script>
+        <script src="assets/dashboard/assets/js/app.js"></script>
 
     </body>
 </html>
