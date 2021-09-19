@@ -9,12 +9,12 @@
     <meta name="author" content="zytheme"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="description" content="Multi-purpose Business html5 landing page"/>
-    <link href="assets/images/favicon/favicon.png" rel="icon"/>
+    <link href="landing/assets/images/favicon/favicon.png" rel="icon"/>
     <!--  Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;display=swap" rel="stylesheet" type="text/css"/>
     <!-- Stylesheets-->
-    <link href="assets/css/vendor.css" rel="stylesheet"/>
-    <link href="assets/css/style.css" rel="stylesheet"/>
+    <link href="landing/assets/css/vendor.css" rel="stylesheet"/>
+    <link href="landing/assets/css/style.css" rel="stylesheet"/>
     <!--
     Document Title
     =============================================
@@ -33,7 +33,7 @@ Document Wrapper
     -->
     <header class="header header-transparent header-sticky">
         <nav class="navbar navbar-sticky navbar-expand-lg" id="primary-menu">
-            <div class="container"> <a class="logo navbar-brand" href="index.html"><img class="logo logo-dark" src="assets/images/logo/logo-dark.png" alt="Leland Logo"/><img class="logo logo-light" src="assets/images/logo/logo-light.png" alt="Leland Logo"/></a>
+            <div class="container"> <a class="logo navbar-brand" href="index.html"><img class="logo logo-dark" src="landing/assets/images/logo/logo-dark.png" alt="Leland Logo"/><img class="logo logo-light" src="landing/assets/images/logo/logo-light.png" alt="Leland Logo"/></a>
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarContent" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
@@ -67,7 +67,7 @@ Document Wrapper
                             <div class="heading-desc">Supporting call-to-actiongoes here</div>
                         </div>
                         <div class="contact-body">
-                            <form class="contactForm mb-0" method="post" action="assets/php/contact.php">
+                            <form class="contactForm mb-0" method="post" action="landing/assets/php/contact.php">
                                 <div class="row">
                                     <div class="col-12">
                                         <input class="form-control" type="text" name="contact-name" placeholder="your name" required="required"/>
@@ -98,7 +98,7 @@ Document Wrapper
     </div>
     <!-- Start hero #1-->
     <section class="hero bg-gradient" id="hero">
-        <div class="bg-section"><img src="assets/images/background/bg-gradient.svg" alt="background"/></div>
+        <div class="bg-section"><img src="landing/assets/images/background/bg-gradient.svg" alt="background"/></div>
         <div class="container">
             <div class="hero-cotainer text--center">
                 <div class="row">
@@ -118,7 +118,7 @@ Document Wrapper
         <div class="mockup">
             <div class="container">
                 <div class="row">
-                    <div class="col"><img class="img-fluid" src="assets/images/illustration/illustration-1.png" alt="illustration vector"/></div>
+                    <div class="col"><img class="img-fluid" src="landing/assets/images/illustration/illustration-1.png" alt="illustration vector"/></div>
                 </div>
             </div>
         </div>
@@ -140,17 +140,17 @@ Document Wrapper
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="owl-carousel " data-slide="5" data-slide-res="3" data-autoplay="true" data-nav="false" data-dots="false" data-space="30" data-loop="true" data-speed="800">
                         <!--  Client #1   -->
-                        <div class="client"><img src="assets/images/clients/client-1.png" alt="client-pic"/></div>
+                        <div class="client"><img src="landing/assets/images/clients/client-1.png" alt="client-pic"/></div>
                         <!--  Client #2   -->
-                        <div class="client"><img src="assets/images/clients/client-2.png" alt="client-pic"/></div>
+                        <div class="client"><img src="landing/assets/images/clients/client-2.png" alt="client-pic"/></div>
                         <!--  Client #3-->
-                        <div class="client"><img src="assets/images/clients/client-3.png" alt="client-pic"/></div>
+                        <div class="client"><img src="landing/assets/images/clients/client-3.png" alt="client-pic"/></div>
                         <!--  Client #4-->
-                        <div class="client"><img src="assets/images/clients/client-4.png" alt="client-pic"/></div>
+                        <div class="client"><img src="landing/assets/images/clients/client-4.png" alt="client-pic"/></div>
                         <!--  Client #5-->
-                        <div class="client"><img src="assets/images/clients/client-5.png" alt="client-pic"/></div>
+                        <div class="client"><img src="landing/assets/images/clients/client-5.png" alt="client-pic"/></div>
                         <!--  Client #6-->
-                        <div class="client"><img src="assets/images/clients/client-6.png" alt="client-pic"/></div>
+                        <div class="client"><img src="landing/assets/images/clients/client-6.png" alt="client-pic"/></div>
                     </div>
                 </div>
                 <!-- End .row-->
@@ -234,7 +234,7 @@ Document Wrapper
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6"><img class="img-fluid service-img" src="assets/images/illustration/illustration-2.png" alt="vector"/></div>
+                <div class="col-12 col-md-6"><img class="img-fluid service-img" src="landing/assets/images/illustration/illustration-2.png" alt="vector"/></div>
             </div>
         </div>
     </section>
@@ -246,7 +246,7 @@ Document Wrapper
     <section class="services bg-gray" id="services2">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-6"><img class="img-fluid service-img" src="assets/images/illustration/illustration-3.png" alt="vector"/></div>
+                <div class="col-12 col-md-6"><img class="img-fluid service-img" src="landing/assets/images/illustration/illustration-3.png" alt="vector"/></div>
                 <div class="col-12 col-md-6">
                     <div class="service-card pt-30">
                         <div class="heading heading-2">
@@ -296,7 +296,7 @@ Document Wrapper
                         <div class="pricing-panel monthly visible">
                             <!--  Pricing heading   -->
                             <div class="pricing-head">
-                                <div class="bg-section"><img src="assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
+                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
                                 <div class="pricing-type"><span class="type">free</span></div>
                                 <div class="pricing-name">basic</div>
                             </div>
@@ -314,7 +314,7 @@ Document Wrapper
                         <div class="pricing-panel yearly hidden">
                             <!--  Pricing heading   -->
                             <div class="pricing-head">
-                                <div class="bg-section"><img src="assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
+                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
                                 <div class="pricing-type"><span class="type">free</span></div>
                                 <div class="pricing-name">basic</div>
                             </div>
@@ -336,7 +336,7 @@ Document Wrapper
                         <div class="pricing-panel active monthly visible">
                             <!--  Pricing heading   -->
                             <div class="pricing-head">
-                                <div class="bg-section"><img src="assets/images/background/bg-pricing-primary.svg" alt="alt"/></div>
+                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-primary.svg" alt="alt"/></div>
                                 <div class="pricing-type"><span class="currency">$</span><span class="price">19</span><span class="per">/mo</span></div>
                                 <div class="pricing-name">start up</div>
                                 <div class="best-banner">best choice</div>
@@ -355,7 +355,7 @@ Document Wrapper
                         <div class="pricing-panel active yearly hidden">
                             <!--  Pricing heading   -->
                             <div class="pricing-head">
-                                <div class="bg-section"><img src="assets/images/background/bg-pricing-primary.svg" alt="alt"/></div>
+                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-primary.svg" alt="alt"/></div>
                                 <div class="pricing-type"><span class="currency">$</span><span class="price">180</span><span class="per">/year</span></div>
                                 <div class="pricing-name">start up</div>
                                 <div class="best-banner">best choice</div>
@@ -378,7 +378,7 @@ Document Wrapper
                         <div class="pricing-panel monthly visible">
                             <!--  Pricing heading   -->
                             <div class="pricing-head">
-                                <div class="bg-section"><img src="assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
+                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
                                 <div class="pricing-type"><span class="currency">$</span><span class="price">29</span><span class="per">/mo</span></div>
                                 <div class="pricing-name">coroprate</div>
                             </div>
@@ -396,7 +396,7 @@ Document Wrapper
                         <div class="pricing-panel yearly hidden">
                             <!--  Pricing heading   -->
                             <div class="pricing-head">
-                                <div class="bg-section"><img src="assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
+                                <div class="bg-section"><img src="landing/assets/images/background/bg-pricing-dark.svg" alt="alt"/></div>
                                 <div class="pricing-type"><span class="currency">$</span><span class="price">240</span><span class="per">/year</span></div>
                                 <div class="pricing-name">coroprate</div>
                             </div>
@@ -440,7 +440,7 @@ Document Wrapper
                                 <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
                                 <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
                                 <div class="testimonial-author">
-                                    <div class="testimonial-img"><img src="assets/images/testimonials/avatar-1.png" alt="avatar author"/></div>
+                                    <div class="testimonial-img"><img src="landing/assets/images/testimonials/avatar-1.png" alt="avatar author"/></div>
                                     <p>Vera Duncan @Envato Inc.</p>
                                 </div>
                             </div>
@@ -451,7 +451,7 @@ Document Wrapper
                                 <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
                                 <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
                                 <div class="testimonial-author">
-                                    <div class="testimonial-img"><img src="assets/images/testimonials/avatar-2.png" alt="author"/></div>
+                                    <div class="testimonial-img"><img src="landing/assets/images/testimonials/avatar-2.png" alt="author"/></div>
                                     <p>Vera Duncan @Envato Inc.</p>
                                 </div>
                             </div>
@@ -462,7 +462,7 @@ Document Wrapper
                                 <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
                                 <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
                                 <div class="testimonial-author">
-                                    <div class="testimonial-img"><img src="assets/images/testimonials/avatar-3.png" alt="author"/></div>
+                                    <div class="testimonial-img"><img src="landing/assets/images/testimonials/avatar-3.png" alt="author"/></div>
                                     <p>Vera Duncan @Envato Inc.</p>
                                 </div>
                             </div>
@@ -479,7 +479,7 @@ Document Wrapper
     =============================================
     -->
     <section class="cta text-center" id="cta">
-        <div class="bg-section"><img src="assets/images/background/bg-gradient-2.svg" alt="background"/></div>
+        <div class="bg-section"><img src="landing/assets/images/background/bg-gradient-2.svg" alt="background"/></div>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 text-center">
@@ -517,8 +517,8 @@ Document Wrapper
 Footer Scripts
 =============================================
 -->
-<script src="assets/js/vendor/jquery-3.4.1.min.js"></script>
-<script src="assets/js/vendor.js"></script>
-<script src="assets/js/functions.js"></script>
+<script src="landing/assets/js/vendor/jquery-3.4.1.min.js"></script>
+<script src="landing/assets/js/vendor.js"></script>
+<script src="landing/assets/js/functions.js"></script>
 </body>
 </html>
