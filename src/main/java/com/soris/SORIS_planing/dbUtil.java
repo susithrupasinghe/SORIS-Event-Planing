@@ -5,12 +5,12 @@ import java.sql.SQLException;
 
 public class dbUtil {
 
-    protected static Connection initializeDatabase()
+    public static Connection initializeDatabase()
         throws SQLException, ClassNotFoundException
     {
 
         String dbDriver = "com.mysql.jdbc.Driver";
-        String dbURL = "jdbc:mysql:// localhost:3306/";
+        String dbURL = "jdbc:mysql://localhost:3306/soris";
         // Database name to access
         String dbName = "soris";
         String Username = "root";
@@ -19,10 +19,6 @@ public class dbUtil {
         Class.forName(dbDriver);
         Connection con = DriverManager.getConnection(dbURL,Username,Password);
         return con;
-    }
-
-    public void CloseConnection(Connection con)  throws SQLException{
-        con.close();
     }
 
 }

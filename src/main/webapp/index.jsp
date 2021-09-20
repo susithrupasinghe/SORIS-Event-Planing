@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
@@ -39,14 +40,14 @@ Document Wrapper
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" data-scroll="scrollTo" href="#hero">Home</a></li>
                         <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#feature">Features</a></li>
-                        <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#testimonials">Testimonials</a></li>
-                        <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#cta">Start Now</a></li>
+                        <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#cta">Start As a Host</a></li>
+                        <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#services">Start As a Service</a></li>
                     </ul>
-                    <div class="module-container">
-                        <!--module-btn-->
-                        <div class="module module-cta"><a class="btn btn--white btn--arrows" href="javascript:void(0)" data-toggle="modal" data-target="#contactUsModal"> <span>contact us <i class="icon-right-arrow"></i></span></a></div>
-                    </div>
+<%--                    <div class="module-container">--%>
+<%--                        <!--module-btn-->--%>
+<%--                        <div class="module module-cta"><a class="btn btn--white btn--arrows" href="javascript:void(0)" data-toggle="modal" data-target="#contactUsModal"> <span>contact us <i class="icon-right-arrow"></i></span></a></div>--%>
+<%--                    </div>--%>
                     <!-- End Module Container  -->
                 </div>
                 <!-- End .nav-collapse-->
@@ -55,46 +56,57 @@ Document Wrapper
         </nav>
         <!-- End .navbar-->
     </header>
+
+
     <!-- End Header-->
-    <div class="modal fade" id="contactUsModal" tabindex="-1" role="dialog" aria-labelledby="contactUsModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="popup-contact-form">
-                        <div class="heading heading-5">
-                            <div class="heading-title">Start planning now </div>
-                            <div class="heading-desc">Supporting call-to-actiongoes here</div>
-                        </div>
-                        <div class="contact-body">
-                            <form class="contactForm mb-0" method="post" action="assets/landing/assets/php/contact.php">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <input class="form-control" type="text" name="contact-name" placeholder="your name" required="required"/>
-                                    </div>
-                                    <div class="col-12">
-                                        <input class="form-control" type="text" name="contact-email" placeholder="your email" required="required"/>
-                                    </div>
-                                    <div class="col-12">
-                                        <input class="form-control" type="text" name="contact-phone" placeholder="your phone" required="required"/>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn--block btn btn--primary btn--arrows mt-20 mb-20"><span>Start planning now <i class="icon-right-arrow"></i></span></button>
-                                    </div>
-                                    <div class="col-12">
-                                        <p class="notice">Start by trying our service for 30 days free triar no credit card required.</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="contact-result"></div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- End .contact-body-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<%--    <div class="modal fade" id="contactUsModal" tabindex="-1" role="dialog" aria-labelledby="contactUsModal" aria-hidden="true">--%>
+<%--        <div class="modal-dialog" role="document">--%>
+<%--            <div class="modal-content">--%>
+<%--                <div class="modal-body">--%>
+<%--                    <div class="popup-contact-form">--%>
+<%--                        <div class="heading heading-5">--%>
+<%--                            <div class="heading-title">SignUp now </div>--%>
+<%--                            <div class="heading-desc">Please fill this form. Then you will be redirected to dashboard </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="contact-body">--%>
+<%--                            <form class="contactForm mb-0" method="post" action="<%=request.getContextPath()%>/hostSignUp">--%>
+<%--                                <div class="row">--%>
+<%--                                    <div class="col-12">--%>
+<%--                                        <input class="form-control" type="text" name="fname" placeholder="your first name" required="required"/>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="col-12">--%>
+<%--                                        <input class="form-control" type="text" name="lname" placeholder="your last name" required="required"/>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="col-12">--%>
+<%--                                        <input class="form-control" type="text" name="email" placeholder="your email" required="required"/>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="col-12">--%>
+<%--                                        <input class="form-control" type="text" name="pass" placeholder="password" required="required" onchange="validatePass()"/>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="col-12">--%>
+<%--                                        <input class="form-control" type="text" name="repass" placeholder="re-type password" required="required" onchange="validatePass()"/>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="col-12">--%>
+<%--                                        <input type="submit" class="btn--block btn btn--primary btn--arrows mt-20 mb-20"><span>SignUp & Start planning now <i class="icon-right-arrow"></i></span></input>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="col-12">--%>
+<%--                                        <p class="notice">Feel free to ask anything. We didnt have any hidden fees. Totally free.</p>--%>
+
+<%--                                    </div>--%>
+<%--                                    <div class="col-12">--%>
+<%--                                        <div class="contact-result"></div>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </form>--%>
+<%--                        </div>--%>
+<%--                        <!-- End .contact-body-->--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+
+
     <!-- Start hero #1-->
     <section class="hero bg-gradient" id="hero">
         <div class="bg-section"><img src="assets/landing/assets/images/background/bg-gradient.svg" alt="background"/></div>
@@ -105,7 +117,7 @@ Document Wrapper
                         <div class="hero-content">
                             <div class="hero-headline">we are fully services event planing platform</div>
                             <div class="hero-bio">SORIS Offers you tools and services  to Successfully plan events of any type. you can manage your guest lists , plan your budget and schedule your events easily</div>
-                            <div class="hero-action text-center"><a class="btn btn--primary btn--rounded btn--arrows mx-auto" href="javascript:void(0)" data-toggle="modal" data-target="#contactUsModal"><span>Start planning now <i class="icon-right-arrow"></i></span></a></div>
+                            <div class="hero-action text-center"><a class="btn btn--primary btn--rounded btn--arrows mx-auto" target="_blank" href="<%=request.getContextPath()%>/auth/host-user-signin.jsp" ><span>Start planning now <i class="icon-right-arrow"></i></span></a></div>
                         </div>
                     </div>
                 </div>
@@ -231,6 +243,13 @@ Document Wrapper
                                 <div class="counters-content"><span class="counting">1500</span><span class="type">Event Host</span></div>
                             </div>
                         </div>
+
+                        <div style="display: inline-block; padding: 20px;">
+                            <a class="btn btn--primary btn--arrows mx-auto"  target="_blank" href="<%=request.getContextPath()%>/auth/service-provider-signup.jsp" > <span>SignUp Now<i class="icon-right-arrow"></i></span></a>
+                            <a class="btn btn--primary btn--arrows mx-auto"  target="_blank" href="<%=request.getContextPath()%>/auth/service-provider-signin.jsp" > <span>SignIn Now<i class="icon-right-arrow"></i></span></a>
+
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-12 col-md-6"><img class="img-fluid service-img" src="assets/landing/assets/images/illustration/illustration-2.png" alt="vector"/></div>
@@ -318,7 +337,10 @@ Document Wrapper
             <div class="row">
                 <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 text-center">
                     <h3>Whatever the event, we always deliver a plan.</h3>
-                    <p>Join us and create  plans for your memorable events.</p><a class="btn btn--primary btn--arrows mx-auto" href="javascript:void(0)" data-toggle="modal" data-target="#contactUsModal"> <span>get started now <i class="icon-right-arrow"></i></span></a>
+                    <p>Join us and create  plans for your memorable events.</p>
+                    <a class="btn btn--primary btn--arrows mx-auto"  target="_blank" href="<%=request.getContextPath()%>/auth/host-user-signup.jsp" > <span>SignUp Now<i class="icon-right-arrow"></i></span></a>
+                    <div style="min-height: 50px;min-width: 100%;"></div>
+                    <a class="btn btn--primary btn--arrows mx-auto" target="_blank" href="<%=request.getContextPath()%>/auth/host-user-signin.jsp" > <span>SignIn Now<i class="icon-right-arrow"></i></span></a>
                 </div>
                 <!-- End .col-md-12-->
             </div>
@@ -354,5 +376,16 @@ Footer Scripts
 <script src="assets/landing/assets/js/vendor/jquery-3.4.1.min.js"></script>
 <script src="assets/landing/assets/js/vendor.js"></script>
 <script src="assets/landing/assets/js/functions.js"></script>
+<script>
+    function validatePass() {
+        const password = document.querySelector('input[name=pass]');
+        const confirm = document.querySelector('input[name=repass]');
+        if (confirm.value === password.value) {
+            confirm.setCustomValidity('');
+        } else {
+            confirm.setCustomValidity('Passwords do not match');
+        }
+    }
+</script>
 </body>
 </html>
