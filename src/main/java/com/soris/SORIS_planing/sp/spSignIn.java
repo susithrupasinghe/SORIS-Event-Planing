@@ -5,8 +5,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "sp-home", value = "/sp-home")
-public class sphome extends HttpServlet {
+@WebServlet(name = "spSignIn", value = "/spSignIn")
+public class spSignIn extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

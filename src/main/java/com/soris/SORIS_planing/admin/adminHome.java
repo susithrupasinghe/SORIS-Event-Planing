@@ -1,12 +1,12 @@
-package com.soris.SORIS_planing.host;
+package com.soris.SORIS_planing.admin;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "host-home", value = "/host-home")
-public class hosthome extends HttpServlet {
+@WebServlet(name = "adminHome", value = "/adminHome")
+public class adminHome extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
