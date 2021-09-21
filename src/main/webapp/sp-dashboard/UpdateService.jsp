@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Shavidini
-  Date: 9/21/2021
-  Time: 2:25 AM
+  Date: 9/22/2021
+  Time: 1:09 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
     <title>SORIS Event Planning Platform</title>
 </head>
 <body>
-<form action="<%=request.getContextPath()%>/NewServiceServlet" method="post">
+<form action="<%=request.getContextPath()%>/UpdateServiceServlet" method="post">
     <label for="servicetname">Service Name</label>
     <input id="servicetname" name="servicetname" type="text" class="form-control">
 

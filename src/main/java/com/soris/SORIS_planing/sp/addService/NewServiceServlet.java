@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "NewServiceServlet", value = "/NewServiceServlet")
 public class NewServiceServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String serviceName = request.getParameter("servicetname");
         String category = request.getParameter("Category");
@@ -38,7 +38,7 @@ public class NewServiceServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 }
