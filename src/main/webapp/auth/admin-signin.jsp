@@ -17,14 +17,14 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="../assets/dashboard/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">
 
     <!-- Bootstrap Css -->
-    <link href="../assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="../assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="../assets/dashboard/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -43,40 +43,58 @@
                                 </div>
                             </div>
                             <div class="col-5 align-self-end">
-                                <img src="../assets/dashboard/assets/images/profile-img.png" alt="" class="img-fluid">
+                                <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/profile-img.png" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
                     <div class="card-body pt-0">
                         <div class="auth-logo">
-                            <a href="index.html" class="auth-logo-light">
+                            <a href="" class="auth-logo-light">
                                 <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src="../assets/dashboard/assets/images/logo-light.svg" alt="" class="rounded-circle" height="34">
+                                                <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/logo-light.svg" alt="" class="rounded-circle" height="34">
                                             </span>
                                 </div>
                             </a>
 
-                            <a href="index.html" class="auth-logo-dark">
+                            <a href="" class="auth-logo-dark">
                                 <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src="../assets/dashboard/assets/images/logo.svg" alt="" class="rounded-circle" height="34">
+                                                <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/logo.svg" alt="" class="rounded-circle" height="34">
                                             </span>
                                 </div>
                             </a>
                         </div>
+<%--                        Model--%>
+                        <div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Something wrong</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><%=request.getAttribute("error")%></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="p-2">
-                            <form class="form-horizontal" action="index.html">
+                            <form class="form-horizontal" method="POST" action="<%=request.getContextPath()%>/adminsignin">
 
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                    <input type="text" class="form-control" id="username" name="uname" placeholder="Enter username" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Password</label>
                                     <div class="input-group auth-pass-inputgroup">
-                                        <input type="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
+                                        <input type="password" class="form-control" placeholder="Enter password" name="pass" aria-label="Password" aria-describedby="password-addon" required>
                                         <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                     </div>
                                 </div>
@@ -112,13 +130,20 @@
 <!-- end account-pages -->
 
 <!-- JAVASCRIPT -->
-<script src="../assets/dashboard/assets/libs/jquery/jquery.min.js"></script>
-<script src="../assets/dashboard/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
-<script src="../assets/dashboard/assets/libs/simplebar/simplebar.min.js"></script>
-<script src="../assets/dashboard/assets/libs/node-waves/waves.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/jquery/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/node-waves/waves.min.js"></script>
 
 <!-- App js -->
-<script src="../assets/dashboard/assets/js/app.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+
+<% if (request.getAttribute("error") != null ){%>
+<script>
+    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
+
+</script>
+<%}%>
 </body>
 </html>

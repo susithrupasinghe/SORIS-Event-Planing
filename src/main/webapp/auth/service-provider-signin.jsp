@@ -17,23 +17,41 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="../assets/dashboard/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">
 
     <!-- owl.carousel css -->
-    <link rel="stylesheet" href="../assets/dashboard/assets/libs/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/dashboard/assets/libs/owl.carousel/assets/owl.carousel.min.css">
 
-    <link rel="stylesheet" href="../assets/dashboard/assets/libs/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/dashboard/assets/libs/owl.carousel/assets/owl.theme.default.min.css">
 
     <!-- Bootstrap Css -->
-    <link href="../assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="../assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="../assets/dashboard/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body class="auth-body-bg">
+
+<%--                        Model--%>
+<div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Something wrong</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><%=request.getAttribute("error")%></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div>
     <div class="container-fluid p-0">
@@ -95,9 +113,9 @@
 
                         <div class="d-flex flex-column h-100">
                             <div class="mb-4 mb-md-5">
-                                <a href="index.html" class="d-block auth-logo">
-                                    <img src="../assets/dashboard/assets/images/logo-dark.png" alt="" height="18" class="auth-logo-dark">
-                                    <img src="../assets/dashboard/assets/images/logo-light.png" alt="" height="18" class="auth-logo-light">
+                                <a href="" class="d-block auth-logo">
+                                    <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/logo-dark.png" alt="" height="18" class="auth-logo-dark">
+                                    <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/logo-light.png" alt="" height="18" class="auth-logo-light">
                                 </a>
                             </div>
                             <div class="my-auto">
@@ -108,20 +126,20 @@
                                 </div>
 
                                 <div class="mt-4">
-                                    <form action="index.html">
+                                    <form method="post" action="<%=request.getContextPath()%>/spSignIn">
 
                                         <div class="mb-3">
-                                            <label for="username" class="form-label">Username</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                            <label for="username" class="form-label">Email</label>
+                                            <input type="text" class="form-control" id="username" name="uname" placeholder="Enter Email" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <div class="float-end">
-                                                <a href="auth-recoverpw-2.html" class="text-muted">Forgot password?</a>
+                                                <a href="" class="text-muted">Forgot password?</a>
                                             </div>
                                             <label class="form-label">Password</label>
                                             <div class="input-group auth-pass-inputgroup">
-                                                <input type="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
+                                                <input type="password" class="form-control" placeholder="Enter password" name="pass" aria-label="Password" aria-describedby="password-addon" required>
                                                 <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                             </div>
                                         </div>
@@ -166,20 +184,25 @@
 </div>
 
 <!-- JAVASCRIPT -->
-<script src="../assets/dashboard/assets/libs/jquery/jquery.min.js"></script>
-<script src="../assets/dashboard/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
-<script src="../assets/dashboard/assets/libs/simplebar/simplebar.min.js"></script>
-<script src="../assets/dashboard/assets/libs/node-waves/waves.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/jquery/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/node-waves/waves.min.js"></script>
 
 <!-- owl.carousel js -->
-<script src="../assets/dashboard/assets/libs/owl.carousel/owl.carousel.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/owl.carousel/owl.carousel.min.js"></script>
 
 <!-- auth-2-carousel init -->
-<script src="../assets/dashboard/assets/js/pages/auth-2-carousel.init.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/auth-2-carousel.init.js"></script>
 
 <!-- App js -->
-<script src="../assets/dashboard/assets/js/app.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+<% if (request.getAttribute("error") != null ){%>
+<script>
+    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
 
+</script>
+<%}%>
 </body>
 </html>
