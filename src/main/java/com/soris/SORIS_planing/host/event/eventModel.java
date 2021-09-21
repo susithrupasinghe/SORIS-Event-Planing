@@ -1,4 +1,4 @@
 package com.soris.SORIS_planing.host.event;
 
-public class eventDb {
+public class eventModel {
 }
