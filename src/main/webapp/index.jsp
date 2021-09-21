@@ -244,9 +244,9 @@ Document Wrapper
                             </div>
                         </div>
 
-                        <div style="display: inline-block; padding: 20px;">
-                            <a class="btn btn--primary btn--arrows mx-auto"  target="_blank" href="<%=request.getContextPath()%>/auth/service-provider-signup.jsp" > <span>SignUp Now<i class="icon-right-arrow"></i></span></a>
-                            <a class="btn btn--primary btn--arrows mx-auto"  target="_blank" href="<%=request.getContextPath()%>/auth/service-provider-signin.jsp" > <span>SignIn Now<i class="icon-right-arrow"></i></span></a>
+                        <div style="display: inline-block;">
+                            <a class="btn btn--primary btn--arrows mx-auto"  target="_blank" href="<%=request.getContextPath()%>/auth/service-provider-signup.jsp" > <span>Register Now<i class="icon-right-arrow"></i></span></a>
+                            <a class="btn btn--primary btn--arrows mx-auto"  target="_blank" href="<%=request.getContextPath()%>/auth/service-provider-signin.jsp" > <span>Login Now<i class="icon-right-arrow"></i></span></a>
 
                         </div>
 
@@ -338,9 +338,9 @@ Document Wrapper
                 <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 text-center">
                     <h3>Whatever the event, we always deliver a plan.</h3>
                     <p>Join us and create  plans for your memorable events.</p>
-                    <a class="btn btn--primary btn--arrows mx-auto"  target="_blank" href="<%=request.getContextPath()%>/auth/host-user-signup.jsp" > <span>SignUp Now<i class="icon-right-arrow"></i></span></a>
+                    <a class="btn btn--primary btn--arrows mx-auto"  target="_blank" href="<%=request.getContextPath()%>/auth/host-user-signup.jsp" > <span>SignUp / Register Now<i class="icon-right-arrow"></i></span></a>
                     <div style="min-height: 50px;min-width: 100%;"></div>
-                    <a class="btn btn--primary btn--arrows mx-auto" target="_blank" href="<%=request.getContextPath()%>/auth/host-user-signin.jsp" > <span>SignIn Now<i class="icon-right-arrow"></i></span></a>
+                    <a class="btn btn--primary btn--arrows mx-auto" target="_blank" href="<%=request.getContextPath()%>/auth/host-user-signin.jsp" > <span>SignIn / Login Now<i class="icon-right-arrow"></i></span></a>
                 </div>
                 <!-- End .col-md-12-->
             </div>
