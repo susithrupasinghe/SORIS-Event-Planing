@@ -17,24 +17,58 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="../assets/dashboard/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">
 
     <!-- owl.carousel css -->
-    <link rel="stylesheet" href="../assets/dashboard/assets/libs/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/dashboard/assets/libs/owl.carousel/assets/owl.carousel.min.css">
 
-    <link rel="stylesheet" href="../assets/dashboard/assets/libs/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/dashboard/assets/libs/owl.carousel/assets/owl.theme.default.min.css">
 
     <!-- Bootstrap Css -->
-    <link href="../assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="../assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="../assets/dashboard/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body class="auth-body-bg">
+<%--                        Model--%>
+<div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Something wrong</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><%=request.getAttribute("error")%></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<%--                        Model--%>
+<div class="modal fade" id="success" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel2">Success</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><%=request.getAttribute("success")%></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success waves-effect waves-light" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div>
     <div class="container-fluid p-0">
         <div class="row g-0">
@@ -95,9 +129,9 @@
 
                         <div class="d-flex flex-column h-100">
                             <div class="mb-4 mb-md-5">
-                                <a href="index.html" class="d-block auth-logo">
-                                    <img src="../assets/dashboard/assets/images/logo-dark.png" alt="" height="18" class="auth-logo-dark">
-                                    <img src="../assets/dashboard/assets/images/logo-light.png" alt="" height="18" class="auth-logo-light">
+                                <a href="" class="d-block auth-logo">
+                                    <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/logo-dark.png" alt="" height="18" class="auth-logo-dark">
+                                    <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/logo-light.png" alt="" height="18" class="auth-logo-light">
                                 </a>
                             </div>
                             <div class="my-auto">
@@ -108,27 +142,43 @@
                                 </div>
 
                                 <div class="mt-4">
-                                    <form class="needs-validation" novalidate action="index.html">
+                                    <form class="needs-validation" novalidate  method="post" action="<%=request.getContextPath()%>/spSignUp">
 
                                         <div class="mb-3">
                                             <label for="useremail" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="useremail" placeholder="Enter email" required>
+                                            <input type="email" class="form-control" id="useremail" name="email" placeholder="Enter email" required>
                                             <div class="invalid-feedback">
                                                 Please Enter Email
                                             </div>
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="username" class="form-label">Username</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                                            <label for="Userbrand" class="form-label">Brand Name</label>
+                                            <input type="text" class="form-control" id="Userbrand" name="brand" placeholder="Enter Brand Name" required>
                                             <div class="invalid-feedback">
-                                                Please Enter Username
+                                                Please Enter Brand Name
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="Usercontact" class="form-label">Contact Number</label>
+                                            <input type="text" class="form-control" id="Usercontact" name="contact" placeholder="Enter Contact Number" required>
+                                            <div class="invalid-feedback">
+                                                Please Enter Contact Number
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="Useraddress" class="form-label">Address</label>
+                                            <input type="text" class="form-control" id="Useraddress" name="address" placeholder="Enter Address" required>
+                                            <div class="invalid-feedback">
+                                                Please Enter Address
                                             </div>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="userpassword" class="form-label">Password</label>
-                                            <input type="password" class="form-control" id="userpassword" placeholder="Enter password" required>
+                                            <input type="password" class="form-control" id="userpassword" name="pass" placeholder="Enter password" required>
                                             <div class="invalid-feedback">
                                                 Please Enter Password
                                             </div>
@@ -170,23 +220,33 @@
 </div>
 
 <!-- JAVASCRIPT -->
-<script src="../assets/dashboard/assets/libs/jquery/jquery.min.js"></script>
-<script src="../assets/dashboard/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
-<script src="../assets/dashboard/assets/libs/simplebar/simplebar.min.js"></script>
-<script src="../assets/dashboard/assets/libs/node-waves/waves.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/jquery/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/node-waves/waves.min.js"></script>
 
 <!-- owl.carousel js -->
-<script src="../assets/dashboard/assets/libs/owl.carousel/owl.carousel.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/owl.carousel/owl.carousel.min.js"></script>
 
 <!-- validation init -->
-<script src="../assets/dashboard/assets/js/pages/validation.init.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/validation.init.js"></script>
 
 <!-- auth-2-carousel init -->
-<script src="../assets/dashboard/assets/js/pages/auth-2-carousel.init.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/auth-2-carousel.init.js"></script>
 
 <!-- App js -->
-<script src="../assets/dashboard/assets/js/app.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+<% if (request.getAttribute("error") != null ){%>
+<script>
+    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
 
+</script>
+<%} if (request.getAttribute("success") != null) {%>
+<script>
+    setTimeout(function(){ $('#success').modal('show'); }, 100);
+
+</script>
+<% } %>
 </body>
 </html>

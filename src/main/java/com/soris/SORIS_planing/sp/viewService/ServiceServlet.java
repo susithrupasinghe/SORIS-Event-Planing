@@ -1,12 +1,12 @@
-package com.soris.SORIS_planing.host;
+package com.soris.SORIS_planing.sp.viewService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "hostSignIn", value = "/hostSignIn")
-public class hostSignIn extends HttpServlet {
+@WebServlet(name = "ServiceServlet", value = "/ServiceServlet")
+public class ServiceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

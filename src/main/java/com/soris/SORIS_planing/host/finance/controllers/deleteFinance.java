@@ -1,12 +1,12 @@
-package com.soris.SORIS_planing.sp;
+package com.soris.SORIS_planing.host.finance.controllers;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "spSignIn", value = "/spSignIn")
-public class spSignIn extends HttpServlet {
+@WebServlet(name = "deleteFinance", value = "/deleteFinance")
+public class deleteFinance extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
