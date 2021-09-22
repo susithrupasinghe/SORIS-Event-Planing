@@ -1,4 +1,6 @@
-package com.soris.SORIS_planing.sp.auth;
+package com.soris.SORIS_planing.sp.auth.controllers;
+
+import com.soris.SORIS_planing.sp.auth.models.signUpModel;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
