@@ -5,6 +5,22 @@
   Time: 2:25 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%--<%--%>
+<%--   import javax.servlet.*;--%>
+<%--   import javax.servlet.http.*;--%>
+<%--   import javax.servlet.annotation.*;--%>
+<%--   import java.io.IOException;--%>
+
+<%--   HttpSession session=request.getSession(false);--%>
+
+<%--    if(session!=null && session.getAttribute("userid") != null && session.getAttribute("role") == "sp"){--%>
+
+<%--    // User already logged in--%>
+<%--    request.getRequestDispatcher("/sp-dashboard/home.jsp").forward(request, response);--%>
+
+<%--    }--%>
+<%--%>--%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -16,9 +32,9 @@
     <title>SORIS Event Planning Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-<%--    <meta content="Themesbrand" name="author" />--%>
+    <%--    <meta content="Themesbrand" name="author" />--%>
     <!-- App favicon -->
-<%--    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">--%>
+    <%--    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">--%>
 
     <!-- select2 css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -72,143 +88,143 @@
                 </button>
 
                 <!-- App Search-->
-<%--                <form class="app-search d-none d-lg-block">--%>
-<%--                    <div class="position-relative">--%>
-<%--                        <input type="text" class="form-control" placeholder="Search...">--%>
-<%--                        <span class="bx bx-search-alt"></span>--%>
-<%--                    </div>--%>
-<%--                </form>--%>
+                <%--                <form class="app-search d-none d-lg-block">--%>
+                <%--                    <div class="position-relative">--%>
+                <%--                        <input type="text" class="form-control" placeholder="Search...">--%>
+                <%--                        <span class="bx bx-search-alt"></span>--%>
+                <%--                    </div>--%>
+                <%--                </form>--%>
 
-<%--                <div class="dropdown dropdown-mega d-none d-lg-block ms-2">--%>
-<%--                    <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">--%>
-<%--                        <span key="t-megamenu">Mega Menu</span>--%>
-<%--                        <i class="mdi mdi-chevron-down"></i>--%>
-<%--                    </button>--%>
-<%--                    <div class="dropdown-menu dropdown-megamenu">--%>
-<%--                        <div class="row">--%>
-<%--                            <div class="col-sm-8">--%>
+                <%--                <div class="dropdown dropdown-mega d-none d-lg-block ms-2">--%>
+                <%--                    <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">--%>
+                <%--                        <span key="t-megamenu">Mega Menu</span>--%>
+                <%--                        <i class="mdi mdi-chevron-down"></i>--%>
+                <%--                    </button>--%>
+                <%--                    <div class="dropdown-menu dropdown-megamenu">--%>
+                <%--                        <div class="row">--%>
+                <%--                            <div class="col-sm-8">--%>
 
-<%--                                <div class="row">--%>
-<%--                                    <div class="col-md-4">--%>
-<%--                                        <h5 class="font-size-14" key="t-ui-components">UI Components</h5>--%>
-<%--                                        <ul class="list-unstyled megamenu-list">--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-lightbox">Lightbox</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-range-slider">Range Slider</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-sweet-alert">Sweet Alert</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-rating">Rating</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-forms">Forms</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-tables">Tables</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-charts">Charts</a>--%>
-<%--                                            </li>--%>
-<%--                                        </ul>--%>
-<%--                                    </div>--%>
+                <%--                                <div class="row">--%>
+                <%--                                    <div class="col-md-4">--%>
+                <%--                                        <h5 class="font-size-14" key="t-ui-components">UI Components</h5>--%>
+                <%--                                        <ul class="list-unstyled megamenu-list">--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-lightbox">Lightbox</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-range-slider">Range Slider</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-sweet-alert">Sweet Alert</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-rating">Rating</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-forms">Forms</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-tables">Tables</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-charts">Charts</a>--%>
+                <%--                                            </li>--%>
+                <%--                                        </ul>--%>
+                <%--                                    </div>--%>
 
-<%--                                    <div class="col-md-4">--%>
-<%--                                        <h5 class="font-size-14" key="t-applications">Applications</h5>--%>
-<%--                                        <ul class="list-unstyled megamenu-list">--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-ecommerce">Ecommerce</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-calendar">Calendar</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-email">Email</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-projects">Projects</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-tasks">Tasks</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-contacts">Contacts</a>--%>
-<%--                                            </li>--%>
-<%--                                        </ul>--%>
-<%--                                    </div>--%>
+                <%--                                    <div class="col-md-4">--%>
+                <%--                                        <h5 class="font-size-14" key="t-applications">Applications</h5>--%>
+                <%--                                        <ul class="list-unstyled megamenu-list">--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-ecommerce">Ecommerce</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-calendar">Calendar</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-email">Email</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-projects">Projects</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-tasks">Tasks</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-contacts">Contacts</a>--%>
+                <%--                                            </li>--%>
+                <%--                                        </ul>--%>
+                <%--                                    </div>--%>
 
-<%--                                    <div class="col-md-4">--%>
-<%--                                        <h5 class="font-size-14" key="t-extra-pages">Extra Pages</h5>--%>
-<%--                                        <ul class="list-unstyled megamenu-list">--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-light-sidebar">Light Sidebar</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-compact-sidebar">Compact Sidebar</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-horizontal">Horizontal layout</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-maintenance">Maintenance</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-coming-soon">Coming Soon</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-timeline">Timeline</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-faqs">FAQs</a>--%>
-<%--                                            </li>--%>
+                <%--                                    <div class="col-md-4">--%>
+                <%--                                        <h5 class="font-size-14" key="t-extra-pages">Extra Pages</h5>--%>
+                <%--                                        <ul class="list-unstyled megamenu-list">--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-light-sidebar">Light Sidebar</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-compact-sidebar">Compact Sidebar</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-horizontal">Horizontal layout</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-maintenance">Maintenance</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-coming-soon">Coming Soon</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-timeline">Timeline</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-faqs">FAQs</a>--%>
+                <%--                                            </li>--%>
 
-<%--                                        </ul>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                            <div class="col-sm-4">--%>
-<%--                                <div class="row">--%>
-<%--                                    <div class="col-sm-6">--%>
-<%--                                        <h5 class="font-size-14" key="t-ui-components">UI Components</h5>--%>
-<%--                                        <ul class="list-unstyled megamenu-list">--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-lightbox">Lightbox</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-range-slider">Range Slider</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-sweet-alert">Sweet Alert</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-rating">Rating</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-forms">Forms</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-tables">Tables</a>--%>
-<%--                                            </li>--%>
-<%--                                            <li>--%>
-<%--                                                <a href="javascript:void(0);" key="t-charts">Charts</a>--%>
-<%--                                            </li>--%>
-<%--                                        </ul>--%>
-<%--                                    </div>--%>
+                <%--                                        </ul>--%>
+                <%--                                    </div>--%>
+                <%--                                </div>--%>
+                <%--                            </div>--%>
+                <%--                            <div class="col-sm-4">--%>
+                <%--                                <div class="row">--%>
+                <%--                                    <div class="col-sm-6">--%>
+                <%--                                        <h5 class="font-size-14" key="t-ui-components">UI Components</h5>--%>
+                <%--                                        <ul class="list-unstyled megamenu-list">--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-lightbox">Lightbox</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-range-slider">Range Slider</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-sweet-alert">Sweet Alert</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-rating">Rating</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-forms">Forms</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-tables">Tables</a>--%>
+                <%--                                            </li>--%>
+                <%--                                            <li>--%>
+                <%--                                                <a href="javascript:void(0);" key="t-charts">Charts</a>--%>
+                <%--                                            </li>--%>
+                <%--                                        </ul>--%>
+                <%--                                    </div>--%>
 
-<%--                                    <div class="col-sm-5">--%>
-<%--                                        <div>--%>
-<%--                                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/megamenu-img.png" alt="" class="img-fluid mx-auto d-block">--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
+                <%--                                    <div class="col-sm-5">--%>
+                <%--                                        <div>--%>
+                <%--                                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/megamenu-img.png" alt="" class="img-fluid mx-auto d-block">--%>
+                <%--                                        </div>--%>
+                <%--                                    </div>--%>
+                <%--                                </div>--%>
+                <%--                            </div>--%>
+                <%--                        </div>--%>
 
-<%--                    </div>--%>
-<%--                </div>--%>
+                <%--                    </div>--%>
+                <%--                </div>--%>
             </div>
 
             <div class="d-flex">
@@ -234,183 +250,183 @@
                     </div>
                 </div>
 
-<%--                <div class="dropdown d-inline-block">--%>
-<%--                    <button type="button" class="btn header-item waves-effect"--%>
-<%--                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-<%--                        <img id="header-lang-img" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/us.jpg" alt="Header Language" height="16">--%>
-<%--                    </button>--%>
-<%--                    <div class="dropdown-menu dropdown-menu-end">--%>
+                <%--                <div class="dropdown d-inline-block">--%>
+                <%--                    <button type="button" class="btn header-item waves-effect"--%>
+                <%--                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+                <%--                        <img id="header-lang-img" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/us.jpg" alt="Header Language" height="16">--%>
+                <%--                    </button>--%>
+                <%--                    <div class="dropdown-menu dropdown-menu-end">--%>
 
-<%--                        <!-- item-->--%>
-<%--                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">--%>
-<%--                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>--%>
-<%--                        </a>--%>
-<%--                        <!-- item-->--%>
-<%--                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">--%>
-<%--                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>--%>
-<%--                        </a>--%>
+                <%--                        <!-- item-->--%>
+                <%--                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">--%>
+                <%--                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>--%>
+                <%--                        </a>--%>
+                <%--                        <!-- item-->--%>
+                <%--                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">--%>
+                <%--                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>--%>
+                <%--                        </a>--%>
 
-<%--                        <!-- item-->--%>
-<%--                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr">--%>
-<%--                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>--%>
-<%--                        </a>--%>
+                <%--                        <!-- item-->--%>
+                <%--                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr">--%>
+                <%--                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>--%>
+                <%--                        </a>--%>
 
-<%--                        <!-- item-->--%>
-<%--                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it">--%>
-<%--                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>--%>
-<%--                        </a>--%>
+                <%--                        <!-- item-->--%>
+                <%--                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it">--%>
+                <%--                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>--%>
+                <%--                        </a>--%>
 
-<%--                        <!-- item-->--%>
-<%--                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru">--%>
-<%--                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>--%>
-<%--                        </a>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
+                <%--                        <!-- item-->--%>
+                <%--                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru">--%>
+                <%--                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>--%>
+                <%--                        </a>--%>
+                <%--                    </div>--%>
+                <%--                </div>--%>
 
-<%--                <div class="dropdown d-none d-lg-inline-block ms-1">--%>
-<%--                    <button type="button" class="btn header-item noti-icon waves-effect"--%>
-<%--                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-<%--                        <i class="bx bx-customize"></i>--%>
-<%--                    </button>--%>
-<%--                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">--%>
-<%--                        <div class="px-lg-2">--%>
-<%--                            <div class="row g-0">--%>
-<%--                                <div class="col">--%>
-<%--                                    <a class="dropdown-icon-item" href="#">--%>
-<%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/github.png" alt="Github">--%>
-<%--                                        <span>GitHub</span>--%>
-<%--                                    </a>--%>
-<%--                                </div>--%>
-<%--                                <div class="col">--%>
-<%--                                    <a class="dropdown-icon-item" href="#">--%>
-<%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/bitbucket.png" alt="bitbucket">--%>
-<%--                                        <span>Bitbucket</span>--%>
-<%--                                    </a>--%>
-<%--                                </div>--%>
-<%--                                <div class="col">--%>
-<%--                                    <a class="dropdown-icon-item" href="#">--%>
-<%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/dribbble.png" alt="dribbble">--%>
-<%--                                        <span>Dribbble</span>--%>
-<%--                                    </a>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
+                <%--                <div class="dropdown d-none d-lg-inline-block ms-1">--%>
+                <%--                    <button type="button" class="btn header-item noti-icon waves-effect"--%>
+                <%--                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+                <%--                        <i class="bx bx-customize"></i>--%>
+                <%--                    </button>--%>
+                <%--                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">--%>
+                <%--                        <div class="px-lg-2">--%>
+                <%--                            <div class="row g-0">--%>
+                <%--                                <div class="col">--%>
+                <%--                                    <a class="dropdown-icon-item" href="#">--%>
+                <%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/github.png" alt="Github">--%>
+                <%--                                        <span>GitHub</span>--%>
+                <%--                                    </a>--%>
+                <%--                                </div>--%>
+                <%--                                <div class="col">--%>
+                <%--                                    <a class="dropdown-icon-item" href="#">--%>
+                <%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/bitbucket.png" alt="bitbucket">--%>
+                <%--                                        <span>Bitbucket</span>--%>
+                <%--                                    </a>--%>
+                <%--                                </div>--%>
+                <%--                                <div class="col">--%>
+                <%--                                    <a class="dropdown-icon-item" href="#">--%>
+                <%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/dribbble.png" alt="dribbble">--%>
+                <%--                                        <span>Dribbble</span>--%>
+                <%--                                    </a>--%>
+                <%--                                </div>--%>
+                <%--                            </div>--%>
 
-<%--                            <div class="row g-0">--%>
-<%--                                <div class="col">--%>
-<%--                                    <a class="dropdown-icon-item" href="#">--%>
-<%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/dropbox.png" alt="dropbox">--%>
-<%--                                        <span>Dropbox</span>--%>
-<%--                                    </a>--%>
-<%--                                </div>--%>
-<%--                                <div class="col">--%>
-<%--                                    <a class="dropdown-icon-item" href="#">--%>
-<%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/mail_chimp.png" alt="mail_chimp">--%>
-<%--                                        <span>Mail Chimp</span>--%>
-<%--                                    </a>--%>
-<%--                                </div>--%>
-<%--                                <div class="col">--%>
-<%--                                    <a class="dropdown-icon-item" href="#">--%>
-<%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/slack.png" alt="slack">--%>
-<%--                                        <span>Slack</span>--%>
-<%--                                    </a>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
+                <%--                            <div class="row g-0">--%>
+                <%--                                <div class="col">--%>
+                <%--                                    <a class="dropdown-icon-item" href="#">--%>
+                <%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/dropbox.png" alt="dropbox">--%>
+                <%--                                        <span>Dropbox</span>--%>
+                <%--                                    </a>--%>
+                <%--                                </div>--%>
+                <%--                                <div class="col">--%>
+                <%--                                    <a class="dropdown-icon-item" href="#">--%>
+                <%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/mail_chimp.png" alt="mail_chimp">--%>
+                <%--                                        <span>Mail Chimp</span>--%>
+                <%--                                    </a>--%>
+                <%--                                </div>--%>
+                <%--                                <div class="col">--%>
+                <%--                                    <a class="dropdown-icon-item" href="#">--%>
+                <%--                                        <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/brands/slack.png" alt="slack">--%>
+                <%--                                        <span>Slack</span>--%>
+                <%--                                    </a>--%>
+                <%--                                </div>--%>
+                <%--                            </div>--%>
+                <%--                        </div>--%>
+                <%--                    </div>--%>
+                <%--                </div>--%>
 
-                <div class="dropdown d-none d-lg-inline-block ms-1">
-                    <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
-                        <i class="bx bx-fullscreen"></i>
-                    </button>
-                </div>
+                <%--                <div class="dropdown d-none d-lg-inline-block ms-1">--%>
+                <%--                    <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">--%>
+                <%--                        <i class="bx bx-fullscreen"></i>--%>
+                <%--                    </button>--%>
+                <%--                </div>--%>
 
-<%--                <div class="dropdown d-inline-block">--%>
-<%--                    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"--%>
-<%--                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-<%--                        <i class="bx bx-bell bx-tada"></i>--%>
-<%--                        <span class="badge bg-danger rounded-pill">3</span>--%>
-<%--                    </button>--%>
-<%--                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"--%>
-<%--                         aria-labelledby="page-header-notifications-dropdown">--%>
-<%--                        <div class="p-3">--%>
-<%--                            <div class="row align-items-center">--%>
-<%--                                <div class="col">--%>
-<%--                                    <h6 class="m-0" key="t-notifications"> Notifications </h6>--%>
-<%--                                </div>--%>
-<%--                                <div class="col-auto">--%>
-<%--                                    <a href="#!" class="small" key="t-view-all"> View All</a>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div data-simplebar style="max-height: 230px;">--%>
-<%--                            <a href="javascript: void(0);" class="text-reset notification-item">--%>
-<%--                                <div class="d-flex">--%>
-<%--                                    <div class="avatar-xs me-3">--%>
-<%--                                                <span class="avatar-title bg-primary rounded-circle font-size-16">--%>
-<%--                                                    <i class="bx bx-cart"></i>--%>
-<%--                                                </span>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="flex-grow-1">--%>
-<%--                                        <h6 class="mb-1" key="t-your-order">Your order is placed</h6>--%>
-<%--                                        <div class="font-size-12 text-muted">--%>
-<%--                                            <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>--%>
-<%--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span></p>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </a>--%>
-<%--                            <a href="javascript: void(0);" class="text-reset notification-item">--%>
-<%--                                <div class="d-flex">--%>
-<%--                                    <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-3.jpg"--%>
-<%--                                         class="me-3 rounded-circle avatar-xs" alt="user-pic">--%>
-<%--                                    <div class="flex-grow-1">--%>
-<%--                                        <h6 class="mb-1">James Lemire</h6>--%>
-<%--                                        <div class="font-size-12 text-muted">--%>
-<%--                                            <p class="mb-1" key="t-simplified">It will seem like simplified English.</p>--%>
-<%--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-hours-ago">1 hours ago</span></p>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </a>--%>
-<%--                            <a href="javascript: void(0);" class="text-reset notification-item">--%>
-<%--                                <div class="d-flex">--%>
-<%--                                    <div class="avatar-xs me-3">--%>
-<%--                                                <span class="avatar-title bg-success rounded-circle font-size-16">--%>
-<%--                                                    <i class="bx bx-badge-check"></i>--%>
-<%--                                                </span>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="flex-grow-1">--%>
-<%--                                        <h6 class="mb-1" key="t-shipped">Your item is shipped</h6>--%>
-<%--                                        <div class="font-size-12 text-muted">--%>
-<%--                                            <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>--%>
-<%--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span></p>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </a>--%>
+                <%--                <div class="dropdown d-inline-block">--%>
+                <%--                    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"--%>
+                <%--                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+                <%--                        <i class="bx bx-bell bx-tada"></i>--%>
+                <%--                        <span class="badge bg-danger rounded-pill">3</span>--%>
+                <%--                    </button>--%>
+                <%--                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"--%>
+                <%--                         aria-labelledby="page-header-notifications-dropdown">--%>
+                <%--                        <div class="p-3">--%>
+                <%--                            <div class="row align-items-center">--%>
+                <%--                                <div class="col">--%>
+                <%--                                    <h6 class="m-0" key="t-notifications"> Notifications </h6>--%>
+                <%--                                </div>--%>
+                <%--                                <div class="col-auto">--%>
+                <%--                                    <a href="#!" class="small" key="t-view-all"> View All</a>--%>
+                <%--                                </div>--%>
+                <%--                            </div>--%>
+                <%--                        </div>--%>
+                <%--                        <div data-simplebar style="max-height: 230px;">--%>
+                <%--                            <a href="javascript: void(0);" class="text-reset notification-item">--%>
+                <%--                                <div class="d-flex">--%>
+                <%--                                    <div class="avatar-xs me-3">--%>
+                <%--                                                <span class="avatar-title bg-primary rounded-circle font-size-16">--%>
+                <%--                                                    <i class="bx bx-cart"></i>--%>
+                <%--                                                </span>--%>
+                <%--                                    </div>--%>
+                <%--                                    <div class="flex-grow-1">--%>
+                <%--                                        <h6 class="mb-1" key="t-your-order">Your order is placed</h6>--%>
+                <%--                                        <div class="font-size-12 text-muted">--%>
+                <%--                                            <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>--%>
+                <%--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span></p>--%>
+                <%--                                        </div>--%>
+                <%--                                    </div>--%>
+                <%--                                </div>--%>
+                <%--                            </a>--%>
+                <%--                            <a href="javascript: void(0);" class="text-reset notification-item">--%>
+                <%--                                <div class="d-flex">--%>
+                <%--                                    <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-3.jpg"--%>
+                <%--                                         class="me-3 rounded-circle avatar-xs" alt="user-pic">--%>
+                <%--                                    <div class="flex-grow-1">--%>
+                <%--                                        <h6 class="mb-1">James Lemire</h6>--%>
+                <%--                                        <div class="font-size-12 text-muted">--%>
+                <%--                                            <p class="mb-1" key="t-simplified">It will seem like simplified English.</p>--%>
+                <%--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-hours-ago">1 hours ago</span></p>--%>
+                <%--                                        </div>--%>
+                <%--                                    </div>--%>
+                <%--                                </div>--%>
+                <%--                            </a>--%>
+                <%--                            <a href="javascript: void(0);" class="text-reset notification-item">--%>
+                <%--                                <div class="d-flex">--%>
+                <%--                                    <div class="avatar-xs me-3">--%>
+                <%--                                                <span class="avatar-title bg-success rounded-circle font-size-16">--%>
+                <%--                                                    <i class="bx bx-badge-check"></i>--%>
+                <%--                                                </span>--%>
+                <%--                                    </div>--%>
+                <%--                                    <div class="flex-grow-1">--%>
+                <%--                                        <h6 class="mb-1" key="t-shipped">Your item is shipped</h6>--%>
+                <%--                                        <div class="font-size-12 text-muted">--%>
+                <%--                                            <p class="mb-1" key="t-grammer">If several languages coalesce the grammar</p>--%>
+                <%--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">3 min ago</span></p>--%>
+                <%--                                        </div>--%>
+                <%--                                    </div>--%>
+                <%--                                </div>--%>
+                <%--                            </a>--%>
 
-<%--                            <a href="javascript: void(0);" class="text-reset notification-item">--%>
-<%--                                <div class="d-flex">--%>
-<%--                                    <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-4.jpg"--%>
-<%--                                         class="me-3 rounded-circle avatar-xs" alt="user-pic">--%>
-<%--                                    <div class="flex-grow-1">--%>
-<%--                                        <h6 class="mb-1">Salena Layfield</h6>--%>
-<%--                                        <div class="font-size-12 text-muted">--%>
-<%--                                            <p class="mb-1" key="t-occidental">As a skeptical Cambridge friend of mine occidental.</p>--%>
-<%--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-hours-ago">1 hours ago</span></p>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </a>--%>
-<%--                        </div>--%>
-<%--                        <div class="p-2 border-top d-grid">--%>
-<%--                            <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">--%>
-<%--                                <i class="mdi mdi-arrow-right-circle me-1"></i> <span key="t-view-more">View More..</span>--%>
-<%--                            </a>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
+                <%--                            <a href="javascript: void(0);" class="text-reset notification-item">--%>
+                <%--                                <div class="d-flex">--%>
+                <%--                                    <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-4.jpg"--%>
+                <%--                                         class="me-3 rounded-circle avatar-xs" alt="user-pic">--%>
+                <%--                                    <div class="flex-grow-1">--%>
+                <%--                                        <h6 class="mb-1">Salena Layfield</h6>--%>
+                <%--                                        <div class="font-size-12 text-muted">--%>
+                <%--                                            <p class="mb-1" key="t-occidental">As a skeptical Cambridge friend of mine occidental.</p>--%>
+                <%--                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-hours-ago">1 hours ago</span></p>--%>
+                <%--                                        </div>--%>
+                <%--                                    </div>--%>
+                <%--                                </div>--%>
+                <%--                            </a>--%>
+                <%--                        </div>--%>
+                <%--                        <div class="p-2 border-top d-grid">--%>
+                <%--                            <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">--%>
+                <%--                                <i class="mdi mdi-arrow-right-circle me-1"></i> <span key="t-view-more">View More..</span>--%>
+                <%--                            </a>--%>
+                <%--                        </div>--%>
+                <%--                    </div>--%>
+                <%--                </div>--%>
 
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
@@ -431,14 +447,14 @@
                     </div>
                 </div>
 
-<%--                <div class="dropdown d-inline-block">--%>
-<%--                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">--%>
-<%--                        <i class="bx bx-cog bx-spin"></i>--%>
-<%--                    </button>--%>
-<%--                </div>--%>
+                <%--                <div class="dropdown d-inline-block">--%>
+                <%--                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">--%>
+                <%--                        <i class="bx bx-cog bx-spin"></i>--%>
+                <%--                    </button>--%>
+                <%--                </div>--%>
 
-<%--            </div>--%>
-<%--        </div>--%>
+                <%--            </div>--%>
+                <%--        </div>--%>
     </header>
 
     <!-- ========== Left Sidebar Start ========== -->
@@ -829,7 +845,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-<%--                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>--%>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Service Provider</a></li>
                                     <li class="breadcrumb-item active">/Add Service</li>
                                 </ol>
                             </div>
@@ -854,10 +870,10 @@
                                                 <label for="servicetname">Service Name</label>
                                                 <input id="servicetname" name="servicetname" type="text" class="form-control">
                                             </div>
-<%--                                            <div class="mb-3">--%>
-<%--                                                <label for="manufacturerbrand">Manufacturer Brand</label>--%>
-<%--                                                <input id="manufacturerbrand" name="manufacturerbrand" type="text" class="form-control">--%>
-<%--                                            </div>--%>
+                                            <%--                                            <div class="mb-3">--%>
+                                            <%--                                                <label for="manufacturerbrand">Manufacturer Brand</label>--%>
+                                            <%--                                                <input id="manufacturerbrand" name="manufacturerbrand" type="text" class="form-control">--%>
+                                            <%--                                            </div>--%>
                                             <div class="mb-3">
                                                 <label for="price">Price</label>
                                                 <input id="price" name="price" type="text" class="form-control">
@@ -873,20 +889,20 @@
                                                 <label class="control-label">Category</label>
                                                 <select class="form-control select2" name = "Category">
                                                     <option>Select</option>
-                                                    <option value="FA">Wedding</option>
-                                                    <option value="EL">Birthday</option>
+                                                    <option value="Wedding">Wedding</option>
+                                                    <option value="Birthday">Birthday</option>
                                                 </select>
                                             </div>
-<%--                                            <div class="mb-3">--%>
-<%--                                                <label class="control-label">Features</label>--%>
+                                            <%--                                            <div class="mb-3">--%>
+                                            <%--                                                <label class="control-label">Features</label>--%>
 
-<%--                                                <select class="select2 form-control select2-multiple" multiple="multiple" data-placeholder="Choose ...">--%>
-<%--                                                    <option value="WI">Wireless</option>--%>
-<%--                                                    <option value="BE">Battery life</option>--%>
-<%--                                                    <option value="BA">Bass</option>--%>
-<%--                                                </select>--%>
+                                            <%--                                                <select class="select2 form-control select2-multiple" multiple="multiple" data-placeholder="Choose ...">--%>
+                                            <%--                                                    <option value="WI">Wireless</option>--%>
+                                            <%--                                                    <option value="BE">Battery life</option>--%>
+                                            <%--                                                    <option value="BA">Bass</option>--%>
+                                            <%--                                                </select>--%>
 
-<%--                                            </div>--%>
+                                            <%--                                            </div>--%>
                                             <div class="mb-3">
                                                 <label for="servicedesc">Service Description</label>
                                                 <textarea class="form-control" id="servicedesc" rows="5"></textarea>
@@ -896,72 +912,70 @@
                                     </div>
 
 
-                                </form>
+                                    <%--                        <div class="card">--%>
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-3">Service Images</h4>
 
-                            </div>
-
-
-<%--                        <div class="card">--%>
-                            <div class="card-body">
-                                <h4 class="card-title mb-3">Service Images</h4>
-
-                                <form action="<%=request.getContextPath()%>/NewServiceServlet" method="post" class="dropzone">
-                                    <div class="fallback">
-                                        <input name="file" type="file" multiple />
-                                    </div>
-
-                                    <div class="dz-message needsclick">
-                                        <div class="mb-3">
-                                            <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                                        <%--                                <form action="<%=request.getContextPath()%>/NewServiceServlet" method="post" class="dropzone">--%>
+                                        <div class="fallback">
+                                            <input name="file" type="file" multiple />
                                         </div>
 
-                                        <h4>Drop files here or click to upload.</h4>
+                                        <div class="dz-message needsclick">
+                                            <div class="mb-3">
+                                                <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                                            </div>
+
+                                            <h4>Drop files here or click to upload.</h4>
+                                        </div>
+                                        <%--                                </form>--%>
                                     </div>
-                                </form>
+
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Add Service</button>
+                                        <button type="button" class="btn btn-secondary waves-effect waves-light">Cancel</button>
+                                    </div>
                             </div>
+                            </form>
 
-                            <div class="d-flex flex-wrap gap-2">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Add Service</button>
-                                <button type="button" class="btn btn-secondary waves-effect waves-light">Cancel</button>
-                            </div>
-                    </div>
-<%--                        </div> <!-- end card-->--%>
+                        </div>
+                        <%--                        </div> <!-- end card-->--%>
 
-<%--                        <div class="card">--%>
-<%--                            <div class="card-body">--%>
+                        <%--                        <div class="card">--%>
+                        <%--                            <div class="card-body">--%>
 
-<%--                                <h4 class="card-title">Meta Data</h4>--%>
-<%--                                <p class="card-title-desc">Fill all information below</p>--%>
+                        <%--                                <h4 class="card-title">Meta Data</h4>--%>
+                        <%--                                <p class="card-title-desc">Fill all information below</p>--%>
 
-<%--                                <form>--%>
-<%--                                    <div class="row">--%>
-<%--                                        <div class="col-sm-6">--%>
-<%--                                            <div class="mb-3">--%>
-<%--                                                <label for="metatitle">Meta title</label>--%>
-<%--                                                <input id="metatitle" name="productname" type="text" class="form-control">--%>
-<%--                                            </div>--%>
-<%--                                            <div class="mb-3">--%>
-<%--                                                <label for="metakeywords">Meta Keywords</label>--%>
-<%--                                                <input id="metakeywords" name="manufacturername" type="text" class="form-control">--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
+                        <%--                                <form>--%>
+                        <%--                                    <div class="row">--%>
+                        <%--                                        <div class="col-sm-6">--%>
+                        <%--                                            <div class="mb-3">--%>
+                        <%--                                                <label for="metatitle">Meta title</label>--%>
+                        <%--                                                <input id="metatitle" name="productname" type="text" class="form-control">--%>
+                        <%--                                            </div>--%>
+                        <%--                                            <div class="mb-3">--%>
+                        <%--                                                <label for="metakeywords">Meta Keywords</label>--%>
+                        <%--                                                <input id="metakeywords" name="manufacturername" type="text" class="form-control">--%>
+                        <%--                                            </div>--%>
+                        <%--                                        </div>--%>
 
-<%--                                        <div class="col-sm-6">--%>
-<%--                                            <div class="mb-3">--%>
-<%--                                                <label for="metadescription">Meta Description</label>--%>
-<%--                                                <textarea class="form-control" id="metadescription" rows="5"></textarea>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
+                        <%--                                        <div class="col-sm-6">--%>
+                        <%--                                            <div class="mb-3">--%>
+                        <%--                                                <label for="metadescription">Meta Description</label>--%>
+                        <%--                                                <textarea class="form-control" id="metadescription" rows="5"></textarea>--%>
+                        <%--                                            </div>--%>
+                        <%--                                        </div>--%>
+                        <%--                                    </div>--%>
 
-<%--                                    <div class="d-flex flex-wrap gap-2">--%>
-<%--                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>--%>
-<%--                                        <button type="submit" class="btn btn-secondary waves-effect waves-light">Cancel</button>--%>
-<%--                                    </div>--%>
-<%--                                </form>--%>
+                        <%--                                    <div class="d-flex flex-wrap gap-2">--%>
+                        <%--                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>--%>
+                        <%--                                        <button type="submit" class="btn btn-secondary waves-effect waves-light">Cancel</button>--%>
+                        <%--                                    </div>--%>
+                        <%--                                </form>--%>
 
-<%--                            </div>--%>
-<%--                        </div>--%>
+                        <%--                            </div>--%>
+                        <%--                        </div>--%>
                     </div>
                 </div>
                 <!-- end row -->
@@ -979,7 +993,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by Themesbrand
+                            <%--                            Design & Develop by Themesbrand--%>
                         </div>
                     </div>
                 </div>

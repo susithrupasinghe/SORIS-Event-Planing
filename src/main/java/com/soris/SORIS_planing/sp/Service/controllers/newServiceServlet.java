@@ -1,6 +1,6 @@
-package com.soris.SORIS_planing.sp.addService;
+package com.soris.SORIS_planing.sp.Service.controllers;
 
-import com.soris.SORIS_planing.sp.addService.NewServiceUtil;
+import com.soris.SORIS_planing.sp.Service.models.serviceModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "NewServiceServlet", value = "/NewServiceServlet")
-public class NewServiceServlet extends HttpServlet {
+public class newServiceServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -26,7 +26,9 @@ public class NewServiceServlet extends HttpServlet {
         double priceD = Double.parseDouble(price);
         double DiscountD = Double.parseDouble(Discount);
 
-        isTrue = NewServiceUtil.insertService(serviceName, category, priceD, DiscountD, description);
+        serviceModel Newservice = new serviceModel();
+
+        isTrue = Newservice.insertService(serviceName, category, priceD, DiscountD, description);
 
         if(isTrue == true){
             RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");
