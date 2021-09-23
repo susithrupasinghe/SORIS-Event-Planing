@@ -1,4 +1,4 @@
-package com.soris.SORIS_planing.sp.viewService;
+package com.soris.SORIS_planing.sp.Service.controllers;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -6,7 +6,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet(name = "ServiceServlet", value = "/ServiceServlet")
-public class ServiceServlet extends HttpServlet {
+public class serviceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -14,6 +14,10 @@ public class ServiceServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        String username = request.getParameter("uname");
+//        String password = request.getParameter("pass");
 
+//        List<ServiceUtil> servisDetails = se;
+//        request.setAttribute("servisDetails" , servisDetails);
     }
 }
