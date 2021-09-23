@@ -14,6 +14,14 @@
 </head>
 <body>
     <c:forEach var = "ser" items = "${servDetails}">
+
+        <c:set var="sID" value="${ser.sID}" />
+        <c:set var="name" value="${ser.name}" />
+        <c:set var="category" value="${ser.category}" />
+        <c:set var="price" value="${ser.price}" />
+        <c:set var="discount" value="${ser.discount}" />
+        <c:set var="description" value="${ser.description}" />
+
         ${ser.sID}
         ${ser.name}
         ${ser.category}
@@ -21,5 +29,19 @@
         ${ser.discount}
         ${ser.description}
     </c:forEach>
+
+    <c:url value="UpdateService.jsp" var="serUpdate">
+        <c:param name="sID" value="${sID}"/>
+        <c:param name="name" value="${sID}"/>
+        <c:param name="category" value="${sID}"/>
+        <c:param name="price" value="${sID}"/>
+        <c:param name="discount" value="${sID}"/>
+        <c:param name="description" value="${sID}"/>
+    </c:url>
+
+    <a href="${serUpdate}" >
+        <input type="button" name="update" value="update service data">
+    </a>
+
 </body>
 </html>

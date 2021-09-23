@@ -1,6 +1,6 @@
-package com.soris.SORIS_planing.sp.addService;
+package com.soris.SORIS_planing.sp.Service.controllers;
 
-import com.soris.SORIS_planing.sp.addService.NewServiceUtil;
+import com.soris.SORIS_planing.sp.Service.models.NewServiceUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
