@@ -1,6 +1,6 @@
 package com.soris.SORIS_planing.sp.Service.controllers;
 
-import com.soris.SORIS_planing.sp.Service.models.ServiceUtil;
+import com.soris.SORIS_planing.sp.Service.models.NewServiceUtil;
 import com.soris.SORIS_planing.sp.auth.models.signInModel;
 
 import javax.servlet.*;

@@ -13,7 +13,7 @@
     <title>SORIS Event Planning Platform</title>
 </head>
 <body>
-    <c:forEach var = "ser" items = "${servDetails}">
+    <c:forEach var = "ser" items = "${servicesDetails}">
 
         <c:set var="sID" value="${ser.sID}" />
         <c:set var="name" value="${ser.name}" />
