@@ -1,6 +1,4 @@
-package com.soris.SORIS_planing.host.auth;
-
-
+package com.soris.SORIS_planing.admin.auth.models;
 import com.soris.SORIS_planing.dbUtil;
 
 import java.sql.Connection;
@@ -38,7 +36,7 @@ public class signInModel {
     public String getuserId(){
         try {
 
-            String query = String.format("SELECT hid as userid FROM host WHERE email='%s'", email);
+            String query = String.format("SELECT aid as userid FROM admin WHERE email='%s'", email);
             Statement st = this.con.createStatement();
             ResultSet res = st.executeQuery(query);
             res.next();
@@ -51,11 +49,11 @@ public class signInModel {
     public String getName(){
         try {
 
-            String query = String.format("SELECT fname,lname  FROM host WHERE email='%s'", email);
+            String query = String.format("SELECT name as Name FROM admin WHERE email='%s'", email);
             Statement st = this.con.createStatement();
             ResultSet res = st.executeQuery(query);
             res.next();
-            return res.getString("fname") + " " + res.getString("lname");
+            return res.getString("Name");
         } catch (Exception ex) {
 
             return "";
@@ -64,7 +62,7 @@ public class signInModel {
     public boolean checkEmailExists(String email) {
         try {
 
-            String query = String.format("SELECT COUNT(*) as rowcount FROM host WHERE email='%s'", email);
+            String query = String.format("SELECT COUNT(*) as rowcount FROM admin WHERE email='%s'", email);
             Statement st = this.con.createStatement();
             ResultSet res = st.executeQuery(query);
             res.next();
@@ -77,7 +75,7 @@ public class signInModel {
     public boolean validate(){
 
         try{
-            String query = String.format("SELECT password as password FROM host WHERE email='%s'", this.email);
+            String query = String.format("SELECT password as password FROM admin WHERE email='%s'", this.email);
             Statement st = this.con.createStatement();
             ResultSet res = st.executeQuery(query);
             res.next();

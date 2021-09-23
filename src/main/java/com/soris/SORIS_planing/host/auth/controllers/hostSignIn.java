@@ -1,5 +1,7 @@
-package com.soris.SORIS_planing.host.auth;
+package com.soris.SORIS_planing.host.auth.controllers;
 
+
+import com.soris.SORIS_planing.host.auth.models.signInModel;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
