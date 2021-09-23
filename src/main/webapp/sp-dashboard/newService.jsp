@@ -7,16 +7,18 @@
 --%>
 <%--<%--%>
 <%--   import javax.servlet.*;--%>
-<%--   import javax.servlet.http.*;--%>
-<%--   import javax.servlet.annotation.*;--%>
-<%--   import java.io.IOException;--%>
-
-<%--   HttpSession session=request.getSession(false);--%>
+<%--//   import javax.servlet.http.*;--%>
+<%--//   import javax.servlet.annotation.*;--%>
+<%--//   import java.io.IOException;--%>
+<%--   --%>
+<%--    HttpSession session=request.getSession(false);--%>
 
 <%--    if(session!=null && session.getAttribute("userid") != null && session.getAttribute("role") == "sp"){--%>
 
 <%--    // User already logged in--%>
 <%--    request.getRequestDispatcher("/sp-dashboard/home.jsp").forward(request, response);--%>
+
+<%--    }else{--%>
 
 <%--    }--%>
 <%--%>--%>
