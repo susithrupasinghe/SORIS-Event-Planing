@@ -1,14 +1,12 @@
 package com.soris.SORIS_planing.sp.Service.models;
 
-import com.soris.SORIS_planing.dbUtil;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewServiceUtil {
+public class serviceModel {
     private static boolean isSuccess = false;
     private static Connection con = null;
     private static Statement stmt = null;
@@ -39,8 +37,8 @@ public class NewServiceUtil {
     }
 
     //service view
-    public static List<Service> getServiceDetails(String spID){
-        ArrayList<Service> ser = new ArrayList<>();
+    public static List<service> getServiceDetails(String spID){
+        ArrayList<service> ser = new ArrayList<>();
 
         int converspID = Integer.parseInt(spID);
 
@@ -59,7 +57,7 @@ public class NewServiceUtil {
                 double discount = rs.getDouble(6);
                 String description = rs.getString(6);
 
-                Service s = new Service(sID , name, category, price, discount, description);
+                service s = new service(sID , name, category, price, discount, description);
                 ser.add(s);
             }
 

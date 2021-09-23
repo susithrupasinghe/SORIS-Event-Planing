@@ -1,16 +1,12 @@
 package com.soris.SORIS_planing.sp.Service.controllers;
 
-import com.soris.SORIS_planing.sp.Service.models.NewServiceUtil;
-import com.soris.SORIS_planing.sp.auth.models.signInModel;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "ServiceServlet", value = "/ServiceServlet")
-public class ServiceServlet extends HttpServlet {
+public class serviceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
