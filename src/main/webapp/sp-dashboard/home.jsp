@@ -30,7 +30,7 @@
         ${ser.description}
     </c:forEach>
 
-    <c:url value="UpdateService.jsp" var="serUpdate">
+    <c:url value="updateService.jsp" var="serUpdate">
         <c:param name="sID" value="${sID}"/>
         <c:param name="name" value="${sID}"/>
         <c:param name="category" value="${sID}"/>
