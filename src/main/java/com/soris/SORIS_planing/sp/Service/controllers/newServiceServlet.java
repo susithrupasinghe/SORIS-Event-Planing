@@ -26,7 +26,9 @@ public class newServiceServlet extends HttpServlet {
         double priceD = Double.parseDouble(price);
         double DiscountD = Double.parseDouble(Discount);
 
-        isTrue = serviceModel.insertService(serviceName, category, priceD, DiscountD, description);
+        serviceModel Newservice = new serviceModel();
+
+        isTrue = Newservice.insertService(serviceName, category, priceD, DiscountD, description);
 
         if(isTrue == true){
             RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");

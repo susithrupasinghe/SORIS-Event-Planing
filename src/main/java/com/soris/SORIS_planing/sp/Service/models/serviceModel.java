@@ -12,7 +12,7 @@ public class serviceModel {
     private static Statement stmt = null;
     private static ResultSet rs = null;
 
-    public static boolean insertService(String servicetname,String category, double price, double discount, String description) {
+    public boolean insertService(String servicetname,String category, double price, double discount, String description) {
 //        boolean isSuccess = false;
 
         try {
@@ -37,7 +37,7 @@ public class serviceModel {
     }
 
     //service view
-    public static List<service> getServiceDetails(String spID){
+    public List<service> getServiceDetails(String spID){
         ArrayList<service> ser = new ArrayList<>();
 
         int converspID = Integer.parseInt(spID);
@@ -68,7 +68,7 @@ public class serviceModel {
     }
 
     //update service
-    public static boolean updateService(int sID, String name, String category, double price, double discount, String description){
+    public boolean updateService(int sID, String name, String category, double price, double discount, String description){
 
         try{
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
