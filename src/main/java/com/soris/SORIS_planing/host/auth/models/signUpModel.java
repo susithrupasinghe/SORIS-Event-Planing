@@ -1,4 +1,4 @@
-package com.soris.SORIS_planing.host.auth;
+package com.soris.SORIS_planing.host.auth.models;
 
 import com.soris.SORIS_planing.dbUtil;
 
