@@ -38,7 +38,8 @@ public class adminSignIn extends HttpServlet {
                     session.setAttribute("userid", signIn.getuserId());
                     session.setAttribute("username", signIn.getName());
                     session.setAttribute("role", "admin");
-                    request.getRequestDispatcher("/admin-dashboard/home.jsp").forward(request, response);
+                    response.sendRedirect(request.getContextPath() + "/adminHome");
+                    //request.getRequestDispatcher(request.getContextPath() + "/adminHome").forward(request, response);
 
                 }
                 else if(! signIn.checkEmailExists(username)){
@@ -56,7 +57,7 @@ public class adminSignIn extends HttpServlet {
         }
         catch (Exception ex){
             // Send internal error status to jsp
-            request.setAttribute("error","Internal Error");
+            request.setAttribute("error",ex);
             request.getRequestDispatcher("/auth/admin-signin.jsp").include(request, response);
 
         }
