@@ -12,8 +12,6 @@ public class serviceModel {
     private static Statement stmt = null;
     private static ResultSet rs = null;
 
-
-
     public boolean insertService(String servicetname,String category, double price, double discount, String description) {
 //        boolean isSuccess = false;
 

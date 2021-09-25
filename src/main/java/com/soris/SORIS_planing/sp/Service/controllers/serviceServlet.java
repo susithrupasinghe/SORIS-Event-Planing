@@ -1,4 +1,5 @@
 package com.soris.SORIS_planing.sp.Service.controllers;
+import com.soris.SORIS_planing.admin.auth.models.signInModel;
 import com.soris.SORIS_planing.sp.Service.models.service;
 import com.soris.SORIS_planing.sp.Service.models.serviceModel;
 import com.soris.SORIS_planing.sp.auth.controllers.spSignIn;
@@ -19,17 +20,26 @@ public class serviceServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String sID = request.getParameter("3");
+//        HttpSession session = request.getSession(false);
+//
+//        if (session != null && session.getAttribute("userid") != null && session.getAttribute("role") == "admin") {
+//
+//            // User already logged in
+//            request.getRequestDispatcher("/admin-dashboard/home.jsp").forward(request, response);
+//
+//        } else {
+            String sID = request.getParameter("userid");
 //        spSignIn userId = new spSignIn();
 
-        serviceModel service = new serviceModel();
+            serviceModel service = new serviceModel();
 
-        try{
-            List<service> servicesDetails = service.getServiceDetails(sID);
-            request.setAttribute("servicesDetails", servicesDetails);
-        }catch (Exception e){
-            e.printStackTrace();
+            try {
+                List<service> servicesDetails = service.getServiceDetails(sID);
+                request.setAttribute("servicesDetails", servicesDetails);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
-
-    }
+//    }
 }

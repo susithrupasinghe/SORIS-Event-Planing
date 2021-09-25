@@ -8,21 +8,18 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%--<%--%>
-<%--    import javax.servlet.*;--%>
-<%--    import javax.servlet.http.*;--%>
-<%--//   import javax.servlet.annotation.*;--%>
-<%--//   import java.io.IOException;--%>
-
-<%--   HttpSession session=request.getSession(false);--%>
-
-<%--    if(session!=null && session.getAttribute("userid") != null && session.getAttribute("role") == "sp"){--%>
-
-<%--    // User already logged in--%>
-<%--    request.getRequestDispatcher("/sp-dashboard/home.jsp").forward(request, response);--%>
-
-<%--    }--%>
-<%--%>--%>
+<%
+//   HttpSession sessions=request.getSession(false);
+//
+//    if(session!=null && sessions.getAttribute("userid") != null && sessions.getAttribute("role") == "sp"){
+//
+//    // User already logged in
+//    request.getRequestDispatcher("/sp-dashboard/home.jsp").forward(request, response);
+//
+//    }else{
+//        request.getRequestDispatcher("/index.jsp").forward(request, response);
+//    }
+%>
 
 <%--<!doctype html>--%>
 <%--<html lang="en">--%>

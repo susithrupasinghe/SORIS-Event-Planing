@@ -60,8 +60,5 @@ public class adminSignIn extends HttpServlet {
             request.getRequestDispatcher("/auth/admin-signin.jsp").include(request, response);
 
         }
-
-
-
     }
 }
