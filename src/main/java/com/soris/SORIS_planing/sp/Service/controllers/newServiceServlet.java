@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "NewServiceServlet", value = "/NewServiceServlet")
+@WebServlet(name = "newServiceServlet", value = "/newServiceServlet")
 public class newServiceServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +34,7 @@ public class newServiceServlet extends HttpServlet {
             RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");
             dis.forward(request,response);
         }else {
-            RequestDispatcher dis1 = request.getRequestDispatcher("home.jsp");
+            RequestDispatcher dis1 = request.getRequestDispatcher("");
             dis1.forward(request,response);
         }
     }

@@ -193,7 +193,7 @@
                                 <h4 class="card-title">Basic Information</h4>
                                 <p class="card-title-desc">Fill all information below</p>
 
-                                <form action="<%=request.getContextPath()%>/NewServiceServlet" method="post">
+                                <form action="<%=request.getContextPath()%>/newServiceServlet" method="post">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
