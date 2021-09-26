@@ -5,6 +5,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.soris.SORIS_planing.host.event.model.eventCreationModel;
 
@@ -19,21 +21,23 @@ public class eventCreation extends HttpServlet {
             String name = request.getParameter("name");
             String description = request.getParameter("description");
             int estimatedCost = Integer.parseInt(request.getParameter("estimatedCost"));
-            //HttpSession session = request.getSession(false);
-            // hid = (int) session.getAttribute("userid");
+            String d= request.getParameter("date");
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(d);
+
+
             eventCreationModel event = new eventCreationModel();
-            if (event.addEvent(name, description, estimatedCost,0)) {
-                request.getRequestDispatcher("/host-dashboard/home.jsp").forward(request, response);
+            if (event.addEvent(name, description, estimatedCost,0,date)) {
+                request.getRequestDispatcher("/host-dashboard/home.jsp").forward(request,response);
             } else {
                 request.setAttribute("error", "event creation failed");
-                request.getRequestDispatcher("/host-dashboard/event.createEvent.jsp");
+                request.getRequestDispatcher("/host-dashboard/event/eventCreation.jsp").forward(request,response);
             }
 
 
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("error", "internal error");
-            request.getRequestDispatcher("/host-dashboard/event.createEvent.jsp");
+            request.getRequestDispatcher("/host-dashboard/event/eventCreation.jsp").include(request,response);
 
         }
     }
