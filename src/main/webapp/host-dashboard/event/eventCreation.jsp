@@ -9,6 +9,7 @@
 //rewrite date INPUT IN jsp and event creation model and servlet
 //VALIDATE INPUT TYPES in every field
 //modal to catch error messages
+//redirect to necessary pages
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -186,6 +187,23 @@
                     </div>
                 </div>
                 <!-- end page title -->
+                <!--modal-->
+                <div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Something wrong</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p><%=request.getAttribute("error")%></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-lg-12">
@@ -196,7 +214,7 @@
                                     <div class="row mb-4">
                                         <label for="eventName" class="col-form-label col-lg-2">Event Name</label>
                                         <div class="col-lg-10">
-                                            <input id="eventName" name="name" type="text" class="form-control" placeholder="Enter Event Name...">
+                                            <input id="eventName" name="name" type="text" class="form-control" placeholder="Enter Event Name..." required>
                                         </div>
                                     </div>
                                     <div class="row mb-4">
@@ -205,21 +223,18 @@
                                             <textarea class="form-control" name="description" id="eventdesc" rows="5" placeholder="Enter Event Description..."></textarea>
                                         </div>
                                     </div>
-
-                                    <div class="row mb-4">
-                                        <label class="col-form-label col-lg-2">Event Date</label>
-                                        <div class="col-lg-10">
-                                            <div class="input-daterange input-group" id="project-date-inputgroup" data-provide="datepicker" data-date-format="dd M, yyyy"  data-date-container='#project-date-inputgroup' data-date-autoclose="true">
-                                                <input type="text" class="form-control" placeholder="Start Date" name="start" />
-                                                <input type="text" class="form-control" placeholder="End Date" name="end" />
-                                            </div>
+                                    <div class="mb-3 row">
+                                        <label for="date-input" class="col-md-2 col-form-label">Date</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" type="date" value="2019-08-19" id="date-input" name="date" required>
                                         </div>
                                     </div>
+
 
                                     <div class="row mb-4">
                                         <label for="budget" class="col-form-label col-lg-2">Budget</label>
                                         <div class="col-lg-10">
-                                            <input id="budget" name="estimatedCost" type="text" placeholder="Enter Event Budget..." class="form-control">
+                                            <input id="budget" name="estimatedCost" type="text" placeholder="Enter Event Budget..." class="form-control" required>
                                         </div>
                                     </div>
                                 </form>
@@ -290,6 +305,13 @@
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+
+<% if (request.getAttribute("error") != null ){%>
+<script>
+    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
+
+</script>
+<%}%>
 </body>
 
 </html>
