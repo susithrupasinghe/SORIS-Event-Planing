@@ -20,26 +20,21 @@ public class serviceServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        HttpSession session = request.getSession(false);
-//
-//        if (session != null && session.getAttribute("userid") != null && session.getAttribute("role") == "admin") {
-//
-//            // User already logged in
-//            request.getRequestDispatcher("/admin-dashboard/home.jsp").forward(request, response);
-//
-//        } else {
-            String sID = request.getParameter("userid");
-//        spSignIn userId = new spSignIn();
+        HttpSession session = request.getSession(false);
 
-            serviceModel service = new serviceModel();
+        if(session.getAttribute("userid") != null && session.getAttribute("role") == "admin") {
+            String spID = request.getParameter("2");
 
             try {
-                List<service> servicesDetails = service.getServiceDetails(sID);
+                serviceModel serviceMem = new serviceModel();
+                List<service> servicesDetails = serviceMem.getServiceDetails(spID);
                 request.setAttribute("servicesDetails", servicesDetails);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            // User already logged in
+            request.getRequestDispatcher("/admin-dashboard/home.jsp").forward(request, response);
 
         }
-//    }
+    }
 }

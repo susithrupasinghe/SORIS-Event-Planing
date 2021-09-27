@@ -34,7 +34,7 @@ public class newServiceServlet extends HttpServlet {
             RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");
             dis.forward(request,response);
         }else {
-            RequestDispatcher dis1 = request.getRequestDispatcher("");
+            RequestDispatcher dis1 = request.getRequestDispatcher("/home.jsp");
             dis1.forward(request,response);
         }
     }

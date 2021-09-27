@@ -7,6 +7,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.soris.SORIS_planing.sp.Service.controllers.serviceServlet" %>
+<%@ page import="com.soris.SORIS_planing.sp.Service.models.service" %>
+<%@ page import="com.soris.SORIS_planing.admin.dashboard.models.topServiceProviderModel" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.soris.SORIS_planing.admin.dashboard.models.topServiceModel" %>
+<%@ page import="java.util.HashMap" %>
 
 <!doctype html>
 <html lang="en">
@@ -33,15 +39,10 @@
 
 </head>
 
-<%--<%--%>
 
-<%--    int servicesCount = (int)request.getAttribute("serviceCount");--%>
-
-<%--//    HashMap<String,Integer> serviceSummery = (HashMap<String,Integer>)request.getAttribute("serviceSummery");--%>
-<%--//    List<topServiceProviderModel> topServiceProviderlist = (List<topServiceProviderModel>) request.getAttribute("topSpList");--%>
-<%--//    List<topServiceModel> topServicelist = (List<topServiceModel>) request.getAttribute("topServices");--%>
-
-<%--%>--%>
+<%
+    List<service> serviceDetails = (List<service>) request.getAttribute("servicesDetails");
+%>
 
 <body data-sidebar="dark">
 
@@ -256,9 +257,17 @@
                                         <th class="align-middle">Description</th>
                                         <th class="align-middle">Service Status</th>
 <%--                                        <th class="align-middle">Update Service</th>--%>
-                                        <th class="align-middle"><center>Action</center></th>
+                                        <th class="align-middle">Action</th>
                                     </tr>
                                     </thead>
+
+                                    <c:forEach var = "ser" items = "${serviceDetails}">
+                                        <c:set var="sID" value="${ser.sID}" />
+                                        <c:set var="name" value="${ser.name}" />
+                                        <c:set var="category" value="${ser.category}" />
+                                        <c:set var="price" value="${ser.price}" />
+                                        <c:set var="discount" value="${ser.discount}" />
+                                        <c:set var="description" value="${ser.description}" />
                                     <tbody>
                                     <tr>
                                         <td>
@@ -267,20 +276,12 @@
 <%--                                                <label class="form-check-label" for="orderidcheck01"></label>--%>
 <%--                                            </div>--%>
                                         </td>
-                                        <td><a href="javascript: void(0);" class="text-body fw-bold">#SK2540</a> </td>
-                                        <td>Neal Matthews</td>
-                                        <td>
-                                            07 Oct, 2019
-                                        </td>
-                                        <td>
-                                            $400
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-pill badge-soft-success font-size-12">Paid</span>
-                                        </td>
-                                        <td>
-                                            <i class="fab fa-cc-mastercard me-1"></i> Mastercard
-                                        </td>
+                                        <td><a href="javascript: void(0);" class="text-body fw-bold">${ser.sID}</a> </td>
+                                        <td><%=serviceDetails.get(1).getName()%></td>
+                                        <td>${ser.category}</td>
+                                        <td>${ser.price}</td>
+                                        <td><span class="badge badge-pill badge-soft-success font-size-12">${ser.discount}</span></td>
+                                        <td><i class="fab fa-cc-mastercard me-1"></i> ${ser.description}</td>
 
                                         <td>
                                             <span class="badge bg-success font-size-10">Completed</span>
@@ -300,9 +301,8 @@
                                             </div>
                                         </td>
                                     </tr>
-
-
                                     </tbody>
+                                    </c:forEach>
                                 </table>
                             </div>
 <%--                            <ul class="pagination pagination-rounded justify-content-end mb-2">--%>

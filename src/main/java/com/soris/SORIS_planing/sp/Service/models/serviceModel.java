@@ -5,22 +5,23 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import com.soris.SORIS_planing.dbUtil;
 
 public class serviceModel {
-    private static boolean isSuccess = false;
-    private static Connection con = null;
-    private static Statement stmt = null;
-    private static ResultSet rs = null;
+    private boolean isSuccess = false;
+    private Connection con = null;
+    private Statement stmt = null;
+    private ResultSet rs = null;
 
     public boolean insertService(String servicetname,String category, double price, double discount, String description) {
 //        boolean isSuccess = false;
 
         try {
 
-            con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
+            con = dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "insert into service values (0,0,'" + servicetname + "', '" + category + "', '" + price + "', '" + price + "', '" + discount + "','" + description + "')";
+            String sql = "insert into service(spid,name,category,price,discpunt,description,status) values (0,'" + servicetname + "', '" + category + "', '" + price + "', '" + price + "', '" + discount + "','" + description + "',0)";
 
             int rs = stmt.executeUpdate(sql);
 
@@ -61,11 +62,13 @@ public class serviceModel {
                 service s = new service(sID , name, category, price, discount, description);
                 ser.add(s);
             }
+            return ser;
 
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return ser;
+//        return ser;
     }
 
     //update service
