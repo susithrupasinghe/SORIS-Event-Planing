@@ -2,6 +2,7 @@ package com.soris.SORIS_planing.sp.Service.models;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,18 +12,21 @@ public class serviceModel {
     private boolean isSuccess = false;
     private Connection con = null;
     private Statement stmt = null;
-    private ResultSet rs = null;
+    private ResultSet rs;
+
+//    public serviceModel() throws SQLException, ClassNotFoundException {
+//        Connection con = dbUtil.initializeDatabase();
+//        this.con = con;
+//    }
 
     public boolean insertService(String servicetname,String category, double price, double discount, String description) {
 //        boolean isSuccess = false;
 
         try {
-
             con = dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "insert into service(spid,name,category,price,discpunt,description,status) values (0,'" + servicetname + "', '" + category + "', '" + price + "', '" + price + "', '" + discount + "','" + description + "',0)";
-
+            String sql = "insert into soris.service(name,category,price,discount,description) values ('"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"')";
             int rs = stmt.executeUpdate(sql);
 
             if(rs > 0){
@@ -72,14 +76,14 @@ public class serviceModel {
     }
 
     //update service
-    public boolean updateService(int sID, String name, String category, double price, double discount, String description){
-
+    public boolean updateService(int sID, String name, double price, double discount, String description){
+/*, String category*/
         try{
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "UPDATE service set name = '"+name+"', category= '"+category+"', price= '"+price+"', discount= '"+discount+"', description= '"+description+"'"
-                         + "WHERE sid = 3";
+            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"', description= '"+description+"'"
+                         + "WHERE sid = 1";//, category= '"+category+"'
 
             int rs = stmt.executeUpdate(sql);
 

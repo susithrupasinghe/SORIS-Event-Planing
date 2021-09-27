@@ -39,11 +39,6 @@
 
 </head>
 
-
-<%
-    List<service> serviceDetails = (List<service>) request.getAttribute("servicesDetails");
-%>
-
 <body data-sidebar="dark">
 
 <!-- <body data-layout="horizontal" data-topbar="dark"> -->
@@ -260,6 +255,10 @@
                                         <th class="align-middle">Action</th>
                                     </tr>
                                     </thead>
+
+                                    <%
+                                        List<service> serviceDetails = (List<service>) request.getAttribute("servicesDetails");
+                                    %>
 
                                     <c:forEach var = "ser" items = "${serviceDetails}">
                                         <c:set var="sID" value="${ser.sID}" />

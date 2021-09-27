@@ -15,11 +15,11 @@
 
 <%
 //    String sID = request.getParameter("sID");
-    String name = request.getParameter("name");
+  /*  String name = request.getParameter("name");
     String category = request.getParameter("category");
     String price = request.getParameter("price");
     String discount = request.getParameter("discount");
-    String description = request.getParameter("description");
+    String description = request.getParameter("description");*/
 %>
 
 <!doctype html>
@@ -204,32 +204,32 @@
 
                                             <div class="mb-3">
                                                 <label for="servicetname">Service Name</label>
-                                                <input id="servicetname" name="servicetname" type="text" class="form-control" value="<%= name%>">
+                                                <input id="servicetname" name="servicetname" type="text" class="form-control" <%--value="<%= name%>"--%>>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="price">Price</label>
-                                                <input id="price" name="price" type="text" class="form-control" value="<%= price%>">
+                                                <input id="price" name="price" type="text" class="form-control" <%--value="<%= price%>"--%>>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="Discount">Discount</label>
-                                                <input id="Discount" name="Discount" type="text" class="form-control" value="<%= discount%>">
+                                                <input id="Discount" name="Discount" type="text" class="form-control" <%--value="<%= discount%>"--%>>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <div class="mb-3">
+                                           <%-- <div class="mb-3">
                                                 <label class="control-label">Category</label>
                                                 <select class="form-control select2" name = "Category">
                                                     <option>Select</option>
                                                     <option value="Wedding">Wedding</option>
                                                     <option value="Birthday">Birthday</option>
                                                 </select>
-                                            </div>
+                                            </div>--%>
 
                                             <div class="mb-3">
                                                 <label for="servicedesc">Service Description</label>
-                                                <textarea class="form-control" id="servicedesc" value="<%= description%>" rows="5"></textarea>
+                                                <textarea class="form-control" id="servicedesc" <%--value="<%= description%>"--%> rows="5"></textarea>
                                             </div>
 
                                         </div>
