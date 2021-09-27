@@ -1,4 +1,4 @@
-package com.soris.SORIS_planing.host.event.controllers;
+package com.soris.SORIS_planing.host.event;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
