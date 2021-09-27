@@ -22,8 +22,10 @@ public class serviceServlet extends HttpServlet {
 
         HttpSession session = request.getSession(false);
 
-        if(session.getAttribute("userid") != null && session.getAttribute("role") == "admin") {
-            String spID = request.getParameter("2");
+
+        if(session.getAttribute("userid") != null && session.getAttribute("role") == "sp") {
+            String spID = (String) session.getAttribute("userid");
+
 
             try {
                 serviceModel serviceMem = new serviceModel();

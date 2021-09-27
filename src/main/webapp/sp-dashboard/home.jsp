@@ -260,14 +260,32 @@
                                         List<service> serviceDetails = (List<service>) request.getAttribute("servicesDetails");
                                     %>
 
-                                    <c:forEach var = "ser" items = "${serviceDetails}">
-                                        <c:set var="sID" value="${ser.sID}" />
-                                        <c:set var="name" value="${ser.name}" />
-                                        <c:set var="category" value="${ser.category}" />
-                                        <c:set var="price" value="${ser.price}" />
-                                        <c:set var="discount" value="${ser.discount}" />
-                                        <c:set var="description" value="${ser.description}" />
                                     <tbody>
+                                    <tr>
+                                        <c:forEach var = "ser" items = "${serviceDetails}">
+                                           <td>
+                                               <c:set var="sID" value="${ser.getsID()}" />
+                                           </td>
+                                            <td>
+                                                <c:set var="name" value="${ser.getName()}" />
+                                            </td>
+                                            <td>
+                                                <c:set var="category" value="${ser.getCategory()}" />
+                                            </td>
+                                            <td>
+                                                <c:set var="price" value="${ser.getPrice()}" />
+                                            </td>
+                                            <td>
+                                                <c:set var="discount" value="${ser.getDiscount()}" />
+                                            </td>
+                                            <td>
+                                                <c:set var="description" value="${ser.getDescription()}" />
+                                            </td>
+
+                                    </tr>
+
+
+
                                     <tr>
                                         <td>
 <%--                                            <div class="form-check font-size-16">--%>
