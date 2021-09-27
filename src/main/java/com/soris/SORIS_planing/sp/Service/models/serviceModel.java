@@ -26,7 +26,9 @@ public class serviceModel {
             con = dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
+
             String sql = "insert into soris.service(spid,name,category,price,discount,description) values (0,'"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"')";
+
             int rs = stmt.executeUpdate(sql);
 
             if(rs > 0){

@@ -259,6 +259,7 @@
                                     <%
                                         List<service> serviceDetails = (List<service>) request.getAttribute("servicesDetails");
                                     %>
+
                                     <tbody>
                                     <tr>
                                         <c:forEach var = "ser" items = "${serviceDetails}">
@@ -282,6 +283,7 @@
                                             </td>
 
                                     </tr>
+
 
 
                                     <tr>
