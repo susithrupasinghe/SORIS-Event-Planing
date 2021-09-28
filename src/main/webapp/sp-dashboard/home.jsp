@@ -79,8 +79,6 @@
                         id="vertical-menu-btn">
                     <i class="fa fa-fw fa-bars"></i>
                 </button>
-
-
             </div>
 
             <div class="d-flex">
@@ -256,40 +254,46 @@
                                     </tr>
                                     </thead>
 
-                                    <%
-                                        List<service> serviceDetails = (List<service>) request.getAttribute("servicesDetails");
-                                    %>
+<%--                                    <%--%>
+<%--                                        List<service> serviceDetails = (List<service>) request.getAttribute("servicesDetails");--%>
+<%--                                    %>--%>
                                     <tbody>
-                                    <tr>
-                                        <c:forEach var = "ser" items = "${serviceDetails}">
-                                           <td>
-                                               <c:set var="sID" value="${ser.getsID()}" />
-                                           </td>
-                                            <td>
-                                                <c:set var="name" value="${ser.getName()}" />
-                                            </td>
-                                            <td>
-                                                <c:set var="category" value="${ser.getCategory()}" />
-                                            </td>
-                                            <td>
-                                                <c:set var="price" value="${ser.getPrice()}" />
-                                            </td>
-                                            <td>
-                                                <c:set var="discount" value="${ser.getDiscount()}" />
-                                            </td>
-                                            <td>
-                                                <c:set var="description" value="${ser.getDescription()}" />
-                                            </td>
 
+                                        <c:forEach var = "ser" items = "${servicesDetails}">
+                                        <c:set var="sID" value="${ser.sID}" />
+
+                                    <tr>
+                                           <td><a href="javascript: void(0);" class="text-body fw-bold">${ser.sID}<%--<c:set var="sID" value="${ser.getsID()}"/>--%></a></td>
+                                            <td><%--<c:set var="name" value="${ser.getName()}" />--%>${ser.sID}</td>
+                                            <td><%--<c:set var="category" value="${ser.getCategory()}" />--%>${ser.sID}</td>
+                                            <td><%--<c:set var="price" value="${ser.getPrice()}" />--%>${ser.sID}</td>
+                                            <td><span class="badge badge-pill badge-soft-success font-size-12">${ser.sID}<%--<c:set var="discount" value="${ser.getDiscount()}"/>--%></span></td>
+                                            <td><i class="fab fa-cc-mastercard me-1"></i>${ser.sID}<%--<c:set var="description" value="${ser.getDescription()}" />--%></td>
+                                        <td>
+                                            <span class="badge bg-success font-size-10">Completed</span>
+                                        </td>
+
+                                        <td>
+                                            <div class="d-flex gap-3">
+                                               <%-- <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">Update Details
+                                                </button><br>
+                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">Delete Service
+                                                </button>--%>
+
+                                                <a href="javascript:void(0);" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                                <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
+                                            </div>
+                                        </td>
+                                        </c:forEach>
                                     </tr>
 
 
-                                    <tr>
+                                 <%--   <tr>
                                         <td>
-<%--                                            <div class="form-check font-size-16">--%>
-<%--                                                <input class="form-check-input" type="checkbox" id="orderidcheck01">--%>
-<%--                                                <label class="form-check-label" for="orderidcheck01"></label>--%>
-<%--                                            </div>--%>
+&lt;%&ndash;                                            <div class="form-check font-size-16">&ndash;%&gt;
+&lt;%&ndash;                                                <input class="form-check-input" type="checkbox" id="orderidcheck01">&ndash;%&gt;
+&lt;%&ndash;                                                <label class="form-check-label" for="orderidcheck01"></label>&ndash;%&gt;
+&lt;%&ndash;                                            </div>&ndash;%&gt;
                                         </td>
                                         <td><a href="javascript: void(0);" class="text-body fw-bold">${ser.sID}</a> </td>
                                         <td><%=serviceDetails.get(1).getName()%></td>
@@ -304,20 +308,21 @@
 
                                         <td>
                                             <div class="d-flex gap-3">
-<%--                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">--%>
-<%--                                                    Update Details--%>
-<%--                                                </button><br>--%>
-<%--                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">--%>
-<%--                                                    Delete Service--%>
-<%--                                                </button>--%>
+&lt;%&ndash;                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">&ndash;%&gt;
+&lt;%&ndash;                                                    Update Details&ndash;%&gt;
+&lt;%&ndash;                                                </button><br>&ndash;%&gt;
+&lt;%&ndash;                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">&ndash;%&gt;
+&lt;%&ndash;                                                    Delete Service&ndash;%&gt;
+&lt;%&ndash;                                                </button>&ndash;%&gt;
 
                                                 <a href="javascript:void(0);" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
                                                 <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
                                             </div>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
+
                                     </tbody>
-                                    </c:forEach>
+
                                 </table>
                             </div>
 <%--                            <ul class="pagination pagination-rounded justify-content-end mb-2">--%>
@@ -402,12 +407,12 @@
 <%--<body>--%>
 <%--    <c:forEach var = "ser" items = "${servicesDetails}">--%>
 
-<%--        <c:set var="sID" value="${ser.sID}" />--%>
-<%--        <c:set var="name" value="${ser.name}" />--%>
-<%--        <c:set var="category" value="${ser.category}" />--%>
-<%--        <c:set var="price" value="${ser.price}" />--%>
-<%--        <c:set var="discount" value="${ser.discount}" />--%>
-<%--        <c:set var="description" value="${ser.description}" />--%>
+<%--        <c:set var="sID" value="${ser.sID}" />
+        <c:set var="name" value="${ser.name}" />
+        <c:set var="category" value="${ser.category}" />
+        <c:set var="price" value="${ser.price}" />
+        <c:set var="discount" value="${ser.discount}" />
+        <c:set var="description" value="${ser.description}" />--%>
 
 <%--        ${ser.sID}--%>
 <%--        ${ser.name}--%>

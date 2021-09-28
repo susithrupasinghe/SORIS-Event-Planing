@@ -57,10 +57,10 @@ public class serviceModel {
 
             while (rs.next()){
                 int sID = rs.getInt(1);
-                String name = rs.getString(3);
-                String category = rs.getString(4);
-                double price = rs.getDouble(5);
-                double discount = rs.getDouble(6);
+                String name = rs.getString(2);
+                String category = rs.getString(3);
+                double price = rs.getDouble(4);
+                double discount = rs.getDouble(5);
                 String description = rs.getString(6);
 
                 service s = new service(sID , name, category, price, discount, description);
