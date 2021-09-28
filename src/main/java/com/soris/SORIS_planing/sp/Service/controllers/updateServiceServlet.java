@@ -28,6 +28,7 @@ public class updateServiceServlet extends HttpServlet {
         boolean isTrue;
 
         int sIDi = Integer.parseInt(sID);
+        sIDi = 1;
         double priceD = Double.parseDouble(price);
         double DiscountD = Double.parseDouble(discount);
 
