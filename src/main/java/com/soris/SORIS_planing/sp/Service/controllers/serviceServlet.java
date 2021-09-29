@@ -25,6 +25,7 @@ public class serviceServlet extends HttpServlet {
                 serviceModel serviceMem = new serviceModel();
                 List<service> servicesDetails = serviceMem.getServiceDetails(spID);
                 request.setAttribute("servicesDetails", servicesDetails);
+                System.out.println("abs");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -37,23 +38,6 @@ public class serviceServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        HttpSession session = request.getSession(false);
 
-
-        if(session.getAttribute("userid") != null && session.getAttribute("role") == "sp") {
-            String spID = (String) session.getAttribute("userid");
-
-
-            try {
-                serviceModel serviceMem = new serviceModel();
-                List<service> servicesDetails = serviceMem.getServiceDetails(spID);
-                request.setAttribute("servicesDetails", servicesDetails);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            // User already logged in
-            request.getRequestDispatcher("/admin-dashboard/home.jsp").forward(request, response);
-
-        }
     }
 }

@@ -27,14 +27,14 @@ public class updateServiceServlet extends HttpServlet {
 
         boolean isTrue;
 
-        int sIDi = Integer.parseInt(sID);
-        sIDi = 1;
+        int sIdConvert = Integer.parseInt(sID);
+     /*   sIDi = 1;*/
         double priceD = Double.parseDouble(price);
         double DiscountD = Double.parseDouble(discount);
 
         serviceModel updService = new serviceModel();
 
-        isTrue = updService.updateService(sIDi, name, priceD, DiscountD, description);
+        isTrue = updService.updateService(sIdConvert, name, priceD, DiscountD, description);
 /*        category,*/
         if(isTrue == true){
 
