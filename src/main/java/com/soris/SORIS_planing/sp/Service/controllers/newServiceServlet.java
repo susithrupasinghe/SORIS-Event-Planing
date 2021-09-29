@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "NewServiceServlet", value = "/NewServiceServlet")
+@WebServlet(name = "newServiceServlet", value = "/newServiceServlet")
 public class newServiceServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,21 +26,55 @@ public class newServiceServlet extends HttpServlet {
         double priceD = Double.parseDouble(price);
         double DiscountD = Double.parseDouble(Discount);
 
-        serviceModel Newservice = new serviceModel();
-
-        isTrue = Newservice.insertService(serviceName, category, priceD, DiscountD, description);
-
-        if(isTrue == true){
-            RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");
-            dis.forward(request,response);
-        }else {
-            RequestDispatcher dis1 = request.getRequestDispatcher("home.jsp");
-            dis1.forward(request,response);
+        try{
+            serviceModel Newservice = new serviceModel();
+            isTrue = Newservice.insertService(serviceName,category,priceD,DiscountD,description);
+            if(isTrue == true){
+                RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");
+                dis.forward(request,response);
+            }else {
+                RequestDispatcher dis1 = request.getRequestDispatcher("/home.jsp");
+                dis1.forward(request,response);
+            }
+        }catch (Exception e){
+            System.out.println(e);
         }
+
+
+
+
+
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String serviceName = request.getParameter("servicetname");
+        String category = request.getParameter("Category");
+        String price = request.getParameter("price");
+        String Discount = request.getParameter("Discount");
+        String description = request.getParameter("servicedesc");
+
+        boolean isTrue;
+
+        double priceD = Double.parseDouble(price);
+        double DiscountD = Double.parseDouble(Discount);
+
+        try{
+            serviceModel Newservice = new serviceModel();
+            isTrue = Newservice.insertService(serviceName,category,priceD,DiscountD,description);
+            if(isTrue == true){
+                RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");
+                dis.forward(request,response);
+            }else {
+                RequestDispatcher dis1 = request.getRequestDispatcher("/home.jsp");
+                dis1.forward(request,response);
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+
+
 
     }
 }

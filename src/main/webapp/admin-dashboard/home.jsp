@@ -16,7 +16,6 @@
 
     <meta charset="utf-8"/>
     <title>Admin dashabord - SORIS</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
@@ -35,11 +34,11 @@
 
 </head>
 <%
-    int serviceProvidersCount = (int)request.getAttribute("spCount");
-    int hostUserCount = (int)request.getAttribute("hostCount");
-    int servicesCount = (int)request.getAttribute("serviceCount");
-    int eventCount = (int)request.getAttribute("eventCount");
-    HashMap<String,Integer> serviceSummery = (HashMap<String,Integer>)request.getAttribute("serviceSummery");
+    int serviceProvidersCount = (int) request.getAttribute("spCount");
+    int hostUserCount = (int) request.getAttribute("hostCount");
+    int servicesCount = (int) request.getAttribute("serviceCount");
+    int eventCount = (int) request.getAttribute("eventCount");
+    HashMap<String, Integer> serviceSummery = (HashMap<String, Integer>) request.getAttribute("serviceSummery");
     List<topServiceProviderModel> topServiceProviderlist = (List<topServiceProviderModel>) request.getAttribute("topSpList");
     List<topServiceModel> topServicelist = (List<topServiceModel>) request.getAttribute("topServices");
 
@@ -121,7 +120,8 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                        <span class="d-none d-xl-inline-block ms-1"
+                              key="t-henry"><%=session.getAttribute("username")%></span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
@@ -154,12 +154,12 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/adminHome" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/adminServices" class="waves-effect">
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>
@@ -189,7 +189,8 @@
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
                                         <p class="text-muted fw-medium">Service Providers</p>
-                                        <h4 class="mb-0"><%=serviceProvidersCount%></h4>
+                                        <h4 class="mb-0"><%=serviceProvidersCount%>
+                                        </h4>
                                     </div>
 
                                     <div class="flex-shrink-0 align-self-center">
@@ -209,7 +210,8 @@
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
                                         <p class="text-muted fw-medium">Host Users</p>
-                                        <h4 class="mb-0"><%=hostUserCount%></h4>
+                                        <h4 class="mb-0"><%=hostUserCount%>
+                                        </h4>
                                     </div>
 
                                     <div class="flex-shrink-0 align-self-center ">
@@ -229,7 +231,8 @@
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
                                         <p class="text-muted fw-medium">Services</p>
-                                        <h4 class="mb-0"><%=servicesCount%></h4>
+                                        <h4 class="mb-0"><%=servicesCount%>
+                                        </h4>
                                     </div>
 
                                     <div class="flex-shrink-0 align-self-center">
@@ -250,7 +253,8 @@
                                 <div class="d-flex">
                                     <div class="flex-grow-1">
                                         <p class="text-muted fw-medium">Event Count</p>
-                                        <h4 class="mb-0"><%=eventCount%></h4>
+                                        <h4 class="mb-0"><%=eventCount%>
+                                        </h4>
                                     </div>
 
                                     <div class="flex-shrink-0 align-self-center">
@@ -264,9 +268,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
                     <div class="col-xl-4">
                         <div class="card">
                             <div class="card-body">
@@ -276,7 +278,8 @@
                                     <div class="mb-4">
                                         <i class="bx bx-map-pin text-primary display-4"></i>
                                     </div>
-                                    <h3><%=serviceSummery.get("pending")%></h3>
+                                    <h3><%=serviceSummery.get("pending")%>
+                                    </h3>
                                     <p>Waiting for Approval</p>
                                 </div>
 
@@ -288,11 +291,13 @@
                                                 <p class="mb-0">Waiting for Approval</p>
                                             </td>
                                             <td style="width: 25%">
-                                                <h5 class="mb-0"><%=serviceSummery.get("pending")%></h5></td>
+                                                <h5 class="mb-0"><%=serviceSummery.get("pending")%>
+                                                </h5></td>
                                             <td>
                                                 <div class="progress bg-transparent progress-sm">
                                                     <div class="progress-bar bg-primary rounded" role="progressbar"
-                                                         style="width: <%=((serviceSummery.get("pending")/serviceSummery.get("total").floatValue()))*100%>%" aria-valuenow="" aria-valuemin="0"
+                                                         style="width: <%=((serviceSummery.get("pending")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
                                                          aria-valuemax="100"></div>
                                                 </div>
                                             </td>
@@ -302,12 +307,14 @@
                                                 <p class="mb-0">Approved</p>
                                             </td>
                                             <td>
-                                                <h5 class="mb-0"><%=serviceSummery.get("approved")%></h5>
+                                                <h5 class="mb-0"><%=serviceSummery.get("approved")%>
+                                                </h5>
                                             </td>
                                             <td>
                                                 <div class="progress bg-transparent progress-sm">
                                                     <div class="progress-bar bg-success rounded" role="progressbar"
-                                                         style="width: <%=((serviceSummery.get("approved")/serviceSummery.get("total").floatValue()))*100%>%" aria-valuenow="" aria-valuemin="0"
+                                                         style="width: <%=((serviceSummery.get("approved")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
                                                          aria-valuemax="100"></div>
                                                 </div>
                                             </td>
@@ -317,12 +324,14 @@
                                                 <p class="mb-0">Rejected</p>
                                             </td>
                                             <td>
-                                                <h5 class="mb-0"><%=serviceSummery.get("rejected")%></h5>
+                                                <h5 class="mb-0"><%=serviceSummery.get("rejected")%>
+                                                </h5>
                                             </td>
                                             <td>
                                                 <div class="progress bg-transparent progress-sm">
                                                     <div class="progress-bar bg-warning rounded" role="progressbar"
-                                                         style="width: <%=((serviceSummery.get("rejected")/serviceSummery.get("total").floatValue()))*100%>%" aria-valuenow="" aria-valuemin="0"
+                                                         style="width: <%=((serviceSummery.get("rejected")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
                                                          aria-valuemax="100"></div>
                                                 </div>
                                             </td>
@@ -332,12 +341,14 @@
                                                 <p class="mb-0">Suspended</p>
                                             </td>
                                             <td>
-                                                <h5 class="mb-0"><%=serviceSummery.get("suspended")%></h5>
+                                                <h5 class="mb-0"><%=serviceSummery.get("suspended")%>
+                                                </h5>
                                             </td>
                                             <td>
                                                 <div class="progress bg-transparent progress-sm">
                                                     <div class="progress-bar bg-warning rounded" role="progressbar"
-                                                         style="width: <%=((serviceSummery.get("suspended")/serviceSummery.get("total").floatValue()))*100%>%" aria-valuenow="" aria-valuemin="0"
+                                                         style="width: <%=((serviceSummery.get("suspended")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
                                                          aria-valuemax="100"></div>
                                                 </div>
                                             </td>
@@ -348,330 +359,89 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-xl-4">
                         <div class="card">
                             <div class="card-body">
-                                <div class="clearfix">
+                                <h4 class="card-title mb-4">Top Service Providers</h4>
 
-                                    <h4 class="card-title mb-4">Top Service Providers</h4>
-                                </div>
-
-                                <div class="text-muted text-center">
-                                    <p class="mb-2"><%=topServiceProviderlist.get(0).getBrandName()%></p>
-                                    <h4><%=topServiceProviderlist.get(0).getCount()%></h4>
-
+                                <div class="text-center">
+                                    <div class="mb-4">
+                                        <i class="bx bx-map-pin text-primary display-4"></i>
+                                    </div>
+                                    <h3><%= topServiceProviderlist.get(0).getCount()%>
+                                    </h3>
+                                    <p><%= topServiceProviderlist.get(0).getBrandName()%></p>
                                 </div>
 
                                 <div class="table-responsive mt-4">
-                                    <table class="table align-middle mb-0">
+                                    <table class="table align-middle table-nowrap">
                                         <tbody>
                                         <tr>
-                                            <td>
-                                                <h5 class="font-size-14 mb-1"><%=topServiceProviderlist.get(0).getBrandName()%></h5>
-                                                <p class="text-muted mb-0"><%=topServiceProviderlist.get(0).getCount()%></p>
+                                            <td style="width: 30%">
+                                                <p class="mb-0"><%= topServiceProviderlist.get(0).getBrandName()%></p>
                                             </td>
-
-                                            <td style="position: relative;">
-                                                <div id="radialchart-1" class="apex-charts" style="min-height: 61px;">
-                                                    <div id="apexchartsfxravzp9"
-                                                         class="apexcharts-canvas apexchartsfxravzp9 apexcharts-theme-light"
-                                                         style="width: 60px; height: 61px;">
-                                                        <svg id="SvgjsSvg1166" width="60" height="61"
-                                                             xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                             xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg"
-                                                             xmlns:data="ApexChartsNS" transform="translate(0, 0)"
-                                                             style="background: transparent;">
-                                                            <g id="SvgjsG1168"
-                                                               class="apexcharts-inner apexcharts-graphical"
-                                                               transform="translate(0, 0)">
-                                                                <defs id="SvgjsDefs1167">
-                                                                    <clipPath id="gridRectMaskfxravzp9">
-                                                                        <rect id="SvgjsRect1170" width="66" height="62"
-                                                                              x="-3" y="-1" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                    <clipPath id="gridRectMarkerMaskfxravzp9">
-                                                                        <rect id="SvgjsRect1171" width="64" height="64"
-                                                                              x="-2" y="-2" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                </defs>
-                                                                <g id="SvgjsG1172" class="apexcharts-radialbar">
-                                                                    <g id="SvgjsG1173">
-                                                                        <g id="SvgjsG1174" class="apexcharts-tracks">
-                                                                            <g id="SvgjsG1175"
-                                                                               class="apexcharts-radialbar-track apexcharts-track"
-                                                                               rel="1">
-                                                                                <path id="apexcharts-radialbarTrack-0"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"
-                                                                                      fill="none" fill-opacity="1"
-                                                                                      stroke="rgba(242,242,242,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.678048780487805"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"></path>
-                                                                            </g>
-                                                                        </g>
-                                                                        <g id="SvgjsG1177">
-                                                                            <g id="SvgjsG1179"
-                                                                               class="apexcharts-series apexcharts-radial-series"
-                                                                               seriesName="seriesx1" rel="1"
-                                                                               data:realIndex="0">
-                                                                                <path id="SvgjsPath1180"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 0 1 44.98383193561228 43.972649328109725"
-                                                                                      fill="none" fill-opacity="0.85"
-                                                                                      stroke="rgba(232,80,91,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.853658536585366"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area apexcharts-radialbar-slice-0"
-                                                                                      data:angle="133" data:value="37"
-                                                                                      index="0" j="0"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 0 1 44.98383193561228 43.972649328109725"></path>
-                                                                            </g>
-                                                                            <circle id="SvgjsCircle1178"
-                                                                                    r="17.64878048780488" cx="30"
-                                                                                    cy="30"
-                                                                                    class="apexcharts-radialbar-hollow"
-                                                                                    fill="transparent"></circle>
-                                                                        </g>
-                                                                    </g>
-                                                                </g>
-                                                                <line id="SvgjsLine1181" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke="#b6b6b6" stroke-dasharray="0"
-                                                                      stroke-width="1"
-                                                                      class="apexcharts-ycrosshairs"></line>
-                                                                <line id="SvgjsLine1182" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke-dasharray="0" stroke-width="0"
-                                                                      class="apexcharts-ycrosshairs-hidden"></line>
-                                                            </g>
-                                                            <g id="SvgjsG1169" class="apexcharts-annotations"></g>
-                                                        </svg>
-                                                        <div class="apexcharts-legend"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="resize-triggers">
-                                                    <div class="expand-trigger">
-                                                        <div style="width: 91px; height: 86px;"></div>
-                                                    </div>
-                                                    <div class="contract-trigger"></div>
-                                                </div>
-                                            </td>
+                                            <td style="width: 25%">
+                                                <h5 class="mb-0"><%= topServiceProviderlist.get(0).getCount()%>
+                                                </h5></td>
                                             <td>
-                                                <p class="text-muted mb-1">Sales</p>
-                                                <h5 class="mb-0">37 %</h5>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar"
+                                                         style="width: <%=(topServiceProviderlist.get(0).getCount()/ (float) serviceProvidersCount)*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h5 class="font-size-14 mb-1"><%=topServiceProviderlist.get(1).getBrandName()%></h5>
-                                                <p class="text-muted mb-0"><%=topServiceProviderlist.get(1).getCount()%></p>
-                                            </td>
-
-                                            <td style="position: relative;">
-                                                <div id="radialchart-2" class="apex-charts" style="min-height: 61px;">
-                                                    <div id="apexcharts0jcvgwja"
-                                                         class="apexcharts-canvas apexcharts0jcvgwja apexcharts-theme-light"
-                                                         style="width: 60px; height: 61px;">
-                                                        <svg id="SvgjsSvg1183" width="60" height="61"
-                                                             xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                             xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg"
-                                                             xmlns:data="ApexChartsNS" transform="translate(0, 0)"
-                                                             style="background: transparent;">
-                                                            <g id="SvgjsG1185"
-                                                               class="apexcharts-inner apexcharts-graphical"
-                                                               transform="translate(0, 0)">
-                                                                <defs id="SvgjsDefs1184">
-                                                                    <clipPath id="gridRectMask0jcvgwja">
-                                                                        <rect id="SvgjsRect1187" width="66" height="62"
-                                                                              x="-3" y="-1" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                    <clipPath id="gridRectMarkerMask0jcvgwja">
-                                                                        <rect id="SvgjsRect1188" width="64" height="64"
-                                                                              x="-2" y="-2" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                </defs>
-                                                                <g id="SvgjsG1189" class="apexcharts-radialbar">
-                                                                    <g id="SvgjsG1190">
-                                                                        <g id="SvgjsG1191" class="apexcharts-tracks">
-                                                                            <g id="SvgjsG1192"
-                                                                               class="apexcharts-radialbar-track apexcharts-track"
-                                                                               rel="1">
-                                                                                <path id="apexcharts-radialbarTrack-0"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"
-                                                                                      fill="none" fill-opacity="1"
-                                                                                      stroke="rgba(242,242,242,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.678048780487805"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"></path>
-                                                                            </g>
-                                                                        </g>
-                                                                        <g id="SvgjsG1194">
-                                                                            <g id="SvgjsG1196"
-                                                                               class="apexcharts-series apexcharts-radial-series"
-                                                                               seriesName="seriesx1" rel="1"
-                                                                               data:realIndex="0">
-                                                                                <path id="SvgjsPath1197"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 9.888613802535662 33.90925746625116"
-                                                                                      fill="none" fill-opacity="0.85"
-                                                                                      stroke="rgba(52,195,143,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.853658536585366"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area apexcharts-radialbar-slice-0"
-                                                                                      data:angle="259" data:value="72"
-                                                                                      index="0" j="0"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 9.888613802535662 33.90925746625116"></path>
-                                                                            </g>
-                                                                            <circle id="SvgjsCircle1195"
-                                                                                    r="17.64878048780488" cx="30"
-                                                                                    cy="30"
-                                                                                    class="apexcharts-radialbar-hollow"
-                                                                                    fill="transparent"></circle>
-                                                                        </g>
-                                                                    </g>
-                                                                </g>
-                                                                <line id="SvgjsLine1198" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke="#b6b6b6" stroke-dasharray="0"
-                                                                      stroke-width="1"
-                                                                      class="apexcharts-ycrosshairs"></line>
-                                                                <line id="SvgjsLine1199" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke-dasharray="0" stroke-width="0"
-                                                                      class="apexcharts-ycrosshairs-hidden"></line>
-                                                            </g>
-                                                            <g id="SvgjsG1186" class="apexcharts-annotations"></g>
-                                                        </svg>
-                                                        <div class="apexcharts-legend"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="resize-triggers">
-                                                    <div class="expand-trigger">
-                                                        <div style="width: 91px; height: 86px;"></div>
-                                                    </div>
-                                                    <div class="contract-trigger"></div>
-                                                </div>
+                                                <p class="mb-0"><%= topServiceProviderlist.get(1).getBrandName()%></p>
                                             </td>
                                             <td>
-                                                <p class="text-muted mb-1">Sales</p>
-                                                <h5 class="mb-0">72 %</h5>
+                                                <h5 class="mb-0"><%= topServiceProviderlist.get(1).getCount()%>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar"
+                                                         style="width: <%=(topServiceProviderlist.get(1).getCount()/ (float) serviceProvidersCount)*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h5 class="font-size-14 mb-1"><%=topServiceProviderlist.get(2).getBrandName()%></h5>
-                                                <p class="text-muted mb-0"><%=topServiceProviderlist.get(2).getCount()%></p>
-                                            </td>
-
-                                            <td style="position: relative;">
-                                                <div id="radialchart-3" class="apex-charts" style="min-height: 61px;">
-                                                    <div id="apexchartsdz4xsfuw"
-                                                         class="apexcharts-canvas apexchartsdz4xsfuw apexcharts-theme-light"
-                                                         style="width: 60px; height: 61px;">
-                                                        <svg id="SvgjsSvg1200" width="60" height="61"
-                                                             xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                             xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg"
-                                                             xmlns:data="ApexChartsNS" transform="translate(0, 0)"
-                                                             style="background: transparent;">
-                                                            <g id="SvgjsG1202"
-                                                               class="apexcharts-inner apexcharts-graphical"
-                                                               transform="translate(0, 0)">
-                                                                <defs id="SvgjsDefs1201">
-                                                                    <clipPath id="gridRectMaskdz4xsfuw">
-                                                                        <rect id="SvgjsRect1204" width="66" height="62"
-                                                                              x="-3" y="-1" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                    <clipPath id="gridRectMarkerMaskdz4xsfuw">
-                                                                        <rect id="SvgjsRect1205" width="64" height="64"
-                                                                              x="-2" y="-2" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                </defs>
-                                                                <g id="SvgjsG1206" class="apexcharts-radialbar">
-                                                                    <g id="SvgjsG1207">
-                                                                        <g id="SvgjsG1208" class="apexcharts-tracks">
-                                                                            <g id="SvgjsG1209"
-                                                                               class="apexcharts-radialbar-track apexcharts-track"
-                                                                               rel="1">
-                                                                                <path id="apexcharts-radialbarTrack-0"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"
-                                                                                      fill="none" fill-opacity="1"
-                                                                                      stroke="rgba(242,242,242,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.678048780487805"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"></path>
-                                                                            </g>
-                                                                        </g>
-                                                                        <g id="SvgjsG1211">
-                                                                            <g id="SvgjsG1213"
-                                                                               class="apexcharts-series apexcharts-radial-series"
-                                                                               seriesName="seriesx1" rel="1"
-                                                                               data:realIndex="0">
-                                                                                <path id="SvgjsPath1214"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 25.043551407226317 49.87922951394725"
-                                                                                      fill="none" fill-opacity="0.85"
-                                                                                      stroke="rgba(244,106,106,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.853658536585366"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area apexcharts-radialbar-slice-0"
-                                                                                      data:angle="194" data:value="54"
-                                                                                      index="0" j="0"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 25.043551407226317 49.87922951394725"></path>
-                                                                            </g>
-                                                                            <circle id="SvgjsCircle1212"
-                                                                                    r="17.64878048780488" cx="30"
-                                                                                    cy="30"
-                                                                                    class="apexcharts-radialbar-hollow"
-                                                                                    fill="transparent"></circle>
-                                                                        </g>
-                                                                    </g>
-                                                                </g>
-                                                                <line id="SvgjsLine1215" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke="#b6b6b6" stroke-dasharray="0"
-                                                                      stroke-width="1"
-                                                                      class="apexcharts-ycrosshairs"></line>
-                                                                <line id="SvgjsLine1216" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke-dasharray="0" stroke-width="0"
-                                                                      class="apexcharts-ycrosshairs-hidden"></line>
-                                                            </g>
-                                                            <g id="SvgjsG1203" class="apexcharts-annotations"></g>
-                                                        </svg>
-                                                        <div class="apexcharts-legend"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="resize-triggers">
-                                                    <div class="expand-trigger">
-                                                        <div style="width: 91px; height: 86px;"></div>
-                                                    </div>
-                                                    <div class="contract-trigger"></div>
-                                                </div>
+                                                <p class="mb-0"><%= topServiceProviderlist.get(2).getBrandName()%></p>
                                             </td>
                                             <td>
-                                                <p class="text-muted mb-1">Sales</p>
-                                                <h5 class="mb-0">54 %</h5>
+                                                <h5 class="mb-0"><%= topServiceProviderlist.get(2).getCount()%>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar"
+                                                         style="width: <%=(topServiceProviderlist.get(2).getCount()/ (float) serviceProvidersCount)*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="mb-0"><%= topServiceProviderlist.get(3).getBrandName()%></p>
+                                            </td>
+                                            <td>
+                                                <h5 class="mb-0"><%= topServiceProviderlist.get(3).getCount()%>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar"
+                                                         style="width: <%=(topServiceProviderlist.get(3).getCount()/ (float) serviceProvidersCount)*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -680,330 +450,89 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-xl-4">
                         <div class="card">
                             <div class="card-body">
-                                <div class="clearfix">
+                                <h4 class="card-title mb-4">Top Services</h4>
 
-                                    <h4 class="card-title mb-4">Top Selling product</h4>
-                                </div>
-
-                                <div class="text-muted text-center">
-                                    <p class="mb-2">Product A</p>
-                                    <h4>$ 6385</h4>
-
+                                <div class="text-center">
+                                    <div class="mb-4">
+                                        <i class="bx bx-map-pin text-primary display-4"></i>
+                                    </div>
+                                    <h3><%= topServicelist.get(0).getCount()%>
+                                    </h3>
+                                    <p><%= topServicelist.get(0).getName()%></p>
                                 </div>
 
                                 <div class="table-responsive mt-4">
-                                    <table class="table align-middle mb-0">
+                                    <table class="table align-middle table-nowrap">
                                         <tbody>
                                         <tr>
-                                            <td>
-                                                <h5 class="font-size-14 mb-1">Product A</h5>
-                                                <p class="text-muted mb-0">Neque quis est</p>
+                                            <td style="width: 30%">
+                                                <p class="mb-0"><%= topServicelist.get(0).getName()%></p>
                                             </td>
-
-                                            <td style="position: relative;">
-                                                <div id="radialchart-1" class="apex-charts" style="min-height: 61px;">
-                                                    <div id="apexchartsfxravzp9"
-                                                         class="apexcharts-canvas apexchartsfxravzp9 apexcharts-theme-light"
-                                                         style="width: 60px; height: 61px;">
-                                                        <svg id="SvgjsSvg1166" width="60" height="61"
-                                                             xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                             xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg"
-                                                             xmlns:data="ApexChartsNS" transform="translate(0, 0)"
-                                                             style="background: transparent;">
-                                                            <g id="SvgjsG1168"
-                                                               class="apexcharts-inner apexcharts-graphical"
-                                                               transform="translate(0, 0)">
-                                                                <defs id="SvgjsDefs1167">
-                                                                    <clipPath id="gridRectMaskfxravzp9">
-                                                                        <rect id="SvgjsRect1170" width="66" height="62"
-                                                                              x="-3" y="-1" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                    <clipPath id="gridRectMarkerMaskfxravzp9">
-                                                                        <rect id="SvgjsRect1171" width="64" height="64"
-                                                                              x="-2" y="-2" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                </defs>
-                                                                <g id="SvgjsG1172" class="apexcharts-radialbar">
-                                                                    <g id="SvgjsG1173">
-                                                                        <g id="SvgjsG1174" class="apexcharts-tracks">
-                                                                            <g id="SvgjsG1175"
-                                                                               class="apexcharts-radialbar-track apexcharts-track"
-                                                                               rel="1">
-                                                                                <path id="apexcharts-radialbarTrack-0"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"
-                                                                                      fill="none" fill-opacity="1"
-                                                                                      stroke="rgba(242,242,242,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.678048780487805"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"></path>
-                                                                            </g>
-                                                                        </g>
-                                                                        <g id="SvgjsG1177">
-                                                                            <g id="SvgjsG1179"
-                                                                               class="apexcharts-series apexcharts-radial-series"
-                                                                               seriesName="seriesx1" rel="1"
-                                                                               data:realIndex="0">
-                                                                                <path id="SvgjsPath1180"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 0 1 44.98383193561228 43.972649328109725"
-                                                                                      fill="none" fill-opacity="0.85"
-                                                                                      stroke="rgba(232,80,91,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.853658536585366"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area apexcharts-radialbar-slice-0"
-                                                                                      data:angle="133" data:value="37"
-                                                                                      index="0" j="0"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 0 1 44.98383193561228 43.972649328109725"></path>
-                                                                            </g>
-                                                                            <circle id="SvgjsCircle1178"
-                                                                                    r="17.64878048780488" cx="30"
-                                                                                    cy="30"
-                                                                                    class="apexcharts-radialbar-hollow"
-                                                                                    fill="transparent"></circle>
-                                                                        </g>
-                                                                    </g>
-                                                                </g>
-                                                                <line id="SvgjsLine1181" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke="#b6b6b6" stroke-dasharray="0"
-                                                                      stroke-width="1"
-                                                                      class="apexcharts-ycrosshairs"></line>
-                                                                <line id="SvgjsLine1182" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke-dasharray="0" stroke-width="0"
-                                                                      class="apexcharts-ycrosshairs-hidden"></line>
-                                                            </g>
-                                                            <g id="SvgjsG1169" class="apexcharts-annotations"></g>
-                                                        </svg>
-                                                        <div class="apexcharts-legend"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="resize-triggers">
-                                                    <div class="expand-trigger">
-                                                        <div style="width: 91px; height: 86px;"></div>
-                                                    </div>
-                                                    <div class="contract-trigger"></div>
-                                                </div>
-                                            </td>
+                                            <td style="width: 25%">
+                                                <h5 class="mb-0"><%= topServicelist.get(0).getCount()%>
+                                                </h5></td>
                                             <td>
-                                                <p class="text-muted mb-1">Sales</p>
-                                                <h5 class="mb-0">37 %</h5>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar"
+                                                         style="width: <%=((topServicelist.get(0).getCount()/(float)servicesCount))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h5 class="font-size-14 mb-1">Product B</h5>
-                                                <p class="text-muted mb-0">Quis autem iure</p>
-                                            </td>
-
-                                            <td style="position: relative;">
-                                                <div id="radialchart-2" class="apex-charts" style="min-height: 61px;">
-                                                    <div id="apexcharts0jcvgwja"
-                                                         class="apexcharts-canvas apexcharts0jcvgwja apexcharts-theme-light"
-                                                         style="width: 60px; height: 61px;">
-                                                        <svg id="SvgjsSvg1183" width="60" height="61"
-                                                             xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                             xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg"
-                                                             xmlns:data="ApexChartsNS" transform="translate(0, 0)"
-                                                             style="background: transparent;">
-                                                            <g id="SvgjsG1185"
-                                                               class="apexcharts-inner apexcharts-graphical"
-                                                               transform="translate(0, 0)">
-                                                                <defs id="SvgjsDefs1184">
-                                                                    <clipPath id="gridRectMask0jcvgwja">
-                                                                        <rect id="SvgjsRect1187" width="66" height="62"
-                                                                              x="-3" y="-1" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                    <clipPath id="gridRectMarkerMask0jcvgwja">
-                                                                        <rect id="SvgjsRect1188" width="64" height="64"
-                                                                              x="-2" y="-2" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                </defs>
-                                                                <g id="SvgjsG1189" class="apexcharts-radialbar">
-                                                                    <g id="SvgjsG1190">
-                                                                        <g id="SvgjsG1191" class="apexcharts-tracks">
-                                                                            <g id="SvgjsG1192"
-                                                                               class="apexcharts-radialbar-track apexcharts-track"
-                                                                               rel="1">
-                                                                                <path id="apexcharts-radialbarTrack-0"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"
-                                                                                      fill="none" fill-opacity="1"
-                                                                                      stroke="rgba(242,242,242,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.678048780487805"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"></path>
-                                                                            </g>
-                                                                        </g>
-                                                                        <g id="SvgjsG1194">
-                                                                            <g id="SvgjsG1196"
-                                                                               class="apexcharts-series apexcharts-radial-series"
-                                                                               seriesName="seriesx1" rel="1"
-                                                                               data:realIndex="0">
-                                                                                <path id="SvgjsPath1197"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 9.888613802535662 33.90925746625116"
-                                                                                      fill="none" fill-opacity="0.85"
-                                                                                      stroke="rgba(52,195,143,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.853658536585366"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area apexcharts-radialbar-slice-0"
-                                                                                      data:angle="259" data:value="72"
-                                                                                      index="0" j="0"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 9.888613802535662 33.90925746625116"></path>
-                                                                            </g>
-                                                                            <circle id="SvgjsCircle1195"
-                                                                                    r="17.64878048780488" cx="30"
-                                                                                    cy="30"
-                                                                                    class="apexcharts-radialbar-hollow"
-                                                                                    fill="transparent"></circle>
-                                                                        </g>
-                                                                    </g>
-                                                                </g>
-                                                                <line id="SvgjsLine1198" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke="#b6b6b6" stroke-dasharray="0"
-                                                                      stroke-width="1"
-                                                                      class="apexcharts-ycrosshairs"></line>
-                                                                <line id="SvgjsLine1199" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke-dasharray="0" stroke-width="0"
-                                                                      class="apexcharts-ycrosshairs-hidden"></line>
-                                                            </g>
-                                                            <g id="SvgjsG1186" class="apexcharts-annotations"></g>
-                                                        </svg>
-                                                        <div class="apexcharts-legend"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="resize-triggers">
-                                                    <div class="expand-trigger">
-                                                        <div style="width: 91px; height: 86px;"></div>
-                                                    </div>
-                                                    <div class="contract-trigger"></div>
-                                                </div>
+                                                <p class="mb-0"><%= topServicelist.get(1).getName()%></p>
                                             </td>
                                             <td>
-                                                <p class="text-muted mb-1">Sales</p>
-                                                <h5 class="mb-0">72 %</h5>
+                                                <h5 class="mb-0"><%= topServicelist.get(1).getCount()%>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar"
+                                                         style="width: <%=((topServicelist.get(1).getCount()/(float)servicesCount))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h5 class="font-size-14 mb-1">Product C</h5>
-                                                <p class="text-muted mb-0">Sed aliquam mauris.</p>
-                                            </td>
-
-                                            <td style="position: relative;">
-                                                <div id="radialchart-3" class="apex-charts" style="min-height: 61px;">
-                                                    <div id="apexchartsdz4xsfuw"
-                                                         class="apexcharts-canvas apexchartsdz4xsfuw apexcharts-theme-light"
-                                                         style="width: 60px; height: 61px;">
-                                                        <svg id="SvgjsSvg1200" width="60" height="61"
-                                                             xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                             xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg"
-                                                             xmlns:data="ApexChartsNS" transform="translate(0, 0)"
-                                                             style="background: transparent;">
-                                                            <g id="SvgjsG1202"
-                                                               class="apexcharts-inner apexcharts-graphical"
-                                                               transform="translate(0, 0)">
-                                                                <defs id="SvgjsDefs1201">
-                                                                    <clipPath id="gridRectMaskdz4xsfuw">
-                                                                        <rect id="SvgjsRect1204" width="66" height="62"
-                                                                              x="-3" y="-1" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                    <clipPath id="gridRectMarkerMaskdz4xsfuw">
-                                                                        <rect id="SvgjsRect1205" width="64" height="64"
-                                                                              x="-2" y="-2" rx="0" ry="0" opacity="1"
-                                                                              stroke-width="0" stroke="none"
-                                                                              stroke-dasharray="0" fill="#fff"></rect>
-                                                                    </clipPath>
-                                                                </defs>
-                                                                <g id="SvgjsG1206" class="apexcharts-radialbar">
-                                                                    <g id="SvgjsG1207">
-                                                                        <g id="SvgjsG1208" class="apexcharts-tracks">
-                                                                            <g id="SvgjsG1209"
-                                                                               class="apexcharts-radialbar-track apexcharts-track"
-                                                                               rel="1">
-                                                                                <path id="apexcharts-radialbarTrack-0"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"
-                                                                                      fill="none" fill-opacity="1"
-                                                                                      stroke="rgba(242,242,242,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.678048780487805"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 29.99642420350187 9.512195433998325"></path>
-                                                                            </g>
-                                                                        </g>
-                                                                        <g id="SvgjsG1211">
-                                                                            <g id="SvgjsG1213"
-                                                                               class="apexcharts-series apexcharts-radial-series"
-                                                                               seriesName="seriesx1" rel="1"
-                                                                               data:realIndex="0">
-                                                                                <path id="SvgjsPath1214"
-                                                                                      d="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 25.043551407226317 49.87922951394725"
-                                                                                      fill="none" fill-opacity="0.85"
-                                                                                      stroke="rgba(244,106,106,0.85)"
-                                                                                      stroke-opacity="1"
-                                                                                      stroke-linecap="butt"
-                                                                                      stroke-width="5.853658536585366"
-                                                                                      stroke-dasharray="0"
-                                                                                      class="apexcharts-radialbar-area apexcharts-radialbar-slice-0"
-                                                                                      data:angle="194" data:value="54"
-                                                                                      index="0" j="0"
-                                                                                      data:pathOrig="M 30 9.512195121951216 A 20.487804878048784 20.487804878048784 0 1 1 25.043551407226317 49.87922951394725"></path>
-                                                                            </g>
-                                                                            <circle id="SvgjsCircle1212"
-                                                                                    r="17.64878048780488" cx="30"
-                                                                                    cy="30"
-                                                                                    class="apexcharts-radialbar-hollow"
-                                                                                    fill="transparent"></circle>
-                                                                        </g>
-                                                                    </g>
-                                                                </g>
-                                                                <line id="SvgjsLine1215" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke="#b6b6b6" stroke-dasharray="0"
-                                                                      stroke-width="1"
-                                                                      class="apexcharts-ycrosshairs"></line>
-                                                                <line id="SvgjsLine1216" x1="0" y1="0" x2="60" y2="0"
-                                                                      stroke-dasharray="0" stroke-width="0"
-                                                                      class="apexcharts-ycrosshairs-hidden"></line>
-                                                            </g>
-                                                            <g id="SvgjsG1203" class="apexcharts-annotations"></g>
-                                                        </svg>
-                                                        <div class="apexcharts-legend"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="resize-triggers">
-                                                    <div class="expand-trigger">
-                                                        <div style="width: 91px; height: 86px;"></div>
-                                                    </div>
-                                                    <div class="contract-trigger"></div>
-                                                </div>
+                                                <p class="mb-0"><%= topServicelist.get(2).getName()%></p>
                                             </td>
                                             <td>
-                                                <p class="text-muted mb-1">Sales</p>
-                                                <h5 class="mb-0">54 %</h5>
+                                                <h5 class="mb-0"><%= topServicelist.get(2).getCount()%>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar"
+                                                         style="width: <%=((topServicelist.get(2).getCount()/(float)servicesCount))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="mb-0"><%= topServicelist.get(3).getName()%></p>
+                                            </td>
+                                            <td>
+                                                <h5 class="mb-0"><%= topServicelist.get(3).getCount()%>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar"
+                                                         style="width: <%=((topServicelist.get(3).getCount()/(float)servicesCount))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -1011,6 +540,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
                 </div>

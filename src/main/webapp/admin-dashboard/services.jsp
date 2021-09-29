@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Dell
@@ -108,7 +109,7 @@
             <img class="rounded-circle header-profile-user"
                  src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                  alt="Header Avatar">
-            <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+            <span class="d-none d-xl-inline-block ms-1" key="t-henry"><%=session.getAttribute("username")%></span>
             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
           </button>
           <div class="dropdown-menu dropdown-menu-end">
@@ -141,12 +142,12 @@
           <li class="menu-title" key="t-menu">Menu</li>
 
           <li>
-            <a href="javascript: void(0);" class="waves-effect">
+            <a href="<%=request.getContextPath()%>/adminHome" class="waves-effect">
               <span key="t-dashboards">Dashboard</span>
             </a>
           </li>
           <li>
-            <a href="javascript: void(0);" class="waves-effect">
+            <a href="<%=request.getContextPath()%>/adminServices" class="waves-effect">
               <span key="t-dashboards">Services</span>
             </a>
           </li>
@@ -165,12 +166,123 @@
   <!-- ============================================================== -->
   <!-- Start right Content here -->
   <!-- ============================================================== -->
+  <c:forEach var = "ser" items = "${services}">
+    <div class="modal fade ser_${ser.id}" tabindex="-1" aria-labelledby="transaction-detailModalLabel" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="transaction-detailModalLabel">Service Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-2">Product id: <span class="text-primary">${ser.id}</span></p>
+            <p class="mb-4">Billing Name: <span class="text-primary">${ser.name}</span></p>
+
+            <div class="table-responsive">
+              <table class="table align-middle table-nowrap">
+                <thead>
+                <tr>
+<%--                  <th scope="col">Service Id</th>--%>
+                  <th scope="col">Service Name</th>
+                  <th scope="col">Service Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+<%--                  <th scope="row">--%>
+<%--                    <div>--%>
+<%--                      <img src="assets/images/product/img-7.png" alt="" class="avatar-sm">--%>
+<%--                    </div>--%>
+<%--                  </th>--%>
+                  <td>
+                    <div>
+                      <h5 class="text-truncate font-size-14">${ser.name}</h5>
+                      <p class="text-muted mb-0">${ser.description}</p>
+                    </div>
+                  </td>
+                  <td>${ser.price}</td>
+                </tr>
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <c:if test='${ser.status == "pending"}'>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Reject</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Approve</button>
+            </c:if>
+            <c:if test='${ser.status == "approved"}'>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Suspend</button>
+            </c:if>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </c:forEach>
   <div class="main-content">
 
     <div class="page-content">
       <div class="container-fluid">
 
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title mb-4">Services</h4>
+                <div class="table-responsive">
+                  <table class="table align-middle table-nowrap mb-0">
+                    <thead class="table-light">
+                    <tr>
 
+                      <th class="align-middle">Service ID</th>
+                      <th class="align-middle">Name</th>
+                      <th class="align-middle">Category</th>
+                      <th class="align-middle">Price per QTY</th>
+                      <th class="align-middle">Discount</th>
+                      <th class="align-middle">Status</th>
+                      <th class="align-middle">View Details</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var = "ser" items = "${services}">
+
+                    <tr>
+
+                      <td><a href="javascript: void(0);" class="text-body fw-bold">${ser.id}</a> </td>
+                      <td>${ser.name}</td>
+                      <td>
+                          ${ser.category}
+                      </td>
+                      <td>
+                          ${ser.price}
+                      </td>
+                      <td>
+                        <span class="badge badge-pill badge-soft-success font-size-11">${ser.discount}</span>
+                      </td>
+                      <td>
+                        <i class="fab fa-cc-mastercard me-1"></i> ${ser.status}
+                      </td>
+                      <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".ser_${ser.id}">
+                          View Details
+                        </button>
+                      </td>
+                    </tr>
+                    </c:forEach>
+
+                    </tbody>
+                  </table>
+                </div>
+                <!-- end table-responsive -->
+              </div>
+            </div>
+          </div>
+        </div>
 
 
 

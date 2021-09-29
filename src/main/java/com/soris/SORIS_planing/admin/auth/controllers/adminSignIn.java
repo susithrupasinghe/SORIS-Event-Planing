@@ -22,7 +22,7 @@ public class adminSignIn extends HttpServlet {
             if(session!=null && session.getAttribute("userid") != null && session.getAttribute("role") == "admin"){
 
                 // User already logged in
-                request.getRequestDispatcher("/admin-dashboard/home.jsp").forward(request, response);
+                request.getRequestDispatcher(request.getContextPath()+"/adminHome").forward(request, response);
 
             }
             else {
@@ -61,8 +61,5 @@ public class adminSignIn extends HttpServlet {
             request.getRequestDispatcher("/auth/admin-signin.jsp").include(request, response);
 
         }
-
-
-
     }
 }

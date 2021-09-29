@@ -129,7 +129,30 @@ public class homeModel {
     }
 
     public List<topServiceModel> getTopServices(){
-        return null;
+        List<topServiceModel> sList = new ArrayList<topServiceModel>();
+
+        try{
+            String query = "SELECT service.sid, name, services.summ, category, price, discount, description, status FROM service INNER JOIN \n" +
+                    "(SELECT sid, sum(count) AS summ FROM soris.eventservices group by sid) AS services ON services.sid = service.sid ORDER BY services.summ DESC;";
+            Statement st = this.con.createStatement();
+            ResultSet res = st.executeQuery(query);
+
+            while(res.next()){
+                topServiceModel topService = new topServiceModel();
+                topService.setName(res.getString("name"));
+                topService.setCount(res.getInt("summ"));
+                topService.setCategory(res.getString("category"));
+                topService.setPrice((float)res.getInt("price"));
+                topService.setDiscount( (float)res.getInt("discount"));
+                sList.add(topService);
+
+            }
+            return sList;
+        }
+        catch (Exception ex){
+            return null;
+        }
+
     }
 
 }
