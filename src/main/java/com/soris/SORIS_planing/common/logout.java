@@ -17,7 +17,7 @@ public class logout extends HttpServlet {
             HttpSession session =request.getSession(false);
             if(session.getAttribute("userid") != null){
                 session.invalidate();
-                
+
             }
 
 
