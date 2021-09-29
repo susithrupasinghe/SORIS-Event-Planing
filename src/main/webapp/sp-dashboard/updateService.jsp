@@ -14,12 +14,12 @@
 <body>
 
 <%
-//    String sID = request.getParameter("sID");
-  /*  String name = request.getParameter("name");
+    String sID = request.getParameter("sID");
+    String name = request.getParameter("name");
     String category = request.getParameter("category");
     String price = request.getParameter("price");
     String discount = request.getParameter("discount");
-    String description = request.getParameter("description");*/
+    String description = request.getParameter("description");
 %>
 
 <!doctype html>

@@ -34,6 +34,11 @@
 
 <body data-sidebar="dark">
 
+
+<%
+    //Finally, add the session
+%>
+
 <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
 <!-- Begin page -->
@@ -184,6 +189,24 @@
                 </div>
                 <!-- end page title -->
 
+                <!--modal-->
+                <div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Something wrong</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p><%=request.getAttribute("error")%></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -197,16 +220,16 @@
                                         <div class="col-sm-6">
                                             <div class="mb-3">
                                                 <label for="servicetname">Service Name</label>
-                                                <input id="servicetname" name="servicetname" type="text" class="form-control">
+                                                <input id="servicetname" name="servicetname" type="text" class="form-control" placeholder="Service Name" required>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="price">Price</label>
-                                                <input id="price" name="price" type="text" class="form-control">
+                                                <input id="price" name="price" type="text" class="form-control" placeholder="Price">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="Discount">Discount</label>
-                                                <input id="Discount" name="Discount" type="text" class="form-control">
+                                                <input id="Discount" name="Discount" type="text" class="form-control" placeholder="Discount">
                                             </div>
                                         </div>
 
@@ -217,12 +240,13 @@
                                                     <option>Select</option>
                                                     <option value="Wedding">Wedding</option>
                                                     <option value="Birthday">Birthday</option>
+                                                    <option value="Birthday">Other Celebrations</option>
                                                 </select>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="servicedesc">Service Description</label>
-                                                <textarea class="form-control" id="servicedesc" rows="5"></textarea>
+                                                <textarea class="form-control" id="servicedesc" rows="5" placeholder="Service Description"></textarea>
                                             </div>
 
                                         </div>
@@ -250,9 +274,9 @@
 
                                     <div class="d-flex flex-wrap gap-2">
                                         <button type="submit" class="btn btn-primary waves-effect waves-light">Add Service</button>
-                                        <button type="button" class="btn btn-secondary waves-effect waves-light">Cancel</button>
+                                        <button type="button" class="btn btn-secondary waves-effect waves-light" ><a href="home.jsp">Cancel</a></button>
                                     </div>
-                            </div>
+                                </div>
                             </form>
 
                         </div>
@@ -304,6 +328,14 @@
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+
+<%--Pop-up--%>
+<% if (request.getAttribute("error") != null ){%>
+<script>
+    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
+</script>
+<%}%>
+
 </body>
 
 </html>

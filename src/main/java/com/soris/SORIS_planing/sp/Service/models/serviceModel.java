@@ -19,14 +19,14 @@ public class serviceModel {
 //        this.con = con;
 //    }
 
-    public boolean insertService(String servicetname,String category, double price, double discount, String description) {
-//        boolean isSuccess = false;
+    public boolean insertService(int spId,String servicetname,String category, double price, double discount, String description) {
+
 
         try {
             con = dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "insert into soris.service(spid,name,category,price,discount,description) values (0,'"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"')";
+            String sql = "insert into soris.service(spid,name,category,price,discount,description) values (spId,'"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"')";
             int rs = stmt.executeUpdate(sql);
 
             if(rs > 0){
