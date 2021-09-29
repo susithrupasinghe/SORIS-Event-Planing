@@ -48,6 +48,33 @@ public class newServiceServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String serviceName = request.getParameter("servicetname");
+        String category = request.getParameter("Category");
+        String price = request.getParameter("price");
+        String Discount = request.getParameter("Discount");
+        String description = request.getParameter("servicedesc");
+
+        boolean isTrue;
+
+        double priceD = Double.parseDouble(price);
+        double DiscountD = Double.parseDouble(Discount);
+
+        try{
+            serviceModel Newservice = new serviceModel();
+            isTrue = Newservice.insertService(serviceName,category,priceD,DiscountD,description);
+            if(isTrue == true){
+                RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");
+                dis.forward(request,response);
+            }else {
+                RequestDispatcher dis1 = request.getRequestDispatcher("/home.jsp");
+                dis1.forward(request,response);
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+
+
 
     }
 }

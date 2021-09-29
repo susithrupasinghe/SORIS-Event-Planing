@@ -1,3 +1,4 @@
+package com.soris.SORIS_planing.admin.dashboard.controllers;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
