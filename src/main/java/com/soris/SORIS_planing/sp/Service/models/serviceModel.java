@@ -82,8 +82,7 @@ public class serviceModel {
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"', description= '"+description+"'"
-                         + "WHERE sid = 1";//, category= '"+category+"'
+            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"', description= '"+description+"' WHERE sid = 1";//, category= '"+category+"'
 
             int rs = stmt.executeUpdate(sql);
 
@@ -94,7 +93,8 @@ public class serviceModel {
             }
 
         }catch (Exception e){
-            e.printStackTrace();
+            /*e.printStackTrace();*/
+            System.out.println(e);
         }
         return isSuccess;
     }

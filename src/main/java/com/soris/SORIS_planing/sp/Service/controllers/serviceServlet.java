@@ -14,12 +14,6 @@ import java.util.List;
 public class serviceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         HttpSession session = request.getSession(false);
 
 
@@ -31,12 +25,19 @@ public class serviceServlet extends HttpServlet {
                 serviceModel serviceMem = new serviceModel();
                 List<service> servicesDetails = serviceMem.getServiceDetails(spID);
                 request.setAttribute("servicesDetails", servicesDetails);
+                System.out.println("abs");
             } catch (Exception e) {
                 e.printStackTrace();
             }
             // User already logged in
-            request.getRequestDispatcher("/admin-dashboard/home.jsp").forward(request, response);
+            request.getRequestDispatcher("/sp-dashboard/home.jsp").forward(request, response);
 
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
     }
 }

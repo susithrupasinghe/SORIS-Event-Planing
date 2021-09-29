@@ -256,30 +256,32 @@
                                     </tr>
                                     </thead>
 
-                                    <%
-                                        List<service> serviceDetails = (List<service>) request.getAttribute("servicesDetails");
-                                    %>
+<%--                                    <%--%>
+<%--                                        List<service> serviceDetails = (List<service>) request.getAttribute("servicesDetails");--%>
+<%--                                    %>--%>
 
                                     <tbody>
                                     <tr>
-                                        <c:forEach var = "ser" items = "${serviceDetails}">
-                                           <td>
-                                               <c:set var="sID" value="${ser.getsID()}" />
-                                           </td>
+                                        <c:forEach var = "ser" items = "${servicesDetails}">
+                                           <td><c:set var="sID" value="${ser.sID}" /></td>
+                                            <td><c:set var="name" value="${ser.name}" /></td>
+                                            <td><c:set var="category" value="${ser.category}" /></td>
+                                            <td><c:set var="price" value="${ser.price}" /></td>
+                                            <td><c:set var="discount" value="${ser.discount}" /></td>
+                                            <td><c:set var="description" value="${ser.description}" /></td>
+                                            <td><span class="badge bg-success font-size-10">Completed</span></td>
                                             <td>
-                                                <c:set var="name" value="${ser.getName()}" />
-                                            </td>
-                                            <td>
-                                                <c:set var="category" value="${ser.getCategory()}" />
-                                            </td>
-                                            <td>
-                                                <c:set var="price" value="${ser.getPrice()}" />
-                                            </td>
-                                            <td>
-                                                <c:set var="discount" value="${ser.getDiscount()}" />
-                                            </td>
-                                            <td>
-                                                <c:set var="description" value="${ser.getDescription()}" />
+                                                <div class="d-flex gap-3">
+                                                        <%--                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">--%>
+                                                        <%--                                                    Update Details--%>
+                                                        <%--                                                </button><br>--%>
+                                                        <%--                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">--%>
+                                                        <%--                                                    Delete Service--%>
+                                                        <%--                                                </button>--%>
+
+                                                    <a href="javascript:void(0);" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                                    <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
+                                                </div>
                                             </td>
 
                                     </tr>
@@ -294,32 +296,16 @@
 <%--                                            </div>--%>
                                         </td>
                                         <td><a href="javascript: void(0);" class="text-body fw-bold">${ser.sID}</a> </td>
-                                        <td><%=serviceDetails.get(1).getName()%></td>
+                                        <td>${ser.name}</td>
                                         <td>${ser.category}</td>
                                         <td>${ser.price}</td>
                                         <td><span class="badge badge-pill badge-soft-success font-size-12">${ser.discount}</span></td>
                                         <td><i class="fab fa-cc-mastercard me-1"></i> ${ser.description}</td>
 
-                                        <td>
-                                            <span class="badge bg-success font-size-10">Completed</span>
-                                        </td>
-
-                                        <td>
-                                            <div class="d-flex gap-3">
-<%--                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">--%>
-<%--                                                    Update Details--%>
-<%--                                                </button><br>--%>
-<%--                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">--%>
-<%--                                                    Delete Service--%>
-<%--                                                </button>--%>
-
-                                                <a href="javascript:void(0);" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
-                                                <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    </tbody>
+                                        </tr>
                                     </c:forEach>
+                                    </tbody>
+
                                 </table>
                             </div>
 <%--                            <ul class="pagination pagination-rounded justify-content-end mb-2">--%>
