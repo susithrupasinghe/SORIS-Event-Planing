@@ -1,17 +1,22 @@
 package com.soris.SORIS_planing.admin.dashboard.models;
 
-public class topServiceModel {
+public class serviceModel {
 
+    private  int id;
     private String name;
     private String category;
     private float price;
     private float discount;
     private String description;
-    private  int count;
+    private  String status;
 
-    public int getCount() { return count; }
+    public int getId() {
+        return id;
+    }
 
-    public void setCount(int count) { this.count = count; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -53,6 +58,13 @@ public class topServiceModel {
         this.description = description;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 
 }
