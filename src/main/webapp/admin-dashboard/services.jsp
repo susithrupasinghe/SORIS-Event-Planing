@@ -210,13 +210,13 @@
           </div>
           <div class="modal-footer">
             <c:if test='${ser.status == "pending"}'>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Reject</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Approve</button>
+              <a href="<%=request.getContextPath()%>/updateServices?id=${ser.id}&status=rejected"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Reject</button></a>
+              <a href="<%=request.getContextPath()%>/updateServices?id=${ser.id}&status=approved"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Approve</button></a>
             </c:if>
             <c:if test='${ser.status == "approved"}'>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Suspend</button>
+              <a href="<%=request.getContextPath()%>/updateServices?id=${ser.id}&status=suspended"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Suspend</button></a>
             </c:if>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
+            <a href="<%=request.getContextPath()%>/deleteServices?id=${ser.id}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
