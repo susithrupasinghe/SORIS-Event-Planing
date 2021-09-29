@@ -30,8 +30,8 @@ public class eventCreationModel {
             this.date=date;
 
             //insert into database
-            String query = String.format("INSERT INTO event (hid,name,description,estimatedcost,currentcost) VALUES" +
-                    "('%d','%s','%s','%d','%d')", this.hid,this.name, this.description, this.estimatedCost,0);
+            String query = String.format("INSERT INTO event (hid,date,name,description,estimatedcost,currentcost) VALUES" +
+                    "('%d',%s,'%s','%s','%d','%d')", this.hid,this.date,this.name, this.description, this.estimatedCost,0);
             Statement stmt = this.con.createStatement();
             int count = stmt.executeUpdate(query);
             if(count>0){

@@ -5,8 +5,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import com.soris.SORIS_planing.host.event.model.eventCreationModel;
 
@@ -22,7 +22,7 @@ public class eventCreation extends HttpServlet {
             String description = request.getParameter("description");
             int estimatedCost = Integer.parseInt(request.getParameter("estimatedCost"));
             String d= request.getParameter("date");
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(d);
+            Date date = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(d);
 
 
             eventCreationModel event = new eventCreationModel();
