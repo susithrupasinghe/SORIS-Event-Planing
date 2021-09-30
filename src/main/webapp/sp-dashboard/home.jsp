@@ -211,6 +211,24 @@
             </div>
             <!-- end page title -->
 
+    <!--modal-->
+    <div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Successful Message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><%=request.getAttribute("error")%></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -226,9 +244,9 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="text-sm-end">
-                                        <a href="newService.jsp">
-                                            <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Add New Service</button>
-                                        </a>
+                                            <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i><a href="/newService.jsp">
+                                                Add New Service </a></button>
+
 
                                     </div>
                                 </div><!-- end col-->
@@ -377,6 +395,13 @@
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
 </body>
+
+<%--Pop-up--%>
+<% if (request.getAttribute("error") != null ){%>
+<script>
+    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
+</script>
+<%}%>
 
 </html>
 
