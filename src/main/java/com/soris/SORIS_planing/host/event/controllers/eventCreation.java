@@ -5,8 +5,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.soris.SORIS_planing.host.event.model.eventCreationModel;
 
@@ -20,13 +20,14 @@ public class eventCreation extends HttpServlet {
         try {
             String name = request.getParameter("name");
             String description = request.getParameter("description");
-            int estimatedCost = Integer.parseInt(request.getParameter("estimatedCost"));
+            double estimatedCost = Double.parseDouble(request.getParameter("estimatedCost"));
             String d= request.getParameter("date");
-            Date date = (Date) new SimpleDateFormat("yyyy-MM-dd").parse(d);
+            int hid=0;//placeholder until session
+
 
 
             eventCreationModel event = new eventCreationModel();
-            if (event.addEvent(name, description, estimatedCost,0,date)) {
+            if (event.addEvent(name, description, estimatedCost,hid,d)) {
                 request.getRequestDispatcher("/host-dashboard/home.jsp").forward(request,response);
             } else {
                 request.setAttribute("error", "event creation failed");

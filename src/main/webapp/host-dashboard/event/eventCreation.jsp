@@ -220,7 +220,7 @@
                                     <div class="row mb-4">
                                         <label for="eventdesc" class="col-form-label col-lg-2">Event Description</label>
                                         <div class="col-lg-10">
-                                            <textarea class="form-control" name="description" id="eventdesc" rows="5" placeholder="Enter Event Description..."></textarea>
+                                            <textarea class="form-control" name="description" id="eventdesc" rows="5" placeholder="Enter Event Description..." required></textarea>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
