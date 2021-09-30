@@ -56,7 +56,7 @@ public class serviceModel {
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "SELECT sid, name, category, price, discount, description FROM service WHERE spid ='"+converspID+"'";
+            String sql = "SELECT sid, name, category, price, discount, description, status FROM service WHERE spid ='"+converspID+"'";
             rs = stmt.executeQuery(sql);
 
             while (rs.next()){
@@ -66,8 +66,9 @@ public class serviceModel {
                 double price = rs.getDouble(4);
                 double discount = rs.getDouble(5);
                 String description = rs.getString(6);
+                String status = rs.getString(7);
 
-                service s = new service(sID , name, category, price, discount, description);
+                service s = new service(sID , name, category, price, discount, description, status);
                 ser.add(s);
             }
             return ser;

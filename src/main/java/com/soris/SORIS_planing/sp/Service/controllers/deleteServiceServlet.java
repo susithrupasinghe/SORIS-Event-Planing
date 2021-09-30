@@ -1,4 +1,3 @@
-/*
 package com.soris.SORIS_planing.sp.Service.controllers;
 
 import com.soris.SORIS_planing.sp.Service.models.serviceModel;
@@ -34,4 +33,3 @@ public class deleteServiceServlet extends HttpServlet {
         }
     }
 }
-*/
