@@ -18,12 +18,12 @@ public class updateServiceServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String sID = request.getParameter("sID");
-        String name = request.getParameter("name");
+        String sID = request.getParameter("sid");
+        String name = request.getParameter("serviceName");
         String category = request.getParameter("category");
         String price = request.getParameter("price");
         String discount = request.getParameter("discount");
-        String description = request.getParameter("description");
+        String description = request.getParameter("serviceDesc");
 
         boolean isTrue;
 
