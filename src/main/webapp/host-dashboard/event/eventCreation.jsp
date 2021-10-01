@@ -178,7 +178,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Projects</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Event</a></li>
                                     <li class="breadcrumb-item active">Create New</li>
                                 </ol>
                             </div>
@@ -220,7 +220,7 @@
                                     <div class="row mb-4">
                                         <label for="eventdesc" class="col-form-label col-lg-2">Event Description</label>
                                         <div class="col-lg-10">
-                                            <textarea class="form-control" name="description" id="eventdesc" rows="5" placeholder="Enter Event Description..."></textarea>
+                                            <textarea class="form-control" name="description" id="eventdesc" rows="5" placeholder="Enter Event Description..." required></textarea>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
