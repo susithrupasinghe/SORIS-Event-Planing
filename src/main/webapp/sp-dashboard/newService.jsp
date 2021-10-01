@@ -34,11 +34,6 @@
 
 <body data-sidebar="dark">
 
-
-<%
-    //Finally, add the session
-%>
-
 <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
 <!-- Begin page -->
@@ -238,9 +233,11 @@
                                                 <label class="control-label">Category</label>
                                                 <select class="form-control select2" name = "Category">
                                                     <option>Select</option>
-                                                    <option value="Wedding">Wedding</option>
-                                                    <option value="Birthday">Birthday</option>
-                                                    <option value="Birthday">Other Celebrations</option>
+                                                    <option value="Wedding">Food</option>
+                                                    <option value="Birthday">Transport</option>
+                                                    <option value="Birthday">Entertainment</option>
+                                                    <option value="Birthday">Gifts</option>
+                                                    <option value="Birthday">Others</option>
                                                 </select>
                                             </div>
 

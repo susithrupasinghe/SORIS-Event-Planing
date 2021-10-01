@@ -1,11 +1,13 @@
 package com.soris.SORIS_planing.sp.Service.models;
 
+import java.security.Provider;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.protobuf.Service;
 import com.soris.SORIS_planing.dbUtil;
 
 public class serviceModel {
@@ -87,7 +89,7 @@ public class serviceModel {
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"', description= '"+description+"' WHERE sid = 1";//, category= '"+category+"'
+            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"', description= '"+description+"' WHERE sid = '"+sID+"'";//, category= '"+category+"'
 
             int rs = stmt.executeUpdate(sql);
 
@@ -150,7 +152,7 @@ public class serviceModel {
         return isSuccess;
     }
 
-    public boolean getUpdateDetails(String sID){
+    public service getUpdateDetails(int sID){
         try{
             con = dbUtil.initializeDatabase();
             stmt = con.createStatement();
@@ -158,22 +160,21 @@ public class serviceModel {
             String sql = "SELECT name, category, price, discount, description, status FROM service WHERE sid ='"+sID+"'";
             ResultSet rs=stmt.executeQuery(sql);
 
-            while (rs.next()){
-                int sID = rs.getInt(1);
-                String name = rs.getString(2);
-                String category = rs.getString(3);
-                double price = rs.getDouble(4);
-                double discount = rs.getDouble(5);
-                String description = rs.getString(6);
-                String status = rs.getString(7);
+            rs.next();
+            String name = rs.getString(1);
+            String category = rs.getString(2);
+            double price = rs.getDouble(3);
+            double discount = rs.getDouble(4);
+            String description = rs.getString(5);
+            String status = rs.getString(6);
+            service s = new service(sID , name, category, price, discount, description, status);
+            return s;
 
-                service s = new service(sID , name, category, price, discount, description, status);
-                ser.add(s);
-            }
         }catch(Exception e){
-
+            e.printStackTrace();
+            return null;
         }
-        return isSuccess;
+
     }
 
 }

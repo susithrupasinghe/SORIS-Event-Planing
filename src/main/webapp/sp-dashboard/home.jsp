@@ -272,7 +272,7 @@
                                     <%--Open Table Body--%>
                                     <tbody>
                                     <c:forEach var = "ser" items = "${servicesDetails}">
-                                        <c:set var="sID" value="${ser.sID}"></c:set>
+                                        <%--<c:set var="sID" value="${ser.sID}"></c:set>
                                         <c:set var="name" value="${ser.name}"></c:set>
                                         <c:set var="category" value="${ser.category}"></c:set>
                                         <c:set var="price" value="${ser.price}"></c:set>
@@ -288,7 +288,7 @@
                                             <c:param name="discount" value="${discount}"/>
                                             <c:param name="status" value="${status}"/>
                                             <c:param name="description" value="${description}"/>
-                                        </c:url>
+                                        </c:url>--%>
 
                                     <tr>
                                         <td><a href="javascript: void(0);" class="text-body fw-bold">${ser.sID}</a></td>
