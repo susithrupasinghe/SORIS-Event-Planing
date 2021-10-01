@@ -104,15 +104,15 @@ public class serviceModel {
         return isSuccess;
     }
 
-    public boolean deleteService(String id){
+    public boolean deleteService(String sId){
 
-        int convertID = Integer.parseInt(id);
+   /*     int convertID = Integer.parseInt(sIO);*/
 
         try{
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "DELETE FROM service WHERE sid = '"+convertID+"'";
+            String sql = "DELETE FROM service WHERE sid = '"+sId+"'";
 
             int rs;
             rs = stmt.executeUpdate(sql);
@@ -127,6 +127,52 @@ public class serviceModel {
             e.printStackTrace();
         }
 
+        return isSuccess;
+    }
+
+    //get services count
+    public boolean serviceCount(String sID){
+        try{
+            con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
+            stmt = con.createStatement();
+
+            String sql = "SELECT COUNT(*) FROM service WHERE sid = '"+sID+"'";
+
+            rs = stmt.executeQuery(sql);
+
+            rs.next();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        return isSuccess;
+    }
+
+    public boolean getUpdateDetails(String sID){
+        try{
+            con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();
+
+            String sql = "SELECT name, category, price, discount, description, status FROM service WHERE sid ='"+sID+"'";
+            ResultSet rs=stmt.executeQuery(sql);
+
+            while (rs.next()){
+                int sID = rs.getInt(1);
+                String name = rs.getString(2);
+                String category = rs.getString(3);
+                double price = rs.getDouble(4);
+                double discount = rs.getDouble(5);
+                String description = rs.getString(6);
+                String status = rs.getString(7);
+
+                service s = new service(sID , name, category, price, discount, description, status);
+                ser.add(s);
+            }
+        }catch(Exception e){
+
+        }
         return isSuccess;
     }
 

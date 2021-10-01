@@ -19,6 +19,7 @@
     String category = request.getParameter("category");
     String price = request.getParameter("price");
     String discount = request.getParameter("discount");
+    String status = request.getParameter("discount");
     String description = request.getParameter("description");
 %>
 
@@ -198,40 +199,39 @@
 
                                         <div class="col-sm-6">
                                             <div class="mb-3">
-                                                <label for="sid">Service Name</label>
-                                                <input id="sid" name="sid" type="text" class="form-control" required>
+                                                <label for="sid">Service ID</label>
+                                                <input id="sid" name="sid" type="text" class="form-control" value="<%=sID%>" required >
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="servicetname">Service Name</label>
-                                                <input id="servicetname" name="serviceName" type="text" class="form-control" <%--value="<%= name%>"--%>>
+                                                <input id="servicetname" name="serviceName" type="text" class="form-control" value="<%= name%>">
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="price">Price</label>
-                                                <input id="price" name="price" type="text" class="form-control" <%--value="<%= price%>"--%>>
+                                                <input id="price" name="price" type="text" class="form-control" value="<%= price%>">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="Discount">Discount</label>
-                                                <input id="Discount" name="discount" type="text" class="form-control" <%--value="<%= discount%>"--%>>
+                                                <input id="Discount" name="discount" type="text" class="form-control" value="<%= discount%>">
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <div class="mb-3">
                                                 <label class="control-label">Category</label>
-                                                <select class="form-control select2" name = "category">
+                                                <select class="form-control select2" name = "category" required>
                                                     <option>Select</option>
-                                                    <option value="Wedding">Wedding</option>
-                                                    <option value="Birthday">Birthday</option>
+                                                    <option value="<%= category%>">Wedding</option>
+                                                    <option value="<%= category%>">Birthday</option>
                                                 </select>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="servicedesc">Service Description</label>
-                                                <textarea class="form-control" name= "serviceDesc" id="serviceDesc" <%--value="<%= description%>"--%> rows="5"></textarea>
+                                                <textarea class="form-control" name= "serviceDesc" id="serviceDesc" value="<%= description%>" rows="5"></textarea>
                                             </div>
-
                                         </div>
                                     </div>
 

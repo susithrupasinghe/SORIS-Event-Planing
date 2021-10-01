@@ -13,7 +13,17 @@ import java.util.List;
 public class updateServiceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String sID = request.getParameter("sID");
 
+        try{
+            serviceModel update = new serviceModel();
+            update.getUpdateDetails(sID);
+
+            request.setAttribute("",);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -38,11 +48,11 @@ public class updateServiceServlet extends HttpServlet {
 /*        category,*/
         if(isTrue == true){
 
-              List<service> servicesDetails = updService.getServiceDetails(sID);
-            request.setAttribute("servicesDetails", servicesDetails);
+              /*List<service> servicesDetails = updService.getServiceDetails(sID);
+            request.setAttribute("servicesDetails", servicesDetails);*/
 
-            RequestDispatcher dis1 = request.getRequestDispatcher("/index.jsp");
-            dis1.forward(request,response);
+            /*RequestDispatcher dis1 = request.getRequestDispatcher("/index.jsp");
+            dis1.forward(request,response);*/
         }else{
             List<service> servicesDetails = updService.getServiceDetails(sID);
             request.setAttribute("servicesDetails", servicesDetails);
