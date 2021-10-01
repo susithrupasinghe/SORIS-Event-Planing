@@ -199,7 +199,7 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="text-sm-end">
-                                <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Add New Event</button>
+                                <a href="<%=request.getContextPath()%>/host-dashboard/event/eventCreation.jsp"><button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Add New Event</button></a>
                             </div>
                         </div><!-- end col-->
                     </div>
@@ -238,7 +238,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex gap-3">
-                                            <a href="javascript:void(0);" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                            <a href="<%=request.getContextPath()%>/eventUpdate?eid=${event.eid}" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
                                             <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
                                         </div>
                                     </td>
