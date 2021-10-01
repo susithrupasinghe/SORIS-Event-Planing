@@ -1,9 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
-  User: Dell
-  Date: 9/19/2021
-  Time: 8:02 PM
+  User: user
+  Date: 10/1/2021
+  Time: 3:30 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,7 +12,7 @@
 <head>
 
     <meta charset="utf-8"/>
-    <title>Dashboard | Skote - Admin & Dashboard Template</title>
+    <title>Event Update</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
@@ -109,12 +108,12 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry"><%=session.getAttribute("username")%></span>
+                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
 
-                        <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=host"><i
+                        <a class="dropdown-item text-danger" href="#"><i
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
                     </div>
@@ -161,96 +160,91 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
-    <!-- modal event details   -->
-
-    <c:forEach var = "event" items = "${eventList}">
-        <div class="modal fade event_${event.eid}" tabindex="-1" aria-labelledby="transaction-detailModalLabel" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="transaction-detailModalLabel">Event Details</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="mb-2">Event id: <span class="text-primary">${event.eid}</span></p>
-                        <p class="mb-4">Event Name: <span class="text-primary">${event.name}</span></p>
-                        <p class="mb-2">Event description: <span class="text-primary">${event.description}</span></p>
-
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </c:forEach>
-
-
     <div class="main-content">
 
         <div class="page-content">
             <div class="container-fluid">
-                <div class="card-body">
-                    <div class="row mb-2">
-                        <div class="col-sm-4">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0 font-size-18">Update Event</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Event</a></li>
+                                    <li class="breadcrumb-item active">Update</li>
+                                </ol>
+                            </div>
 
                         </div>
-                        <div class="col-sm-8">
-                            <div class="text-sm-end">
-                                <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Add New Event</button>
-                            </div>
-                        </div><!-- end col-->
-                    </div>
-
-                    <div class="table-responsive">
-                        <table class="table align-middle table-nowrap table-check">
-                            <thead class="table-light">
-                            <tr>
-
-                                <th class="align-middle">Event ID</th>
-                                <th class="align-middle">Name</th>
-                                <th class="align-middle">Date</th>
-                                <th class="align-middle">Estimated Cost</th>
-                                <th class="align-middle">Current Cost </th>
-                                <th class="align-middle">Current Income</th>
-                                <th class="align-middle">View Descriptions</th>
-                                <th class="align-middle">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="event" items="${eventList}" >
-                                <tr>
-
-
-                                    <td>${event.eid}</td>
-                                    <td>${event.name}</td>
-                                    <td>${event.date}</td>
-                                    <td>${event.estimatedCost}</td>
-                                    <td>${event.currentCost}</td>
-                                    <td>${event.currentIncome}</td>
-                                    <td>
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".event_${event.eid}">
-                                            View Description
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex gap-3">
-                                            <a href="javascript:void(0);" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
-                                            <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-
-
-
-                            </tbody>
-                        </table>
                     </div>
                 </div>
+                <!-- end page title -->
+                <!--modal-->
+                <div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Something wrong</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p><%=request.getAttribute("error")%></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">Update Event</h4>
+                                <form action="<%=request.getContextPath()%>/eventUpdate" method="post" id="form">
+                                    <div class="row mb-4">
+                                        <label for="eventName" class="col-form-label col-lg-2">Event Name</label>
+                                        <div class="col-lg-10">
+                                            <input id="eventName" name="name" type="text" class="form-control" placeholder=<%request.getParameter("name");%> required>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label for="eventdesc" class="col-form-label col-lg-2">Event Description</label>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" name="description" id="eventdesc" rows="5" placeholder="Enter Event Description..." required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="date-input" class="col-md-2 col-form-label">Date</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" type="date" value="2019-08-19" id="date-input" name="date" required>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row mb-4">
+                                        <label for="budget" class="col-form-label col-lg-2">Budget</label>
+                                        <div class="col-lg-10">
+                                            <input id="budget" name="estimatedCost" type="text" placeholder="Enter Event Budget..." class="form-control" required>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <div class="row justify-content-end">
+                                    <div class="col-lg-10">
+                                        <button type="submit" class="btn btn-primary" form="form">Create Event</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
 
 
 
@@ -306,6 +300,13 @@
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+
+<% if (request.getAttribute("error") != null ){%>
+<script>
+    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
+
+</script>
+<%}%>
 </body>
 
 </html>
