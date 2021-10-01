@@ -233,11 +233,11 @@
                                                 <label class="control-label">Category</label>
                                                 <select class="form-control select2" name = "Category">
                                                     <option>Select</option>
-                                                    <option value="Wedding">Food</option>
-                                                    <option value="Birthday">Transport</option>
-                                                    <option value="Birthday">Entertainment</option>
-                                                    <option value="Birthday">Gifts</option>
-                                                    <option value="Birthday">Others</option>
+                                                    <option value="Food">Food</option>
+                                                    <option value="Transport">Transport</option>
+                                                    <option value="Entertainment">Entertainment</option>
+                                                    <option value="Gifts">Gifts</option>
+                                                    <option value="Others">Others</option>
                                                 </select>
                                             </div>
 

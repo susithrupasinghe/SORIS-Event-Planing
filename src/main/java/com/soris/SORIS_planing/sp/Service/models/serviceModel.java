@@ -55,7 +55,7 @@ public class serviceModel {
         int converspID = Integer.parseInt(spID);
 
         try {
-            con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
+            con = dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
             String sql = "SELECT sid, name, category, price, discount, description, status FROM service WHERE spid ='"+converspID+"'";
@@ -83,13 +83,13 @@ public class serviceModel {
     }
 
     //update service
-    public boolean updateService(int sID, String name, double price, double discount, String description){
-/*, String category*/
+    public boolean updateService(int sID, String name, double price, double discount,String category, String description){
+/*, */
         try{
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"', description= '"+description+"' WHERE sid = '"+sID+"'";//, category= '"+category+"'
+            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"',category='"+category+"', description= '"+description+"' WHERE sid = '"+sID+"'";//, category= '"+category+"'
 
             int rs = stmt.executeUpdate(sql);
 

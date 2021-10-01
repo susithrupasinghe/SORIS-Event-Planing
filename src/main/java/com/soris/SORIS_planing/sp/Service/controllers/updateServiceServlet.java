@@ -27,9 +27,12 @@ public class updateServiceServlet extends HttpServlet {
                 request.setAttribute("sID",sID);
                 request.setAttribute("name",ser.getName());
                 request.setAttribute("category",ser.getCategory());
-                request.setAttribute("price",ser.getPrice());
-                request.setAttribute("discount",ser.getDiscount());
+                request.setAttribute("price",Double.toString(ser.getPrice()));
+                request.setAttribute("discount",Double.toString(ser.getDiscount()));
                 request.setAttribute("description",ser.getDescription());
+                /*System.out.println(ser.getName());*/
+                System.out.println(ser.getPrice());
+                System.out.println(ser.getDiscount());
                 /*service ser = new service();*/
 
                 /*service service = new service(sIdConvert,name,category,priceD,DiscountD,description,status);*/
@@ -60,8 +63,8 @@ public class updateServiceServlet extends HttpServlet {
 
         serviceModel updService = new serviceModel();
 
-        isTrue = updService.updateService(sIdConvert, name, priceD, DiscountD, description);
-/*        category,*/
+        isTrue = updService.updateService(sIdConvert, name, priceD, DiscountD, category, description);
+/*       */
         if(isTrue == true){
 
               /*List<service> servicesDetails = updService.getServiceDetails(sID);

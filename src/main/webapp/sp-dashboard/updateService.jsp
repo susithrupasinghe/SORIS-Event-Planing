@@ -14,13 +14,13 @@
 <body>
 
 <%
-    String sID = request.getParameter("sID");
-    String name = request.getParameter("name");
-    String category = request.getParameter("category");
-    String price = request.getParameter("price");
-    String discount = request.getParameter("discount");
-    String status = request.getParameter("discount");
-    String description = request.getParameter("description");
+    String sID = (String) request.getAttribute("sID");
+    String name = (String) request.getAttribute("name");
+    String category = (String) request.getAttribute("category");
+    String price = (String) request.getAttribute("price");
+    String discount = (String) request.getAttribute("discount");
+    /*String status = (String) request.getAttribute("discount");*/
+    String description = (String) request.getAttribute("description");
 %>
 
 <!doctype html>
@@ -251,7 +251,7 @@
                                         <div class="col-sm-6">
                                             <div class="mb-3">
                                                 <label class="control-label">Category</label>
-                                                <select class="form-control select2" name = "Category" readonly="">
+                                                <select class="form-control select2" name = "category" readonly="">
                                                     <option>Select</option>
                                                     <option value="<%= category%>">Food</option>
                                                     <option value="<%= category%>">Transport</option>
@@ -263,7 +263,7 @@
 
                                             <div class="mb-3">
                                                 <label for="servicedesc">Service Description</label>
-                                                <textarea class="form-control" id="servicedesc" rows="5" placeholder="Service Description" value="<%= description%>"></textarea>
+                                                <textarea class="form-control" id="servicedesc" rows="5" placeholder="Service Description"><%= description%></textarea>
                                             </div>
 
                                         </div>
