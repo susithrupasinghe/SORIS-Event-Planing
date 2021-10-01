@@ -11,8 +11,8 @@ import com.soris.SORIS_planing.dbUtil;
 public class eventCreationModel {
     private String name;
     private String description;
-    private Date date;
-    private int estimatedCost;
+    private String date;
+    private double estimatedCost;
     private  Connection con;
     private int hid;
 
@@ -20,18 +20,17 @@ public class eventCreationModel {
         this.con = dbUtil.initializeDatabase();
     }
 
-    public boolean addEvent(String name, String description, int estimatedCost, int hid, Date date) {
+    public boolean addEvent(String name, String description, double estimatedCost, int hid,String d) {
         try {
             //assign variables
             this.name = name;
             this.description = description;
             this.estimatedCost = estimatedCost;
             this.hid=hid;
-            this.date=date;
+            this.date=d;
 
             //insert into database
-            String query = String.format("INSERT INTO event (hid,name,description,estimatedcost,currentcost) VALUES" +
-                    "('%d','%s','%s','%d','%d')", this.hid,this.name, this.description, this.estimatedCost,0);
+            String query = "INSERT INTO event(hid,date,name,description,estimatedcost,currentcost) VALUES ('"+hid+"','"+date+"','"+name+"','"+description+"','"+estimatedCost+"',0)";
             Statement stmt = this.con.createStatement();
             int count = stmt.executeUpdate(query);
             if(count>0){
