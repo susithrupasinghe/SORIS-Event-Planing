@@ -172,75 +172,93 @@
 
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-img-overlay">
-                                <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center">Foods</div>
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Foods">
+                            <div class="card">
+                                <div class="card-img-overlay">
+                                    <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center">Foods</div>
 
+                                </div>
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/foods.jpg" alt="Card image cap">
                             </div>
-                            <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/foods.jpg" alt="Card image cap">
-                        </div>
+                        </a>
+
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="card">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Transport">
+                            <div class="card">
 
                                 <div class="card-img-overlay">
                                     <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center;">Transport</div>
 
                                 </div>
 
-                            <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/transport.jpg" alt="Card image cap">
-                        </div>
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/transport.jpg" alt="Card image cap">
+                            </div>
+                        </a>
+
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="card">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Entertainment">
+                            <div class="card">
 
                                 <div class="card-img-overlay">
                                     <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center">Entertainment</div>
 
                                 </div>
 
-                            <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/entertainment.jpg" alt="Card image cap">
-                        </div>
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/entertainment.jpg" alt="Card image cap">
+                            </div>
+                        </a>
+
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Decorations">
+                            <div class="card">
 
                                 <div class="card-img-overlay">
                                     <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center;color: #0b0b0b">Decorations</div>
 
                                 </div>
 
-                            <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/decoration.jpg" alt="Card image cap">
-                        </div>
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/decoration.jpg" alt="Card image cap">
+                            </div>
+                        </a>
+
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="card">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Gifts">
+                            <div class="card">
 
                                 <div class="card-img-overlay">
                                     <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center">Gifts</div>
 
                                 </div>
 
-                            <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/gift.jpg" alt="Card image cap">
-                        </div>
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/gift.jpg" alt="Card image cap">
+                            </div>
+                        </a>
+
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="card">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Others">
+                            <div class="card">
 
                                 <div class="card-img-overlay">
                                     <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center">Others</div>
 
                                 </div>
 
-                            <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/other.jpg" alt="Card image cap">
-                        </div>
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/other.jpg" alt="Card image cap">
+                            </div>
+                        </a>
+
                     </div>
                 </div>
 
