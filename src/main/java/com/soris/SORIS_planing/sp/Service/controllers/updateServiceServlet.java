@@ -1,6 +1,6 @@
 package com.soris.SORIS_planing.sp.Service.controllers;
 
-import com.soris.SORIS_planing.sp.Service.models.serviceModel;
+import com.soris.SORIS_planing.sp.Service.models.updateServiceModel;
 import com.soris.SORIS_planing.sp.Service.models.service;
 
 import javax.servlet.*;
@@ -22,7 +22,7 @@ public class updateServiceServlet extends HttpServlet {
             int sIdConvert = Integer.parseInt(sID);
 
             try {
-                serviceModel update = new serviceModel();
+                updateServiceModel update = new updateServiceModel();
                 service ser = update.getUpdateDetails(sIdConvert);
                 request.setAttribute("sID",sID);
                 request.setAttribute("name",ser.getName());
@@ -61,7 +61,7 @@ public class updateServiceServlet extends HttpServlet {
         double priceD = Double.parseDouble(price);
         double DiscountD = Double.parseDouble(discount);
 
-        serviceModel updService = new serviceModel();
+        updateServiceModel updService = new updateServiceModel();
 
         isTrue = updService.updateService(sIdConvert, name, priceD, DiscountD, category, description);
 /*       */

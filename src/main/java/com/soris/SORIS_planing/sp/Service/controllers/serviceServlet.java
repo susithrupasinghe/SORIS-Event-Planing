@@ -20,7 +20,6 @@ public class serviceServlet extends HttpServlet {
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "sp") {
             String spID = (String) session.getAttribute("userid");
 
-
             try {
                 serviceModel serviceMem = new serviceModel();
                 List<service> servicesDetails = serviceMem.getServiceDetails(spID);

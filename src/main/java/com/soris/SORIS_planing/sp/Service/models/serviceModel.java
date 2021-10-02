@@ -82,8 +82,8 @@ public class serviceModel {
     }
 
     //update service
-    public boolean updateService(int sID, String name, double price, double discount,String category, String description){
-/*, */
+  /*  public boolean updateService(int sID, String name, double price, double discount,String category, String description){
+
         try{
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
             stmt = con.createStatement();
@@ -99,12 +99,12 @@ public class serviceModel {
             }
 
         }catch (Exception e){
-            /*e.printStackTrace();*/
+            *//*e.printStackTrace();*//*
             System.out.println(e);
         }
         return isSuccess;
     }
-
+*/
     public boolean deleteService(String sId){
 
    /*     int convertID = Integer.parseInt(sIO);*/
@@ -151,7 +151,7 @@ public class serviceModel {
         return isSuccess;
     }
 
-    public service getUpdateDetails(int sID){
+    /*public service getUpdateDetails(int sID){
         try{
             con = dbUtil.initializeDatabase();
             stmt = con.createStatement();
@@ -174,6 +174,6 @@ public class serviceModel {
             return null;
         }
 
-    }
+    }*/
 
 }

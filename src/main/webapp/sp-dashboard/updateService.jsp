@@ -269,7 +269,7 @@
 
                                             <div class="mb-3">
                                                 <label for="servicedesc">Service Description</label>
-                                                <textarea class="form-control" id="servicedesc" rows="5" placeholder="Service Description"><%= description%></textarea>
+                                                <textarea class="form-control" id="servicedesc" name="servicedesc" rows="5" placeholder="Service Description"><%= description%></textarea>
                                             </div>
 
                                         </div>
