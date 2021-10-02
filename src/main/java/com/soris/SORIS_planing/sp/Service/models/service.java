@@ -7,14 +7,16 @@ public class service {
     private double price;
     private double discount;
     private String description;
+    private String status;
 
-    public service(int sID, String name, String category, double price, double discount, String description) {
+    public service(int sID, String name, String category, double price, double discount, String description, String status) {
         this.sID = sID;
         this.name = name;
         this.category = category;
         this.price = price;
         this.discount = discount;
         this.description = description;
+        this.status = status;
     }
 
     public int getsID() {
@@ -39,6 +41,10 @@ public class service {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getstatus() {
+        return status;
     }
 
 }
