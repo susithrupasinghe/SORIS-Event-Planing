@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.soris.SORIS_planing.host.services.models.serviceModel" %>
+<%@ page import="com.soris.SORIS_planing.host.services.models.spModel" %><%--
   Created by IntelliJ IDEA.
   User: Dell
   Date: 9/19/2021
@@ -6,6 +7,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+
+    serviceModel service = (serviceModel)request.getAttribute("service");
+    spModel serviceprovider =  (spModel)request.getAttribute("sp");
+
+%>
 <!doctype html>
 <html lang="en">
 
@@ -112,12 +120,12 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                        <span class="d-none d-xl-inline-block ms-1" key="t-henry"><%=session.getAttribute("username")%></span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
 
-                        <a class="dropdown-item text-danger" href="#"><i
+                        <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=host"><i
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
                     </div>
@@ -187,15 +195,7 @@
                                                         <a class="nav-link active" id="product-1-tab" data-bs-toggle="pill" href="#product-1" role="tab" aria-controls="product-1" aria-selected="true">
                                                             <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-7.png" alt="" class="img-fluid mx-auto d-block rounded">
                                                         </a>
-                                                        <a class="nav-link" id="product-2-tab" data-bs-toggle="pill" href="#product-2" role="tab" aria-controls="product-2" aria-selected="false">
-                                                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-8.png" alt="" class="img-fluid mx-auto d-block rounded">
-                                                        </a>
-                                                        <a class="nav-link" id="product-3-tab" data-bs-toggle="pill" href="#product-3" role="tab" aria-controls="product-3" aria-selected="false">
-                                                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-7.png" alt="" class="img-fluid mx-auto d-block rounded">
-                                                        </a>
-                                                        <a class="nav-link" id="product-4-tab" data-bs-toggle="pill" href="#product-4" role="tab" aria-controls="product-4" aria-selected="false">
-                                                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-8.png" alt="" class="img-fluid mx-auto d-block rounded">
-                                                        </a>
+
                                                     </div>
                                                 </div>
                                                 <div class="col-md-7 offset-md-1 col-sm-9 col-8">
@@ -205,21 +205,7 @@
                                                                 <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-7.png" alt="" class="img-fluid mx-auto d-block">
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="product-2" role="tabpanel" aria-labelledby="product-2-tab">
-                                                            <div>
-                                                                <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-8.png" alt="" class="img-fluid mx-auto d-block">
-                                                            </div>
-                                                        </div>
-                                                        <div class="tab-pane fade" id="product-3" role="tabpanel" aria-labelledby="product-3-tab">
-                                                            <div>
-                                                                <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-7.png" alt="" class="img-fluid mx-auto d-block">
-                                                            </div>
-                                                        </div>
-                                                        <div class="tab-pane fade" id="product-4" role="tabpanel" aria-labelledby="product-4-tab">
-                                                            <div>
-                                                                <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-8.png" alt="" class="img-fluid mx-auto d-block">
-                                                            </div>
-                                                        </div>
+
                                                     </div>
 
 
@@ -230,24 +216,29 @@
 
                                     <div class="col-xl-6">
                                         <div class="mt-4 mt-xl-3">
-                                            <a href="javascript: void(0);" class="text-primary">Headphone</a>
-                                            <h4 class="mt-1 mb-3">Wireless Headphone (Black)</h4>
+                                            <a href="javascript: void(0);" class="text-primary"><%=service.getCategory()%></a>
+                                            <h4 class="mt-1 mb-3"><%=service.getName()%></h4>
 
 
-                                            <h6 class="text-success text-uppercase">20 % Off</h6>
-                                            <h5 class="mb-4">Price :  <b>$225 USD</b></h5>
-                                            <p class="text-muted mb-4">To achieve this, it would be necessary to have uniform grammar pronunciation and more common words If several languages coalesce</p>
+                                            <h6 class="text-success text-uppercase"><%=service.getDiscount()%> % Off</h6>
+                                            <h5 class="mb-4">Price :  <b><%=service.getPrice()%> LKR</b></h5>
+                                            <p class="text-muted mb-4"><%=service.getDescription()%></p>
                                             <form>
                                             <div class="col-sm-3">
-                                                <input data-toggle="touchspin" type="text" value="55">
+                                                <input data-toggle="touchspin" type="text" value="1">
                                             </div>
+
                                                 <div class="col-sm-3">
-                                            <div class="text-center">
+<%--                                            <div class="text-center">--%>
                                                 <button type="submit" class="btn btn-primary waves-effect waves-light mt-2 me-1">
-                                                    <i class="bx bx-cart me-2"></i> Add to cart
+                                                    <i class="bx bx-cart me-2"></i> Add to Budget
                                                 </button>
-                                            </div>
+<%--                                            </div>--%>
+
                                                 </div>
+                                                <br>
+                                                <br>
+                                                <h4 class="mb-4">Contact No :  <b><%=serviceprovider.getContactno()%></b></h4>
                                             </form>
 
                                         </div>
@@ -256,31 +247,28 @@
                                 <!-- end row -->
 
                                 <div class="mt-5">
-                                    <h5 class="mb-3">Specifications :</h5>
+                                    <h5 class="mb-3">Service Provider Details :</h5>
 
                                     <div class="table-responsive">
                                         <table class="table mb-0 table-bordered">
                                             <tbody>
                                             <tr>
-                                                <th scope="row" style="width: 400px;">Category</th>
-                                                <td>Headphone</td>
+                                                <th scope="row" style="width: 400px;">Brand Name</th>
+                                                <td><%=serviceprovider.getBrandname()%></td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Brand</th>
-                                                <td>JBL</td>
+                                                <th scope="row">Address</th>
+                                                <td><%=serviceprovider.getAddress()%></td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Color</th>
-                                                <td>Black</td>
+                                                <th scope="row">Email</th>
+                                                <td><%=serviceprovider.getEmail()%></td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Connectivity</th>
-                                                <td>Bluetooth</td>
+                                                <th scope="row">Contact No</th>
+                                                <td><%=serviceprovider.getContactno()%></td>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">Warranty Summary</th>
-                                                <td>1 Year</td>
-                                            </tr>
+
                                             </tbody>
                                         </table>
                                     </div>
