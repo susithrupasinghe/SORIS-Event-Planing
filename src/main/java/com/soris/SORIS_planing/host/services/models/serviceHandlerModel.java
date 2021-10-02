@@ -77,4 +77,28 @@ public class serviceHandlerModel {
         }
 
     }
+
+    public spModel getServiceProviderById(String spid){
+        try {
+
+            String query = String.format("SELECT * FROM serviceprovider WHERE  spid='%s'",spid);
+            Statement st = this.con.createStatement();
+            ResultSet res = st.executeQuery(query);
+            res.next();
+            spModel serviceProvider = new spModel();
+
+            serviceProvider.setSpid(Integer.parseInt(res.getString("spid")));
+            serviceProvider.setBrandname(res.getString("brandname"));
+            serviceProvider.setContactno(res.getString("contactno"));
+            serviceProvider.setAddress(res.getString("address"));
+            serviceProvider.setEmail(res.getString("email"));
+            serviceProvider.setPassword(res.getString("password"));
+
+            return serviceProvider;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return null;
+        }
+
+    }
 }
