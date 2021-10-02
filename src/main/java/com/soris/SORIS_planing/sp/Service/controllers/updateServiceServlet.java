@@ -30,9 +30,6 @@ public class updateServiceServlet extends HttpServlet {
                 request.setAttribute("price",Double.toString(ser.getPrice()));
                 request.setAttribute("discount",Double.toString(ser.getDiscount()));
                 request.setAttribute("description",ser.getDescription());
-                /*System.out.println(ser.getName());*/
-                System.out.println(ser.getPrice());
-                System.out.println(ser.getDiscount());
                 /*service ser = new service();*/
 
                 /*service service = new service(sIdConvert,name,category,priceD,DiscountD,description,status);*/

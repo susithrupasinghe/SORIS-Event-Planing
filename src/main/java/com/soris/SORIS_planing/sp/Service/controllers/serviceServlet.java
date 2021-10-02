@@ -24,7 +24,6 @@ public class serviceServlet extends HttpServlet {
                 serviceModel serviceMem = new serviceModel();
                 List<service> servicesDetails = serviceMem.getServiceDetails(spID);
                 request.setAttribute("servicesDetails", servicesDetails);
-                System.out.println("abs");
             } catch (Exception e) {
                 e.printStackTrace();
             }
