@@ -40,6 +40,7 @@ public class eventList extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         HttpSession session= request.getSession(false);
         if(session.getAttribute("userid") !=null && session.getAttribute("role")=="host")
         {
@@ -68,4 +69,5 @@ public class eventList extends HttpServlet {
 
 
 }
+
 
