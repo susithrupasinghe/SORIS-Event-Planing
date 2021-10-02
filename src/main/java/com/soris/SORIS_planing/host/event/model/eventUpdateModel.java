@@ -72,12 +72,10 @@ public class eventUpdateModel {
 
     }
 
-
     public boolean eventUpdate(int eid,String date,String name,String description,double estimatedCost) throws SQLException {
         try {
             Statement stmt = con.createStatement();
             String sql = "UPDATE event SET date='" + date + "',name='" + name + "',description='" + description + "',estimatedcost='" + estimatedCost +  "' WHERE eid='" + eid + "'";
-
             int count = stmt.executeUpdate(sql);
             if (count > 0) {
                 return true;

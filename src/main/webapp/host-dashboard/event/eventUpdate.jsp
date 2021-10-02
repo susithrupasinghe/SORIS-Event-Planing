@@ -32,7 +32,6 @@
           type="text/css"/>
 
 </head>
-
 <%
     String name= (String) request.getAttribute("name");
     String description= (String) request.getAttribute("description");
@@ -41,7 +40,6 @@
     int eid= (int) request.getAttribute("eid");
 
 %>
-
 
 <body data-sidebar="dark">
 
@@ -218,13 +216,11 @@
                             <div class="card-body">
                                 <h4 class="card-title mb-4">Update Event</h4>
                                 <form action="<%=request.getContextPath()%>/eventUpdate" method="post" id="form">
-
                                     <input name="eid" value="<%=eid%>" type="hidden">
                                     <div class="row mb-4">
                                         <label for="eventName" class="col-form-label col-lg-2">Event Name</label>
                                         <div class="col-lg-10">
                                             <input id="eventName" name="name" type="text" class="form-control" value="<%=name%>" required>
-
                                         </div>
                                     </div>
                                     <div class="row mb-4">

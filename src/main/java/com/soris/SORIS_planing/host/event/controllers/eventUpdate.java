@@ -22,9 +22,7 @@ public class eventUpdate extends HttpServlet {
             request.setAttribute("name",event.getName());
             request.setAttribute("description",event.getDescription());
             request.setAttribute("estimatedcost",event.getEstimatedCost());
-
             request.getRequestDispatcher("/host-dashboard/event/eventUpdate.jsp").forward(request,response);
-
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -53,7 +51,6 @@ public class eventUpdate extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
 
 
     }
