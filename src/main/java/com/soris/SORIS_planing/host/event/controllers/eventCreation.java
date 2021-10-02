@@ -20,6 +20,7 @@ public class eventCreation extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
         HttpSession session= request.getSession(false);
         int hid=0;
         if(session.getAttribute("userid") !=null && session.getAttribute("role")=="host")
@@ -32,7 +33,7 @@ public class eventCreation extends HttpServlet {
             request.getRequestDispatcher("/auth/host-user-signin.jsp").forward(request,response);
         }
 
-        try {
+
             String name = request.getParameter("name");
             String description = request.getParameter("description");
             double estimatedCost = Double.parseDouble(request.getParameter("estimatedCost"));
@@ -43,7 +44,7 @@ public class eventCreation extends HttpServlet {
 
             eventCreationModel event = new eventCreationModel();
             if (event.addEvent(name, description, estimatedCost,hid,d)) {
-                request.getRequestDispatcher("/host-dashboard/home.jsp").forward(request,response);
+                request.getRequestDispatcher("/eventList").forward(request,response);
             } else {
                 request.setAttribute("error", "event creation failed");
                 request.getRequestDispatcher("/host-dashboard/event/eventCreation.jsp").forward(request,response);
