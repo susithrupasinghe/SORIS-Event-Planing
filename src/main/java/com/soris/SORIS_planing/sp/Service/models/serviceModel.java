@@ -28,10 +28,9 @@ public class serviceModel {
             con = dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-
             /*String sql = "insert into soris.service(spid,name,category,price,discount,description) values (spId,'"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"')";*/
 
-            String sql = "insert into soris.service(spid,name,category,price,discount,description) values (0,'"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"')";
+            String sql = "insert into soris.service(spid,name,category,price,discount,description,status) values ('"+spId+"','"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"','pending')";
 
             int rs = stmt.executeUpdate(sql);
 

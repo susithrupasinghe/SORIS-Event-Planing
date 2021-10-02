@@ -129,12 +129,14 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                        <span class="d-none d-xl-inline-block ms-1"
+                              key="t-henry"><%=session.getAttribute("username")%>
+                        </span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
 
-                        <a class="dropdown-item text-danger" href="#"><i
+                        <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=sp"><i
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
                     </div>
@@ -195,7 +197,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Service Provider</a></li>
-                                    <li class="breadcrumb-item active">/Update Service</li>
+                                    <li class="breadcrumb-item active">Update Service</li>
                                 </ol>
                             </div>
 
@@ -228,7 +230,7 @@
                             <div class="card-body">
 
                                 <h4 class="card-title">Basic Information</h4>
-                                <p class="card-title-desc">Fill all information below</p>
+                                <p class="card-title-desc">Update the service from the selected category</p>
 
                                 <form action="<%=request.getContextPath()%>/updateServiceServlet" method="post">
                                     <div class="row">
@@ -244,13 +246,17 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="Discount">Discount</label>
-                                                <input id="Discount" name="Discount" type="text" class="form-control" placeholder="Discount" value="<%= discount%>">
+                                                <input id="Discount" name="Discount" type="text" class="form-control" placeholder="Discount" value="<%= discount%>" required>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <div class="mb-3">
-                                                <label class="control-label">Category</label>
+                                                <div class="mb-3">
+                                                    <label for="category">Service category</label>
+                                                    <input id="category" name="category" type="text" class="form-control" placeholder="Category" value="<%= category%>" readonly>
+                                                </div>
+                                                <%--<label class="control-label">Category</label>
                                                 <select class="form-control select2" name = "category" readonly="">
                                                     <option>Select</option>
                                                     <option value="<%= category%>">Food</option>
@@ -258,7 +264,7 @@
                                                     <option value="<%= category%>">Entertainment</option>
                                                     <option value="<%= category%>">Gifts</option>
                                                     <option value="<%= category%>">Others</option>
-                                                </select>
+                                                </select>--%>
                                             </div>
 
                                             <div class="mb-3">
@@ -292,8 +298,8 @@
                                     <input type="hidden" id="sID" name="sID" value="<%= sID%>">
 
                                     <div class="d-flex flex-wrap gap-2">
-                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Edit</button>
-                                        <button type="button" class="btn btn-secondary waves-effect waves-light" ><a href="home.jsp">Cancel</a></button>
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Update Your Service</button>
+                                        <button type="button" class="btn btn-secondary waves-effect waves-light" ><a href="<%=request.getContextPath()%>/serviceServlet">Cancel</a></button>
                                     </div>
                             </div>
                             </form>

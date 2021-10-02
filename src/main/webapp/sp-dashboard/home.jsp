@@ -20,13 +20,14 @@
 <head>
 
     <meta charset="utf-8"/>
+    <link href="<%=request.getContextPath()%>/assets/landing/assets/images/favicon/favicon.png" rel="icon"/>
     <title>SORIS Event Planning Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
-    <!-- App favicon -->
+   <%-- <!-- App favicon -->
     <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">
-
+--%>
     <!-- Bootstrap Css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style"
           rel="stylesheet" type="text/css"/>
@@ -116,12 +117,14 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                        <span class="d-none d-xl-inline-block ms-1"
+                              key="t-henry"><%=session.getAttribute("username")%>
+                        </span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
 
-                        <a class="dropdown-item text-danger" href="#"><i
+                        <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=sp"><i
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
                     </div>
@@ -247,7 +250,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="text-sm-end">
-                                        <a href="newService.jsp">
+                                        <a href="<%=request.getContextPath()%>/sp-dashboard/newService.jsp" target="target_name">
                                             <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i>
                                                 Add New Service </button>
                                         </a>
@@ -308,6 +311,10 @@
                                             <c:if test='${ser.status == "approved"}'>
                                                 <%--<i class="fab fa-cc-mastercard me-1"></i> ${ser.status}</td>--%>
                                                 <span class="badge badge-pill badge-soft-success font-size-12">${ser.status}</span>
+                                            </c:if>
+                                            <c:if test='${ser.status == "rejected"}'>
+                                                <%--<i class="fab fa-cc-mastercard me-1"></i> ${ser.status}</td>--%>
+                                                <span class="badge badge-pill badge-soft-danger font-size-12">${ser.status}</span>
                                             </c:if>
                                         </td>
                                         <td>
@@ -383,9 +390,23 @@
                     </div>
 
                     <div class="modal-footer">
-                        <%--<a href="<%=request.getContextPath()%>/updateService.jsp?id=${ser.sID}&status=suspended"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service</button></a>--%>
-                        <a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service</button></a>
-                        <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                        <c:if test='${ser.status == "rejected"}'>
+                            <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                        </c:if>
+                        <c:if test='${ser.status == "pending"}'>
+                            <a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>
+                            <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                        </c:if>
+                        <c:if test='${ser.status == "approved"}'>
+                            <a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>
+                            <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                        </c:if>
+                        <c:if test='${ser.status == "suspended"}'>
+                            <%--<a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>--%>
+                            <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                        </c:if>
+                        <%--<a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>--%>
+                        <%--<a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>--%>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>

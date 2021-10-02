@@ -38,8 +38,9 @@ public class newServiceServlet extends HttpServlet {
                 isTrue = Newservice.insertService(spIdConvert,serviceName, category, priceD, DiscountD, description);
                 if (isTrue == true) {
                     request.setAttribute("error", "Service Creation Successfully");
-                    RequestDispatcher dis = request.getRequestDispatcher("/sp-dashboard/home.jsp");
-                    dis.forward(request, response);
+                    /*RequestDispatcher dis = request.getRequestDispatcher("/sp-dashboard/home.jsp");
+                    dis.forward(request, response);*/
+                    response.sendRedirect(request.getContextPath() + "/serviceServlet");
                 } else {
                     request.setAttribute("error", "Service Creation Failed");
                     RequestDispatcher dis1 = request.getRequestDispatcher("/sp-dashboard/newService.jsp");
