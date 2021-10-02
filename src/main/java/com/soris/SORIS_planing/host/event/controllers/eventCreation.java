@@ -33,8 +33,7 @@ public class eventCreation extends HttpServlet {
         }
 
         try {
-        HttpSession session= request.getSession(false);
-        int hid=0;
+
         if(session.getAttribute("userid") !=null && session.getAttribute("role")=="host")
         {
             String _hid= (String) session.getAttribute("userid");
