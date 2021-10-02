@@ -20,13 +20,14 @@
 <head>
 
     <meta charset="utf-8"/>
+    <link href="<%=request.getContextPath()%>/assets/landing/assets/images/favicon/favicon.png" rel="icon"/>
     <title>SORIS Event Planning Platform</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
-    <!-- App favicon -->
+   <%-- <!-- App favicon -->
     <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">
-
+--%>
     <!-- Bootstrap Css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style"
           rel="stylesheet" type="text/css"/>
@@ -116,12 +117,14 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                        <span class="d-none d-xl-inline-block ms-1"
+                              key="t-henry"><%=session.getAttribute("username")%>
+                        </span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
 
-                        <a class="dropdown-item text-danger" href="#"><i
+                        <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=sp"><i
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
                     </div>
@@ -165,6 +168,9 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
+
+
+
     <div class="main-content">
 
         <div class="page-content">
@@ -211,8 +217,8 @@
             </div>
             <!-- end page title -->
 
-    <!--modal-->
-    <div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!--Error modal-->
+    <%--<div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -227,7 +233,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 
             <div class="row">
                 <div class="col-12">
@@ -244,10 +250,10 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="text-sm-end">
-                                            <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i><a href="/newService.jsp">
-                                                Add New Service </a></button>
-
-
+                                        <a href="<%=request.getContextPath()%>/sp-dashboard/newService.jsp" target="target_name">
+                                            <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i>
+                                                Add New Service </button>
+                                        </a>
                                     </div>
                                 </div><!-- end col-->
                             </div>
@@ -256,93 +262,81 @@
                                 <table class="table align-middle table-nowrap table-check">
                                     <thead class="table-light">
                                     <tr>
-                                        <th style="width: 20px;" class="align-middle">
-<%--                                            <div class="form-check font-size-16">--%>
-<%--                                                <input class="form-check-input" type="checkbox" id="checkAll">--%>
-<%--                                                <label class="form-check-label" for="checkAll"></label>--%>
-<%--                                            </div>--%>
-                                        </th>
                                         <th class="align-middle">Service ID</th>
                                         <th class="align-middle">Service Name</th>
                                         <th class="align-middle">Category</th>
-                                        <th class="align-middle">Price</th>
+                                        <th class="align-middle">Price per QTY</th>
                                         <th class="align-middle">Discount</th>
-                                        <th class="align-middle">Description</th>
-                                        <th class="align-middle">Service Status</th>
-<%--                                        <th class="align-middle">Update Service</th>--%>
-                                        <th class="align-middle">Action</th>
+                                        <th class="align-middle">Status</th>
+                                        <th class="align-middle">View Details</th>
                                     </tr>
                                     </thead>
 
-<%--                                    <%--%>
-<%--                                        List<service> serviceDetails = (List<service>) request.getAttribute("servicesDetails");--%>
-<%--                                    %>--%>
-
+                                    <%--Open Table Body--%>
                                     <tbody>
-                                    <tr>
-                                        <c:forEach var = "ser" items = "${servicesDetails}">
-                                           <td><c:set var="sID" value="${ser.sID}" /></td>
-                                            <td><c:set var="name" value="${ser.name}" /></td>
-                                            <td><c:set var="category" value="${ser.category}" /></td>
-                                            <td><c:set var="price" value="${ser.price}" /></td>
-                                            <td><c:set var="discount" value="${ser.discount}" /></td>
-                                            <td><c:set var="description" value="${ser.description}" /></td>
-                                            <td><span class="badge bg-success font-size-10">Completed</span></td>
-                                            <td>
-                                                <div class="d-flex gap-3">
-                                                        <%--                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">--%>
-                                                        <%--                                                    Update Details--%>
-                                                        <%--                                                </button><br>--%>
-                                                        <%--                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".orderdetailsModal">--%>
-                                                        <%--                                                    Delete Service--%>
-                                                        <%--                                                </button>--%>
+                                    <c:forEach var = "ser" items = "${servicesDetails}">
+                                        <%--<c:set var="sID" value="${ser.sID}"></c:set>
+                                        <c:set var="name" value="${ser.name}"></c:set>
+                                        <c:set var="category" value="${ser.category}"></c:set>
+                                        <c:set var="price" value="${ser.price}"></c:set>
+                                        <c:set var="discount" value="${ser.discount}"></c:set>
+                                        <c:set var="status" value="${ser.status}"></c:set>
+                                        <c:set var="description" value="${ser.description}"></c:set>
 
-                                                    <a href="javascript:void(0);" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
-                                                    <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
-                                                </div>
-                                            </td>
-
-                                    </tr>
-
-
+                                        <c:url value="updateService.jsp" var="serUpdate">
+                                            <c:param name="sID" value="${sID}"/>
+                                            <c:param name="name" value="${name}"/>
+                                            <c:param name="category" value="${category}"/>
+                                            <c:param name="price" value="${price}"/>
+                                            <c:param name="discount" value="${discount}"/>
+                                            <c:param name="status" value="${status}"/>
+                                            <c:param name="description" value="${description}"/>
+                                        </c:url>--%>
 
                                     <tr>
-                                        <td>
-<%--                                            <div class="form-check font-size-16">--%>
-<%--                                                <input class="form-check-input" type="checkbox" id="orderidcheck01">--%>
-<%--                                                <label class="form-check-label" for="orderidcheck01"></label>--%>
-<%--                                            </div>--%>
-                                        </td>
-                                        <td><a href="javascript: void(0);" class="text-body fw-bold">${ser.sID}</a> </td>
+                                        <td><a href="javascript: void(0);" class="text-body fw-bold">${ser.sID}</a></td>
                                         <td>${ser.name}</td>
                                         <td>${ser.category}</td>
                                         <td>${ser.price}</td>
-                                        <td><span class="badge badge-pill badge-soft-success font-size-12">${ser.discount}</span></td>
-                                        <td><i class="fab fa-cc-mastercard me-1"></i> ${ser.description}</td>
+                                        <td><span class="badge badge-pill badge-soft-success font-size-11">${ser.discount}</span></td>
+                                        <td>
+                                            <c:if test='${ser.status == "pending"}'>
+                                                <%--<i class="fab fa-cc-mastercard me-1"></i> ${ser.status}</td>--%>
+                                                <span class="badge badge-pill badge-soft-warning font-size-12"> ${ser.status}</span>
+                                            </c:if>
+                                            <c:if test='${ser.status == "suspended"}'>
+                                                <%--<i class="fab fa-cc-mastercard me-1"></i> ${ser.status}</td>--%>
+                                                <span class="badge badge-pill badge-soft-danger font-size-12">${ser.status}</span>
+                                            </c:if>
+                                            <c:if test='${ser.status == "approved"}'>
+                                                <%--<i class="fab fa-cc-mastercard me-1"></i> ${ser.status}</td>--%>
+                                                <span class="badge badge-pill badge-soft-success font-size-12">${ser.status}</span>
+                                            </c:if>
+                                            <c:if test='${ser.status == "rejected"}'>
+                                                <%--<i class="fab fa-cc-mastercard me-1"></i> ${ser.status}</td>--%>
+                                                <span class="badge badge-pill badge-soft-danger font-size-12">${ser.status}</span>
+                                            </c:if>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".ser_${ser.sID}">
+                                                View Details
+                                            </button>
+                                        </td>
 
-                                        </tr>
+                                        <%--<td>
+                                            <a href="${serUpdate}" >
+                                            <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".ser_${ser.sID}">
+                                                Update
+                                            </button>
+                                            </a>
+                                        </td>--%>
+                                    </tr>
                                     </c:forEach>
                                     </tbody>
 
                                 </table>
                             </div>
-<%--                            <ul class="pagination pagination-rounded justify-content-end mb-2">--%>
-<%--                                <li class="page-item disabled">--%>
-<%--                                    <a class="page-link" href="javascript: void(0);" aria-label="Previous">--%>
-<%--                                        <i class="mdi mdi-chevron-left"></i>--%>
-<%--                                    </a>--%>
-<%--                                </li>--%>
-<%--                                <li class="page-item active"><a class="page-link" href="javascript: void(0);">1</a></li>--%>
-<%--                                <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a></li>--%>
-<%--                                <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a></li>--%>
-<%--                                <li class="page-item"><a class="page-link" href="javascript: void(0);">4</a></li>--%>
-<%--                                <li class="page-item"><a class="page-link" href="javascript: void(0);">5</a></li>--%>
-<%--                                <li class="page-item">--%>
-<%--                                    <a class="page-link" href="javascript: void(0);" aria-label="Next">--%>
-<%--                                        <i class="mdi mdi-chevron-right"></i>--%>
-<%--                                    </a>--%>
-<%--                                </li>--%>
-<%--                            </ul>--%>
+
                         </div>
                     </div>
                 </div>
@@ -356,6 +350,68 @@
 
         </div>
         <!-- End Page-content -->
+
+        <%--Model--%>
+        <c:forEach var = "ser" items = "${servicesDetails}">
+        <div class="modal fade ser_${ser.sID}" tabindex="-1" aria-labelledby="transaction-detailModalLabel" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="transaction-detailModalLabel">Service Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-2">Product id: <span class="text-primary">${ser.sID}</span></p>
+                        <p class="mb-4">Billing Name: <span class="text-primary">${ser.name}</span></p>
+
+                        <div class="table-responsive">
+                            <table class="table align-middle table-nowrap">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Service Name</th>
+                                    <th scope="col">Service Price</th>
+                                </tr>
+                                </thead>
+
+                                    <%-- Table body--%>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <h5 class="text-truncate font-size-14">${ser.name}</h5>
+                                            <p class="text-muted mb-0">${ser.description}</p>
+                                        </div>
+                                    </td>
+                                    <td>${ser.price}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <c:if test='${ser.status == "rejected"}'>
+                            <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                        </c:if>
+                        <c:if test='${ser.status == "pending"}'>
+                            <a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>
+                            <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                        </c:if>
+                        <c:if test='${ser.status == "approved"}'>
+                            <a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>
+                            <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                        </c:if>
+                        <c:if test='${ser.status == "suspended"}'>
+                            <%--<a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>--%>
+                            <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                        </c:if>
+                        <%--<a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>--%>
+                        <%--<a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>--%>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+            </c:forEach>
 
         <footer class="footer">
             <div class="container-fluid">
@@ -375,7 +431,7 @@
     </div>
     <!-- end main content-->
 
-</div>
+<%--</div>--%>
 <!-- END layout-wrapper -->
 
 
@@ -397,11 +453,11 @@
 </body>
 
 <%--Pop-up--%>
-<% if (request.getAttribute("error") != null ){%>
+<%--<% if (request.getAttribute("error") != null ){%>
 <script>
     setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
 </script>
-<%}%>
+<%}%>--%>
 
 </html>
 
@@ -430,18 +486,18 @@
 <%--        ${ser.description}--%>
 <%--    </c:forEach>--%>
 
-<%--    <c:url value="updateService.jsp" var="serUpdate">--%>
-<%--        <c:param name="sID" value="${sID}"/>--%>
-<%--        <c:param name="name" value="${sID}"/>--%>
-<%--        <c:param name="category" value="${sID}"/>--%>
-<%--        <c:param name="price" value="${sID}"/>--%>
-<%--        <c:param name="discount" value="${sID}"/>--%>
-<%--        <c:param name="description" value="${sID}"/>--%>
-<%--    </c:url>--%>
+<%--    <c:url value="updateService.jsp" var="serUpdate">
+        <c:param name="sID" value="${sID}"/>
+        <c:param name="name" value="${sID}"/>
+        <c:param name="category" value="${sID}"/>
+        <c:param name="price" value="${sID}"/>
+        <c:param name="discount" value="${sID}"/>
+        <c:param name="description" value="${sID}"/>
+    </c:url>--%>
 
-<%--    <a href="${serUpdate}" >--%>
-<%--        <input type="button" name="update" value="update service data">--%>
-<%--    </a>--%>
+<%--    <a href="${serUpdate}" >
+        <input type="button" name="update" value="update service data">
+    </a>--%>
 
 <%--</body>--%>
 <%--</html>--%>

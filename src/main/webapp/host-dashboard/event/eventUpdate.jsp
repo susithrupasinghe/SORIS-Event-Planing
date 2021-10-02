@@ -1,4 +1,6 @@
+
 <%@ page import="java.util.Date" %><%--
+
   Created by IntelliJ IDEA.
   User: user
   Date: 10/1/2021
@@ -224,13 +226,17 @@
                                     <div class="row mb-4">
                                         <label for="eventdesc" class="col-form-label col-lg-2">Event Description</label>
                                         <div class="col-lg-10">
+
                                             <textarea class="form-control" name="description" id="eventdesc" rows="5"  required> <%=description%> </textarea>
+
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label for="date-input" class="col-md-2 col-form-label">Date</label>
                                         <div class="col-md-10">
+
                                             <input class="form-control" type="date" value="<%=date%>" id="date-input" name="date" required>
+
                                         </div>
                                     </div>
 
@@ -238,14 +244,18 @@
                                     <div class="row mb-4">
                                         <label for="budget" class="col-form-label col-lg-2">Budget</label>
                                         <div class="col-lg-10">
+
                                             <input id="budget" name="estimatedCost" type="text" value="<%=estimatedCost%>" class="form-control" required>
+
                                         </div>
                                     </div>
                                 </form>
 
                                 <div class="row justify-content-end">
                                     <div class="col-lg-10">
+
                                         <button type="submit" class="btn btn-primary" form="form">Update Event</button>
+
                                     </div>
                                 </div>
 
