@@ -22,7 +22,9 @@ public class eventUpdate extends HttpServlet {
             request.setAttribute("name",event.getName());
             request.setAttribute("description",event.getDescription());
             request.setAttribute("estimatedcost",event.getEstimatedCost());
-            request.getRequestDispatcher("/host-dashboard/event/eventUpdate.jsp");
+
+            request.getRequestDispatcher("/host-dashboard/event/eventUpdate.jsp").forward(request,response);
+
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -33,6 +35,25 @@ public class eventUpdate extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            int eid= Integer.parseInt(request.getParameter("eid"));
+            String name=request.getParameter("name");
+            String date=request.getParameter("date");
+            String description=request.getParameter("description");
+            double estimatedCost= Double.parseDouble(request.getParameter("estimatedCost"));
+
+
+            eventUpdateModel updateModel= new eventUpdateModel();
+            if(updateModel.eventUpdate(eid,date,name,description,estimatedCost)){
+                request.getRequestDispatcher("/eventList").forward(request,response);
+            }else {
+                request.setAttribute("error","event update failed");
+                request.getRequestDispatcher("/host-dashboard/event/eventUpdate.jsp").forward(request,response);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
 
 
     }

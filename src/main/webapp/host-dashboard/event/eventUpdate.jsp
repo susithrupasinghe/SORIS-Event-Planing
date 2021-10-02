@@ -1,4 +1,6 @@
-<%--
+
+<%@ page import="java.util.Date" %><%--
+
   Created by IntelliJ IDEA.
   User: user
   Date: 10/1/2021
@@ -30,6 +32,16 @@
           type="text/css"/>
 
 </head>
+
+<%
+    String name= (String) request.getAttribute("name");
+    String description= (String) request.getAttribute("description");
+    String date= (String) request.getAttribute("date");
+    double estimatedCost= (double) request.getAttribute("estimatedcost");
+    int eid= (int) request.getAttribute("eid");
+
+%>
+
 
 <body data-sidebar="dark">
 
@@ -206,22 +218,29 @@
                             <div class="card-body">
                                 <h4 class="card-title mb-4">Update Event</h4>
                                 <form action="<%=request.getContextPath()%>/eventUpdate" method="post" id="form">
+
+                                    <input name="eid" value="<%=eid%>" type="hidden">
                                     <div class="row mb-4">
                                         <label for="eventName" class="col-form-label col-lg-2">Event Name</label>
                                         <div class="col-lg-10">
-                                            <input id="eventName" name="name" type="text" class="form-control" placeholder=<%request.getParameter("name");%> required>
+                                            <input id="eventName" name="name" type="text" class="form-control" value="<%=name%>" required>
+
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <label for="eventdesc" class="col-form-label col-lg-2">Event Description</label>
                                         <div class="col-lg-10">
-                                            <textarea class="form-control" name="description" id="eventdesc" rows="5" placeholder="Enter Event Description..." required></textarea>
+
+                                            <textarea class="form-control" name="description" id="eventdesc" rows="5"  required> <%=description%> </textarea>
+
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label for="date-input" class="col-md-2 col-form-label">Date</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" type="date" value="2019-08-19" id="date-input" name="date" required>
+
+                                            <input class="form-control" type="date" value="<%=date%>" id="date-input" name="date" required>
+
                                         </div>
                                     </div>
 
@@ -229,14 +248,18 @@
                                     <div class="row mb-4">
                                         <label for="budget" class="col-form-label col-lg-2">Budget</label>
                                         <div class="col-lg-10">
-                                            <input id="budget" name="estimatedCost" type="text" placeholder="Enter Event Budget..." class="form-control" required>
+
+                                            <input id="budget" name="estimatedCost" type="text" value="<%=estimatedCost%>" class="form-control" required>
+
                                         </div>
                                     </div>
                                 </form>
 
                                 <div class="row justify-content-end">
                                     <div class="col-lg-10">
-                                        <button type="submit" class="btn btn-primary" form="form">Create Event</button>
+
+                                        <button type="submit" class="btn btn-primary" form="form">Update Event</button>
+
                                     </div>
                                 </div>
 
