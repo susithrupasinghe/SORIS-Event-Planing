@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.soris.SORIS_planing.admin.dashboard.models.topServiceModel" %><%--
   Created by IntelliJ IDEA.
   User: Shavidini
   Date: 10/1/2021
@@ -11,6 +13,9 @@
 
 <%
     int servicesCount = (int) request.getAttribute("serviceCount");
+    HashMap<String, Integer> serviceSummery = (HashMap<String, Integer>) request.getAttribute("serviceSummery");
+    HashMap<String, Integer> serviceCatSummery = (HashMap<String, Integer>) request.getAttribute("catSumOfServices");
+    List<topServiceModel> topServicelist = (List<topServiceModel>) request.getAttribute("topServices");
 %>
 
 <head>
@@ -180,20 +185,22 @@
 
         <div class="page-content">
             <div class="container-fluid">
-                <div class="col-md-3">
+
+                <div class="row">
+                    <div class="col-md-3">
                     <div class="card mini-stats-wid">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-grow-1">
-                                    <p class="text-muted fw-medium">Service Count</p>
+                                    <p class="text-muted fw-medium">Services</p>
                                     <h4 class="mb-0"><%=servicesCount%>
                                     </h4>
                                 </div>
 
                                 <div class="flex-shrink-0 align-self-center">
-                                    <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
-                                                            <span class="avatar-title rounded-circle bg-success">
-                                                                <i class="bx bx-football font-size-24"></i>
+                                    <div class="avatar-sm rounded-circle mini-stat-icon">
+                                                            <span class="avatar-title rounded-circle bg-warning">
+                                                                <i class="bx bxs-shopping-bag font-size-24"></i>
                                                             </span>
                                     </div>
                                 </div>
@@ -202,9 +209,369 @@
                     </div>
                 </div>
 
+                    <div class="col-md-3">
+                        <div class="card mini-stats-wid">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <p class="text-muted fw-medium">Services</p>
+                                        <h4 class="mb-0"><%=servicesCount%>
+                                        </h4>
+                                    </div>
 
+                                    <div class="flex-shrink-0 align-self-center">
+                                        <div class="avatar-sm rounded-circle mini-stat-icon">
+                                                            <span class="avatar-title rounded-circle bg-warning">
+                                                                <i class="bx bxs-shopping-bag font-size-24"></i>
+                                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <%--<div class="col-md-3">
+                    <div class="card mini-stats-wid">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <p class="text-muted fw-medium">Host Users</p>
+                                    <h4 class="mb-0">ABC&lt;%&ndash;<%=hostUserCount%>&ndash;%&gt;
+                                    </h4>
+                                </div>
+
+                                <div class="flex-shrink-0 align-self-center ">
+                                    <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                                        <span class="avatar-title rounded-circle bg-primary">
+                                            <i class="bx bx-user-check font-size-24"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>--%>
+
+                    <div class="col-md-3">
+                        <div class="card mini-stats-wid">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="col-sm-8">
+                                        <div class="text-sm-end">
+                                            <a href="<%=request.getContextPath()%>/sp-dashboard/newService.jsp" target="target_name">
+                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light"><i class="mdi mdi-plus me-1"></i>
+                                                    Add New Service </button>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-shrink-0 align-self-center ">
+                                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                                        <span class="avatar-title rounded-circle bg-primary">
+                                            <i class="bx bx-user-check font-size-24"></i>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <%--summary of services--%>
+                <div class="row">
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Summery of Services</h4>
+
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <i class="bx bx-map-pin text-primary display-4"></i>
+                                </div>
+                                <h3><%=serviceSummery.get("pending")%>
+                                </h3>
+                                <p>Waiting for Approval</p>
+                            </div>
+
+                            <div class="table-responsive mt-4">
+                                <table class="table align-middle table-nowrap">
+                                    <tbody>
+                                    <tr>
+                                        <td style="width: 30%">
+                                            <p class="mb-0">Waiting for Approval</p>
+                                        </td>
+                                        <td style="width: 25%">
+                                            <h5 class="mb-0"><%=serviceSummery.get("pending")%>
+                                            </h5></td>
+                                        <td>
+                                            <div class="progress bg-transparent progress-sm">
+                                                <div class="progress-bar bg-primary rounded" role="progressbar"
+                                                     style="width: <%=((serviceSummery.get("pending")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                     aria-valuenow="" aria-valuemin="0"
+                                                     aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="mb-0">Approved</p>
+                                        </td>
+                                        <td>
+                                            <h5 class="mb-0"><%=serviceSummery.get("approved")%>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <div class="progress bg-transparent progress-sm">
+                                                <div class="progress-bar bg-success rounded" role="progressbar"
+                                                     style="width: <%=((serviceSummery.get("approved")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                     aria-valuenow="" aria-valuemin="0"
+                                                     aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="mb-0">Rejected</p>
+                                        </td>
+                                        <td>
+                                            <h5 class="mb-0"><%=serviceSummery.get("rejected")%>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <div class="progress bg-transparent progress-sm">
+                                                <div class="progress-bar bg-warning rounded" role="progressbar"
+                                                     style="width: <%=((serviceSummery.get("rejected")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                     aria-valuenow="" aria-valuemin="0"
+                                                     aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="mb-0">Suspended</p>
+                                        </td>
+                                        <td>
+                                            <h5 class="mb-0"><%=serviceSummery.get("suspended")%>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <div class="progress bg-transparent progress-sm">
+                                                <div class="progress-bar bg-warning rounded" role="progressbar"
+                                                     style="width: <%=((serviceSummery.get("suspended")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                     aria-valuenow="" aria-valuemin="0"
+                                                     aria-valuemax="100"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Summery of Services cat</h4>
+
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <i class="bx bx-map-pin text-primary display-4"></i>
+                                </div>
+                                    <%--<h3><%=serviceCatSummery.get("Foods")%>
+                                    </h3>
+                                    <p>Foods</p>--%>
+                            </div>
+
+                            <div class="table-responsive mt-4">
+                                <table class="table align-middle table-nowrap">
+                                    <tbody>
+                                    <tr>
+                                        <td style="width: 30%">
+                                            <p class="mb-0">Foods</p>
+                                        </td>
+                                        <td style="width: 25%">
+                                            <h5 class="mb-0"><%=serviceCatSummery.get("Foods")%>
+                                            </h5></td>
+                                        <td>
+                                            <div class="progress bg-transparent progress-sm">
+                                                <div class="progress-bar bg-primary rounded" role="progressbar"
+                                                     style="width: <%=((serviceSummery.get("pending")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                     aria-valuenow="" aria-valuemin="0"
+                                                     aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 30%">
+                                                <p class="mb-0">Entertainment</p>
+                                            </td>
+                                            <td style="width: 25%">
+                                                <h5 class="mb-0"><%=serviceCatSummery.get("Entertainment")%>
+                                                </h5></td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-primary rounded" role="progressbar"
+                                                         style="width: <%=((serviceSummery.get("pending")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="mb-0">Transport</p>
+                                            </td>
+                                            <td>
+                                                <h5 class="mb-0"><%=serviceCatSummery.get("Transport")%>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-success rounded" role="progressbar"
+                                                         style="width: <%=((serviceSummery.get("approved")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="mb-0">Music</p>
+                                            </td>
+                                            <td>
+                                                <h5 class="mb-0"><%=serviceCatSummery.get("Music")%>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar"
+                                                         style="width: <%=((serviceSummery.get("rejected")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="mb-0">Gifts</p>
+                                            </td>
+                                            <td>
+                                                <h5 class="mb-0"><%=serviceCatSummery.get("Gifts")%>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar"
+                                                         style="width: <%=((serviceSummery.get("suspended")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p class="mb-0">Others</p>
+                                            </td>
+                                            <td>
+                                                <h5 class="mb-0"><%=serviceCatSummery.get("Others")%>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <div class="progress bg-transparent progress-sm">
+                                                    <div class="progress-bar bg-warning rounded" role="progressbar"
+                                                         style="width: <%=((serviceSummery.get("suspended")/serviceSummery.get("total").floatValue()))*100%>%"
+                                                         aria-valuenow="" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <%--<div class="table-responsive mt-4">
+                        <table class="table align-middle table-nowrap">
+                            <tbody>
+                            <tr>
+                                <td style="width: 30%">
+                                    <p class="mb-0"><%= topServicelist.get(0).getName()%></p>
+                                </td>
+                                <td style="width: 25%">
+                                    <h5 class="mb-0"><%= topServicelist.get(0).getCount()%>
+                                    </h5></td>
+                                <td>
+                                    <div class="progress bg-transparent progress-sm">
+                                        <div class="progress-bar bg-primary rounded" role="progressbar"
+                                             style="width: <%=((topServicelist.get(0).getCount()/(float)servicesCount))*100%>%"
+                                             aria-valuenow="" aria-valuemin="0"
+                                             aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0"><%= topServicelist.get(1).getName()%></p>
+                                </td>
+                                <td>
+                                    <h5 class="mb-0"><%= topServicelist.get(1).getCount()%>
+                                    </h5>
+                                </td>
+                                <td>
+                                    <div class="progress bg-transparent progress-sm">
+                                        <div class="progress-bar bg-success rounded" role="progressbar"
+                                             style="width: <%=((topServicelist.get(1).getCount()/(float)servicesCount))*100%>%"
+                                             aria-valuenow="" aria-valuemin="0"
+                                             aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0"><%= topServicelist.get(2).getName()%></p>
+                                </td>
+                                <td>
+                                    <h5 class="mb-0"><%= topServicelist.get(2).getCount()%>
+                                    </h5>
+                                </td>
+                                <td>
+                                    <div class="progress bg-transparent progress-sm">
+                                        <div class="progress-bar bg-warning rounded" role="progressbar"
+                                             style="width: <%=((topServicelist.get(2).getCount()/(float)servicesCount))*100%>%"
+                                             aria-valuenow="" aria-valuemin="0"
+                                             aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0"><%= topServicelist.get(3).getName()%></p>
+                                </td>
+                                <td>
+                                    <h5 class="mb-0"><%= topServicelist.get(3).getCount()%>
+                                    </h5>
+                                </td>
+                                <td>
+                                    <div class="progress bg-transparent progress-sm">
+                                        <div class="progress-bar bg-warning rounded" role="progressbar"
+                                             style="width: <%=((topServicelist.get(3).getCount()/(float)servicesCount))*100%>%"
+                                             aria-valuenow="" aria-valuemin="0"
+                                             aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>--%>
+                </div>
             </div>
-
         </div>
         <!-- End Page-content -->
 

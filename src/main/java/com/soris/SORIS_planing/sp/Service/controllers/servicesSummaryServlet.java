@@ -1,11 +1,14 @@
 package com.soris.SORIS_planing.sp.Service.controllers;
 
+import com.soris.SORIS_planing.admin.dashboard.models.topServiceModel;
 import com.soris.SORIS_planing.sp.Service.models.servicesSummaryModel;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 
 @WebServlet(name = "servicesSummaryServlet", value = "/servicesSummaryServlet")
 public class servicesSummaryServlet extends HttpServlet {
@@ -20,7 +23,14 @@ public class servicesSummaryServlet extends HttpServlet {
             try{
                 servicesSummaryModel summarySer = new servicesSummaryModel();
                 int servicesCount = summarySer.getServiceCount(spID);
+                HashMap<String,Integer> summeryOfServices= summarySer.getSummeryOfServices(spID);
+                HashMap<String,Integer> catSumOfServices= summarySer.getcatSumOfServices(spID);
+                List<topServiceModel> _topservices = summarySer.getTopServices(spID);
+
                 request.setAttribute("serviceCount",servicesCount);
+                request.setAttribute("serviceSummery",summeryOfServices);
+                request.setAttribute("catSumOfServices",catSumOfServices);
+                request.setAttribute("topServices",_topservices);
 
                 request.getRequestDispatcher("/sp-dashboard/servicesSummary.jsp").forward(request, response);
 
