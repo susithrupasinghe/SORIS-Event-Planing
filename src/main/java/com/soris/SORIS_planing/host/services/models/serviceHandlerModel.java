@@ -101,4 +101,47 @@ public class serviceHandlerModel {
         }
 
     }
+
+
+    public boolean addServiceToBudget(String eid, String sid, int count){
+
+        try{
+            String query = String.format("SELECT * FROM service WHERE  sid='%s'",sid);
+            Statement st = this.con.createStatement();
+            ResultSet res = st.executeQuery(query);
+            res.next();
+
+            float totalPrice = Float.parseFloat(res.getString("price")) * count;
+
+            query = String.format("INSERT INTO eventservices (eid,sid,count) VALUES('%s','%s','%d')",eid,sid,count);
+            Statement st2 = this.con.createStatement();
+            int res2 = st2.executeUpdate(query);
+            if(res2 > 0){
+
+                String description = res.getString("name");
+
+                query = String.format("INSERT INTO finance (eid,description,expense,income,amount) VALUES('%s','%s',%b,%b,%f)",eid,description,true,false,totalPrice);
+                Statement st3 = this.con.createStatement();
+                int res3 = st3.executeUpdate(query);
+                if(res3 > 0){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+
+            }
+            else {
+                return  false;
+            }
+
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+            return false;
+        }
+
+
+    }
+
 }
