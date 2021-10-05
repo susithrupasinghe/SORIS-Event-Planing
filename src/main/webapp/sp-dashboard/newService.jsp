@@ -144,8 +144,13 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/servicesSummaryServlet" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/serviceServlet" class="waves-effect">
+                            <span key="t-dashboards">Services</span>
                         </a>
                     </li>
 
