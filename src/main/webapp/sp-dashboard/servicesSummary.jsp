@@ -9,6 +9,10 @@
 <!doctype html>
 <html lang="en">
 
+<%
+    int servicesCount = (int) request.getAttribute("serviceCount");
+%>
+
 <head>
 
     <meta charset="utf-8"/>
@@ -147,11 +151,15 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/servicesSummaryServlet" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
-
+                    <li>
+                        <a href="<%=request.getContextPath()%>/serviceServlet" class="waves-effect">
+                            <span key="t-dashboards">Services</span>
+                        </a>
+                    </li>
 
 
 
@@ -170,7 +178,27 @@
 
         <div class="page-content">
             <div class="container-fluid">
+                <div class="col-md-3">
+                    <div class="card mini-stats-wid">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="flex-grow-1">
+                                    <p class="text-muted fw-medium">Service Count</p>
+                                    <h4 class="mb-0"><%=servicesCount%>
+                                    </h4>
+                                </div>
 
+                                <div class="flex-shrink-0 align-self-center">
+                                    <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                                                            <span class="avatar-title rounded-circle bg-success">
+                                                                <i class="bx bx-football font-size-24"></i>
+                                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
