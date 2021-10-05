@@ -177,6 +177,26 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
+
+
+    <%--    Model here --%>
+    <div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Something wrong</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><%=request.getAttribute("error")%></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="main-content">
 
         <div class="page-content">
@@ -193,7 +213,7 @@
                                                 <div class="col-md-2 col-sm-3 col-4">
                                                     <div class="nav flex-column nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                                         <a class="nav-link active" id="product-1-tab" data-bs-toggle="pill" href="#product-1" role="tab" aria-controls="product-1" aria-selected="true">
-                                                            <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-7.png" alt="" class="img-fluid mx-auto d-block rounded">
+                                                            <img src="<%=request.getContextPath()%>/uploads/<%=service.getImages()%>" alt="" class="img-fluid mx-auto d-block rounded">
                                                         </a>
 
                                                     </div>
@@ -202,7 +222,7 @@
                                                     <div class="tab-content" id="v-pills-tabContent">
                                                         <div class="tab-pane fade show active" id="product-1" role="tabpanel" aria-labelledby="product-1-tab">
                                                             <div>
-                                                                <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-7.png" alt="" class="img-fluid mx-auto d-block">
+                                                                <img src="<%=request.getContextPath()%>/uploads/<%=service.getImages()%>" alt="" class="img-fluid mx-auto d-block">
                                                             </div>
                                                         </div>
 
@@ -223,9 +243,11 @@
                                             <h6 class="text-success text-uppercase"><%=service.getDiscount()%> % Off</h6>
                                             <h5 class="mb-4">Price :  <b><%=service.getPrice()%> LKR</b></h5>
                                             <p class="text-muted mb-4"><%=service.getDescription()%></p>
-                                            <form>
+                                            <form method="post" action="<%=request.getContextPath()%>/addToBudget">
                                             <div class="col-sm-3">
-                                                <input data-toggle="touchspin" type="text" value="1">
+                                                <input data-toggle="touchspin" type="text" name="count" value="1">
+                                                <input type="hidden" name="eid" value="1">
+                                                <input type="hidden" name="sid" value="<%=service.getSid()%>">
                                             </div>
 
                                                 <div class="col-sm-3">
@@ -346,7 +368,12 @@
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
 
+<% if (request.getAttribute("error") != null ){%>
+<script>
+    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
 
+</script>
+<%}%>
 </body>
 
 </html>
