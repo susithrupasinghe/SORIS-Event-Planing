@@ -213,7 +213,9 @@
                                                 <div class="col-md-2 col-sm-3 col-4">
                                                     <div class="nav flex-column nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                                         <a class="nav-link active" id="product-1-tab" data-bs-toggle="pill" href="#product-1" role="tab" aria-controls="product-1" aria-selected="true">
+
                                                             <img src="<%=request.getContextPath()%>/uploads/<%=service.getImages()%>" alt="" class="img-fluid mx-auto d-block rounded">
+
                                                         </a>
 
                                                     </div>
@@ -222,7 +224,9 @@
                                                     <div class="tab-content" id="v-pills-tabContent">
                                                         <div class="tab-pane fade show active" id="product-1" role="tabpanel" aria-labelledby="product-1-tab">
                                                             <div>
+
                                                                 <img src="<%=request.getContextPath()%>/uploads/<%=service.getImages()%>" alt="" class="img-fluid mx-auto d-block">
+
                                                             </div>
                                                         </div>
 
@@ -243,11 +247,13 @@
                                             <h6 class="text-success text-uppercase"><%=service.getDiscount()%> % Off</h6>
                                             <h5 class="mb-4">Price :  <b><%=service.getPrice()%> LKR</b></h5>
                                             <p class="text-muted mb-4"><%=service.getDescription()%></p>
+
                                             <form method="post" action="<%=request.getContextPath()%>/addToBudget">
                                             <div class="col-sm-3">
                                                 <input data-toggle="touchspin" type="text" name="count" value="1">
                                                 <input type="hidden" name="eid" value="1">
                                                 <input type="hidden" name="sid" value="<%=service.getSid()%>">
+
                                             </div>
 
                                                 <div class="col-sm-3">
@@ -277,6 +283,7 @@
                                             <tr>
                                                 <th scope="row" style="width: 400px;">Brand Name</th>
                                                 <td><%=serviceprovider.getBrandname()%></td>
+
                                             </tr>
                                             <tr>
                                                 <th scope="row">Address</th>
@@ -287,6 +294,7 @@
                                                 <td><%=serviceprovider.getEmail()%></td>
                                             </tr>
                                             <tr>
+
                                                 <th scope="row">Contact No</th>
                                                 <td><%=serviceprovider.getContactno()%></td>
                                             </tr>
