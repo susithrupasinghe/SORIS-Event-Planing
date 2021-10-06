@@ -184,7 +184,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="product-img position-relative">
-                  <img src="<%=request.getContextPath()%>/assets/dashboard/assets/images/product/img-2.png" alt="" class="img-fluid mx-auto d-block">
+                  <img src="<%=request.getContextPath()%>/uploads/${ser.images}" alt="" class="img-fluid mx-auto d-block">
                 </div>
                 <div class="mt-4 text-center">
                   <h5 class="mb-3 text-truncate"><a href="<%=request.getContextPath()%>/servicePage?sid=${ser.sid}" class="text-dark">${ser.name}</a></h5>
