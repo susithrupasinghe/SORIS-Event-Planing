@@ -62,7 +62,7 @@ public class serviceModel {
 
             while (rs.next()){
                 int sID = rs.getInt(1);
-                String name = rs.getString(2);
+                String name = rs.getString("name");
                 String category = rs.getString(3);
                 double price = rs.getDouble(4);
                 double discount = rs.getDouble(5);
@@ -107,7 +107,8 @@ public class serviceModel {
 */
     public boolean deleteService(String sId){
 
-   /*     int convertID = Integer.parseInt(sIO);*/
+        /*     int convertID = Integer.parseInt(sIO);*/
+
 
         try{
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
@@ -131,7 +132,9 @@ public class serviceModel {
         return isSuccess;
     }
 
-    //get services count
+
+    /*//get services count
+
     public boolean serviceCount(String sID){
         try{
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
@@ -149,7 +152,9 @@ public class serviceModel {
 
 
         return isSuccess;
-    }
+
+    }*/
+
 
     /*public service getUpdateDetails(int sID){
         try{
