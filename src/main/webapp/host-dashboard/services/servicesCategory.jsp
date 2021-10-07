@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Dell
@@ -109,12 +108,12 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry"><%=session.getAttribute("username")%></span>
+                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
 
-                        <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=host"><i
+                        <a class="dropdown-item text-danger" href="#"><i
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
                     </div>
@@ -146,6 +145,11 @@
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="javascript: void(0);" class="waves-effect">
+                            <span key="t-dashboards">Add Services</span>
+                        </a>
+                    </li>
 
 
 
@@ -161,112 +165,102 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
-    <!-- modal event details   -->
-
-    <c:forEach var = "event" items = "${eventList}">
-        <div class="modal fade event_${event.eid}" tabindex="-1" aria-labelledby="transaction-detailModalLabel" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="transaction-detailModalLabel">Event Details</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="mb-2">Event id: <span class="text-primary">${event.eid}</span></p>
-                        <p class="mb-4">Event Name: <span class="text-primary">${event.name}</span></p>
-                        <p class="mb-2">Event description: <span class="text-primary">${event.description}</span></p>
-
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </c:forEach>
-
-
     <div class="main-content">
 
         <div class="page-content">
             <div class="container-fluid">
-                <div class="card-body">
-                    <div class="row mb-2">
-                        <div class="col-sm-4">
 
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="text-sm-end">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Foods">
+                            <div class="card">
+                                <div class="card-img-overlay">
+                                    <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center">Foods</div>
 
-                                <a href="<%=request.getContextPath()%>/host-dashboard/event/eventCreation.jsp"><button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Add New Event</button></a>
-
+                                </div>
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/foods.jpg" alt="Card image cap">
                             </div>
-                        </div><!-- end col-->
+                        </a>
+
                     </div>
 
-                    <div class="table-responsive">
-                        <table class="table align-middle table-nowrap table-check">
-                            <thead class="table-light">
-                            <tr>
+                    <div class="col-lg-4">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Transport">
+                            <div class="card">
 
-                                <th class="align-middle">Event ID</th>
-                                <th class="align-middle">Name</th>
-                                <th class="align-middle">Date</th>
-                                <th class="align-middle">Estimated Cost</th>
-                                <th class="align-middle">Current Cost </th>
-                                <th class="align-middle">Current Income</th>
-                                <th class="align-middle">View Descriptions</th>
-                                <th class="align-middle">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="event" items="${eventList}" >
-                                <tr>
+                                <div class="card-img-overlay">
+                                    <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center;">Transport</div>
 
+                                </div>
 
-                                    <td>${event.eid}</td>
-                                    <td>${event.name}</td>
-                                    <td>${event.date}</td>
-                                    <td>${event.estimatedCost}</td>
-                                    <td>${event.currentCost}</td>
-                                    <td>${event.currentIncome}</td>
-                                    <td>
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".event_${event.eid}">
-                                            View Description
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex gap-3">
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/transport.jpg" alt="Card image cap">
+                            </div>
+                        </a>
 
-                                            <a href="<%=request.getContextPath()%>/eventUpdate?eid=${event.eid}" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
+                    </div>
 
-                                            <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                    <div class="col-lg-4">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Entertainment">
+                            <div class="card">
 
+                                <div class="card-img-overlay">
+                                    <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center">Entertainment</div>
 
+                                </div>
 
-                            </tbody>
-                        </table>
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/entertainment.jpg" alt="Card image cap">
+                            </div>
+                        </a>
+
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Decorations">
+                            <div class="card">
 
+                                <div class="card-img-overlay">
+                                    <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center;color: #0b0b0b">Decorations</div>
 
+                                </div>
 
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/decoration.jpg" alt="Card image cap">
+                            </div>
+                        </a>
 
+                    </div>
 
+                    <div class="col-lg-4">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Gifts">
+                            <div class="card">
 
+                                <div class="card-img-overlay">
+                                    <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center">Gifts</div>
 
+                                </div>
 
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/gift.jpg" alt="Card image cap">
+                            </div>
+                        </a>
 
+                    </div>
 
+                    <div class="col-lg-4">
+                        <a href="<%=request.getContextPath()%>/servicesList?category=Others">
+                            <div class="card">
 
+                                <div class="card-img-overlay">
+                                    <div class="card-title text-white display-4" style="font-size: xxx-large; text-align: center">Others</div>
+
+                                </div>
+
+                                <img class="card-img-bottom img-fluid" src="<%=request.getContextPath()%>/assets/dashboard/assets/images/categories/other.jpg" alt="Card image cap">
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
 
             </div>
 

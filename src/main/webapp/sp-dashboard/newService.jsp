@@ -153,10 +153,6 @@
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>
-
-
-
-
                 </ul>
             </div>
             <!-- Sidebar -->

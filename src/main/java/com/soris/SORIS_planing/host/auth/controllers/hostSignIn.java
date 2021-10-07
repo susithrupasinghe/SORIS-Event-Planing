@@ -23,7 +23,8 @@ public class hostSignIn extends HttpServlet {
             if(session!=null && session.getAttribute("userid") != null && session.getAttribute("role") == "host"){
 
                 // User already logged in
-                request.getRequestDispatcher("/host-dashboard/home.jsp").forward(request, response);
+                response.sendRedirect(request.getContextPath() +"/eventList");
+
 
             }
             else {
@@ -39,7 +40,7 @@ public class hostSignIn extends HttpServlet {
                     session.setAttribute("userid", signIn.getuserId());
                     session.setAttribute("username", signIn.getName());
                     session.setAttribute("role", "host");
-                    request.getRequestDispatcher("/host-dashboard/home.jsp").forward(request, response);
+                    response.sendRedirect(request.getContextPath() +"/eventList");
 
                 }
                 else if(! signIn.checkEmailExists(username)){

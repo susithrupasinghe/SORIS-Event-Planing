@@ -86,24 +86,58 @@ public class servicesSummaryModel {
         List<topServiceModel> sList = new ArrayList<topServiceModel>();
 
         try{
-            String query = "SELECT service.sid, name, services.summ, category, price, discount, description, status FROM service INNER JOIN \n" +
-                    "(SELECT sid, sum(count) AS summ FROM soris.eventservices WHERE spid = '"+spID+"' group by sid) AS services ON services.sid = service.sid ORDER BY services.summ DESC;";
-            Statement st = this.con.createStatement();
-            ResultSet res = st.executeQuery(query);
+            con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();
 
-            while(res.next()){
+            String sql = "SELECT service.sid, name, services.summ, category, price, discount, description, status FROM service INNER JOIN \n" +
+                    "(SELECT sid, sum(count) AS summ FROM soris.eventservices WHERE spid = '"+spID+"' group by sid) AS services ON services.sid = service.sid ORDER BY services.summ DESC;";
+            rs = stmt.executeQuery(sql);
+
+            while(rs.next()){
                 topServiceModel topService = new topServiceModel();
-                topService.setName(res.getString("name"));
-                topService.setCount(res.getInt("summ"));
-                topService.setCategory(res.getString("category"));
-                topService.setPrice((float)res.getInt("price"));
-                topService.setDiscount( (float)res.getInt("discount"));
+                topService.setName(rs.getString("name"));
+                topService.setCount(rs.getInt("summ"));
+                topService.setCategory(rs.getString("category"));
+                topService.setPrice((float)rs.getInt("price"));
+                topService.setDiscount( (float)rs.getInt("discount"));
                 sList.add(topService);
 
             }
             return sList;
         }
         catch (Exception ex){
+            return null;
+        }
+    }
+
+    public String getAddress(String spID){
+        try{
+            con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();
+
+            String sql = "SELECT address FROM serviceprovider WHERE spid = '"+spID+"'";
+            rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getString(1);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public String getPhoneNum(String spID){
+        try{
+            con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();
+
+            String sql = "SELECT contactno FROM serviceprovider WHERE spid = '"+spID+"'";
+            rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getString(1);
+
+        }catch (Exception e){
+            e.printStackTrace();
             return null;
         }
     }

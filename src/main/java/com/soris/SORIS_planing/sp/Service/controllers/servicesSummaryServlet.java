@@ -26,11 +26,15 @@ public class servicesSummaryServlet extends HttpServlet {
                 HashMap<String,Integer> summeryOfServices= summarySer.getSummeryOfServices(spID);
                 HashMap<String,Integer> catSumOfServices= summarySer.getcatSumOfServices(spID);
                 List<topServiceModel> _topservices = summarySer.getTopServices(spID);
+                String address = summarySer.getAddress(spID);
+                String contactno = summarySer.getPhoneNum(spID);
 
                 request.setAttribute("serviceCount",servicesCount);
                 request.setAttribute("serviceSummery",summeryOfServices);
                 request.setAttribute("catSumOfServices",catSumOfServices);
                 request.setAttribute("topServices",_topservices);
+                request.setAttribute("address", address);
+                request.setAttribute("contactno", contactno);
 
                 request.getRequestDispatcher("/sp-dashboard/servicesSummary.jsp").forward(request, response);
 

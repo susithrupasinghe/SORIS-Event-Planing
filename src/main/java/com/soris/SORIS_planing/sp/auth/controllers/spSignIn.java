@@ -22,7 +22,8 @@ public class spSignIn extends HttpServlet {
             if(session!=null && session.getAttribute("userid") != null && session.getAttribute("role") == "sp"){
 
                 // User already logged in
-                request.getRequestDispatcher("/sp-dashboard/home.jsp").forward(request, response);
+                response.sendRedirect(request.getContextPath()+"/serviceServlet");
+//                request.getRequestDispatcher(request.getContextPath()+"/serviceServlet").forward(request, response);
 
             }
             else {
@@ -38,7 +39,8 @@ public class spSignIn extends HttpServlet {
                     session.setAttribute("userid", signIn.getuserId());
                     session.setAttribute("username", signIn.getName());
                     session.setAttribute("role", "sp");
-                    request.getRequestDispatcher("/sp-dashboard/home.jsp").forward(request, response);
+                    response.sendRedirect(request.getContextPath()+"/serviceServlet");
+//                    request.getRequestDispatcher(request.getContextPath()+"/serviceServlet").forward(request, response);
 
                 }
                 else if(! signIn.checkEmailExists(username)){
