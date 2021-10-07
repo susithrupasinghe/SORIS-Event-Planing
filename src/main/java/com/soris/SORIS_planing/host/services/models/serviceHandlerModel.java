@@ -101,7 +101,24 @@ public class serviceHandlerModel {
         }
 
     }
+    public HashMap<String,String> getEvents(String hid){
+        try{
+            HashMap<String, String> events = new HashMap<>();
+            String query = String.format("SELECT * FROM event WHERE  hid='%s'",hid);
+            Statement st = this.con.createStatement();
+            ResultSet res = st.executeQuery(query);
+            while (res.next()){
+                events.put(res.getString("eid"),res.getString("name"));
+            }
+            return  events;
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+            return null;
+        }
 
+    }
 
     public boolean addServiceToBudget(String eid, String sid, int count){
 
