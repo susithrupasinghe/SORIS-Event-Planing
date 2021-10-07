@@ -20,11 +20,10 @@ public class eventUpdateModel {
     //return event details
     public List<event> eventList(int hid) throws SQLException {
         ArrayList<event> eList= new ArrayList<>();
-        int _hid= hid;
 
         try {
             Statement stmt= con.createStatement();
-            String sql= "SELECT eid,date,name,description,estimatedcost,currentcost FROM event WHERE hid='"+_hid+"'";
+            String sql= "SELECT eid,date,name,description,estimatedcost,currentcost FROM event WHERE hid='"+ hid +"'";
             ResultSet rs= stmt.executeQuery(sql);
             while(rs.next()){
                 event event=new event();

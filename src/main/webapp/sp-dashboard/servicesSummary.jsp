@@ -1,6 +1,8 @@
+
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.soris.SORIS_planing.admin.dashboard.models.topServiceModel" %><%--
+
   Created by IntelliJ IDEA.
   User: Shavidini
   Date: 10/1/2021
@@ -11,6 +13,7 @@
 <!doctype html>
 <html lang="en">
 
+
 <%
     int servicesCount = (int) request.getAttribute("serviceCount");
     HashMap<String, Integer> serviceSummery = (HashMap<String, Integer>) request.getAttribute("serviceSummery");
@@ -19,6 +22,7 @@
     String address = (String) request.getAttribute("address");
     String contactno = (String) request.getAttribute("contactno");
 %>
+
 
 <head>
 
@@ -125,14 +129,18 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
+
                         <span class="d-none d-xl-inline-block ms-1"
                               key="t-henry"><%=session.getAttribute("username")%>
                         </span>
+
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
 
+
                         <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=sp"><i
+
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
                     </div>
@@ -160,6 +168,7 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
+
                         <a href="<%=request.getContextPath()%>/servicesSummaryServlet" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
@@ -169,6 +178,7 @@
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>
+
 
 
 
@@ -187,6 +197,7 @@
 
         <div class="page-content">
             <div class="container-fluid">
+
 
                 <div class="row">
 
@@ -608,6 +619,7 @@
         setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
     </script>
         <%}%>
+
 
 </body>
 

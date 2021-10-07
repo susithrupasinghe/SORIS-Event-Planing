@@ -1,5 +1,6 @@
 package com.soris.SORIS_planing.sp.Service.models;
 
+
 import com.soris.SORIS_planing.admin.dashboard.models.topServiceModel;
 import com.soris.SORIS_planing.dbUtil;
 import java.sql.Connection;
@@ -141,4 +142,5 @@ public class servicesSummaryModel {
             return null;
         }
     }
+
 }

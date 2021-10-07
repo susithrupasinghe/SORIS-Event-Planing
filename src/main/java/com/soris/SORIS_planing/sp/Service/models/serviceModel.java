@@ -3,7 +3,6 @@ package com.soris.SORIS_planing.sp.Service.models;
 import java.security.Provider;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,6 +109,7 @@ public class serviceModel {
 
         /*     int convertID = Integer.parseInt(sIO);*/
 
+
         try{
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
             stmt = con.createStatement();
@@ -132,7 +132,9 @@ public class serviceModel {
         return isSuccess;
     }
 
+
     /*//get services count
+
     public boolean serviceCount(String sID){
         try{
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
@@ -150,7 +152,9 @@ public class serviceModel {
 
 
         return isSuccess;
+
     }*/
+
 
     /*public service getUpdateDetails(int sID){
         try{
