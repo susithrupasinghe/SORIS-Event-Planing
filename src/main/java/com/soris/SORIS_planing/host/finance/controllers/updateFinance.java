@@ -1,12 +1,12 @@
-package com.soris.SORIS_planing.admin;
+package com.soris.SORIS_planing.host.finance.controllers;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "adminSignIn", value = "/adminSignIn")
-public class adminSignIn extends HttpServlet {
+@WebServlet(name = "updateFinance", value = "/updateFinance")
+public class updateFinance extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
