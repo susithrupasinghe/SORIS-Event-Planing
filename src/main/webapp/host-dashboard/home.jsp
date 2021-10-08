@@ -186,6 +186,26 @@
             </div>
         </div>
     </c:forEach>
+    <!-- modal error message-->
+    <div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Something wrong</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><%=request.getAttribute("error")%></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
 
     <div class="main-content">
@@ -243,7 +263,7 @@
 
                                             <a href="<%=request.getContextPath()%>/eventUpdate?eid=${event.eid}" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
 
-                                            <a href="javascript:void(0);" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
+                                            <a href="<%=request.getContextPath()%>/eventDelete?eid=${event.eid}" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -310,6 +330,14 @@
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+
+<% if (request.getAttribute("error") != null ){%>
+<script>
+    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
+
+</script>
+<%}%>
+
 </body>
 
 </html>
