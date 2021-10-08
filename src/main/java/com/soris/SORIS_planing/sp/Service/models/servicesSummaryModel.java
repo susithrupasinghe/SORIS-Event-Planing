@@ -1,7 +1,8 @@
 package com.soris.SORIS_planing.sp.Service.models;
 
 
-import com.soris.SORIS_planing.admin.dashboard.models.topServiceModel;
+import com.soris.SORIS_planing.sp.Service.models.topServicesModel;
+import com.soris.SORIS_planing.sp.Service.models.topServicesModel;
 import com.soris.SORIS_planing.dbUtil;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -83,8 +84,8 @@ public class servicesSummaryModel {
         }
     }
 
-    public List<topServiceModel> getTopServices(String spID){
-        List<topServiceModel> sList = new ArrayList<topServiceModel>();
+    public List<topServicesModel> getTopServices(String spID){
+        List<topServicesModel> serviceList = new ArrayList<topServicesModel>();
 
         try{
             con = dbUtil.initializeDatabase();
@@ -95,16 +96,16 @@ public class servicesSummaryModel {
             rs = stmt.executeQuery(sql);
 
             while(rs.next()){
-                topServiceModel topService = new topServiceModel();
-                topService.setName(rs.getString("name"));
-                topService.setCount(rs.getInt("summ"));
-                topService.setCategory(rs.getString("category"));
-                topService.setPrice((float)rs.getInt("price"));
-                topService.setDiscount( (float)rs.getInt("discount"));
-                sList.add(topService);
+                topServicesModel topServices = new topServicesModel();
+                topServices.setName(rs.getString("name"));
+                topServices.setCount(rs.getInt("summ"));
+                topServices.setCategory(rs.getString("category"));
+                topServices.setPrice((float)rs.getInt("price"));
+                topServices.setDiscount( (float)rs.getInt("discount"));
+                serviceList.add(topServices);
 
             }
-            return sList;
+            return serviceList;
         }
         catch (Exception ex){
             return null;

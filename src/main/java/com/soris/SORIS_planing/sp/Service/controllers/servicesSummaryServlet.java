@@ -1,7 +1,8 @@
 package com.soris.SORIS_planing.sp.Service.controllers;
 
-import com.soris.SORIS_planing.admin.dashboard.models.topServiceModel;
+import com.soris.SORIS_planing.sp.Service.models.serviceModel;
 import com.soris.SORIS_planing.sp.Service.models.servicesSummaryModel;
+import com.soris.SORIS_planing.sp.Service.models.topServicesModel;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -25,7 +26,7 @@ public class servicesSummaryServlet extends HttpServlet {
                 int servicesCount = summarySer.getServiceCount(spID);
                 HashMap<String,Integer> summeryOfServices= summarySer.getSummeryOfServices(spID);
                 HashMap<String,Integer> catSumOfServices= summarySer.getcatSumOfServices(spID);
-                List<topServiceModel> _topservices = summarySer.getTopServices(spID);
+                List<topServicesModel> _topservices = summarySer.getTopServices(spID);
                 String address = summarySer.getAddress(spID);
                 String contactno = summarySer.getPhoneNum(spID);
 
