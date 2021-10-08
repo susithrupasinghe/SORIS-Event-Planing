@@ -20,7 +20,9 @@ public class addToBudget extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sid = request.getParameter("sid");
         try{
+            HttpSession session=request.getSession(false);
             String eid = request.getParameter("eid");
+            session.setAttribute("eid", eid);
 
             int count = Integer.parseInt(request.getParameter("count"));
             serviceHandlerModel handler = new serviceHandlerModel();
