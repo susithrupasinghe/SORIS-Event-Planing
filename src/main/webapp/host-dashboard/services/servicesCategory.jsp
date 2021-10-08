@@ -71,6 +71,22 @@
                         id="vertical-menu-btn">
                     <i class="fa fa-fw fa-bars"></i>
                 </button>
+<%--                <div class="app-search d-none d-lg-block">--%>
+<%--                    Event Name :--%>
+<%--                </div>--%>
+                <form class="app-search d-none d-lg-block" style="width: 300px;">
+
+
+
+                </form>
+<%--                <label class="col-md-2 col-form-label">Select</label>--%>
+<%--                <div class="col-md-10">--%>
+<%--                    <select class="form-select">--%>
+<%--                        <option>Select</option>--%>
+<%--                        <option>Large select</option>--%>
+<%--                        <option>Small select</option>--%>
+<%--                    </select>--%>
+<%--                </div>--%>
 
 
             </div>
@@ -141,12 +157,12 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/eventList" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/host-dashboard/services/servicesCategory.jsp" class="waves-effect">
                             <span key="t-dashboards">Add Services</span>
                         </a>
                     </li>
