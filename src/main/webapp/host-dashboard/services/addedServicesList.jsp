@@ -13,7 +13,7 @@
 <head>
 
     <meta charset="utf-8"/>
-    <title>Host-Dashboard</title>
+    <title>View Added Services - SORIS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
@@ -177,7 +177,6 @@
 
 
 
-
                 </ul>
             </div>
             <!-- Sidebar -->
@@ -189,23 +188,45 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
-    <!-- modal event details   -->
-
-    <c:forEach var = "event" items = "${eventList}">
-        <div class="modal fade event_${event.eid}" tabindex="-1" aria-labelledby="transaction-detailModalLabel" style="display: none;" aria-hidden="true">
+    <c:forEach var = "ser" items = "${servicelist}">
+        <div class="modal fade ser_${ser.esid}" tabindex="-1" aria-labelledby="transaction-detailModalLabel" style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="transaction-detailModalLabel">Event Details</h5>
+                        <h5 class="modal-title" id="transaction-detailModalLabel">Service Details</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p class="mb-2">Event id: <span class="text-primary">${event.eid}</span></p>
-                        <p class="mb-4">Event Name: <span class="text-primary">${event.name}</span></p>
-                        <p class="mb-2">Event description: <span class="text-primary">${event.description}</span></p>
+                        <p class="mb-2">Product id: <span class="text-primary">${ser.esid}</span></p>
+                        <p class="mb-4">Billing Name: <span class="text-primary">${ser.name}</span></p>
+                        <p class="mb-4">Category: <span class="text-primary">${ser.category}</span></p>
+                        <p class="mb-4">Total Price: <span class="text-primary">${ser.totalPrice}</span></p>
+
+                        <div class="table-responsive">
+                            <table class="table align-middle table-nowrap">
+                                <thead>
+                                <tr>
+                                        <%--                  <th scope="col">Service Id</th>--%>
+                                    <th scope="col">Service Name</th>
+                                    <th scope="col">Service Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+
+                                    <td>
+                                        <div>
+                                            <h5 class="text-truncate font-size-14">${ser.name}</h5>
+                                            <p class="text-muted mb-0">${ser.description}</p>
+                                        </div>
+                                    </td>
+                                    <td>${ser.qtyPrice}</td>
+                                </tr>
 
 
-
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -214,27 +235,9 @@
             </div>
         </div>
     </c:forEach>
-    <!-- modal error message-->
-    <div class="modal fade" id="errormodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Something wrong</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p><%=request.getAttribute("error")%></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- modal delete conformation-->
-    <c:forEach var="event" items="${eventList}">
-        <div class="modal fade  delete_${event.eid}" tabindex="-1" role="dialog" style="display: none;" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <c:forEach var="ser" items="${servicelist}">
+        <div class="modal fade  delete_${ser.esid}" tabindex="-1" role="dialog" style="display: none;" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -242,11 +245,11 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Are You sure you want to delete event: "${event.name}" ?</p>
+                        <p>Are You sure you want to delete this service ?</p>
                     </div>
                     <div class="modal-footer">
                         <!--<button type="button" class="btn btn-primary">Delete Event</button>-->
-                        <a href="<%=request.getContextPath()%>/eventDelete?eid=${event.eid}" class="text-danger" type="button"> <button type="button" class="btn btn-primary">Delete Event</button></a>
+                        <a href="<%=request.getContextPath()%>/deleteService?esid=${ser.esid}" class="text-danger" type="button"> <button type="button" class="btn btn-primary">Delete Service</button></a>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div><!-- /.modal-content -->
@@ -254,82 +257,107 @@
         </div>
 
     </c:forEach>
-
-
-
-
     <div class="main-content">
 
         <div class="page-content">
             <div class="container-fluid">
-                <div class="card-body">
-                    <div class="row mb-2">
-                        <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-4">Select Event</h5>
 
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="text-sm-end">
+                                <form class="row gy-2 gx-3 align-items-center" method="post" action="<%=request.getContextPath()%>/selectedServices">
 
-                                <a href="<%=request.getContextPath()%>/host-dashboard/event/eventCreation.jsp"><button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Add New Event</button></a>
+                                    <div class="col-sm-auto">
+                                        <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                                        <select class="form-select" id="autoSizingSelect" name="eid">
+                                            <c:forEach var="names" items="${list}">
+                                                <c:if test="${eid ==  names.key }">
+                                                    <option value = "${names.key}" selected>${names.value}</option>
+                                                </c:if>
+                                                <c:if test="${eid !=  names.key }">
+                                                    <option value = "${names.key}">${names.value}</option>
+                                                </c:if>
 
+                                            </c:forEach>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-auto">
+                                        <button type="submit" class="btn btn-primary w-md">View Services List</button>
+                                    </div>
+                                </form>
                             </div>
-                        </div><!-- end col-->
+                            <!-- end card body -->
+                        </div>
+                        <!-- end card -->
                     </div>
-
-                    <div class="table-responsive">
-                        <table class="table align-middle table-nowrap table-check">
-                            <thead class="table-light">
-                            <tr>
-
-                                <th class="align-middle">Event ID</th>
-                                <th class="align-middle">Name</th>
-                                <th class="align-middle">Date</th>
-                                <th class="align-middle">Budget</th>
-                                <th class="align-middle">Current Cost </th>
-                                <th class="align-middle">Current Income</th>
-                                <th class="align-middle">View Descriptions</th>
-                                <th class="align-middle">Update/Delete</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="event" items="${eventList}" >
-                                <tr>
-
-
-                                    <td>${event.eid}</td>
-                                    <td>${event.name}</td>
-                                    <td>${event.date}</td>
-                                    <td>${event.estimatedCost}</td>
-                                    <td>${event.currentCost}</td>
-                                    <td>${event.currentIncome}</td>
-                                    <td>
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".event_${event.eid}">
-                                            View Description
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex gap-3">
-
-                                            <a href="<%=request.getContextPath()%>/eventUpdate?eid=${event.eid}" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
-                                            <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".delete_${event.eid}">
-                                                <i class="mdi mdi-delete font-size-18"></i>
-                                            </button>
-
-                                            <!--<a href="<%=request.getContextPath()%>/eventDelete?eid=${event.eid}" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>-->
-                                        </div>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-
-
-
-                            </tbody>
-                        </table>
-                    </div>
+                    <!-- end col -->
                 </div>
 
 
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">Services List</h4>
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-nowrap mb-0">
+                                        <thead class="table-light">
+                                        <tr>
+
+                                            <th class="align-middle">Service ID</th>
+                                            <th class="align-middle">Name</th>
+                                            <th class="align-middle">Category</th>
+                                            <th class="align-middle">Quantity</th>
+                                            <th class="align-middle">Discount</th>
+                                            <th class="align-middle">Quantity Price</th>
+                                            <th class="align-middle">Total Price</th>
+                                            <th class="align-middle">More Details</th>
+                                            <th class="align-middle">Delete</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach var = "ser" items = "${servicelist}">
+
+                                            <tr>
+
+                                                <td><a href="javascript: void(0);" class="text-body fw-bold">${ser.esid}</a> </td>
+                                                <td>${ser.name}</td>
+                                                <td>${ser.category}</td>
+                                                <td>${ser.quantity}</td>
+                                                <td>
+                                                    <span class="badge badge-pill badge-soft-success font-size-11">${ser.discount}</span>
+                                                </td>
+                                                <td>${ser.qtyPrice}</td>
+                                                <td>${ser.totalPrice}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".ser_${ser.esid}">
+                                                        View Details
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex gap-3">
+
+                                                        <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".delete_${ser.esid}">
+                                                            <i class="mdi mdi-delete font-size-18"></i>
+                                                        </button>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- end table-responsive -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -383,14 +411,6 @@
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
-
-<% if (request.getAttribute("error") != null ){%>
-<script>
-    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
-
-</script>
-<%}%>
-
 </body>
 
 </html>
