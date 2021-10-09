@@ -25,9 +25,6 @@ public class servicesSummaryModel {
     //get services count
     public int getServiceCount(String spID){
         try{
-            /*con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();*/
-
             String sql = String.format("SELECT COUNT(*) FROM service WHERE spid = '"+spID+"'");
             Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
@@ -44,8 +41,6 @@ public class servicesSummaryModel {
     public HashMap<String, Integer> getSummeryOfServices(String spID){
 
         try {
-            /*con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();*/
             int total = 0;
 
             String sql = String.format("SELECT status, COUNT(*) FROM service WHERE spid = '"+spID+"' GROUP BY status");
@@ -70,8 +65,6 @@ public class servicesSummaryModel {
     public HashMap<String, Integer> getcatSumOfServices(String spID){
 
         try {
-            /*con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();*/
             int total = 0;
 
             String sql = String.format("SELECT category, COUNT(*) FROM service WHERE spid = '"+spID+"' GROUP BY category");
@@ -96,13 +89,9 @@ public class servicesSummaryModel {
         List<topServicesModel> serviceList = new ArrayList<topServicesModel>();
 
         try{
-           /* con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();*/
-
             String sql = String.format("SELECT ser.sid,ser.name,SUM(count) AS summ,ser.category,ser.price,ser.discount,ser.description from service as ser, eventservices as eve WHERE ser.spid ='"+spID+"' AND ser.sid = eve.sid AND ser.status='approved' GROUP BY sid ORDER BY SUM(count) DESC");
             Statement stmt = this.con.createStatement();
-            /*String sql = "SELECT service.sid, name, services.summ, category, price, discount, description, status FROM service INNER JOIN \n" +
-                    "(SELECT sid, sum(count) AS summ FROM soris.eventservices WHERE spid = '"+spID+"' group by sid) AS services ON services.sid = service.sid ORDER BY services.summ DESC;";*/
+
             rs = stmt.executeQuery(sql);
 
             while(rs.next()){
@@ -124,9 +113,6 @@ public class servicesSummaryModel {
 
     public String getAddress(String spID){
         try{
-            /*con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();*/
-
             String sql = String.format("SELECT address FROM serviceprovider WHERE spid = '"+spID+"'");
             Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
@@ -141,9 +127,6 @@ public class servicesSummaryModel {
 
     public String getPhoneNum(String spID){
         try{
-           /* con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();*/
-
             String sql = String.format("SELECT contactno FROM serviceprovider WHERE spid = '"+spID+"'");
             Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
@@ -158,9 +141,6 @@ public class servicesSummaryModel {
 
     public String getMail(String spID){
         try{
-            /*con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();*/
-
             String sql = String.format("SELECT email FROM serviceprovider WHERE spid = '"+spID+"'");
             Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
