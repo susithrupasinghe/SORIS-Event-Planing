@@ -41,22 +41,4 @@ public class deleteServiceServlet extends HttpServlet {
 
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /*String sID = request.getParameter("sID");
-
-        boolean isTrue;
-
-        serviceModel delSer = new serviceModel();
-
-        isTrue = delSer.deleteService(sID);
-
-        if(isTrue == true){
-            RequestDispatcher dis1 = request.getRequestDispatcher("/index.jsp");
-            dis1.forward(request,response);
-        }else{
-            RequestDispatcher dis2 = request.getRequestDispatcher("/home.jsp");
-            dis2.forward(request,response);
-        }*/
-    }
 }
