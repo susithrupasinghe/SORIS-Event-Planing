@@ -1,12 +1,11 @@
 package com.soris.SORIS_planing.host.event.model;
 
 
+import com.soris.SORIS_planing.dbUtil;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
-
-import com.soris.SORIS_planing.dbUtil;
 
 public class eventCreationModel {
     private String name;

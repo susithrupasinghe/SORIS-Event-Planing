@@ -5,11 +5,7 @@
   Time: 8:02 PM
   To change this template use File | Settings | File Templates.
 --%>
-//to do
-//rewrite date INPUT IN jsp and event creation model and servlet
-//VALIDATE INPUT TYPES in every field
-//modal to catch error messages
-//redirect to necessary pages
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -17,7 +13,7 @@
 <head>
 
     <meta charset="utf-8"/>
-    <title>Dashboard | Skote - Admin & Dashboard Template</title>
+    <title>Event Update</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
