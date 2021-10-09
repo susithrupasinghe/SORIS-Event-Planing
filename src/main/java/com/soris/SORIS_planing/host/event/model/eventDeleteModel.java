@@ -17,7 +17,7 @@ public class eventDeleteModel {
     {
         try{
             Statement stmt = con.createStatement();
-            String sql =" delete event, eventservices,finance from event INNER join eventservices on event.eid=eventservices.eid INNER JOIN finance on eventservices.eid=finance.eid where event.eid='"+eid+"';";
+            String sql ="delete event, eventservices,finance from event left join eventservices on event.eid=eventservices.eid  left JOIN finance on event.eid=finance.eid where event.eid= '"+eid+"';";
             int count= stmt.executeUpdate(sql);
             if(count>0){
                 return true;
