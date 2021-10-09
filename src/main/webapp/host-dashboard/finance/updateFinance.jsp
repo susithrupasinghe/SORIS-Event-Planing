@@ -1,15 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Dell
-  Date: 9/19/2021
-  Time: 8:02 PM
+  Date: 9/22/2021
+  Time: 9:47 PM
   To change this template use File | Settings | File Templates.
 --%>
-//to do
-//rewrite date INPUT IN jsp and event creation model and servlet
-//VALIDATE INPUT TYPES in every field
-//modal to catch error messages
-//redirect to necessary pages
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -17,12 +13,13 @@
 <head>
 
     <meta charset="utf-8"/>
-    <title>Dashboard | Skote - Admin & Dashboard Template</title>
+    <link href="<%=request.getContextPath()%>/assets/landing/assets/images/favicon/favicon.png" rel="icon"/>
+    <title>SORIS Add Expenses And Income Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">
+    <%-- <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">--%>
 
     <!-- Bootstrap Css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style"
@@ -35,6 +32,15 @@
           type="text/css"/>
 
 </head>
+<%
+//    int eid= (int) request.getAttribute("eid");
+    String fid= (String) request.getAttribute("fid");
+    String description= (String) request.getAttribute("Description");
+    boolean expense= (boolean) request.getAttribute("expense");
+    boolean income= (boolean) request.getAttribute("income");
+    String amount= (String) request.getAttribute("amount");
+
+%>
 
 <body data-sidebar="dark">
 
@@ -113,7 +119,7 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry"><%=session.getAttribute("username")%></span>
+                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
@@ -146,20 +152,11 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="<%=request.getContextPath()%>/eventList" class="waves-effect">
+                        <a href="javascript: void(0);" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="<%=request.getContextPath()%>/host-dashboard/event/eventCreation.jsp" class="waves-effect">
-                            <span key="t-dashboards">Create Event</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<%=request.getContextPath()%>/host-dashboard/services/servicesCategory.jsp" class="waves-effect">
-                            <span key="t-dashboards">Add Services</span>
-                        </a>
-                    </li>
+
 
 
 
@@ -183,14 +180,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Create New Event</h4>
-
-                            <div class="page-title-right">
-                                <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Event</a></li>
-                                    <li class="breadcrumb-item active">Create New</li>
-                                </ol>
-                            </div>
+                            <h4 class="mb-sm-0 font-size-18">Add Expense And Income</h4>
 
                         </div>
                     </div>
@@ -218,59 +208,71 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title mb-4">Create New Event</h4>
-                                <form action="<%=request.getContextPath()%>/eventCreation" method="post" id="form">
-                                    <div class="row mb-4">
-                                        <label for="eventName" class="col-form-label col-lg-2">Event Name</label>
-                                        <div class="col-lg-10">
-                                            <input id="eventName" name="name" type="text" class="form-control" placeholder="Enter Event Name..." required>
+                                <section>
+                                    <form action="<%=request.getContextPath()%>/updateFinance" method="post">
+                                        <div class="row">
+                                            <div class="col-lg-06">
+                                                <label class="control-label">Event Name</label>
+                                                <select class="form-select" name = "event name">
+                                                    <c:forEach var="names" items="${eventList}">
+                                                        <option value = "${names.key}">${names.value}</option>
+
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+                                            <%--                                                <div class="col-lg-6">--%>
+                                            <%--                                                    <div class="mb-3">--%>
+                                            <%--                                                        <label for="add eid">Event Id</label>--%>
+                                            <%--                                                        <input type="text" class="form-control" name = "eId" id="add eid" placeholder="Enter Event Id...">--%>
+                                            <%--                                                    </div>--%>
+                                            <%--                                                </div>--%>
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="add amount">Amount</label>
+                                                    <input type="text" class="form-control" id="add amount" name="amount" value = "<%=amount%>">
+                                                </div>
+                                            </div>
+
                                         </div>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <label for="eventdesc" class="col-form-label col-lg-2">Event Description</label>
-                                        <div class="col-lg-10">
-                                            <textarea class="form-control" name="description" id="eventdesc" rows="5" placeholder="Enter Event Description..." required></textarea>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="mb-3">
+                                                    <label for="add description">Description</label>
+                                                    <textarea id="add description" class="form-control" rows="4" name="description"><%=description%></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="mb-3">
+                                                    <label class="control-label">Expenses/Incomes</label>
+                                                    <select class="form-control select2" name = "Expenses/Incomes">
+                                                        <option>Select</option>
+                                                        <option value="<%=expense%>">Expense</option>
+                                                        <option value="<%=income%>">Income</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label for="date-input" class="col-md-2 col-form-label">Date</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" type="date" value="2019-08-19" id="date-input" name="date" required>
-                                        </div>
-                                    </div>
 
 
-                                    <div class="row mb-4">
-                                        <label for="budget" class="col-form-label col-lg-2">Budget</label>
-                                        <div class="col-lg-10">
-                                            <input id="budget" name="estimatedCost" type="text" data-parsley-type="number" placeholder="Enter Event Budget..." class="form-control" required>
+                                        <input type="hidden" id="fid" name="fid" value="<%= fid%>">
+
+
+                                        <div class="row justify-content-end">
+                                            <div class="col-lg-10">
+                                                <button type="submit" class="btn btn-primary" from="From" style="float: right;" >Update</button>
+
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
-
-                                <div class="row justify-content-end">
-                                    <div class="col-lg-10">
-                                        <button type="submit" class="btn btn-primary" form="form">Create Event</button>
-                                    </div>
-                                </div>
-
-                           </div>
+                                    </form>
+                                </section>
+                            </div>
                         </div>
+                        <!-- end card -->
                     </div>
+                    <!-- end col -->
                 </div>
                 <!-- end row -->
-
-
-
-
-
-
-
-
-
-
-
-
 
             </div>
 
@@ -312,21 +314,8 @@
 <!-- dashboard init -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/dashboard.init.js"></script>
 
-<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
-
-
-
-<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
-
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
-
-<% if (request.getAttribute("error") != null ){%>
-<script>
-    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
-
-</script>
-<%}%>
 </body>
 
 </html>
