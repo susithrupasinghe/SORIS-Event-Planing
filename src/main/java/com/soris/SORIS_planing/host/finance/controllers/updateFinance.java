@@ -22,7 +22,7 @@ public class updateFinance extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
-            String fid = request.getParameter("userid");
+            String fid = request.getParameter("fid");
             int convertfid = Integer.parseInt(fid);
 
 //            int fid = 1;
@@ -46,34 +46,34 @@ public class updateFinance extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String fId = request.getParameter("fId");
-            String eId = request.getParameter("eId");
+            String fId = request.getParameter("fid");
             String description = request.getParameter("description");
             String amount = request.getParameter("amount");
-            String type = request.getParameter("incomes/expenses");
+            String type = request.getParameter("type");
 
 
             boolean isTrue;
             int convertfId = Integer.parseInt(fId);
-            int converteId = Integer.parseInt(eId);
             double convertAmount = Double.parseDouble(amount);
             boolean Expense = false;
             boolean Income = false;
 
-            if(type == "expense") {
+            if(type.equals("expense")) {
                 Expense = true;
                 Income = false;
-            } else if(type == "income") {
+            } else if(type.equals("income")) {
                 Income = true;
                 Expense = false;
             }
             updateFinanceModel update = new updateFinanceModel();
-            isTrue = update.updateFinance(convertfId,converteId, description, convertAmount, Income, Expense);
+            isTrue = update.updateFinance(convertfId, description, convertAmount, Income, Expense);
             if(isTrue){
-                request.getRequestDispatcher("/host-dashboard/finance/financeDashboard.jsp").forward(request,response);
+                response.sendRedirect(request.getContextPath() +"/viewBudget");
+//                request.getRequestDispatcher(request.getContextPath() +"/viewBudget").forward(request,response);
             } else {
                 request.setAttribute("error","fail");
-                request.getRequestDispatcher("/host-dashboard/finance/addFinance.jsp").forward(request,response);
+                response.sendRedirect(request.getContextPath() +"/updateFinance?fid="+fId);
+//                request.getRequestDispatcher("/host-dashboard/finance/addFinance.jsp").forward(request,response);
             }
 
         }catch (SQLException e) {
