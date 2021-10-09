@@ -142,8 +142,19 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/eventList" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/event/eventCreation.jsp" class="waves-effect">
+                            <span key="t-dashboards">Create Event</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/services/servicesCategory.jsp" class="waves-effect">
+                            <span key="t-dashboards">Add Services</span>
                         </a>
                     </li>
 
