@@ -32,8 +32,8 @@ public class addFinance extends HttpServlet {
 
         }
 
-    } catch (SQLException | ClassNotFoundException throwables) {
-        throwables.printStackTrace();
+    } catch (SQLException | ClassNotFoundException ex) {
+        ex.printStackTrace();
     }
     }
 
@@ -64,10 +64,11 @@ public class addFinance extends HttpServlet {
 
             isTrue = finance.addFinance(convertEid,description,convertAmount,Income,Expense);
             if(isTrue ){
-                request.getRequestDispatcher("/host-dashboard/finance/financeDashboard.jsp").forward(request,response);
+                response.sendRedirect(request.getContextPath() + "/viewBudget");
+//                request.getRequestDispatcher( request.getContextPath() + "/viewBudget").forward(request,response);
             } else {
                 request.setAttribute("error","fail");
-                request.getRequestDispatcher("/host-dashboard/finance/addFinance.jsp").forward(request,response);
+                request.getRequestDispatcher(request.getContextPath() + "/addFinance").forward(request,response);
             }
         } catch (SQLException e) {
             e.printStackTrace();
