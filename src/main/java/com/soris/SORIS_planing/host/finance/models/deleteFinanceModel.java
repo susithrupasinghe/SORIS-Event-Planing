@@ -24,8 +24,8 @@ public class deleteFinanceModel {
             } else {
                 return false;
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
             return false;
         }
 

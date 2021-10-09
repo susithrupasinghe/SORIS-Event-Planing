@@ -129,7 +129,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
 
-                        <a class="dropdown-item text-danger" href="#"><i
+                        <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=host"><i
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
                     </div>
@@ -170,6 +170,16 @@
                     <li>
                         <a href="<%=request.getContextPath()%>/host-dashboard/services/servicesCategory.jsp" class="waves-effect">
                             <span key="t-dashboards">Add Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/addFinance" class="waves-effect">
+                            <span key="t-dashboards">Add Finance</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/viewBudget" class="waves-effect">
+                            <span key="t-dashboards">View Finance</span>
                         </a>
                     </li>
 
