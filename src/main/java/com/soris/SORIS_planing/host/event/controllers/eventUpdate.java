@@ -43,7 +43,7 @@ public class eventUpdate extends HttpServlet {
 
             eventUpdateModel updateModel= new eventUpdateModel();
             if(updateModel.eventUpdate(eid,date,name,description,estimatedCost)){
-                request.getRequestDispatcher("/eventList").forward(request,response);
+                response.sendRedirect(request.getContextPath() + "/eventList");
             }else {
                 request.setAttribute("error","event update failed");
                 request.getRequestDispatcher("/host-dashboard/event/eventUpdate.jsp").forward(request,response);
