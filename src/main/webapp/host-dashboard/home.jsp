@@ -204,6 +204,28 @@
         </div>
     </div>
 
+    <!-- modal delete conformation-->
+    <c:forEach var="event" items="${eventList}">
+        <div class="modal fade  delete_${event.eid}" tabindex="-1" role="dialog" style="display: none;" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Event</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are You sure you want to delete event: "${event.name}" ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<button type="button" class="btn btn-primary">Delete Event</button>-->
+                        <a href="<%=request.getContextPath()%>/eventDelete?eid=${event.eid}" class="text-danger" type="button"> <button type="button" class="btn btn-primary">Delete Event</button></a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+    </c:forEach>
 
 
 
@@ -262,8 +284,11 @@
                                         <div class="d-flex gap-3">
 
                                             <a href="<%=request.getContextPath()%>/eventUpdate?eid=${event.eid}" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
+                                            <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".delete_${event.eid}">
+                                                <i class="mdi mdi-delete font-size-18"></i>
+                                            </button>
 
-                                            <a href="<%=request.getContextPath()%>/eventDelete?eid=${event.eid}" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>
+                                            <!--<a href="<%=request.getContextPath()%>/eventDelete?eid=${event.eid}" class="text-danger"><i class="mdi mdi-delete font-size-18"></i></a>-->
                                         </div>
                                     </td>
                                 </tr>
