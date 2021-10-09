@@ -32,8 +32,6 @@ public class deleteServiceServlet extends HttpServlet {
                 isTrue = delSer.deleteService(sId);
 
             if(isTrue == true){
-               /* RequestDispatcher dis1 = request.getRequestDispatcher("/index.jsp");
-                dis1.forward(request,response);*/
                 response.sendRedirect(request.getContextPath() + "/serviceServlet");
             }else{
                 RequestDispatcher dis2 = request.getRequestDispatcher("/index.jsp");
