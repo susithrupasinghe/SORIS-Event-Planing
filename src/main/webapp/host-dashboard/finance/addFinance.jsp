@@ -164,6 +164,12 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="<%=request.getContextPath()%>/viewBudget" class="waves-effect">
+                            <span key="t-dashboards">View Finance</span>
+                        </a>
+                    </li>
+
 
 
 
@@ -234,7 +240,7 @@
 <%--                                                        <input type="text" class="form-control" name = "eId" id="add eid" placeholder="Enter Event Id...">--%>
 <%--                                                    </div>--%>
 <%--                                                </div>--%>
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label for="add amount">Amount</label>
                                                         <input type="text" class="form-control" id="add amount" name="amount" placeholder="Enter Amount...">

@@ -163,6 +163,13 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="<%=request.getContextPath()%>/viewBudget" class="waves-effect">
+                            <span key="t-dashboards">View Finance</span>
+                        </a>
+                    </li>
+
+
 
 
 

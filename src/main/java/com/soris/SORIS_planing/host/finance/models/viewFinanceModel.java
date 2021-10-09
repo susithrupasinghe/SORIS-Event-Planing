@@ -10,18 +10,19 @@ import java.util.List;
 
 public class viewFinanceModel {
 
-    public List<finance> getFinanceDetails(String hid){
+    public List<finance> getFinanceDetails(String eid){
         ArrayList <finance> fin = new ArrayList<>();
-        finance finance = new finance();
-        int converthid = Integer.parseInt(hid);
+
+        int converteid = Integer.parseInt(eid);
 
         try{
             Connection con = dbUtil.initializeDatabase();
             Statement stat = con.createStatement();
-            String sql = "SELECT fid,eid,description,expense,income,amount FROM finance WHERE id='"+converthid+"'";
+            String sql = "SELECT fid,eid,description,expense,income,amount FROM finance WHERE eid='"+converteid+"'";
             ResultSet rs = stat.executeQuery(sql);
 
             while(rs.next()){
+                finance finance = new finance();
                 finance.setFid(rs.getInt("fid"));
                 finance.setEid(rs.getInt("eid"));
                 finance.setDescription(rs.getString("description"));

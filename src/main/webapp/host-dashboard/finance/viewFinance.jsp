@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.soris.SORIS_planing.host.services.models.serviceModel" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Dell
   Date: 9/19/2021
@@ -8,18 +7,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%--%>
-<%-- List<serviceModel> serviceList = (List<serviceModel>) request.getAttribute("serviceList");--%>
-
-<%--%>--%>
-
 <!doctype html>
 <html lang="en">
 
 <head>
 
   <meta charset="utf-8"/>
-  <title>Dashboard | Skote - Admin & Dashboard Template</title>
+  <title>View Finance - SORIS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
   <meta content="Themesbrand" name="author"/>
@@ -188,33 +182,124 @@
   <!-- ============================================================== -->
   <!-- Start right Content here -->
   <!-- ============================================================== -->
+  <c:forEach var="fin" items="${financeDetails}">
+    <div class="modal fade  delete_${fin.fid}" tabindex="-1" role="dialog" style="display: none;" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Delete Entry</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Are You sure you want to delete this finance statement ?</p>
+          </div>
+          <div class="modal-footer">
+            <!--<button type="button" class="btn btn-primary">Delete Event</button>-->
+            <a href="<%=request.getContextPath()%>/deleteFinance?fid=${fin.fid}" class="text-danger" type="button"> <button type="button" class="btn btn-primary">Delete Statement</button></a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+  </c:forEach>
   <div class="main-content">
 
     <div class="page-content">
       <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title mb-4">Select Event</h5>
+
+                <form class="row gy-2 gx-3 align-items-center" method="post" action="<%=request.getContextPath()%>/viewBudget">
+
+                  <div class="col-sm-auto">
+                    <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                    <select class="form-select" id="autoSizingSelect" name="eid">
+                      <c:forEach var="names" items="${list}">
+                        <c:if test="${eid ==  names.key }">
+                          <option value = "${names.key}" selected>${names.value}</option>
+                        </c:if>
+                        <c:if test="${eid !=  names.key }">
+                          <option value = "${names.key}">${names.value}</option>
+                        </c:if>
+
+                      </c:forEach>
+
+                    </select>
+                  </div>
+
+                  <div class="col-sm-auto">
+                    <button type="submit" class="btn btn-primary w-md">View Finance List</button>
+                  </div>
+                </form>
+              </div>
+              <!-- end card body -->
+            </div>
+            <!-- end card -->
+          </div>
+          <!-- end col -->
+        </div>
 
 
         <div class="row">
-          <c:forEach var = "ser" items = "${serviceList}">
-          <div class="col-xl-4 col-sm-6">
+          <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <div class="product-img position-relative">
-                  <img src="<%=request.getContextPath()%>/uploads/${ser.images}" alt="" class="img-fluid mx-auto d-block">
-                </div>
-                <div class="mt-4 text-center">
-                  <h5 class="mb-3 text-truncate"><a href="<%=request.getContextPath()%>/servicePage?sid=${ser.sid}" class="text-dark">${ser.name}</a></h5>
-                  </a>
+                <h4 class="card-title mb-4">Finance List</h4>
+                <div class="table-responsive">
+                  <table class="table align-middle table-nowrap mb-0">
+                    <thead class="table-light">
+                    <tr>
 
-                  <h5 class="my-0"><b>${ser.price}</b></h5>
+                      <th class="align-middle">Finance ID</th>
+                      <th class="align-middle">Description</th>
+                      <th class="align-middle">Type</th>
+                      <th class="align-middle">Amount</th>
+                      <th class="align-middle">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var = "fin" items = "${financeDetails}">
 
+                      <tr>
+
+                        <td><a href="javascript: void(0);" class="text-body fw-bold">${fin.fid}</a> </td>
+                        <td>${fin.description}</td>
+                        <td>
+                          <c:if test="${fin.expense ==  true }">
+                            Expense
+                          </c:if>
+                          <c:if test="${fin.income ==  true }">
+                            Income
+                          </c:if>
+                        </td>
+                        <td>
+                          <span class="badge badge-pill badge-soft-success font-size-11">${fin.amount}</span>
+                        </td>
+                        <td>
+                          <div class="d-flex gap-3">
+
+                            <a href="<%=request.getContextPath()%>/updateFinance?fid=${fin.fid}" class="text-success"><i class="mdi mdi-pencil font-size-18"></i></a>
+                            <button type="button" class="btn btn-primary btn-sm btn-rounded" data-bs-toggle="modal" data-bs-target=".delete_${fin.fid}">
+                              <i class="mdi mdi-delete font-size-18"></i>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </c:forEach>
+
+                    </tbody>
+                  </table>
                 </div>
+                <!-- end table-responsive -->
               </div>
             </div>
           </div>
-          </c:forEach>
-
         </div>
+
 
 
 
