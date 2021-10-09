@@ -10,7 +10,7 @@ import java.util.List;
 import com.google.protobuf.Service;
 import com.soris.SORIS_planing.dbUtil;
 
-public class serviceModel {
+public class serviceModel extends Details {
     private boolean isSuccess = false;
     private Connection con = null;
     private Statement stmt = null;
@@ -131,6 +131,13 @@ public class serviceModel {
 
         return isSuccess;
     }
+
+    @Override
+    void getDashDetails() {
+
+    }
+
+
 
 
     /*//get services count
