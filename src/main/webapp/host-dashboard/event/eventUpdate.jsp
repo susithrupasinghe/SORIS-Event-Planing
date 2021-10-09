@@ -19,8 +19,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">
-
+    <link href="<%=request.getContextPath()%>/assets/landing/assets/images/favicon/favicon.png" rel="icon"/>
     <!-- Bootstrap Css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style"
           rel="stylesheet" type="text/css"/>
@@ -236,7 +235,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title mb-4">Update Event</h4>
-                                <form action="<%=request.getContextPath()%>/eventUpdate" method="post" id="form">
+                                <form action="<%=request.getContextPath()%>/eventUpdate" method="post" id="form" class="custom-validation">
                                     <input name="eid" value="<%=eid%>" type="hidden">
                                     <div class="row mb-4">
                                         <label for="eventName" class="col-form-label col-lg-2">Event Name</label>
@@ -266,7 +265,7 @@
                                         <label for="budget" class="col-form-label col-lg-2">Budget</label>
                                         <div class="col-lg-10">
 
-                                            <input id="budget" name="estimatedCost" type="text" value="<%=estimatedCost%>" class="form-control" required>
+                                            <input id="budget" name="estimatedCost" type="text" value="<%=estimatedCost%>" class="form-control" required data-parsley-min="0" data-parsley-type="number">
 
                                         </div>
                                     </div>
@@ -337,6 +336,10 @@
 
 <!-- dashboard init -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/dashboard.init.js"></script>
+
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
+
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>

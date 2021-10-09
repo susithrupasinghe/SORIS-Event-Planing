@@ -13,13 +13,12 @@
 <head>
 
     <meta charset="utf-8"/>
-    <title>Event Update</title>
+    <title>Event Creation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">
-
+    <link href="<%=request.getContextPath()%>/assets/landing/assets/images/favicon/favicon.png" rel="icon"/>
     <!-- Bootstrap Css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style"
           rel="stylesheet" type="text/css"/>
@@ -226,23 +225,23 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title mb-4">Create New Event</h4>
-                                <form action="<%=request.getContextPath()%>/eventCreation" method="post" id="form">
+                                <form action="<%=request.getContextPath()%>/eventCreation" method="post" id="form" class="custom-validation">
                                     <div class="row mb-4">
                                         <label for="eventName" class="col-form-label col-lg-2">Event Name</label>
                                         <div class="col-lg-10">
-                                            <input id="eventName" name="name" type="text" class="form-control" placeholder="Enter Event Name..." required>
+                                            <input id="eventName" name="name" type="text" class="form-control" data-parsley-maxlength="50" placeholder="Enter Event Name..." required>
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <label for="eventdesc" class="col-form-label col-lg-2">Event Description</label>
                                         <div class="col-lg-10">
-                                            <textarea class="form-control" name="description" id="eventdesc" rows="5" placeholder="Enter Event Description..." required></textarea>
+                                            <textarea class="form-control" name="description" id="eventdesc" rows="5" placeholder="Enter Event Description..." data-parsley-maxlength="255" required></textarea>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <label for="date-input" class="col-md-2 col-form-label">Date</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" type="date" value="2019-08-19" id="date-input" name="date" required>
+                                            <input class="form-control" type="date" value="yyyy-mm-dd" id="date-input" name="date" required>
                                         </div>
                                     </div>
 
@@ -250,7 +249,7 @@
                                     <div class="row mb-4">
                                         <label for="budget" class="col-form-label col-lg-2">Budget</label>
                                         <div class="col-lg-10">
-                                            <input id="budget" name="estimatedCost" type="text" data-parsley-type="number" placeholder="Enter Event Budget..." class="form-control" required>
+                                            <input id="budget" name="estimatedCost" type="text" data-parsley-type="number" data-parsley-min="0" placeholder="Enter Event Budget..." class="form-control" required>
                                         </div>
                                     </div>
                                 </form>
@@ -321,10 +320,7 @@
 
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
 
-
-
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
-
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
 
