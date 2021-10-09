@@ -6,24 +6,30 @@ import com.soris.SORIS_planing.sp.Service.models.topServicesModel;
 import com.soris.SORIS_planing.dbUtil;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class servicesSummaryModel {
-    /*private int isSuccess;*/
     private Connection con = null;
-    private Statement stmt = null;
+   /* private Statement stmt = null;*/
     private ResultSet rs;
+
+    public servicesSummaryModel() throws SQLException, ClassNotFoundException {
+        Connection con = dbUtil.initializeDatabase();
+        this.con = con;
+    }
 
     //get services count
     public int getServiceCount(String spID){
         try{
-            con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();
+            /*con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();*/
 
-            String sql = "SELECT COUNT(*) FROM service WHERE spid = '"+spID+"'";
+            String sql = String.format("SELECT COUNT(*) FROM service WHERE spid = '"+spID+"'");
+            Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
             rs.next();
             return rs.getInt(1);
@@ -38,11 +44,12 @@ public class servicesSummaryModel {
     public HashMap<String, Integer> getSummeryOfServices(String spID){
 
         try {
-            con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();
+            /*con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();*/
             int total = 0;
 
-            String sql = "SELECT status, COUNT(*) FROM service WHERE spid = '"+spID+"' GROUP BY status";
+            String sql = String.format("SELECT status, COUNT(*) FROM service WHERE spid = '"+spID+"' GROUP BY status");
+            Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
             HashMap<String,Integer> statusSet = new HashMap<String,Integer>();
 
@@ -63,11 +70,12 @@ public class servicesSummaryModel {
     public HashMap<String, Integer> getcatSumOfServices(String spID){
 
         try {
-            con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();
+            /*con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();*/
             int total = 0;
 
-            String sql = "SELECT category, COUNT(*) FROM service WHERE spid = '"+spID+"' GROUP BY category";
+            String sql = String.format("SELECT category, COUNT(*) FROM service WHERE spid = '"+spID+"' GROUP BY category");
+            Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
             HashMap<String,Integer> statusSet = new HashMap<String,Integer>();
 
@@ -88,11 +96,11 @@ public class servicesSummaryModel {
         List<topServicesModel> serviceList = new ArrayList<topServicesModel>();
 
         try{
-            con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();
+           /* con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();*/
 
-            String sql = "SELECT ser.sid,ser.name,SUM(count) AS summ,ser.category,ser.price,ser.discount,ser.description from service as ser, eventservices as eve WHERE ser.spid ='"+spID+"' AND ser.sid = eve.sid AND ser.status='approved' GROUP BY sid ORDER BY SUM(count) DESC";
-
+            String sql = String.format("SELECT ser.sid,ser.name,SUM(count) AS summ,ser.category,ser.price,ser.discount,ser.description from service as ser, eventservices as eve WHERE ser.spid ='"+spID+"' AND ser.sid = eve.sid AND ser.status='approved' GROUP BY sid ORDER BY SUM(count) DESC");
+            Statement stmt = this.con.createStatement();
             /*String sql = "SELECT service.sid, name, services.summ, category, price, discount, description, status FROM service INNER JOIN \n" +
                     "(SELECT sid, sum(count) AS summ FROM soris.eventservices WHERE spid = '"+spID+"' group by sid) AS services ON services.sid = service.sid ORDER BY services.summ DESC;";*/
             rs = stmt.executeQuery(sql);
@@ -116,10 +124,11 @@ public class servicesSummaryModel {
 
     public String getAddress(String spID){
         try{
-            con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();
+            /*con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();*/
 
-            String sql = "SELECT address FROM serviceprovider WHERE spid = '"+spID+"'";
+            String sql = String.format("SELECT address FROM serviceprovider WHERE spid = '"+spID+"'");
+            Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
             rs.next();
             return rs.getString(1);
@@ -132,10 +141,11 @@ public class servicesSummaryModel {
 
     public String getPhoneNum(String spID){
         try{
-            con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();
+           /* con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();*/
 
-            String sql = "SELECT contactno FROM serviceprovider WHERE spid = '"+spID+"'";
+            String sql = String.format("SELECT contactno FROM serviceprovider WHERE spid = '"+spID+"'");
+            Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
             rs.next();
             return rs.getString(1);
@@ -148,10 +158,11 @@ public class servicesSummaryModel {
 
     public String getMail(String spID){
         try{
-            con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();
+            /*con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();*/
 
-            String sql = "SELECT email FROM serviceprovider WHERE spid = '"+spID+"'";
+            String sql = String.format("SELECT email FROM serviceprovider WHERE spid = '"+spID+"'");
+            Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
             rs.next();
             return rs.getString(1);
