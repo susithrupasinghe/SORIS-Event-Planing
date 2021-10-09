@@ -157,6 +157,11 @@
                             <span key="t-dashboards">Add Services</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/addFinance" class="waves-effect">
+                            <span key="t-dashboards">Add Finance</span>
+                        </a>
+                    </li>
 
 
 
