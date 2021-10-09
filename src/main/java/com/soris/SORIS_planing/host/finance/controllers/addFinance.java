@@ -23,11 +23,12 @@ public class addFinance extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if(session!=null && session.getAttribute("userid") != null && session.getAttribute("role") == "host"){
-            String hid = (String) session.getAttribute("userId");
+            String hid = (String) session.getAttribute("userid");
             addFinanceModel host = new addFinanceModel();
             HashMap<String,String> eventList = host.getEventList(hid);
+            System.out.println(eventList.size());
             request.setAttribute("list",eventList);
-            request.getRequestDispatcher("/host-dashboard/addFinance.jsp").forward(request,response);
+            request.getRequestDispatcher("/host-dashboard/finance/addFinance.jsp").forward(request,response);
 
         }
 
@@ -43,7 +44,7 @@ public class addFinance extends HttpServlet {
         String eId = "4";
         String description = request.getParameter("description");
         String amount = request.getParameter("amount");
-        String  type = request.getParameter("Expenses/Incomes");
+        String  type = request.getParameter("type");
 
 
         boolean isTrue;
@@ -52,10 +53,10 @@ public class addFinance extends HttpServlet {
         boolean Expense = false;
         boolean Income = false;
 
-        if(type == "expense") {
+        if(type.equals("expense") ) {
             Expense = true;
             Income = false;
-        } else if(type == "income") {
+        } else if(type.equals("income") ) {
             Income = true;
             Expense = false;
         }
@@ -63,10 +64,10 @@ public class addFinance extends HttpServlet {
 
             isTrue = finance.addFinance(convertEid,description,convertAmount,Income,Expense);
             if(isTrue ){
-                request.getRequestDispatcher("/host-dashboard/financeDashboard.jsp").forward(request,response);
+                request.getRequestDispatcher("/host-dashboard/finance/financeDashboard.jsp").forward(request,response);
             } else {
                 request.setAttribute("error","fail");
-                request.getRequestDispatcher("/host-dashboard/addFinance.jsp").forward(request,response);
+                request.getRequestDispatcher("/host-dashboard/finance/addFinance.jsp").forward(request,response);
             }
         } catch (SQLException e) {
             e.printStackTrace();

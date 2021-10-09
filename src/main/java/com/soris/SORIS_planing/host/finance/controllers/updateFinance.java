@@ -22,7 +22,7 @@ public class updateFinance extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
-            String fid = request.getParameter("fid");
+            String fid = request.getParameter("userid");
             int convertfid = Integer.parseInt(fid);
 
 //            int fid = 1;

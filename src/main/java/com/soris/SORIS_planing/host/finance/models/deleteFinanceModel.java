@@ -8,16 +8,16 @@ import java.sql.ResultSet;
 import com.soris.SORIS_planing.dbUtil;
 
 public class deleteFinanceModel {
-    private static Connection con;
+    private  Connection con;
 
     public deleteFinanceModel() throws SQLException, ClassNotFoundException{
         this.con = dbUtil.initializeDatabase();
     }
-    public static boolean deleteFinance(String fid)
+    public boolean deleteFinance(String fid)
     {
         try{
             Statement stmt = con.createStatement();
-            String sql = "";
+            String sql = "DELETE FROM finance WHERE fid = '"+fid+"'";
             int count = stmt.executeUpdate(sql);
             if(count > 0){
                 return true;

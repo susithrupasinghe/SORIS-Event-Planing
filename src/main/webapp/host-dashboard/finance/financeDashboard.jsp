@@ -168,10 +168,26 @@
             <div class="container-fluid">
 
 
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0 font-size-18">Finance</h4>
+
+<%--                            <div class="page-title-right">--%>
+<%--                                <ol class="breadcrumb m-0">--%>
+<%--                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Services</a></li>--%>
+<%--                                    <li class="breadcrumb-item active">Services provider</li>--%>
+<%--                                </ol>--%>
+<%--                            </div>--%>
+
+                        </div>
+                    </div>
+                </div>
 
 
-                <div class="col-xl-8">
-                    <div class="row">
+
+<%--                <div class="col-xl-8">--%>
+<%--                    <div class="row">--%>
                         <%--<div class="col-md-4">
                             <div class="card mini-stats-wid">
                                 <div class="card-body">
@@ -255,8 +271,8 @@
                                 </div>
                             </div>
                         </div>--%>
-                    </div>
-                </div>
+<%--                    </div>--%>
+<%--                </div>--%>
 
 
 
@@ -267,7 +283,22 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title mb-4">Latest Transaction</h4>
+                                <div class="row mb-2">
+                                    <div class="col-sm-4">
+                                        <div class="search-box me-2 mb-2 d-inline-block">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="text-sm-end">
+                                            <a href="<%=request.getContextPath()%>/host-dashboard/finance/addFinance.jsp" target="target_name">
+                                                <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i>
+                                                    Add Finance </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="table-responsive">
                                     <table class="table align-middle table-nowrap mb-0">
                                         <thead class="table-light">
@@ -284,32 +315,7 @@
                                         </thead>
                                         <tbody>
                                         <c:forEach var = "fin" items = "${financeDetails}">
-<%--                                        <tr>--%>
-<%--                                            &lt;%&ndash;<td>--%>
-<%--                                                <div class="form-check font-size-16">--%>
-<%--                                                    <input class="form-check-input" type="checkbox" id="transactionCheck02">--%>
-<%--                                                    <label class="form-check-label" for="transactionCheck02"></label>--%>
-<%--                                                </div>--%>
-<%--                                            </td>&ndash;%&gt;--%>
-<%--                                            <td><a href="javascript: void(0);" class="text-body fw-bold">01</a> </td>--%>
-<%--                                            <td>E02</td>--%>
-<%--                                            <td>--%>
-<%--                                                5000--%>
-<%--                                            </td>--%>
-<%--                                            <td>--%>
-<%--                                                4000--%>
-<%--                                            </td>--%>
-<%--                                            <td>--%>
-<%--                                                1000--%>
-<%--                                            </td>--%>
-<%--                                            <td>--%>
-<%--                                                <!-- Button trigger modal -->--%>
-<%--                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".transaction-detailModal">--%>
-<%--                                                    View Details--%>
-<%--                                                </button></td>--%>
 
-
-<%--                                        </tr>--%>
                                             <tr>
                                                 <td><a href="javascript: void(0);" class="text-body fw-bold">${fin.fid}</a></td>
                                                 <td>${fin.name}</td>
@@ -360,15 +366,18 @@
                                     <th scope="col">Expense</th>
                                     <th scope="col">Income</th>
                                     <th scope="col">Amount</th>
+                                    <th scope="col">Description</th>
                                 </tr>
                                 </thead>
 
                                     <%-- Table body--%>
                                 <tbody>
                                 <tr>
+                                    <td>${fin.expense}</td>
+                                    <td>${fin.income}</td>
+                                    <td>${fin.amount}</td>
                                     <td>
                                         <div>
-                                            <h5 class="text-truncate font-size-14">${fin.name}</h5>
                                             <p class="text-muted mb-0">${fin.description}</p>
                                         </div>
                                     </td>
@@ -427,6 +436,7 @@
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+</div>
 </body>
 
 </html>

@@ -28,10 +28,11 @@ public class addFinanceModel {
     public boolean addFinance(int eId, String description, double amount, boolean income, boolean expense) throws SQLException, ClassNotFoundException {
         try {
 
-            String sql = "Insert into finance(eId,description,amount,income,expense) value ('" + eId + "','" + description + "','" + amount + "','" + income + "','" + expense + "')";
-            Statement stat = con.createStatement();
+            String sql = "Insert into finance(eid,description,amount,income,expense) values ('" + eId + "','" + description + "','" + amount + "','" + income + "','" + expense + "')";
 
-            int count = stat.executeUpdate(sql);
+            Statement stat = con.createStatement();
+            String query = String.format("Insert into finance(eid,description,amount,income,expense) values ('%d','%s','%f',%b,%b)",eId,description,amount,income,expense);
+            int count = stat.executeUpdate(query);
 
             if (count > 0) {
                 return true;
@@ -39,6 +40,7 @@ public class addFinanceModel {
                 return false;
             }
         } catch (Exception e) {
+            System.out.println(e);
             return false;
         }
 
@@ -56,6 +58,7 @@ public class addFinanceModel {
 
             while(res.next()) {
                 eventList.put(res.getString("eid"),res.getString("name"));
+                System.out.println(res.getString("name"));
             }
 
             return eventList;

@@ -110,12 +110,12 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                        <span class="d-none d-xl-inline-block ms-1" key="t-henry"><%=session.getAttribute("username")%></span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
 
-                        <a class="dropdown-item text-danger" href="#"><i
+                        <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=host"><i
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
                     </div>
@@ -205,7 +205,7 @@
                                                 <div class="col-lg-06">
                                                     <label class="control-label">Event Name</label>
                                                     <select class="form-select" name = "event name">
-                                                <c:forEach var="names" items="${eventList}">
+                                                <c:forEach var="names" items="${list}">
                                                             <option value = "${names.key}">${names.value}</option>
 
                                                 </c:forEach>
@@ -236,7 +236,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label class="control-label">Expenses/Incomes</label>
-                                                        <select class="form-control select2" name = "Expenses/Incomes">
+                                                        <select class="form-control select2" name = "type">
                                                             <option>Select</option>
                                                             <option value="expense">Expense</option>
                                                             <option value="income">Income</option>
