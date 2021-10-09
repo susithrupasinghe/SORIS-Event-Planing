@@ -20,23 +20,32 @@ public class deleteFinance extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
 
-        if (session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
-            String fid = request.getParameter("fid");
-            int convertfid = Integer.parseInt(fid);
+        try{
+            if (session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
+                String fid = request.getParameter("fid");
 
-            boolean isTrue;
+                boolean isTrue;
+                deleteFinanceModel del = new deleteFinanceModel();
+                isTrue = del.deleteFinance(fid);
 
-//            deleteFinanceModel del = new deleteFinanceModel();
-
-//            isTrue = del.deleteFinance(fid);
-
-//            if (isTrue == true) {
-
-                response.sendRedirect(request.getContextPath() + "");
+            if (isTrue == true) {
+                response.sendRedirect(request.getContextPath() +"/viewBudget");
+            }
+            else {
+                request.setAttribute("error","Delete process failed");
+                response.sendRedirect(request.getContextPath() +"/viewBudget");
+            }
             } else {
-                RequestDispatcher dis2 = request.getRequestDispatcher("");
+                RequestDispatcher dis2 = request.getRequestDispatcher(request.getContextPath() + "/auth/host-user-signin.jsp");
                 dis2.forward(request, response);
             }
+        }
+        catch (Exception ex)
+        {
+
+        }
+
+
 
         }
 //    }

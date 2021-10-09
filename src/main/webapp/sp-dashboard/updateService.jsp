@@ -58,8 +58,6 @@
 
 <!-- Begin page -->
 <div id="layout-wrapper">
-
-
     <header id="page-topbar">
         <div class="navbar-header">
             <div class="d-flex">
@@ -174,7 +172,11 @@
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>
-
+                    <li>
+                        <a href="<%=request.getContextPath()%>/sp-dashboard/newService.jsp" class="waves-effect">
+                            <span key="t-dashboards">Add New Services</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- Sidebar -->

@@ -6,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "deleteServiceServlet", value = "/deleteServiceServlet")
 public class deleteServiceServlet extends HttpServlet {
@@ -19,9 +20,16 @@ public class deleteServiceServlet extends HttpServlet {
 
             boolean isTrue;
 
-            serviceModel delSer = new serviceModel();
+                serviceModel delSer = null;
+                try {
+                    delSer = new serviceModel();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
 
-            isTrue = delSer.deleteService(sId);
+                isTrue = delSer.deleteService(sId);
 
             if(isTrue == true){
                /* RequestDispatcher dis1 = request.getRequestDispatcher("/index.jsp");
