@@ -146,11 +146,20 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/eventList" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
-
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/event/eventCreation.jsp" class="waves-effect">
+                            <span key="t-dashboards">Create Event</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/services/servicesCategory.jsp" class="waves-effect">
+                            <span key="t-dashboards">Add Services</span>
+                        </a>
+                    </li>
 
 
 
@@ -234,7 +243,7 @@
                                     <div class="row mb-4">
                                         <label for="budget" class="col-form-label col-lg-2">Budget</label>
                                         <div class="col-lg-10">
-                                            <input id="budget" name="estimatedCost" type="text" placeholder="Enter Event Budget..." class="form-control" required>
+                                            <input id="budget" name="estimatedCost" type="text" data-parsley-type="number" placeholder="Enter Event Budget..." class="form-control" required>
                                         </div>
                                     </div>
                                 </form>
@@ -302,6 +311,12 @@
 
 <!-- dashboard init -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/dashboard.init.js"></script>
+
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
+
+
+
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>

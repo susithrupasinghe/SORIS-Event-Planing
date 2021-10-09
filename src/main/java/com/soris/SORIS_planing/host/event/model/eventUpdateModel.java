@@ -32,7 +32,20 @@ public class eventUpdateModel {
                 event.setName(rs.getString("name"));
                 event.setDescription(rs.getString("description"));
                 event.setEstimatedCost(rs.getDouble("estimatedcost"));
-                event.setCurrentCost(rs.getDouble("currentcost"));
+                //get current cost
+                String queryCost ="SELECT SUM(amount) AS cost FROM finance where eid ='"+event.getEid()+"' AND expense = 1";
+                Statement stmt1=con.createStatement();
+                ResultSet cost=stmt1.executeQuery(queryCost);
+                cost.next();
+                event.setCurrentCost(cost.getDouble("cost"));
+                //get current income
+                String queryIncome ="SELECT SUM(amount) AS income FROM finance where eid ='"+event.getEid()+"' AND income = 1";
+                Statement stmt2=con.createStatement();
+                ResultSet income=stmt1.executeQuery(queryIncome);
+                income.next();
+                event.setCurrentIncome(income.getDouble("income"));
+
+
                 eList.add(event);
             }
             return eList;

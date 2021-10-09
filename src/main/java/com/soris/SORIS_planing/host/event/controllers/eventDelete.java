@@ -17,9 +17,12 @@ public class eventDelete extends HttpServlet {
             eventDeleteModel deleteModel=new eventDeleteModel();
             if(deleteModel.eventDelete(eid)){
                 //delete successful
+                response.sendRedirect(request.getContextPath() + "/eventList");
             }else {
                 //delete failed
                 request.setAttribute("error","delete failed");
+                // figure out how to send error msg to same page
+                response.sendRedirect(request.getContextPath() + "/eventList");
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
