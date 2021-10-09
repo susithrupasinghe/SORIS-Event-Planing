@@ -246,23 +246,6 @@
                                                 </div>
                                                 </div>
                                             </div>
-
-                                           <%-- <div class="col-lg-4 align-self-center">
-                                                <div class="text-lg-center mt-4 mt-lg-0">
-                                                    <div class="row">
-                                                        &lt;%&ndash;<div class="col-4">
-                                                            <div>
-                                                                <b><h4 >Total Services</h4></b>
-                                                                <h4 class="mb-0"><%=servicesCount%></h4>
-                                                            </div>
-                                                        </div>&ndash;%&gt;
-                                                        <div class="dropdown float-end">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>--%>
-
                                         </div>
                                         <!-- end row -->
                                     </div>
@@ -283,8 +266,7 @@
                                         <div class="mb-4">
                                             <i class="bx bx-map-pin text-primary display-4"></i>
                                         </div>
-                                        <h3><%=serviceSummery.get("pending")%>
-                                        </h3>
+                                        <h3><%=serviceSummery.get("pending")%></h3>
                                         <p>Waiting for Approval</p>
                                     </div>
 

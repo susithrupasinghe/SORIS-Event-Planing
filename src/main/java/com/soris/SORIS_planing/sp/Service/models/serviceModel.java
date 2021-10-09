@@ -133,8 +133,20 @@ public class serviceModel extends Details {
     }
 
     @Override
-    void getDashDetails() {
+    String getName(String spID) {
+        try{
+            con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();
 
+            String sql = "SELECT address FROM serviceprovider WHERE spid = '"+spID+"'";
+            rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getString(1);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
 

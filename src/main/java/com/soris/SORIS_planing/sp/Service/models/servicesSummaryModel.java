@@ -91,8 +91,10 @@ public class servicesSummaryModel {
             con = dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "SELECT service.sid, name, services.summ, category, price, discount, description, status FROM service INNER JOIN \n" +
-                    "(SELECT sid, sum(count) AS summ FROM soris.eventservices WHERE spid = '"+spID+"' group by sid) AS services ON services.sid = service.sid ORDER BY services.summ DESC;";
+            String sql = "SELECT ser.sid,ser.name,SUM(count) AS summ,ser.category,ser.price,ser.discount,ser.description from service as ser, eventservices as eve WHERE ser.spid ='"+spID+"' AND ser.sid = eve.sid AND ser.status='approved' GROUP BY sid ORDER BY SUM(count) DESC";
+
+            /*String sql = "SELECT service.sid, name, services.summ, category, price, discount, description, status FROM service INNER JOIN \n" +
+                    "(SELECT sid, sum(count) AS summ FROM soris.eventservices WHERE spid = '"+spID+"' group by sid) AS services ON services.sid = service.sid ORDER BY services.summ DESC;";*/
             rs = stmt.executeQuery(sql);
 
             while(rs.next()){
