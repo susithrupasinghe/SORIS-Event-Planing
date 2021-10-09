@@ -218,29 +218,29 @@
                                 <h4 class="card-title">Basic Information</h4>
                                 <p class="card-title-desc">Fill all information below</p>
 
-                                <form action="<%=request.getContextPath()%>/newServiceServlet" method="post">
+                                <form action="<%=request.getContextPath()%>/newServiceServlet" method="post" class="custom-validation">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
                                                 <label for="servicetname">Service Name</label>
-                                                <input id="servicetname" name="servicetname" type="text" class="form-control" placeholder="Service Name" required>
+                                                <input id="servicetname" name="servicetname" type="text" data-parsley-maxlength="50" class="form-control" placeholder="Service Name" required>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="price">Price</label>
-                                                <input id="price" name="price" type="text" class="form-control" placeholder="Price">
+                                                <input id="price" name="price" type="text" class="form-control" data-parsley-type="number" data-parsley-min="0" placeholder="Price" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="Discount">Discount</label>
-                                                <input id="Discount" name="Discount" type="text" class="form-control" placeholder="Discount">
+                                                <input id="Discount" name="Discount" type="text" class="form-control" data-parsley-type="number" data-parsley-min="0" placeholder="Discount" required>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <div class="mb-3">
                                                 <label class="control-label">Category</label>
-                                                <select class="form-control select2" name = "Category">
-                                                    <option>Select</option>
+                                                <select class="form-control select2" name = "Category" required>
+                                                    <option selected disabled>Select</option>
                                                     <option value="Food">Food</option>
                                                     <option value="Transport">Transport</option>
                                                     <option value="Entertainment">Entertainment</option>
@@ -251,7 +251,7 @@
 
                                             <div class="mb-3">
                                                 <label for="servicedesc">Service Description</label>
-                                                <textarea class="form-control" id="servicedesc" name="servicedesc" rows="5" placeholder="Service Description"></textarea>
+                                                <textarea class="form-control" id="servicedesc" name="servicedesc" rows="5" data-parsley-maxlength="255" placeholder="Service Description" required></textarea>
                                             </div>
 
                                         </div>
@@ -333,6 +333,10 @@
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+
+<%--validation--%>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
 
 <%--Pop-up--%>
 <% if (request.getAttribute("error") != null ){%>
