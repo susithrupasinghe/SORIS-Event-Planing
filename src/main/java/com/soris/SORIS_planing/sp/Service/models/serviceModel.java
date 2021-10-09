@@ -1,8 +1,8 @@
 package com.soris.SORIS_planing.sp.Service.models;
 
-import java.security.Provider;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,28 +10,28 @@ import java.util.List;
 import com.google.protobuf.Service;
 import com.soris.SORIS_planing.dbUtil;
 
-public class serviceModel {
+public class serviceModel extends Details {
     private boolean isSuccess = false;
-    private Connection con = null;
-    private Statement stmt = null;
+    private Connection con;
+   /* private Statement stmt = null;*/
     private ResultSet rs;
 
-//    public serviceModel() throws SQLException, ClassNotFoundException {
-//        Connection con = dbUtil.initializeDatabase();
-//        this.con = con;
-//    }
+    public serviceModel() throws SQLException, ClassNotFoundException {
+        Connection con = dbUtil.initializeDatabase();
+        this.con = con;
+    }
 
     public boolean insertService(int spId,String servicetname,String category, double price, double discount, String description) {
 
 
         try {
-            con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();
+            /*con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();*/
 
             /*String sql = "insert into soris.service(spid,name,category,price,discount,description) values (spId,'"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"')";*/
 
-            String sql = "insert into soris.service(spid,name,category,price,discount,description,status) values ('"+spId+"','"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"','pending')";
-
+            String sql = String.format("insert into soris.service(spid,name,category,price,discount,description,status) values ('"+spId+"','"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"','pending')");
+            Statement stmt = this.con.createStatement();
             int rs = stmt.executeUpdate(sql);
 
             if(rs > 0){
@@ -54,10 +54,11 @@ public class serviceModel {
         int converspID = Integer.parseInt(spID);
 
         try {
-            con = dbUtil.initializeDatabase();
-            stmt = con.createStatement();
+           /* con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();*/
 
-            String sql = "SELECT sid, name, category, price, discount, description, status FROM service WHERE spid ='"+converspID+"'";
+            String sql = String.format("SELECT sid, name, category, price, discount, description, status FROM service WHERE spid ='"+converspID+"'");
+            Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
 
             while (rs.next()){
@@ -81,41 +82,17 @@ public class serviceModel {
 //        return ser;
     }
 
-    //update service
-  /*  public boolean updateService(int sID, String name, double price, double discount,String category, String description){
-
-        try{
-            con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
-            stmt = con.createStatement();
-
-            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"',category='"+category+"', description= '"+description+"' WHERE sid = '"+sID+"'";//, category= '"+category+"'
-
-            int rs = stmt.executeUpdate(sql);
-
-            if(rs > 0){
-                isSuccess = true;
-            }else{
-                isSuccess = false;
-            }
-
-        }catch (Exception e){
-            *//*e.printStackTrace();*//*
-            System.out.println(e);
-        }
-        return isSuccess;
-    }
-*/
     public boolean deleteService(String sId){
 
         /*     int convertID = Integer.parseInt(sIO);*/
 
 
         try{
-            con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
+            /*con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
             stmt = con.createStatement();
-
-            String sql = "DELETE FROM service WHERE sid = '"+sId+"'";
-
+*/
+            String sql = String.format("DELETE soris.service, soris.eventservices FROM service LEFT JOIN eventservices ON service.sid = eventservices.sid WHERE service.sid = '"+sId+"'");
+            Statement stmt = this.con.createStatement();
             int rs;
             rs = stmt.executeUpdate(sql);
 
@@ -131,6 +108,26 @@ public class serviceModel {
 
         return isSuccess;
     }
+
+    @Override
+    String getName(String spID) {
+        try{
+           /* con = dbUtil.initializeDatabase();
+            stmt = con.createStatement();*/
+
+            String sql = String.format("SELECT address FROM serviceprovider WHERE spid = '"+spID+"'");
+            Statement stmt = this.con.createStatement();
+            rs = stmt.executeQuery(sql);
+            rs.next();
+            return rs.getString(1);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
 
 
     /*//get services count
