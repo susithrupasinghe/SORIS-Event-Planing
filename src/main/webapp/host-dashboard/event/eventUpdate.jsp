@@ -118,7 +118,7 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                        <span class="d-none d-xl-inline-block ms-1" key="t-henry"><%=session.getAttribute("username")%></span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
@@ -151,8 +151,18 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/eventList" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/event/eventCreation.jsp" class="waves-effect">
+                            <span key="t-dashboards">Create Event</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/services/servicesCategory.jsp" class="waves-effect">
+                            <span key="t-dashboards">Add Services</span>
                         </a>
                     </li>
 

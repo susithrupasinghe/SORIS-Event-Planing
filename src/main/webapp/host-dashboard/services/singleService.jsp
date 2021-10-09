@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.soris.SORIS_planing.host.services.models.serviceModel" %>
 <%@ page import="com.soris.SORIS_planing.host.services.models.spModel" %><%--
   Created by IntelliJ IDEA.
@@ -85,6 +86,8 @@
                 </button>
 
 
+
+
             </div>
 
             <div class="d-flex">
@@ -153,16 +156,21 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/eventList" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
-                            <span key="t-dashboards">Add Services</span>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/event/eventCreation.jsp" class="waves-effect">
+                            <span key="t-dashboards">Create Event</span>
                         </a>
                     </li>
 
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/services/servicesCategory.jsp" class="waves-effect">
+                            <span key="t-dashboards">Add Services</span>
+                        </a>
+                    </li>
 
 
 
@@ -251,8 +259,27 @@
                                             <form method="post" action="<%=request.getContextPath()%>/addToBudget">
                                             <div class="col-sm-3">
                                                 <input data-toggle="touchspin" type="text" name="count" value="1">
-                                                <input type="hidden" name="eid" value="1">
                                                 <input type="hidden" name="sid" value="<%=service.getSid()%>">
+
+                                                <label for="eventsel">Event : </label>
+                                                <div id="eventsel" class="app-search d-none d-lg-block" style="width: 300px;">
+
+
+                                                    <div class="position-relative">
+                                                        <select class="form-select" name="eid" required>
+                                                            <option value="" disabled selected>Select your Event</option>
+                                                            <c:forEach var = "event" items = "${events}">
+                                                                <c:if test="${event.key ==  eid }">
+                                                                    <option value="${event.key}" selected>${event.value}</option>
+                                                                </c:if>
+                                                                <c:if test="${event.key != eid}">
+                                                                    <option value="${event.key}">${event.value}${eid}</option>
+                                                                </c:if>
+                                                            </c:forEach>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
 
                                             </div>
 

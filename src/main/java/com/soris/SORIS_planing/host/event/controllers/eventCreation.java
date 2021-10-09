@@ -22,15 +22,6 @@ public class eventCreation extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session= request.getSession(false);
         int hid=0;
-        if(session.getAttribute("userid") !=null && session.getAttribute("role")=="host")
-        {
-            String _hid= (String) session.getAttribute("userid");
-            hid = Integer.parseInt(_hid);
-
-        }else {
-            //user not logged in
-            request.getRequestDispatcher("/auth/host-user-signin.jsp").forward(request,response);
-        }
 
         try {
 
@@ -48,14 +39,14 @@ public class eventCreation extends HttpServlet {
             String name = request.getParameter("name");
             String description = request.getParameter("description");
             double estimatedCost = Double.parseDouble(request.getParameter("estimatedCost"));
-            String d= request.getParameter("date");
+            String date= request.getParameter("date");
 
 
 
 
             eventCreationModel event = new eventCreationModel();
-            if (event.addEvent(name, description, estimatedCost,hid,d)) {
-                request.getRequestDispatcher("/eventList").forward(request,response);
+            if (event.addEvent(name, description, estimatedCost,hid,date)) {
+                response.sendRedirect(request.getContextPath() + "/eventList");
             } else {
                 request.setAttribute("error", "event creation failed");
                 request.getRequestDispatcher("/host-dashboard/event/eventCreation.jsp").forward(request,response);
@@ -70,8 +61,3 @@ public class eventCreation extends HttpServlet {
         }
     }
 }
-//get  name,description,estimatedCost from form
-//check session for hid
-// insert into database
-// return boolean
-// redirect to host dashboard
