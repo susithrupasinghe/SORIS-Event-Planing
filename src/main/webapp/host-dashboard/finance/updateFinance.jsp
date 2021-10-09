@@ -35,7 +35,7 @@
 <%
 //    int eid= (int) request.getAttribute("eid");
     String fid= (String) request.getAttribute("fid");
-    String description= (String) request.getAttribute("Description");
+    String description= (String) request.getAttribute("description");
     boolean expense= (boolean) request.getAttribute("expense");
     boolean income= (boolean) request.getAttribute("income");
     String amount= (String) request.getAttribute("amount");
@@ -43,6 +43,7 @@
 %>
 
 <body data-sidebar="dark">
+
 
 <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
@@ -119,12 +120,12 @@
                         <img class="rounded-circle header-profile-user"
                              src="<%=request.getContextPath()%>/assets/dashboard/assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                        <span class="d-none d-xl-inline-block ms-1" key="t-henry"><%=session.getAttribute("username")%></span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
 
-                        <a class="dropdown-item text-danger" href="#"><i
+                        <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=host"><i
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
                     </div>
@@ -152,11 +153,31 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/eventList" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/event/eventCreation.jsp" class="waves-effect">
+                            <span key="t-dashboards">Create Event</span>
+                        </a>
+                    </li>
 
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/services/servicesCategory.jsp" class="waves-effect">
+                            <span key="t-dashboards">Add Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/addFinance" class="waves-effect">
+                            <span key="t-dashboards">Add Finance</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/viewBudget" class="waves-effect">
+                            <span key="t-dashboards">View Finance</span>
+                        </a>
+                    </li>
 
 
 
@@ -209,24 +230,10 @@
                         <div class="card">
                             <div class="card-body">
                                 <section>
-                                    <form action="<%=request.getContextPath()%>/updateFinance" method="post">
+                                    <form action="<%=request.getContextPath()%>/updateFinance?fid=<%=request.getAttribute("fid")%>" method="post">
                                         <div class="row">
-                                            <div class="col-lg-06">
-                                                <label class="control-label">Event Name</label>
-                                                <select class="form-select" name = "event name">
-                                                    <c:forEach var="names" items="${eventList}">
-                                                        <option value = "${names.key}">${names.value}</option>
 
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
-                                            <%--                                                <div class="col-lg-6">--%>
-                                            <%--                                                    <div class="mb-3">--%>
-                                            <%--                                                        <label for="add eid">Event Id</label>--%>
-                                            <%--                                                        <input type="text" class="form-control" name = "eId" id="add eid" placeholder="Enter Event Id...">--%>
-                                            <%--                                                    </div>--%>
-                                            <%--                                                </div>--%>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12">
                                                 <div class="mb-3">
                                                     <label for="add amount">Amount</label>
                                                     <input type="text" class="form-control" id="add amount" name="amount" value = "<%=amount%>">
@@ -244,18 +251,24 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="mb-3">
-                                                    <label class="control-label">Expenses/Incomes</label>
-                                                    <select class="form-control select2" name = "Expenses/Incomes">
-                                                        <option>Select</option>
-                                                        <option value="<%=expense%>">Expense</option>
-                                                        <option value="<%=income%>">Income</option>
+                                                    <label class="control-label">Expense/Income</label>
+                                                    <select class="form-control select2" name = "type">
+                                                        <% if(expense == true) {%>
+                                                        <option value="expense" selected>Expense</option>
+                                                        <option value="income">Income</option>
+                                                        <% } else {%>
+                                                        <option value="expense" >Expense</option>
+                                                        <option value="income" selected>Income</option>
+                                                        <%}%>
+
+
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
 
 
-                                        <input type="hidden" id="fid" name="fid" value="<%= fid%>">
+                                        <input type="hidden" id="fid" name="fid" value="<%=fid%>">
 
 
                                         <div class="row justify-content-end">
@@ -316,6 +329,12 @@
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+<% if (request.getAttribute("error") != null ){%>
+<script>
+    setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
+
+</script>
+<%}%>
 </body>
 
 </html>

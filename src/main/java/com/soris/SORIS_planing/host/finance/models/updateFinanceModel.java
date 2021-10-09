@@ -15,10 +15,10 @@ public class updateFinanceModel {
         this.con = dbUtil.initializeDatabase();
     }
 
-    public boolean updateFinance(int fid, int eid, String description, double amount, boolean income, boolean expense) throws SQLException {
+    public boolean updateFinance(int fid, String description, double amount, boolean income, boolean expense) throws SQLException {
         try {
             Statement stat = con.createStatement();
-            String sql = "UPDATE finance SET eid='" + eid + "', description='" + description + "',amount='" + amount + "',income='" + income + "',expense='" + expense + "'," + "where fid='" + fid + "'";
+            String sql = "UPDATE finance SET  description='" + description + "',amount='" + amount + "',income=" + income + ",expense=" + expense + " " + "where fid='" + fid + "'";
 
             int count = stat.executeUpdate(sql);
 
