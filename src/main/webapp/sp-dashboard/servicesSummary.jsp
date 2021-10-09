@@ -22,6 +22,7 @@
     List<topServicesModel> topServiceslist = (List<topServicesModel>) request.getAttribute("topServices");
     String address = (String) request.getAttribute("address");
     String contactno = (String) request.getAttribute("contactno");
+    String email = (String) request.getAttribute("email");
 %>
 
 
@@ -59,8 +60,6 @@
 
 <!-- Begin page -->
 <div id="layout-wrapper">
-
-
     <header id="page-topbar">
         <div class="navbar-header">
             <div class="d-flex">
@@ -174,6 +173,11 @@
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/sp-dashboard/newService.jsp" class="waves-effect">
+                            <span key="t-dashboards">Add New Services</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- Sidebar -->
@@ -208,7 +212,7 @@
                                                         <div class="text-muted">
                                                             <p class="mb-2">Welcome</p>
                                                             <h5 class="mb-1"><%=session.getAttribute("username")%></h5>
-                                                            <p class="mb-0">Best one pvt.ltd</p>
+                                                            <p class="mb-0"><%=email%></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -260,7 +264,7 @@
                         <div class="col-xl-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Summery of Services</h4>
+                                    <h4 class="card-title mb-4">Service Status</h4>
 
                                     <div class="text-center">
                                         <div class="mb-4">
@@ -350,7 +354,7 @@
                         <div class="col-xl-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Summery of Services cat</h4>
+                                    <h4 class="card-title mb-4">Service Categories</h4>
 
                                     <div class="text-center">
                                         <div class="mb-4">
@@ -447,7 +451,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                           <%-- <tr>
+                                            <tr>
                                                 <td>
                                                     <p class="mb-0">Others</p>
                                                 </td>
@@ -463,7 +467,7 @@
                                                              aria-valuemax="100"></div>
                                                     </div>
                                                 </td>
-                                            </tr>--%>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>

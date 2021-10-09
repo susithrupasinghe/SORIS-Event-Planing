@@ -153,6 +153,11 @@
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/sp-dashboard/newService.jsp" class="waves-effect">
+                            <span key="t-dashboards">Add New Services</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- Sidebar -->
@@ -178,7 +183,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Service Provider</a></li>
-                                    <li class="breadcrumb-item active">/Add Service</li>
+                                    <li class="breadcrumb-item active">Add Service</li>
                                 </ol>
                             </div>
 

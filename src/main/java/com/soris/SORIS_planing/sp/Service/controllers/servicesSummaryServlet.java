@@ -29,6 +29,7 @@ public class servicesSummaryServlet extends HttpServlet {
                 List<topServicesModel> _topservices = summarySer.getTopServices(spID);
                 String address = summarySer.getAddress(spID);
                 String contactno = summarySer.getPhoneNum(spID);
+                String email = summarySer.getMail(spID);
 
                 request.setAttribute("serviceCount",servicesCount);
                 request.setAttribute("serviceSummery",summeryOfServices);
@@ -36,6 +37,7 @@ public class servicesSummaryServlet extends HttpServlet {
                 request.setAttribute("topServices",_topservices);
                 request.setAttribute("address", address);
                 request.setAttribute("contactno", contactno);
+                request.setAttribute("email",email);
 
                 request.getRequestDispatcher("/sp-dashboard/servicesSummary.jsp").forward(request, response);
 
