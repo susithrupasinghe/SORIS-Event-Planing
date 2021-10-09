@@ -40,8 +40,8 @@ public class addFinance extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        try{
-//        String eId = request.getParameter("eId");
-        String eId = "4";
+
+        String eId = request.getParameter("eid");
         String description = request.getParameter("description");
         String amount = request.getParameter("amount");
         String  type = request.getParameter("type");
