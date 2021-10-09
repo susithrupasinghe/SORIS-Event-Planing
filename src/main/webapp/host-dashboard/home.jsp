@@ -256,11 +256,11 @@
                                 <th class="align-middle">Event ID</th>
                                 <th class="align-middle">Name</th>
                                 <th class="align-middle">Date</th>
-                                <th class="align-middle">Estimated Cost</th>
+                                <th class="align-middle">Budget</th>
                                 <th class="align-middle">Current Cost </th>
                                 <th class="align-middle">Current Income</th>
                                 <th class="align-middle">View Descriptions</th>
-                                <th class="align-middle">Action</th>
+                                <th class="align-middle">Update/Delete</th>
                             </tr>
                             </thead>
                             <tbody>
