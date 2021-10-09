@@ -143,10 +143,27 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="javascript: void(0);" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/eventList" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/event/eventCreation.jsp" class="waves-effect">
+                            <span key="t-dashboards">Create Event</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<%=request.getContextPath()%>/host-dashboard/services/servicesCategory.jsp" class="waves-effect">
+                            <span key="t-dashboards">Add Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%=request.getContextPath()%>/addFinance" class="waves-effect">
+                            <span key="t-dashboards">Add Finance</span>
+                        </a>
+                    </li>
+
 
 
 
@@ -204,7 +221,7 @@
                                             <div class="row">
                                                 <div class="col-lg-06">
                                                     <label class="control-label">Event Name</label>
-                                                    <select class="form-select" name = "event name">
+                                                    <select class="form-select" name = "eid">
                                                 <c:forEach var="names" items="${list}">
                                                             <option value = "${names.key}">${names.value}</option>
 
@@ -237,7 +254,7 @@
                                                     <div class="mb-3">
                                                         <label class="control-label">Expenses/Incomes</label>
                                                         <select class="form-control select2" name = "type">
-                                                            <option>Select</option>
+                                                            <option disabled selected>Select</option>
                                                             <option value="expense">Expense</option>
                                                             <option value="income">Income</option>
                                                         </select>
