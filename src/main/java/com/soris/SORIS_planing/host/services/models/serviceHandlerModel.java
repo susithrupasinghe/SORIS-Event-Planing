@@ -161,4 +161,78 @@ public class serviceHandlerModel {
 
     }
 
+    public HashMap<String,String> getEventList(String hid){
+        try {
+            Statement stmt = con.createStatement();
+            String sql = "SELECT eid, name FROM event WHERE hid = '"+hid+"'";
+            ResultSet res = stmt.executeQuery(sql);
+            HashMap<String,String> eventList = new HashMap<String,String>();
+
+            while(res.next()) {
+                eventList.put(res.getString("eid"),res.getString("name"));
+                System.out.println(res.getString("name"));
+            }
+
+            return eventList;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
+    }
+
+    public List<selectedServicesModel> getSelectedServices(String eid){
+        List<selectedServicesModel> selectedServices =  new ArrayList<selectedServicesModel>();
+        try {
+            Statement stmt = con.createStatement();
+            String sql = String.format("SELECT es.sid, es.esid, ser.name, ser.category, ser.description, es.count, ser.discount, ser.price as qtyPrice, ser.price*es.count as totalPrice  FROM soris.eventservices as es, soris.service as ser where es.eid = '%s' AND es.sid = ser.sid",eid);
+            ResultSet res = stmt.executeQuery(sql);
+
+            while(res.next()) {
+                selectedServicesModel service = new selectedServicesModel();
+                service.setSid(res.getString("sid"));
+                service.setEsid(res.getString("esid"));
+                service.setName(res.getString("name"));
+                service.setCategory(res.getString("category"));
+                service.setDescription(res.getString("description"));
+                service.setQuantity(res.getInt("count"));
+                service.setDiscount(Float.parseFloat(res.getString("discount")));
+                service.setQtyPrice(Float.parseFloat(res.getString("qtyPrice")));
+                service.setTotalPrice(Float.parseFloat(res.getString("totalPrice")));
+                selectedServices.add(service);
+
+            }
+
+            return selectedServices;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
+    }
+
+    public boolean deleteService(String esid)
+    {
+        try{
+            Statement stmt = con.createStatement();
+            String sql = "DELETE FROM eventservices WHERE esid = '"+esid+"'";
+            int count = stmt.executeUpdate(sql);
+            if(count > 0){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+
+    }
+
 }
