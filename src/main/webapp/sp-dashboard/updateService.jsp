@@ -237,21 +237,21 @@
                                 <h4 class="card-title">Basic Information</h4>
                                 <p class="card-title-desc">Update the service from the selected category</p>
 
-                                <form action="<%=request.getContextPath()%>/updateServiceServlet" method="post">
+                                <form action="<%=request.getContextPath()%>/updateServiceServlet" method="post" class="custom-validation">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
                                                 <label for="name">Service Name</label>
-                                                <input id="name" name="name" type="text" class="form-control" placeholder="Service Name" value="<%= name%>" required>
+                                                <input id="name" name="name" type="text" data-parsley-maxlength="50" class="form-control" placeholder="Service Name" value="<%= name%>" required>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="price">Price</label>
-                                                <input id="price" name="price" type="text" class="form-control" placeholder="Price" value="<%= price%>">
+                                                <input id="price" name="price" type="text" class="form-control" data-parsley-type="number" data-parsley-min="0" placeholder="Price" value="<%= price%>" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="Discount">Discount</label>
-                                                <input id="Discount" name="Discount" type="text" class="form-control" placeholder="Discount" value="<%= discount%>" required>
+                                                <input id="Discount" name="Discount" type="text" class="form-control" data-parsley-type="number" data-parsley-min="0" placeholder="Discount" value="<%= discount%>" required>
                                             </div>
                                         </div>
 
@@ -274,7 +274,7 @@
 
                                             <div class="mb-3">
                                                 <label for="servicedesc">Service Description</label>
-                                                <textarea class="form-control" id="servicedesc" name="servicedesc" rows="5" placeholder="Service Description"><%= description%></textarea>
+                                                <textarea class="form-control" id="servicedesc" name="servicedesc" rows="5" data-parsley-maxlength="255" placeholder="Service Description" required><%= description%></textarea>
                                             </div>
 
                                         </div>
@@ -358,6 +358,10 @@
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
+
+<%--validation--%>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
 
 <%--Pop-up--%>
 <% if (request.getAttribute("error") != null ){%>
