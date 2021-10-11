@@ -159,6 +159,11 @@
             </a>
           </li>
           <li>
+            <a href="<%=request.getContextPath()%>/selectedServices" class="waves-effect">
+              <span key="t-dashboards">View Selected Services</span>
+            </a>
+          </li>
+          <li>
             <a href="<%=request.getContextPath()%>/addFinance" class="waves-effect">
               <span key="t-dashboards">Add Finance</span>
             </a>

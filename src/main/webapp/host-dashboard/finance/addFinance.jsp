@@ -159,6 +159,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="<%=request.getContextPath()%>/selectedServices" class="waves-effect">
+                            <span key="t-dashboards">View Selected Services</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="<%=request.getContextPath()%>/addFinance" class="waves-effect">
                             <span key="t-dashboards">Add Finance</span>
                         </a>
@@ -259,7 +264,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label class="control-label">Expenses/Incomes</label>
-                                                        <select class="form-control select2" name = "type">
+                                                        <select class="form-control select2" name = "type" required>
                                                             <option disabled selected>Select</option>
                                                             <option value="expense">Expense</option>
                                                             <option value="income">Income</option>
