@@ -220,7 +220,7 @@
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="text-sm-end">
-                                            <a href="<%=request.getContextPath()%>/sp-dashboard/newService.jsp" target="target_name">
+                                            <a href="<%=request.getContextPath()%>/sp-dashboard/newService.jsp" target="_blank">
                                                 <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2" ><i class="mdi mdi-plus me-1"></i>
                                                     Add New Service </button>
                                             </a>

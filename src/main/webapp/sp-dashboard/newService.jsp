@@ -245,6 +245,7 @@
                                                     <option value="Transport">Transport</option>
                                                     <option value="Entertainment">Entertainment</option>
                                                     <option value="Gifts">Gifts</option>
+                                                    <option value="Decorations">Decorations</option>
                                                     <option value="Others">Others</option>
                                                 </select>
                                             </div>
