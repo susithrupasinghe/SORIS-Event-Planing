@@ -54,25 +54,18 @@ public class updateServiceServlet extends HttpServlet {
         boolean isTrue;
 
         int sIdConvert = Integer.parseInt(sID);
-     /*   sIDi = 1;*/
+
         double priceD = Double.parseDouble(price);
         double DiscountD = Double.parseDouble(discount);
 
         updateServiceModel updService = new updateServiceModel();
 
         isTrue = updService.updateService(sIdConvert, name, priceD, DiscountD, category, description);
-/*       */
+
         if(isTrue == true){
 
-              /*List<service> servicesDetails = updService.getServiceDetails(sID);
-            request.setAttribute("servicesDetails", servicesDetails);*/
-
-            /*RequestDispatcher dis1 = request.getRequestDispatcher("/index.jsp");
-            dis1.forward(request,response);*/
             response.sendRedirect(request.getContextPath() + "/serviceServlet");
         }else{
-           /* List<service> servicesDetails = updService.getServiceDetails(sID);
-            request.setAttribute("servicesDetails", servicesDetails);*/
 
             RequestDispatcher dis2 = request.getRequestDispatcher("/index.jsp");
             dis2.forward(request,response);

@@ -1,18 +1,15 @@
 package com.soris.SORIS_planing.host.event.controllers;
 
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-import com.soris.SORIS_planing.host.event.model.event;
 import com.soris.SORIS_planing.host.event.model.eventCreationModel;
-import com.soris.SORIS_planing.host.event.model.eventUpdateModel;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 
 @WebServlet(name = "eventCreation", value = "/eventCreation")

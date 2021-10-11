@@ -1,11 +1,10 @@
 package com.soris.SORIS_planing.host.event.model;
 
-import java.sql.Array;
+import com.soris.SORIS_planing.dbUtil;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import com.soris.SORIS_planing.dbUtil;
 
 public class eventDeleteModel {
     private Connection con;
