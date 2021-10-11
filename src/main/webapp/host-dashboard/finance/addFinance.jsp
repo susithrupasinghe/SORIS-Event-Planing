@@ -14,7 +14,7 @@
 
     <meta charset="utf-8"/>
     <link href="<%=request.getContextPath()%>/assets/landing/assets/images/favicon/favicon.png" rel="icon"/>
-    <title>SORIS Add Expenses And Income Page</title>
+    <title>SORIS Add Expenses And Incomes Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
@@ -223,7 +223,7 @@
                         <div class="card">
                             <div class="card-body">
                                        <section>
-                                        <form action="<%=request.getContextPath()%>/addFinance" method="post">
+                                        <form action="<%=request.getContextPath()%>/addFinance" method="post" class="custom-validation">
                                             <div class="row">
                                                 <div class="col-lg-06">
                                                     <label class="control-label">Event Name</label>
@@ -243,7 +243,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label for="add amount">Amount</label>
-                                                        <input type="text" class="form-control" id="add amount" name="amount" placeholder="Enter Amount...">
+                                                        <input type="text" class="form-control" id="add amount" data-parsley-min="0" data-parsley-type="number" name="amount" placeholder="Enter Amount..." required>
                                                     </div>
                                                 </div>
 
@@ -253,7 +253,7 @@
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label for="add description">Description</label>
-                                                        <textarea id="add description" class="form-control" rows="4" name="description" placeholder="Enter Description..."></textarea>
+                                                        <textarea id="add description" class="form-control" rows="4" name="description" placeholder="Enter Description..." required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
@@ -323,6 +323,9 @@
 
 <!-- dashboard init -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/dashboard.init.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
+
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
