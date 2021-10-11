@@ -23,7 +23,7 @@ public class eventUpdateModel {
 
         try {
             Statement stmt= con.createStatement();
-            String sql= "SELECT eid,date,name,description,estimatedcost,currentcost FROM event WHERE hid='"+ hid +"'";
+            String sql= "SELECT eid,date,name,description,estimatedcost FROM event WHERE hid='"+ hid +"'";
             ResultSet rs= stmt.executeQuery(sql);
             while(rs.next()){
                 event event=new event();
@@ -41,7 +41,7 @@ public class eventUpdateModel {
                 //get current income
                 String queryIncome ="SELECT SUM(amount) AS income FROM finance where eid ='"+event.getEid()+"' AND income = 1";
                 Statement stmt2=con.createStatement();
-                ResultSet income=stmt1.executeQuery(queryIncome);
+                ResultSet income=stmt2.executeQuery(queryIncome);
                 income.next();
                 event.setCurrentIncome(income.getDouble("income"));
 
@@ -63,14 +63,14 @@ public class eventUpdateModel {
         event event= new event();
         try{
             Statement stmt= con.createStatement();
-            String sql="SELECT date,name,description,estimatedcost,currentcost FROM event WHERE eid='"+_eid+"'";
+            String sql="SELECT date,name,description,estimatedcost FROM event WHERE eid='"+_eid+"'";
             ResultSet rs=stmt.executeQuery(sql);
             while (rs.next()){
                 event.setDate(rs.getString("date"));
                 event.setName(rs.getString("name"));
                 event.setDescription(rs.getString("description"));
                 event.setEstimatedCost(rs.getDouble("estimatedcost"));
-                event.setCurrentCost(rs.getDouble("currentcost"));
+
 
             }
             return event;
