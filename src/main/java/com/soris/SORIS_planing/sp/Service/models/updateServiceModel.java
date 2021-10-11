@@ -2,10 +2,10 @@ package com.soris.SORIS_planing.sp.Service.models;
 
 import com.soris.SORIS_planing.dbUtil;
 
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import javax.servlet.http.Part;
+import java.io.InputStream;
+import java.sql.*;
+import java.util.Base64;
 
 public class updateServiceModel {
     private boolean isSuccess = false;
@@ -28,10 +28,11 @@ public class updateServiceModel {
             double discount = rs.getDouble(4);
             String description = rs.getString(5);
             String status = rs.getString(6);
-            Blob image = rs.getBlob("images");
+            Blob imgBlob = rs.getBlob("images");
+            String imgBase64 = Base64.getEncoder().encodeToString(imgBlob.getBytes(1, (int) imgBlob.length()));
 
-            byte imageByteArray[] = image.getBytes(1, (int) image.length());
-            service s = new service(sID , name, category, price, discount, description, status,imageByteArray);
+
+            service s = new service(sID , name, category, price, discount, description, status,imgBase64);
             return s;
 
         }catch(Exception e){

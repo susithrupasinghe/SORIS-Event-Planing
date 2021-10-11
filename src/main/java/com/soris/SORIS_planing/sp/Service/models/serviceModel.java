@@ -83,12 +83,7 @@ public class serviceModel extends Details {
 
 //                byte imageByteArray[] = image.getBytes(1, (int) image.length());
 
-//                Blob image = rs.getBlob("images");
-
-//                byte imageByteArray[] = image.getBytes(1, (int) image.length());
-
                 service s = new service(sID , name, category, price, discount, description, status, null);
-
                 ser.add(s);
             }
             return ser;
