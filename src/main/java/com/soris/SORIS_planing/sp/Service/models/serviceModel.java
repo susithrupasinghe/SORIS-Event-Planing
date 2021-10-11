@@ -67,7 +67,7 @@ public class serviceModel extends Details {
            /* con = dbUtil.initializeDatabase();
             stmt = con.createStatement();*/
 
-            String sql = String.format("SELECT sid, name, category, price, discount, description, status FROM service WHERE spid ='"+converspID+"'");
+            String sql = String.format("SELECT sid, name, category, price, discount, description, status, images FROM service WHERE spid ='"+converspID+"'");
             Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
 
@@ -83,7 +83,12 @@ public class serviceModel extends Details {
 
 //                byte imageByteArray[] = image.getBytes(1, (int) image.length());
 
+//                Blob image = rs.getBlob("images");
+
+//                byte imageByteArray[] = image.getBytes(1, (int) image.length());
+
                 service s = new service(sID , name, category, price, discount, description, status, null);
+
                 ser.add(s);
             }
             return ser;
