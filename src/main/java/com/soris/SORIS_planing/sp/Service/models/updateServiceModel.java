@@ -2,10 +2,10 @@ package com.soris.SORIS_planing.sp.Service.models;
 
 import com.soris.SORIS_planing.dbUtil;
 
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import javax.servlet.http.Part;
+import java.io.InputStream;
+import java.sql.*;
+import java.util.Base64;
 
 public class updateServiceModel {
     private boolean isSuccess = false;
@@ -18,7 +18,7 @@ public class updateServiceModel {
             con = dbUtil.initializeDatabase();
             stmt = con.createStatement();
 
-            String sql = "SELECT name, category, price, discount, description, status FROM service WHERE sid ='"+sID+"'";
+            String sql = "SELECT name, category, price, discount, description, status, images FROM service WHERE sid ='"+sID+"'";
             ResultSet rs=stmt.executeQuery(sql);
 
             rs.next();
@@ -28,10 +28,11 @@ public class updateServiceModel {
             double discount = rs.getDouble(4);
             String description = rs.getString(5);
             String status = rs.getString(6);
-            Blob image = rs.getBlob("images");
+            Blob imgBlob = rs.getBlob("images");
+            String imgBase64 = Base64.getEncoder().encodeToString(imgBlob.getBytes(1, (int) imgBlob.length()));
 
-            byte imageByteArray[] = image.getBytes(1, (int) image.length());
-            service s = new service(sID , name, category, price, discount, description, status,imageByteArray);
+
+            service s = new service(sID , name, category, price, discount, description, status,imgBase64);
             return s;
 
         }catch(Exception e){
@@ -42,15 +43,23 @@ public class updateServiceModel {
     }
 
     //update service
-    public boolean updateService(int sID, String name, double price, double discount,String category, String description){
+    public boolean updateService(int sID, String name, double price, double discount, String category, String description, Part img){
 
         try{
             con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
             stmt = con.createStatement();
+            InputStream imgBlob = img.getInputStream();
+            PreparedStatement stmt = this.con.prepareStatement("UPDATE service set name = ?, price= ?, discount= ?,category= ?, description= ?, images=?, status='pending' WHERE sid = ?");
+            stmt.setString(1,name);
+            stmt.setDouble(2,price);
+            stmt.setDouble(3,discount);
+            stmt.setString(4,category);
+            stmt.setString(5,description);
+            stmt.setBlob(6,imgBlob);
+            stmt.setInt(7,sID);
+//            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"',category='"+category+"', description= '"+description+"', status='pending' WHERE sid = '"+sID+"'";//, category= '"+category+"'
 
-            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"',category='"+category+"', description= '"+description+"', status='pending' WHERE sid = '"+sID+"'";//, category= '"+category+"'
-
-            int rs = stmt.executeUpdate(sql);
+            int rs = stmt.executeUpdate();
 
             if(rs > 0){
                 isSuccess = true;

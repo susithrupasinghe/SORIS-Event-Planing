@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "updateServiceServlet", value = "/updateServiceServlet")
+@MultipartConfig(fileSizeThreshold = 1048576,
+        maxFileSize = 5242880,
+        maxRequestSize = 5242880)
 public class updateServiceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,6 +33,7 @@ public class updateServiceServlet extends HttpServlet {
                 request.setAttribute("price",Double.toString(ser.getPrice()));
                 request.setAttribute("discount",Double.toString(ser.getDiscount()));
                 request.setAttribute("description",ser.getDescription());
+                request.setAttribute("images",ser.getImage());
                 /*service ser = new service();*/
 
                 /*service service = new service(sIdConvert,name,category,priceD,DiscountD,description,status);*/
@@ -50,6 +54,7 @@ public class updateServiceServlet extends HttpServlet {
         String price = request.getParameter("price");
         String discount = request.getParameter("Discount");
         String description = request.getParameter("servicedesc");
+        Part img = request.getPart("image");
 
         boolean isTrue;
 
@@ -60,7 +65,7 @@ public class updateServiceServlet extends HttpServlet {
 
         updateServiceModel updService = new updateServiceModel();
 
-        isTrue = updService.updateService(sIdConvert, name, priceD, DiscountD, category, description);
+        isTrue = updService.updateService(sIdConvert, name, priceD, DiscountD, category, description,img);
 
         if(isTrue == true){
 
