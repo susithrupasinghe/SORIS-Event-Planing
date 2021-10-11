@@ -241,7 +241,7 @@
                                                 <label class="control-label">Category</label>
                                                 <select class="form-control select2" name = "Category" required>
                                                     <option selected disabled>Select</option>
-                                                    <option value="Food">Food</option>
+                                                    <option value="Foods">Foods</option>
                                                     <option value="Transport">Transport</option>
                                                     <option value="Entertainment">Entertainment</option>
                                                     <option value="Gifts">Gifts</option>
