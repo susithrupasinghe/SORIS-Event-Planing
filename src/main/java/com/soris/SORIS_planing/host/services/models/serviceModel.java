@@ -1,5 +1,7 @@
 package com.soris.SORIS_planing.host.services.models;
 
+import java.sql.Blob;
+
 public class serviceModel {
 
     private String sid;

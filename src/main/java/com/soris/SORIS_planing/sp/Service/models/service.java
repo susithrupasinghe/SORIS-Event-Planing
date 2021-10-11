@@ -10,8 +10,9 @@ public class service {
     private double discount;
     private String description;
     private String status;
+    private  byte imageByteArray[];
 
-    public service(int sID, String name, String category, double price, double discount, String description, String status) {
+    public service(int sID, String name, String category, double price, double discount, String description, String status, byte imageByteArray[]) {
         this.sID = sID;
         this.name = name;
         this.category = category;
@@ -19,6 +20,7 @@ public class service {
         this.discount = discount;
         this.description = description;
         this.status = status;
+        this.imageByteArray = imageByteArray;
     }
 
     public int getsID() {
@@ -47,6 +49,14 @@ public class service {
 
     public String getstatus() {
         return status;
+    }
+
+    public byte[] getImageByteArray() {
+        return imageByteArray;
+    }
+
+    public void setImageByteArray(byte[] imageByteArray) {
+        this.imageByteArray = imageByteArray;
     }
 
 

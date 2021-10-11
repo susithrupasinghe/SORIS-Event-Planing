@@ -2,6 +2,7 @@ package com.soris.SORIS_planing.sp.Service.models;
 
 import com.soris.SORIS_planing.dbUtil;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -27,7 +28,10 @@ public class updateServiceModel {
             double discount = rs.getDouble(4);
             String description = rs.getString(5);
             String status = rs.getString(6);
-            service s = new service(sID , name, category, price, discount, description, status);
+            Blob image = rs.getBlob("images");
+
+            byte imageByteArray[] = image.getBytes(1, (int) image.length());
+            service s = new service(sID , name, category, price, discount, description, status,imageByteArray);
             return s;
 
         }catch(Exception e){

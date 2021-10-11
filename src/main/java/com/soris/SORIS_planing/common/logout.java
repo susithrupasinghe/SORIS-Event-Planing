@@ -15,19 +15,19 @@ public class logout extends HttpServlet {
         try{
             String type = request.getParameter("redirect");
             HttpSession session =request.getSession(false);
-            if(session.getAttribute("userid") != null){
-                session.invalidate();
-
-            }
+            session.invalidate();
 
 
             if(type.equals("admin")){
+                response.setIntHeader("Refresh", 1);
                 response.sendRedirect(request.getContextPath() + "/auth/admin-signin.jsp");
             }
             else if(type.equals("host")){
+                response.setIntHeader("Refresh", 1);
                 response.sendRedirect(request.getContextPath() + "/auth/host-user-signin.jsp");
             }
             else if(type.equals("sp")){
+                response.setIntHeader("Refresh", 1);
                 response.sendRedirect(request.getContextPath() + "/auth/service-provider-signin.jsp");
             }
         }
