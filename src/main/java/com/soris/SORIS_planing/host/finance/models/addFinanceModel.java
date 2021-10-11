@@ -1,6 +1,7 @@
 package com.soris.SORIS_planing.host.finance.models;
 
-import java.sql.Connection;
+import
+        java.sql.Connection;
 import com.soris.SORIS_planing.dbUtil;
 
 import java.sql.SQLException;
