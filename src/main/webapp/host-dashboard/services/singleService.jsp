@@ -289,7 +289,7 @@
                                                                     <option value="${event.key}" selected>${event.value}</option>
                                                                 </c:if>
                                                                 <c:if test="${event.key != eid}">
-                                                                    <option value="${event.key}">${event.value}${eid}</option>
+                                                                    <option value="${event.key}">${event.value}</option>
                                                                 </c:if>
                                                             </c:forEach>
                                                         </select>
