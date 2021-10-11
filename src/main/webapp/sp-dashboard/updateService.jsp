@@ -21,6 +21,7 @@
     String discount = (String) request.getAttribute("discount");
     /*String status = (String) request.getAttribute("discount");*/
     String description = (String) request.getAttribute("description");
+    String images = (String) request.getAttribute("images");
 %>
 
 <!doctype html>
@@ -237,7 +238,7 @@
                                 <h4 class="card-title">Basic Information</h4>
                                 <p class="card-title-desc">Update the service from the selected category</p>
 
-                                <form action="<%=request.getContextPath()%>/updateServiceServlet" method="post" class="custom-validation">
+                                <form action="<%=request.getContextPath()%>/updateServiceServlet" method="post" class="custom-validation" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
@@ -287,7 +288,7 @@
 
                                         <%--                                <form action="<%=request.getContextPath()%>/NewServiceServlet" method="post" class="dropzone">--%>
                                         <div class="fallback">
-                                            <input name="file" type="file" multiple />
+                                            <input  type="file" name="image" multiple required/>
                                         </div>
 
                                         <div class="dz-message needsclick">
