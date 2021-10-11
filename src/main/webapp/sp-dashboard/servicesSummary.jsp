@@ -417,7 +417,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <%--<tr>
                                                 <td>
                                                     <p class="mb-0">Music</p>
                                                 </td>
@@ -433,7 +433,7 @@
                                                              aria-valuemax="100"></div>
                                                     </div>
                                                 </td>
-                                            </tr>
+                                            </tr>--%>
                                             <tr>
                                                 <td>
                                                     <p class="mb-0">Gifts</p>
