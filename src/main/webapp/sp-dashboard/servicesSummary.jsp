@@ -241,8 +241,8 @@
                                                                 <h5 class="mb-0"><%=servicesCount%></h5>
                                                             </div>
                                                         </div>
-                                                        <a href="<%=request.getContextPath()%>/sp-dashboard/newService.jsp" target="target_name">
-                                                            <button class="btn btn-primary" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a href="<%=request.getContextPath()%>/sp-dashboard/newService.jsp" target="_blank">
+                                                            <button class="btn btn-primary" type="button" >
                                                                 <i class="bx bxs-cog align-middle me-1"></i> Add New Service
                                                             </button>
                                                         </a>
@@ -417,23 +417,23 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <%--<tr>
+                                            <tr>
                                                 <td>
-                                                    <p class="mb-0">Music</p>
+                                                    <p class="mb-0">Decorations</p>
                                                 </td>
                                                 <td>
-                                                    <h5 class="mb-0"><%=serviceCatSummery.get("Music")%>
+                                                    <h5 class="mb-0"><%=serviceCatSummery.get("Decorations")%>
                                                     </h5>
                                                 </td>
                                                 <td>
                                                     <div class="progress bg-transparent progress-sm">
                                                         <div class="progress-bar bg-warning rounded" role="progressbar"
-                                                             style="width: <%=((serviceCatSummery.get("Music")/serviceCatSummery.get("total").floatValue()))*100%>%"
+                                                             style="width: <%=((serviceCatSummery.get("Decorations")/serviceCatSummery.get("total").floatValue()))*100%>%"
                                                              aria-valuenow="" aria-valuemin="0"
                                                              aria-valuemax="100"></div>
                                                     </div>
                                                 </td>
-                                            </tr>--%>
+                                            </tr>
                                             <tr>
                                                 <td>
                                                     <p class="mb-0">Gifts</p>
