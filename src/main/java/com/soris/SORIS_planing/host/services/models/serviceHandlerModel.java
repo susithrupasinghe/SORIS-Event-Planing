@@ -2,11 +2,9 @@ package com.soris.SORIS_planing.host.services.models;
 
 import com.soris.SORIS_planing.dbUtil;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,7 +36,9 @@ public class serviceHandlerModel {
                 service.setDiscount(res.getString("discount"));
                 service.setDescription(res.getString("description"));
                 service.setStatus(res.getString("status"));
-                service.setImages(res.getString("images"));
+                Blob imgBlob = res.getBlob("images");
+                String imgBase64 = Base64.getEncoder().encodeToString(imgBlob.getBytes(1, (int) imgBlob.length()));
+                service.setImages(imgBase64);
 
                 serviceList.add(service);
 
@@ -68,7 +68,9 @@ public class serviceHandlerModel {
             service.setDiscount(res.getString("discount"));
             service.setDescription(res.getString("description"));
             service.setStatus(res.getString("status"));
-            service.setImages(res.getString("images"));
+            Blob imgBlob = res.getBlob("images");
+            String imgBase64 = Base64.getEncoder().encodeToString(imgBlob.getBytes(1, (int) imgBlob.length()));
+            service.setImages(imgBase64);
 
             return service;
         } catch (Exception ex) {
