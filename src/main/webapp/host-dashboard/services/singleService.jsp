@@ -232,7 +232,7 @@
                                                     <div class="nav flex-column nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                                         <a class="nav-link active" id="product-1-tab" data-bs-toggle="pill" href="#product-1" role="tab" aria-controls="product-1" aria-selected="true">
 
-                                                            <img src="<%=request.getContextPath()%>/uploads/<%=service.getImages()%>" alt="" class="img-fluid mx-auto d-block rounded">
+                                                            <img src="data:image/jpeg;base64,<%=service.getImages()%>" alt="" class="img-fluid mx-auto d-block rounded">
 
                                                         </a>
 
@@ -243,7 +243,7 @@
                                                         <div class="tab-pane fade show active" id="product-1" role="tabpanel" aria-labelledby="product-1-tab">
                                                             <div>
 
-                                                                <img src="<%=request.getContextPath()%>/uploads/<%=service.getImages()%>" alt="" class="img-fluid mx-auto d-block">
+                                                                <img src="data:image/jpeg;base64,<%=service.getImages()%>" alt="" class="img-fluid mx-auto d-block">
 
                                                             </div>
                                                         </div>

@@ -1,14 +1,14 @@
 package com.soris.SORIS_planing.sp.Service.models;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.io.InputStream;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.protobuf.Service;
 import com.soris.SORIS_planing.dbUtil;
+
+import javax.servlet.http.Part;
 
 public class serviceModel extends Details {
     private boolean isSuccess = false;
@@ -21,7 +21,7 @@ public class serviceModel extends Details {
         this.con = con;
     }
 
-    public boolean insertService(int spId,String servicetname,String category, double price, double discount, String description) {
+    public boolean insertService(int spId, String servicetname, String category, double price, double discount, String description, Part img) {
 
 
         try {
@@ -29,10 +29,19 @@ public class serviceModel extends Details {
             stmt = con.createStatement();*/
 
             /*String sql = "insert into soris.service(spid,name,category,price,discount,description) values (spId,'"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"')";*/
-
-            String sql = String.format("insert into soris.service(spid,name,category,price,discount,description,status) values ('"+spId+"','"+servicetname+"', '"+category+"', '"+price+"', '"+discount+"','"+description+"','pending')");
-            Statement stmt = this.con.createStatement();
-            int rs = stmt.executeUpdate(sql);
+            InputStream imgBlob = img.getInputStream();
+            System.out.println(imgBlob.toString());
+//            String sql = String.format("insert into soris.service(spid,name,category,price,discount,description,status,images) values (?,?,?,?,?,?,?,?)");
+            PreparedStatement stmt = this.con.prepareStatement("insert into soris.service(spid,name,category,price,discount,description,status,images) values (?,?,?,?,?,?,?,?)");
+            stmt.setInt(1,spId);
+            stmt.setString(2,servicetname);
+            stmt.setString(3,category);
+            stmt.setDouble(4,price);
+            stmt.setDouble(5,discount);
+            stmt.setString(6,description);
+            stmt.setString(7,"pending");
+            stmt.setBlob(8,imgBlob);
+            int rs = stmt.executeUpdate();
 
             if(rs > 0){
                 isSuccess = true;
@@ -41,6 +50,7 @@ public class serviceModel extends Details {
             }
 
         } catch (Exception e) {
+            System.out.println(e);
             e.printStackTrace();
         }
 
@@ -57,7 +67,7 @@ public class serviceModel extends Details {
            /* con = dbUtil.initializeDatabase();
             stmt = con.createStatement();*/
 
-            String sql = String.format("SELECT sid, name, category, price, discount, description, status FROM service WHERE spid ='"+converspID+"'");
+            String sql = String.format("SELECT sid, name, category, price, discount, description, status, images FROM service WHERE spid ='"+converspID+"'");
             Statement stmt = this.con.createStatement();
             rs = stmt.executeQuery(sql);
 
@@ -69,8 +79,11 @@ public class serviceModel extends Details {
                 double discount = rs.getDouble(5);
                 String description = rs.getString(6);
                 String status = rs.getString(7);
+                Blob image = rs.getBlob("images");
 
-                service s = new service(sID , name, category, price, discount, description, status);
+                byte imageByteArray[] = image.getBytes(1, (int) image.length());
+
+                service s = new service(sID , name, category, price, discount, description, status, imageByteArray);
                 ser.add(s);
             }
             return ser;

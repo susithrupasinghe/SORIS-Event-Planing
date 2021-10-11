@@ -4,14 +4,15 @@ import com.soris.SORIS_planing.sp.Service.models.serviceModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet(name = "newServiceServlet", value = "/newServiceServlet")
+@MultipartConfig(fileSizeThreshold = 1048576,
+        maxFileSize = 5242880,
+        maxRequestSize = 5242880)
 public class newServiceServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,6 +27,7 @@ public class newServiceServlet extends HttpServlet {
             String price = request.getParameter("price");
             String Discount = request.getParameter("Discount");
             String description = request.getParameter("servicedesc");
+            Part img = request.getPart("image");
 
             boolean isTrue;
 
@@ -35,7 +37,7 @@ public class newServiceServlet extends HttpServlet {
 
             try {
                 serviceModel Newservice = new serviceModel();
-                isTrue = Newservice.insertService(spIdConvert,serviceName, category, priceD, DiscountD, description);
+                isTrue = Newservice.insertService(spIdConvert,serviceName, category, priceD, DiscountD, description, img);
                 if (isTrue == true) {
                     request.setAttribute("error", "Service Creation Successfully");
                     /*RequestDispatcher dis = request.getRequestDispatcher("/sp-dashboard/home.jsp");

@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.soris.SORIS_planing.host.services.models.serviceModel" %><%--
+<%@ page import="com.soris.SORIS_planing.host.services.models.serviceModel" %>
+<%@ page import="java.io.OutputStream" %>
+<%@ page import="java.sql.Blob" %><%--
   Created by IntelliJ IDEA.
   User: Dell
   Date: 9/19/2021
@@ -196,11 +198,12 @@
 
         <div class="row">
           <c:forEach var = "ser" items = "${serviceList}">
+
           <div class="col-xl-4 col-sm-6">
             <div class="card">
               <div class="card-body">
                 <div class="product-img position-relative">
-                  <img src="<%=request.getContextPath()%>/uploads/${ser.images}" alt="" class="img-fluid mx-auto d-block">
+                  <img src="data:image/jpeg;base64,${ser.images}" alt="" class="img-fluid mx-auto d-block">
                 </div>
                 <div class="mt-4 text-center">
                   <h5 class="mb-3 text-truncate"><a href="<%=request.getContextPath()%>/servicePage?sid=${ser.sid}" class="text-dark">${ser.name}</a></h5>
