@@ -22,7 +22,7 @@ public class spSignIn extends HttpServlet {
             if(session!=null && session.getAttribute("userid") != null && session.getAttribute("role") == "sp"){
 
                 // User already logged in
-                response.sendRedirect(request.getContextPath()+"/serviceServlet");
+                response.sendRedirect(request.getContextPath()+"/servicesSummaryServlet");
 //                request.getRequestDispatcher(request.getContextPath()+"/serviceServlet").forward(request, response);
 
             }
@@ -39,7 +39,7 @@ public class spSignIn extends HttpServlet {
                     session.setAttribute("userid", signIn.getuserId());
                     session.setAttribute("username", signIn.getName());
                     session.setAttribute("role", "sp");
-                    response.sendRedirect(request.getContextPath()+"/serviceServlet");
+                    response.sendRedirect(request.getContextPath()+"/servicesSummaryServlet");
 //                    request.getRequestDispatcher(request.getContextPath()+"/serviceServlet").forward(request, response);
 
                 }
