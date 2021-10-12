@@ -7,17 +7,16 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class eventCreationModel {
+public class eventCreationModel  extends  dbInit{
     private String name;
     private String description;
     private String date;
     private double estimatedCost;
-    private  Connection con;
     private int hid;
 
     public eventCreationModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+       super();
+
     }
 
     public boolean addEvent(String name, String description, double estimatedCost, int hid,String d) {
