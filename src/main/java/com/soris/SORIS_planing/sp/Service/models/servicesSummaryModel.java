@@ -18,8 +18,8 @@ public class servicesSummaryModel {
     private ResultSet rs;
 
     public servicesSummaryModel() throws SQLException, ClassNotFoundException {
-        Connection con = dbUtil.initializeDatabase();
-        this.con = con;
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
     }
 
     //get services count

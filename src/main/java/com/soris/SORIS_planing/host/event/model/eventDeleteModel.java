@@ -10,7 +10,8 @@ public class eventDeleteModel {
     private Connection con;
 
     public eventDeleteModel() throws SQLException, ClassNotFoundException {
-        this.con = dbUtil.initializeDatabase();
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
     }
     public boolean eventDelete(String eid)
     {

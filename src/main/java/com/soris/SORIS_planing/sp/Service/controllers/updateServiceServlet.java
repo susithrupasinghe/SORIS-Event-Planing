@@ -48,32 +48,40 @@ public class updateServiceServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String sID = request.getParameter("sID");
-        String name = request.getParameter("name");
-        String category = request.getParameter("category");
-        String price = request.getParameter("price");
-        String discount = request.getParameter("Discount");
-        String description = request.getParameter("servicedesc");
-        Part img = request.getPart("image");
 
-        boolean isTrue;
+        try{
+            String sID = request.getParameter("sID");
+            String name = request.getParameter("name");
+            String category = request.getParameter("category");
+            String price = request.getParameter("price");
+            String discount = request.getParameter("Discount");
+            String description = request.getParameter("servicedesc");
+            Part img = request.getPart("image");
 
-        int sIdConvert = Integer.parseInt(sID);
+            boolean isTrue;
 
-        double priceD = Double.parseDouble(price);
-        double DiscountD = Double.parseDouble(discount);
+            int sIdConvert = Integer.parseInt(sID);
 
-        updateServiceModel updService = new updateServiceModel();
+            double priceD = Double.parseDouble(price);
+            double DiscountD = Double.parseDouble(discount);
 
-        isTrue = updService.updateService(sIdConvert, name, priceD, DiscountD, category, description,img);
+            updateServiceModel updService = new updateServiceModel();
 
-        if(isTrue == true){
+            isTrue = updService.updateService(sIdConvert, name, priceD, DiscountD, category, description,img);
 
-            response.sendRedirect(request.getContextPath() + "/serviceServlet");
-        }else{
+            if(isTrue == true){
 
-            RequestDispatcher dis2 = request.getRequestDispatcher("/index.jsp");
-            dis2.forward(request,response);
+                response.sendRedirect(request.getContextPath() + "/serviceServlet");
+            }else{
+
+                RequestDispatcher dis2 = request.getRequestDispatcher("/index.jsp");
+                dis2.forward(request,response);
+            }
         }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
     }
 }

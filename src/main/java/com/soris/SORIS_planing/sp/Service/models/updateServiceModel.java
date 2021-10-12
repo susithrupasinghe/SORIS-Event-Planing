@@ -13,9 +13,14 @@ public class updateServiceModel {
     private Statement stmt = null;
     private ResultSet rs;
 
+    public updateServiceModel() throws SQLException, ClassNotFoundException {
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
+    }
+
     public service getUpdateDetails(int sID){
         try{
-            con = dbUtil.initializeDatabase();
+
             stmt = con.createStatement();
 
             String sql = "SELECT name, category, price, discount, description, status, images FROM service WHERE sid ='"+sID+"'";
@@ -46,7 +51,7 @@ public class updateServiceModel {
     public boolean updateService(int sID, String name, double price, double discount, String category, String description, Part img){
 
         try{
-            con = com.soris.SORIS_planing.dbUtil.initializeDatabase();
+
             stmt = con.createStatement();
             InputStream imgBlob = img.getInputStream();
             PreparedStatement stmt = this.con.prepareStatement("UPDATE service set name = ?, price= ?, discount= ?,category= ?, description= ?, images=?, status='pending' WHERE sid = ?");
