@@ -13,7 +13,6 @@ public class servicesSummaryModel extends dbInit{
 
     public servicesSummaryModel() throws SQLException, ClassNotFoundException {
         super();
-
     }
 
     //get services count
