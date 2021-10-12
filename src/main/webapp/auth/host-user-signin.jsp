@@ -84,11 +84,11 @@
                             </a>
                         </div>
                         <div class="p-2">
-                            <form class="form-horizontal" method="post" action="<%=request.getContextPath()%>/hostSignIn">
+                            <form class="form-horizontal custom-validation" method="post" action="<%=request.getContextPath()%>/hostSignIn">
 
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="username" name="uname" placeholder="Enter Email" required>
+                                    <input type="email" class="form-control" id="username" parsley-type="email" name="uname" placeholder="Enter Email" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -143,6 +143,8 @@
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/simplebar/simplebar.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/node-waves/waves.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>

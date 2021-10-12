@@ -8,9 +8,14 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet(name = "updateServices", value = "/updateServices")
 public class updateServices extends HttpServlet {
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session=request.getSession(false);
@@ -22,12 +27,10 @@ public class updateServices extends HttpServlet {
                 String status = request.getParameter("status");
                 serviceUpdateModel serviceUpdate = new serviceUpdateModel();
                 serviceUpdate.updateServiceStatus(id,status);
-                //request.getRequestDispatcher(request.getContextPath()+"/adminServices").forward(request, response);
                 response.sendRedirect(request.getContextPath() + "/adminServices");
             }
             catch (Exception ex){
-
-                System.out.println(ex);
+                LOGGER.log(Level.INFO, ex.getMessage());
             }
 
 

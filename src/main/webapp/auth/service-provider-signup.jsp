@@ -142,11 +142,11 @@
                                 </div>
 
                                 <div class="mt-4">
-                                    <form class="needs-validation" novalidate  method="post" action="<%=request.getContextPath()%>/spSignUp">
+                                    <form class="needs-validation custom-validation" novalidate  method="post" action="<%=request.getContextPath()%>/spSignUp">
 
                                         <div class="mb-3">
                                             <label for="useremail" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="useremail" name="email" placeholder="Enter email" required>
+                                            <input type="email" class="form-control" id="useremail" parsley-type="email" name="email" placeholder="Enter email" required>
                                             <div class="invalid-feedback">
                                                 Please Enter Email
                                             </div>
@@ -234,6 +234,8 @@
 
 <!-- auth-2-carousel init -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/auth-2-carousel.init.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
