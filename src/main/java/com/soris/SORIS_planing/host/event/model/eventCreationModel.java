@@ -16,7 +16,8 @@ public class eventCreationModel {
     private int hid;
 
     public eventCreationModel() throws SQLException, ClassNotFoundException {
-        this.con = dbUtil.initializeDatabase();
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
     }
 
     public boolean addEvent(String name, String description, double estimatedCost, int hid,String d) {

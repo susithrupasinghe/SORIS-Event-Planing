@@ -11,7 +11,8 @@ public class deleteFinanceModel {
     private  Connection con;
 
     public deleteFinanceModel() throws SQLException, ClassNotFoundException{
-        this.con = dbUtil.initializeDatabase();
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
     }
     public boolean deleteFinance(String fid)
     {

@@ -13,8 +13,12 @@ public class signInModel {
     private Connection con;
 
     public signInModel() throws SQLException, ClassNotFoundException {
-        Connection con = dbUtil.initializeDatabase();
-        this.con = con;
+
+        // Get instance from dbutil
+        // Using the singleton pattern
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
+
     }
 
 

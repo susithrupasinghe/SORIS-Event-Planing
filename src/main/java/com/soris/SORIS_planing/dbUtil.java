@@ -5,7 +5,21 @@ import java.sql.SQLException;
 
 public class dbUtil {
 
-    public static Connection initializeDatabase()
+    //// Singleton Design Pattern ///
+
+    /// Static member holds the one instance of dbutil class
+    private  static dbUtil jdbc;
+
+    /// return exisitng instance of dbutil or create new instance
+    public static dbUtil getInstance(){
+
+        if(jdbc ==null){
+            jdbc = new dbUtil();
+        }
+        return  jdbc;
+    }
+
+    public Connection initializeDatabase()
         throws SQLException, ClassNotFoundException
     {
 
