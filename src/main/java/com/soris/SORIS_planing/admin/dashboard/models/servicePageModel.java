@@ -15,8 +15,8 @@ public class servicePageModel {
     private Connection con;
 
     public servicePageModel() throws SQLException, ClassNotFoundException {
-        Connection con = dbUtil.initializeDatabase();
-        this.con = con;
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
     }
 
     public List<serviceModel> getAllServices(){
