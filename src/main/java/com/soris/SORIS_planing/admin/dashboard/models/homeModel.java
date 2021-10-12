@@ -10,24 +10,28 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class homeModel extends dbInit{
-    
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     public homeModel() throws SQLException, ClassNotFoundException {
         super();
+        LOGGER.log(Level.INFO, "DB connection constructor called");
 
     }
 
     public int getServiceProviderCount(){
         try {
-
             String query = String.format("SELECT COUNT(*) FROM serviceprovider");
             Statement st = this.con.createStatement();
             ResultSet res = st.executeQuery(query);
             res.next();
             return res.getInt(1);
         } catch (Exception ex) {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return 0;
         }
     }
@@ -41,7 +45,7 @@ public class homeModel extends dbInit{
             res.next();
             return res.getInt(1);
         } catch (Exception ex) {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return 0;
         }
     }
@@ -55,7 +59,7 @@ public class homeModel extends dbInit{
             res.next();
             return res.getInt(1);
         } catch (Exception ex) {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return 0;
         }
     }
@@ -69,7 +73,7 @@ public class homeModel extends dbInit{
             res.next();
             return res.getInt(1);
         } catch (Exception ex) {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return 0;
         }
     }
@@ -89,7 +93,7 @@ public class homeModel extends dbInit{
             statusSet.put("total", total);
             return statusSet;
         } catch (Exception ex) {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return null;
         }
 
@@ -121,7 +125,7 @@ public class homeModel extends dbInit{
             }
             return spList;
         } catch (Exception ex) {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return null;
         }
     }
@@ -148,6 +152,7 @@ public class homeModel extends dbInit{
             return sList;
         }
         catch (Exception ex){
+            LOGGER.log(Level.INFO, ex.getMessage());
             return null;
         }
 
