@@ -9,18 +9,7 @@ public class finance {
     private double amount;
 
 
-//    public finance(int fid, int eid, String description, boolean expense, boolean income, double amount) {
-//        this.fid = fid;
-//        this.eid = eid;
-//        this.description = description;
-//        this.expense = expense;
-//        this.income = income;
-//        this.amount = amount;
-//    }
 
-//    public finance() {
-//
-//    }
 
 
     public int getFid() {
