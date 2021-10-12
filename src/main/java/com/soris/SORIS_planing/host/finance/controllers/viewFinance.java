@@ -9,9 +9,14 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.*;
 
 @WebServlet(name = "viewBudget", value = "/viewBudget")
 public class viewFinance extends HttpServlet {
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
     @Override
@@ -19,8 +24,8 @@ public class viewFinance extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if (session != null && session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
-
-
+            LOGGER.log(Level.INFO, "User is logged as host");
+            //user logged in
             try{
                 String hid = (String) session.getAttribute("userid");
                 addFinanceModel host = new addFinanceModel();
@@ -34,10 +39,7 @@ public class viewFinance extends HttpServlet {
                 e.printStackTrace();
                 request.getRequestDispatcher("/host-dashboard/home.jsp").forward(request,response);
             }
-
-
         }
-
     }
 
     @Override
@@ -46,8 +48,6 @@ public class viewFinance extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if (session != null && session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
-
-
 
             try{
                 String eventId =  request.getParameter("eid");

@@ -239,12 +239,7 @@
                                                 </c:forEach>
                                                         </select>
                                                     </div>
-<%--                                                <div class="col-lg-6">--%>
-<%--                                                    <div class="mb-3">--%>
-<%--                                                        <label for="add eid">Event Id</label>--%>
-<%--                                                        <input type="text" class="form-control" name = "eId" id="add eid" placeholder="Enter Event Id...">--%>
-<%--                                                    </div>--%>
-<%--                                                </div>--%>
+
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label for="add amount">Amount</label>
