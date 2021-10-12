@@ -26,6 +26,7 @@ public class newService extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //Check user log in as service provider
         HttpSession session = request.getSession(false);
 
         LOGGER.log(Level.INFO, "User is logged as service provider");
@@ -48,6 +49,7 @@ public class newService extends HttpServlet {
 
             try {
                 serviceModel Newservice = new serviceModel();
+                // pass to relevant model and forward to the jsp after model returns
                 isTrue = Newservice.insertService(spIdConvert,serviceName, category, priceD, DiscountD, description, img);
                 if (isTrue == true) {
                     request.setAttribute("error", "Service Creation Successfully");

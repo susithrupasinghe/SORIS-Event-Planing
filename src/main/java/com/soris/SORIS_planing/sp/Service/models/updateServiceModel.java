@@ -21,6 +21,7 @@ public class updateServiceModel extends dbInit{
 
             stmt = con.createStatement();
 
+            // get the updated details from parameters
             String sql = "SELECT name, category, price, discount, description, status, images FROM service WHERE sid ='"+sID+"'";
             ResultSet rs=stmt.executeQuery(sql);
 
@@ -49,7 +50,7 @@ public class updateServiceModel extends dbInit{
     public boolean updateService(int sID, String name, double price, double discount, String category, String description, Part img){
 
         try{
-
+            // get the updated details from parameters
             stmt = con.createStatement();
             InputStream imgBlob = img.getInputStream();
             PreparedStatement stmt = this.con.prepareStatement("UPDATE service set name = ?, price= ?, discount= ?,category= ?, description= ?, images=?, status='pending' WHERE sid = ?");
