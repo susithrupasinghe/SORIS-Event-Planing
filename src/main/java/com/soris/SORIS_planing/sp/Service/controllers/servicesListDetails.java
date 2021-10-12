@@ -9,27 +9,35 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@WebServlet(name = "serviceServlet", value = "/serviceServlet")
-public class serviceServlet extends HttpServlet {
+@WebServlet(name = "servicesListDetails", value = "/servicesListDetails")
+public class servicesListDetails extends HttpServlet {
+    //Loggers
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+    //Start get method
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
 
-
+        //Check Session
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "sp") {
             String spID = (String) session.getAttribute("userid");
 
+            LOGGER.log(Level.INFO, "User is logged as service provider");
+
             try {
                 serviceModel serviceMem = new serviceModel();
-                List<service> servicesDetails = serviceMem.getServiceDetails(spID);
+                List<com.soris.SORIS_planing.sp.Service.models.service> servicesDetails = serviceMem.getServiceDetails(spID);
                 request.setAttribute("servicesDetails", servicesDetails);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            // User already logged in
+            //Re-direct to home page
             request.getRequestDispatcher("/sp-dashboard/home.jsp").forward(request, response);
-
         }
     }
 

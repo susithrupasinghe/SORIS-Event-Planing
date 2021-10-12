@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Dell
+  User: Shavidini
   Date: 9/19/2021
   Time: 8:02 PM
   To change this template use File | Settings | File Templates.
@@ -17,8 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
-<%--    <!-- App favicon -->--%>
-<%--    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">--%>
 
     <!-- Bootstrap Css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style"
@@ -33,8 +31,6 @@
 </head>
 
 <body data-sidebar="dark">
-
-<!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
 <!-- Begin page -->
 <div id="layout-wrapper">
@@ -144,12 +140,12 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="<%=request.getContextPath()%>/servicesSummaryServlet" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/spServicesSummary" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath()%>/serviceServlet" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/servicesListDetails" class="waves-effect">
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>
@@ -218,7 +214,7 @@
                                 <h4 class="card-title">Basic Information</h4>
                                 <p class="card-title-desc">Fill all information below</p>
 
-                                <form action="<%=request.getContextPath()%>/newServiceServlet" method="post" class="custom-validation" enctype="multipart/form-data">
+                                <form action="<%=request.getContextPath()%>/newService" method="post" class="custom-validation" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
@@ -259,11 +255,11 @@
                                     </div>
 
 
-                                    <%--                        <div class="card">--%>
+                                    <%--Upload Image--%>
                                     <div class="card-body">
                                         <h4 class="card-title mb-3">Service Images</h4>
 
-                                        <%--                                <form action="<%=request.getContextPath()%>/NewServiceServlet" method="post" class="dropzone">--%>
+
                                         <div class="fallback">
                                             <input  type="file" name="image" multiple required/>
                                         </div>
@@ -275,19 +271,16 @@
 
                                             <h4>Drop files here or click to upload.</h4>
                                         </div>
-                                        <%--                                </form>--%>
+
                                     </div>
 
                                     <div class="d-flex flex-wrap gap-2">
                                         <button type="submit" class="btn btn-primary waves-effect waves-light">Add Service</button>
-                                        <button type="button" class="btn btn-secondary waves-effect waves-light" ><a href="<%=request.getContextPath()%>/serviceServlet">Cancel</a></button>
+                                        <button type="button" class="btn btn-secondary waves-effect waves-light" ><a href="<%=request.getContextPath()%>/servicesListDetails">Cancel</a></button>
                                     </div>
                                 </div>
                             </form>
-
                         </div>
-
-                        <%--</div>--%>
                     </div>
                 </div>
                 <!-- end row -->

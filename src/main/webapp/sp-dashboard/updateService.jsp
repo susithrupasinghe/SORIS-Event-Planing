@@ -35,14 +35,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <%--    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">--%>
 
     <!-- select2 css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-
-    <%--<!-- dropzone css -->
-    <link href="<%=request.getContextPath()%>/assets/dashboard/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />--%>
 
     <!-- Bootstrap Css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -55,7 +50,6 @@
 
 <body data-sidebar="dark">
 
-<!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
 <!-- Begin page -->
 <div id="layout-wrapper">
@@ -164,12 +158,12 @@
 
                     <li>
 
-                        <a href="<%=request.getContextPath()%>/servicesSummaryServlet" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/spServicesSummary" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath()%>/serviceServlet" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/servicesListDetails" class="waves-effect">
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>
@@ -238,7 +232,7 @@
                                 <h4 class="card-title">Basic Information</h4>
                                 <p class="card-title-desc">Update the service from the selected category</p>
 
-                                <form action="<%=request.getContextPath()%>/updateServiceServlet" method="post" class="custom-validation" enctype="multipart/form-data">
+                                <form action="<%=request.getContextPath()%>/spUpdateService" method="post" class="custom-validation" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
@@ -262,15 +256,6 @@
                                                     <label for="category">Service category</label>
                                                     <input id="category" name="category" type="text" class="form-control" placeholder="Category" value="<%= category%>" readonly>
                                                 </div>
-                                                <%--<label class="control-label">Category</label>
-                                                <select class="form-control select2" name = "category" readonly="">
-                                                    <option>Select</option>
-                                                    <option value="<%= category%>">Food</option>
-                                                    <option value="<%= category%>">Transport</option>
-                                                    <option value="<%= category%>">Entertainment</option>
-                                                    <option value="<%= category%>">Gifts</option>
-                                                    <option value="<%= category%>">Others</option>
-                                                </select>--%>
                                             </div>
 
                                             <div class="mb-3">
@@ -282,11 +267,10 @@
                                     </div>
 
 
-                                    <%--                        <div class="card">--%>
+                                    <%--Upload Image--%>
                                     <div class="card-body">
                                         <h4 class="card-title mb-3">Service Images</h4>
 
-                                        <%--                                <form action="<%=request.getContextPath()%>/NewServiceServlet" method="post" class="dropzone">--%>
                                         <div class="fallback">
                                             <input  type="file" name="image" multiple required/>
                                         </div>
@@ -298,14 +282,13 @@
 
                                             <h4>Drop files here or click to upload.</h4>
                                         </div>
-                                        <%--                                </form>--%>
                                     </div>
 
                                     <input type="hidden" id="sID" name="sID" value="<%= sID%>">
 
                                     <div class="d-flex flex-wrap gap-2">
                                         <button type="submit" class="btn btn-primary waves-effect waves-light">Update Your Service</button>
-                                        <button type="button" class="btn btn-secondary waves-effect waves-light" ><a href="<%=request.getContextPath()%>/serviceServlet">Cancel</a></button>
+                                        <button type="button" class="btn btn-secondary waves-effect waves-light" ><a href="<%=request.getContextPath()%>/servicesListDetails">Cancel</a></button>
                                     </div>
                             </div>
                             </form>
