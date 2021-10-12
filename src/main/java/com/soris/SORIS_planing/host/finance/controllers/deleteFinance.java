@@ -11,9 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.*;
 
 @WebServlet(name = "deleteFinance", value = "/deleteFinance")
 public class deleteFinance extends HttpServlet {
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 
     @Override
@@ -22,6 +27,7 @@ public class deleteFinance extends HttpServlet {
 
         try{
             if (session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
+                LOGGER.log(Level.INFO, "User is logged as deleteFinance");
                 String fid = request.getParameter("fid");
 
                 boolean isTrue;
@@ -40,20 +46,7 @@ public class deleteFinance extends HttpServlet {
                 dis2.forward(request, response);
             }
         }
-        catch (Exception ex)
-        {
-
+        catch (Exception ex){
         }
-
-
-
         }
-//    }
-
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-    }
 }

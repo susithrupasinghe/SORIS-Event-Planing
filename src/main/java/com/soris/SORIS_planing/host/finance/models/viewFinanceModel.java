@@ -14,7 +14,6 @@ public class viewFinanceModel extends dbInit{
 
     public viewFinanceModel() throws SQLException, ClassNotFoundException {
         super();
-
     }
 
     public List<finance> getFinanceDetails(String eid){
@@ -37,8 +36,6 @@ public class viewFinanceModel extends dbInit{
                 finance.setIncome(rs.getBoolean("income"));
                 finance.setAmount(rs.getDouble("amount"));
 
-
-
                 fin.add(finance);
             }
             return fin;
@@ -47,7 +44,5 @@ public class viewFinanceModel extends dbInit{
             e.printStackTrace();
             return null;
         }
-
     }
-
 }
