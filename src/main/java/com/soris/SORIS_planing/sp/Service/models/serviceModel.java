@@ -17,7 +17,7 @@ public class serviceModel extends dbInit{
         super();
     }
 
-    //Inserting
+    //Inserting data
     public boolean insertService(int spId, String servicetname, String category, double price, double discount, String description, Part img) {
 
         try {
@@ -51,7 +51,7 @@ public class serviceModel extends dbInit{
         return isSuccess;
     }
 
-    //service view
+    //Services view
     public List<service> getServiceDetails(String spID){
         ArrayList<service> ser = new ArrayList<>();
 
@@ -104,19 +104,4 @@ public class serviceModel extends dbInit{
 
         return isSuccess;
     }
-
-
-    /*String getName(String spID) {
-        try{
-            String sql = String.format("SELECT address FROM serviceprovider WHERE spid = '"+spID+"'");
-            Statement stmt = this.con.createStatement();
-            rs = stmt.executeQuery(sql);
-            rs.next();
-            return rs.getString(1);
-
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
-    }*/
 }

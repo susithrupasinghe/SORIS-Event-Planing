@@ -2,6 +2,7 @@ package com.soris.SORIS_planing.sp.Service.models;
 
 public class topServicesModel {
 
+    //Variable declaration and initialization
     private  int spID;
     private String name;
     private String category;
