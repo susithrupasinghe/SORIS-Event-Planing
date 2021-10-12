@@ -8,12 +8,19 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@WebServlet(name = "updateServiceServlet", value = "/updateServiceServlet")
+@WebServlet(name = "spUpdateService", value = "/spUpdateService")
 @MultipartConfig(fileSizeThreshold = 1048576,
         maxFileSize = 5242880,
         maxRequestSize = 5242880)
-public class updateServiceServlet extends HttpServlet {
+public class spUpdateService extends HttpServlet {
+
+    //Loggers
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
@@ -21,6 +28,8 @@ public class updateServiceServlet extends HttpServlet {
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "sp") {
             String spID = (String) session.getAttribute("userid");
             String sID = request.getParameter("sID");
+
+            LOGGER.log(Level.INFO, "User is logged as service provider");
 
             int sIdConvert = Integer.parseInt(sID);
 
@@ -34,9 +43,7 @@ public class updateServiceServlet extends HttpServlet {
                 request.setAttribute("discount",Double.toString(ser.getDiscount()));
                 request.setAttribute("description",ser.getDescription());
                 request.setAttribute("images",ser.getImage());
-                /*service ser = new service();*/
 
-                /*service service = new service(sIdConvert,name,category,priceD,DiscountD,description,status);*/
                 RequestDispatcher dis2 = request.getRequestDispatcher("/sp-dashboard/updateService.jsp");
                 dis2.forward(request,response);
 
@@ -71,10 +78,10 @@ public class updateServiceServlet extends HttpServlet {
 
             if(isTrue == true){
 
-                response.sendRedirect(request.getContextPath() + "/serviceServlet");
+                response.sendRedirect(request.getContextPath() + "/servicesListDetails");
             }else{
 
-                RequestDispatcher dis2 = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher dis2 = request.getRequestDispatcher("/sp-dashboard/updateService.jsp");
                 dis2.forward(request,response);
             }
         }
