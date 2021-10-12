@@ -1,0 +1,38 @@
+SORIS-Event-Planning
+
+This project was created by group 2021_June_Malabe_B1_09 for OOP project year 2 semester 1.
+The project title is Online Event Planning System.
+The platform provide host users the ability create events according to their needs,store event details,keep a financial
+records about the event,and adding wide variety of services related to event planning provided by service providers
+partnered with the platform.
+service providers can  add the services they offer to platform and view statistics related to their services
+every service provided to host users have been vetted by a administrator.administrators can view site wide statistics
+and approve,reject or suspend services
+
+Contributors :
+Ekanayake E.M.S.D.  -IT20631192
+Perera M.R.A.       -IT20609658
+Rupasinghe S.P.     -IT20633790
+Jayasinghe Y.A.O.D. -IT20633554
+
+Used technologies :
+JSP
+Servlets
+JS
+CSS
+DBMS  : Mysql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
