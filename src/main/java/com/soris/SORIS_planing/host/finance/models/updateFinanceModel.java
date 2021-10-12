@@ -11,6 +11,7 @@ public class updateFinanceModel extends dbInit{
 
     public updateFinanceModel() throws SQLException, ClassNotFoundException {
         super();
+
     }
 
     public boolean updateFinance(int fid, String description, double amount, boolean income, boolean expense) throws SQLException {

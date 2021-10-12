@@ -12,6 +12,7 @@ public class signInModel extends dbInit implements authInterface {
     private String password;
 
     public signInModel() throws SQLException, ClassNotFoundException {
+
         super();
 
     }

@@ -13,6 +13,7 @@ public class eventUpdateModel extends dbInit{
 
     public eventUpdateModel() throws SQLException, ClassNotFoundException {
        super();
+
     }
     //return event details
     public List<event> eventList(int hid) throws SQLException {

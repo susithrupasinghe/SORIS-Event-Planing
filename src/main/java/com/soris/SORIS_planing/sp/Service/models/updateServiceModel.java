@@ -14,6 +14,7 @@ public class updateServiceModel extends dbInit{
 
     public updateServiceModel() throws SQLException, ClassNotFoundException {
         super();
+
     }
 
     public service getUpdateDetails(int sID){

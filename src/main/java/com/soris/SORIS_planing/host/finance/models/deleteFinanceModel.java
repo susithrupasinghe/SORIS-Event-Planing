@@ -11,6 +11,7 @@ public class deleteFinanceModel extends dbInit{
 
     public deleteFinanceModel() throws SQLException, ClassNotFoundException{
         super();
+
     }
     public boolean deleteFinance(String fid)
     {

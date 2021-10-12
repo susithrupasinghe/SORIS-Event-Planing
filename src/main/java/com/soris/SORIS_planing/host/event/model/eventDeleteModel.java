@@ -11,6 +11,7 @@ public class eventDeleteModel extends dbInit{
 
     public eventDeleteModel() throws SQLException, ClassNotFoundException {
         super();
+
     }
     public boolean eventDelete(String eid)
     {

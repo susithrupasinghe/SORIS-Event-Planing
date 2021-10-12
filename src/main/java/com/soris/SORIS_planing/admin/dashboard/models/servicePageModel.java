@@ -13,6 +13,7 @@ import java.util.List;
 public class servicePageModel extends dbInit{
 
     public servicePageModel() throws SQLException, ClassNotFoundException {
+
        super();
     }
 

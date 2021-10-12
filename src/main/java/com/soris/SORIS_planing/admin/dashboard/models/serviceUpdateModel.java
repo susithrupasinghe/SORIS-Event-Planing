@@ -11,6 +11,7 @@ public class serviceUpdateModel extends dbInit{
 
     public serviceUpdateModel() throws SQLException, ClassNotFoundException {
         super();
+
     }
 
     public void deteleServiceById(String id)

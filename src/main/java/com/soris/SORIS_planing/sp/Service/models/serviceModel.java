@@ -17,6 +17,7 @@ public class serviceModel extends dbInit{
 
     public serviceModel() throws SQLException, ClassNotFoundException {
         super();
+
     }
 
     public boolean insertService(int spId, String servicetname, String category, double price, double discount, String description, Part img) {

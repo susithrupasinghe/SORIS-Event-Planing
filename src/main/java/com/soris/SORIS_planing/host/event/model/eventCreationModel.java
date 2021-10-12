@@ -16,6 +16,7 @@ public class eventCreationModel  extends  dbInit{
 
     public eventCreationModel() throws SQLException, ClassNotFoundException {
        super();
+
     }
 
     public boolean addEvent(String name, String description, double estimatedCost, int hid,String d) {

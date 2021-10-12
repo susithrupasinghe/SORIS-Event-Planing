@@ -12,6 +12,7 @@ public class serviceHandlerModel extends dbInit{
 
     public serviceHandlerModel() throws SQLException, ClassNotFoundException {
        super();
+
     }
 
     public List<serviceModel> serviceListByCategory(String category){
