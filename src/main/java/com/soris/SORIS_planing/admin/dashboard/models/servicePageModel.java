@@ -10,13 +10,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class servicePageModel {
-
-    private Connection con;
+public class servicePageModel extends dbInit{
 
     public servicePageModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+       super();
     }
 
     public List<serviceModel> getAllServices(){

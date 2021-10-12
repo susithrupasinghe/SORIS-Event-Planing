@@ -9,12 +9,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class viewFinanceModel {
-    private Connection con;
+public class viewFinanceModel extends dbInit{
 
     public viewFinanceModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+        super();
     }
 
     public List<finance> getFinanceDetails(String eid){

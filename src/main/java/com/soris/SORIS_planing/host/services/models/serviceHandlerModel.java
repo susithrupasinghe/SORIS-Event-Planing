@@ -8,13 +8,10 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 
-public class serviceHandlerModel {
-    private Connection con;
-
+public class serviceHandlerModel extends dbInit{
 
     public serviceHandlerModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+       super();
     }
 
     public List<serviceModel> serviceListByCategory(String category){

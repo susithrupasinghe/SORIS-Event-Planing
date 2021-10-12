@@ -6,18 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class signInModel {
+public class signInModel extends dbInit implements authInterface {
 
     private String email;
     private String password;
-    private Connection con;
 
     public signInModel() throws SQLException, ClassNotFoundException {
-
-        // Get instance from dbutil
-        // Using the singleton pattern
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+        super();
 
     }
 

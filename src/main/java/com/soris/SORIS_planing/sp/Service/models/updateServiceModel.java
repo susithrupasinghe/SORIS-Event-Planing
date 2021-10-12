@@ -7,15 +7,13 @@ import java.io.InputStream;
 import java.sql.*;
 import java.util.Base64;
 
-public class updateServiceModel {
+public class updateServiceModel extends dbInit{
     private boolean isSuccess = false;
-    private Connection con = null;
     private Statement stmt = null;
     private ResultSet rs;
 
     public updateServiceModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+        super();
     }
 
     public service getUpdateDetails(int sID){

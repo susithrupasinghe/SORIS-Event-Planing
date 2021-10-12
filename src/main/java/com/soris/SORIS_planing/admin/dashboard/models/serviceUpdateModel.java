@@ -7,12 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class serviceUpdateModel {
+public class serviceUpdateModel extends dbInit{
 
-    private Connection con;
     public serviceUpdateModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+        super();
     }
 
     public void deteleServiceById(String id)

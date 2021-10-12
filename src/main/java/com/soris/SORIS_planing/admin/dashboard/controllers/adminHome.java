@@ -7,16 +7,23 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.*;
 
 @WebServlet(name = "adminHome", value = "/adminHome")
 public class adminHome extends HttpServlet {
+
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session=request.getSession(false);
 
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "admin"){
-
+            LOGGER.log(Level.INFO, "User is logged as admin");
             try{
                 homeModel homeDataModel = new homeModel();
                 int serviceProvidersCount = homeDataModel.getServiceProviderCount();

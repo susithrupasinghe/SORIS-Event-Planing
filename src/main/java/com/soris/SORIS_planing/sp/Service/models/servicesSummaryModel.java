@@ -12,14 +12,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class servicesSummaryModel {
-    private Connection con = null;
+public class servicesSummaryModel extends dbInit{
+
    /* private Statement stmt = null;*/
     private ResultSet rs;
 
     public servicesSummaryModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+        super();
     }
 
     //get services count

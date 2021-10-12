@@ -9,14 +9,10 @@ import java.util.List;
 
 import com.soris.SORIS_planing.dbUtil;
 
-public class eventUpdateModel {
-
-    private Connection con;
-
+public class eventUpdateModel extends dbInit{
 
     public eventUpdateModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+       super();
     }
     //return event details
     public List<event> eventList(int hid) throws SQLException {
