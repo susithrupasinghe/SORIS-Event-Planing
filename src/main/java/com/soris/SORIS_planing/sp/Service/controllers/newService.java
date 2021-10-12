@@ -8,16 +8,27 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@WebServlet(name = "newServiceServlet", value = "/newServiceServlet")
+@WebServlet(name = "newService", value = "/newService")
+
 @MultipartConfig(fileSizeThreshold = 1048576,
         maxFileSize = 5242880,
         maxRequestSize = 5242880)
-public class newServiceServlet extends HttpServlet {
+
+public class newService extends HttpServlet {
+
+    //Loggers
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession(false);
+
+        LOGGER.log(Level.INFO, "User is logged as service provider");
 
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "sp") {
             String spID = (String) session.getAttribute("userid");
@@ -40,9 +51,7 @@ public class newServiceServlet extends HttpServlet {
                 isTrue = Newservice.insertService(spIdConvert,serviceName, category, priceD, DiscountD, description, img);
                 if (isTrue == true) {
                     request.setAttribute("error", "Service Creation Successfully");
-                    /*RequestDispatcher dis = request.getRequestDispatcher("/sp-dashboard/home.jsp");
-                    dis.forward(request, response);*/
-                    response.sendRedirect(request.getContextPath() + "/serviceServlet");
+                    response.sendRedirect(request.getContextPath() + "/servicesListDetails");
                 } else {
                     request.setAttribute("error", "Service Creation Failed");
                     RequestDispatcher dis1 = request.getRequestDispatcher("/sp-dashboard/newService.jsp");
@@ -54,33 +63,5 @@ public class newServiceServlet extends HttpServlet {
                 request.getRequestDispatcher("/sp-dashboard/home.jsp").include(request, response);
             }
         }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       /* String serviceName = request.getParameter("servicetname");
-        String category = request.getParameter("Category");
-        String price = request.getParameter("price");
-        String Discount = request.getParameter("Discount");
-        String description = request.getParameter("servicedesc");
-
-        boolean isTrue;
-
-        double priceD = Double.parseDouble(price);
-        double DiscountD = Double.parseDouble(Discount);
-
-        try{
-            serviceModel Newservice = new serviceModel();
-            isTrue = Newservice.insertService(spIdConvert,serviceName,category,priceD,DiscountD,description);
-            if(isTrue == true){
-                RequestDispatcher dis = request.getRequestDispatcher("/index.jsp");
-                dis.forward(request,response);
-            }else {
-                RequestDispatcher dis1 = request.getRequestDispatcher("/home.jsp");
-                dis1.forward(request,response);
-            }
-        }catch (Exception e){
-            System.out.println(e);
-        }*/
     }
 }

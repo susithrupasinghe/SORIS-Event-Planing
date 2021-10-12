@@ -6,8 +6,9 @@
   Time: 8:02 PM
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.soris.SORIS_planing.sp.Service.controllers.serviceServlet" %>
+<%@ page import="com.soris.SORIS_planing.sp.Service.controllers.servicesListDetails" %>
 <%@ page import="com.soris.SORIS_planing.sp.Service.models.service" %>
 <%@ page import="com.soris.SORIS_planing.admin.dashboard.models.topServiceProviderModel" %>
 <%@ page import="java.util.List" %>
@@ -25,9 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
-    <%-- <!-- App favicon -->
-     <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">
- --%>
+
     <!-- Bootstrap Css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style"
           rel="stylesheet" type="text/css"/>
@@ -80,12 +79,10 @@
                         id="vertical-menu-btn">
                     <i class="fa fa-fw fa-bars"></i>
                 </button>
-
-
             </div>
 
-            <div class="d-flex">
 
+            <div class="d-flex">
                 <div class="dropdown d-inline-block d-lg-none ms-2">
                     <button type="button" class="btn header-item noti-icon waves-effect"
                             id="page-header-search-dropdown"
@@ -122,8 +119,9 @@
                         </span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-end">
 
+                    <%--Log Out--%>
+                    <div class="dropdown-menu dropdown-menu-end">
                         <a class="dropdown-item text-danger" href="<%=request.getContextPath()%>/logout?redirect=sp"><i
                                 class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
                                 key="t-logout">Logout</span></a>
@@ -150,14 +148,13 @@
                 <!-- Left Menu Start -->
                 <ul class="metismenu list-unstyled" id="side-menu">
                     <li class="menu-title" key="t-menu">Menu</li>
-
                     <li>
-                        <a href="<%=request.getContextPath()%>/servicesSummaryServlet" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/spServicesSummary" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath()%>/serviceServlet" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/servicesListDetails" class="waves-effect">
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>
@@ -178,7 +175,6 @@
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
-
 
 
     <div class="main-content">
@@ -221,9 +217,11 @@
                                                     Add New Service </button>
                                             </a>
                                         </div>
-                                    </div><!-- end col-->
+                                    </div>
+                                    <!-- end col-->
                                 </div>
 
+                                <%--Start table--%>
                                 <div class="table-responsive">
                                     <table class="table align-middle table-nowrap table-check">
                                         <thead class="table-light">
@@ -269,10 +267,9 @@
                                             </tr>
                                         </c:forEach>
                                         </tbody>
-
                                     </table>
                                 </div>
-
+                               <%--End Table --%>
                             </div>
                         </div>
                     </div>
@@ -321,21 +318,21 @@
                             </div>
                         </div>
 
+                        <%--View Details--%>
                         <div class="modal-footer">
                             <c:if test='${ser.status == "rejected"}'>
-                                <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                                <a href="<%=request.getContextPath()%>/spDeleteService?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
                             </c:if>
                             <c:if test='${ser.status == "pending"}'>
-                                <a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>
-                                <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                                <a href="<%=request.getContextPath()%>/spUpdateService?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>
+                                <a href="<%=request.getContextPath()%>/spDeleteService?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
                             </c:if>
                             <c:if test='${ser.status == "approved"}'>
-                                <a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>
-                                <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                                <a href="<%=request.getContextPath()%>/spUpdateService?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>
+                                <a href="<%=request.getContextPath()%>/spDeleteService?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
                             </c:if>
                             <c:if test='${ser.status == "suspended"}'>
-                                <%--<a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>--%>
-                                <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
+                                <a href="<%=request.getContextPath()%>/spDeleteService?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
                             </c:if>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
@@ -344,6 +341,7 @@
             </div>
         </c:forEach>
 
+        <%--Footer--%>
         <footer class="footer">
             <div class="container-fluid">
                 <div class="row">

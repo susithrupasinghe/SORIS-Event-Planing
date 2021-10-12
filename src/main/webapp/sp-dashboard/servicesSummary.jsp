@@ -1,4 +1,3 @@
-
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.soris.SORIS_planing.sp.Service.models.topServicesModel" %>
@@ -14,7 +13,6 @@
 <!doctype html>
 <html lang="en">
 
-
 <%
     int servicesCount = (int) request.getAttribute("serviceCount");
     HashMap<String, Integer> serviceSummery = (HashMap<String, Integer>) request.getAttribute("serviceSummery");
@@ -27,7 +25,6 @@
 
 
 <head>
-
     <meta charset="utf-8"/>
     <link href="<%=request.getContextPath()%>/assets/landing/assets/images/favicon/favicon.png" rel="icon"/>
     <title>SORIS Event Planning Platform</title>
@@ -153,12 +150,12 @@
                     <li class="menu-title" key="t-menu">Menu</li>
 
                     <li>
-                        <a href="<%=request.getContextPath()%>/servicesSummaryServlet" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/spServicesSummary" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath()%>/serviceServlet" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/servicesListDetails" class="waves-effect">
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>

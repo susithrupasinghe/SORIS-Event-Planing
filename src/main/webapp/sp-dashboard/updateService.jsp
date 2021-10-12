@@ -158,12 +158,12 @@
 
                     <li>
 
-                        <a href="<%=request.getContextPath()%>/servicesSummaryServlet" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/spServicesSummary" class="waves-effect">
                             <span key="t-dashboards">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath()%>/serviceServlet" class="waves-effect">
+                        <a href="<%=request.getContextPath()%>/servicesListDetails" class="waves-effect">
                             <span key="t-dashboards">Services</span>
                         </a>
                     </li>
@@ -232,7 +232,7 @@
                                 <h4 class="card-title">Basic Information</h4>
                                 <p class="card-title-desc">Update the service from the selected category</p>
 
-                                <form action="<%=request.getContextPath()%>/updateServiceServlet" method="post" class="custom-validation" enctype="multipart/form-data">
+                                <form action="<%=request.getContextPath()%>/spUpdateService" method="post" class="custom-validation" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="mb-3">
@@ -288,7 +288,7 @@
 
                                     <div class="d-flex flex-wrap gap-2">
                                         <button type="submit" class="btn btn-primary waves-effect waves-light">Update Your Service</button>
-                                        <button type="button" class="btn btn-secondary waves-effect waves-light" ><a href="<%=request.getContextPath()%>/serviceServlet">Cancel</a></button>
+                                        <button type="button" class="btn btn-secondary waves-effect waves-light" ><a href="<%=request.getContextPath()%>/servicesListDetails">Cancel</a></button>
                                     </div>
                             </div>
                             </form>

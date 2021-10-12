@@ -7,14 +7,24 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@WebServlet(name = "deleteServiceServlet", value = "/deleteServiceServlet")
-public class deleteServiceServlet extends HttpServlet {
+@WebServlet(name = "spDeleteService", value = "/spDeleteService")
+public class spDeleteService extends HttpServlet {
+
+    //Loggers
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session=request.getSession(false);
 
             if(session.getAttribute("userid") != null && session.getAttribute("role") == "sp"){
+
+            LOGGER.log(Level.INFO, "User is logged as service provider");
+
             String sId = request.getParameter("sID");
             System.out.println(sId);
 
@@ -32,9 +42,9 @@ public class deleteServiceServlet extends HttpServlet {
                 isTrue = delSer.deleteService(sId);
 
             if(isTrue == true){
-                response.sendRedirect(request.getContextPath() + "/serviceServlet");
+                response.sendRedirect(request.getContextPath() + "/servicesListDetails");
             }else{
-                RequestDispatcher dis2 = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher dis2 = request.getRequestDispatcher("/spServicesSummary");
                 dis2.forward(request,response);
             }
         }
