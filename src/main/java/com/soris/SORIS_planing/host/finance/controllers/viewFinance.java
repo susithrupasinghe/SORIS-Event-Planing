@@ -24,11 +24,12 @@ public class viewFinance extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if (session != null && session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
-            LOGGER.log(Level.INFO, "User is logged as viewFinance");
+            LOGGER.log(Level.INFO, "User is logged as host");
+            //user logged in
             try{
                 String hid = (String) session.getAttribute("userid");
-                addFinanceModel host = new addFinanceModel();//create object
-                HashMap<String,String> eventList = host.getEventList(hid);//get event list
+                addFinanceModel host = new addFinanceModel();
+                HashMap<String,String> eventList = host.getEventList(hid);
                 System.out.println(eventList.size());
                 request.setAttribute("list",eventList);
                 request.getRequestDispatcher("/host-dashboard/finance/viewFinance.jsp").forward(request,response);

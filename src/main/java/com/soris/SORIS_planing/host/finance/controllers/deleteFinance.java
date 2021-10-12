@@ -27,7 +27,8 @@ public class deleteFinance extends HttpServlet {
 
         try{
             if (session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
-                LOGGER.log(Level.INFO, "User is logged as deleteFinance");
+                LOGGER.log(Level.INFO, "User is logged as host");
+                // get fid from parameters
                 String fid = request.getParameter("fid");
 
                 boolean isTrue;
@@ -38,6 +39,7 @@ public class deleteFinance extends HttpServlet {
                 response.sendRedirect(request.getContextPath() +"/viewBudget");
             }
             else {
+                //delete failed
                 request.setAttribute("error","Delete process failed");
                 response.sendRedirect(request.getContextPath() +"/viewBudget");
             }

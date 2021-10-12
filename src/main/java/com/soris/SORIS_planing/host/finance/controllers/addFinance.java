@@ -28,12 +28,12 @@ public class addFinance extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if(session!=null && session.getAttribute("userid") != null && session.getAttribute("role") == "host"){
-            LOGGER.log(Level.INFO, "User is logged as addFinance");//used logger
+            LOGGER.log(Level.INFO, "User is logged as host");
             String hid = (String) session.getAttribute("userid");
             addFinanceModel host = new addFinanceModel();
-            HashMap<String,String> eventList = host.getEventList(hid);//used hashmap
+            HashMap<String,String> eventList = host.getEventList(hid);
             System.out.println(eventList.size());
-            request.setAttribute("list",eventList);//get event name list from event table
+            request.setAttribute("list",eventList);
             request.getRequestDispatcher("/host-dashboard/finance/addFinance.jsp").forward(request,response);
 
         }

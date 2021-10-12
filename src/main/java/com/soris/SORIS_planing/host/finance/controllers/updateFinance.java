@@ -27,7 +27,7 @@ public class updateFinance extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
-            LOGGER.log(Level.INFO, "User is logged as updateFinance");
+            LOGGER.log(Level.INFO, "User is logged as host");
             String fid = request.getParameter("fid");
             int convertfid = Integer.parseInt(fid);
 
@@ -50,7 +50,8 @@ public class updateFinance extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String fId = request.getParameter("fid");//get parameters
+            // get the updated finance details from parameters
+            String fId = request.getParameter("fid");
             String description = request.getParameter("description");
             String amount = request.getParameter("amount");
             String type = request.getParameter("type");
