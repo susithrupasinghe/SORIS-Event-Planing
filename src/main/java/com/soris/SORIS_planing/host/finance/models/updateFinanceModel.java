@@ -38,7 +38,7 @@ public class updateFinanceModel extends dbInit{
             String sql = "SELECT eid,description,expense,income,amount FROM finance WHERE fid='" + fid + "'";
             ResultSet rs = stmt.executeQuery(sql);
             rs.next();
-//                finance.setEid(rs.getInt("eid"));
+
                 finance.setDescription(rs.getString("description"));
                 finance.setExpense(rs.getBoolean("expense"));
                 finance.setIncome(rs.getBoolean("income"));

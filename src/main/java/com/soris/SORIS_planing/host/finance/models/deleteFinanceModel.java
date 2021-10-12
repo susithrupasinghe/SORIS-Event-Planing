@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
-
 import com.soris.SORIS_planing.dbUtil;
 
 public class deleteFinanceModel extends dbInit{
