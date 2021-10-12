@@ -1,6 +1,7 @@
 package com.soris.SORIS_planing.host.event.model;
 
 public class event {
+    //class created to hold data for event table in database
     private int eid;
     private int hid;
     private String date;
