@@ -57,7 +57,6 @@ public class updateServiceModel {
             stmt.setString(5,description);
             stmt.setBlob(6,imgBlob);
             stmt.setInt(7,sID);
-//            String sql = "UPDATE service set name = '"+name+"', price= '"+price+"', discount= '"+discount+"',category='"+category+"', description= '"+description+"', status='pending' WHERE sid = '"+sID+"'";//, category= '"+category+"'
 
             int rs = stmt.executeUpdate();
 

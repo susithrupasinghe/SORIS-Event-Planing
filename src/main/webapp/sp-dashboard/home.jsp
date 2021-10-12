@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
-  User: Dell
+  User: Shavidini
   Date: 9/19/2021
   Time: 8:02 PM
   To change this template use File | Settings | File Templates.
@@ -212,10 +212,6 @@
                                 <div class="row mb-2">
                                     <div class="col-sm-4">
                                         <div class="search-box me-2 mb-2 d-inline-block">
-                                            <%--                                        <div class="position-relative">--%>
-                                            <%--                                            <input type="text" class="form-control" placeholder="Search...">--%>
-                                            <%--                                            <i class="bx bx-search-alt search-icon"></i>--%>
-                                            <%--                                        </div>--%>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
@@ -245,24 +241,6 @@
                                         <%--Open Table Body--%>
                                         <tbody>
                                         <c:forEach var = "ser" items = "${servicesDetails}">
-                                            <%--<c:set var="sID" value="${ser.sID}"></c:set>
-                                            <c:set var="name" value="${ser.name}"></c:set>
-                                            <c:set var="category" value="${ser.category}"></c:set>
-                                            <c:set var="price" value="${ser.price}"></c:set>
-                                            <c:set var="discount" value="${ser.discount}"></c:set>
-                                            <c:set var="status" value="${ser.status}"></c:set>
-                                            <c:set var="description" value="${ser.description}"></c:set>
-
-                                            <c:url value="updateService.jsp" var="serUpdate">
-                                                <c:param name="sID" value="${sID}"/>
-                                                <c:param name="name" value="${name}"/>
-                                                <c:param name="category" value="${category}"/>
-                                                <c:param name="price" value="${price}"/>
-                                                <c:param name="discount" value="${discount}"/>
-                                                <c:param name="status" value="${status}"/>
-                                                <c:param name="description" value="${description}"/>
-                                            </c:url>--%>
-
                                             <tr>
                                                 <td><a href="javascript: void(0);" class="text-body fw-bold">${ser.sID}</a></td>
                                                 <td>${ser.name}</td>
@@ -288,14 +266,6 @@
                                                         View Details
                                                     </button>
                                                 </td>
-
-                                                    <%--<td>
-                                                        <a href="${serUpdate}" >
-                                                        <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".ser_${ser.sID}">
-                                                            Update
-                                                        </button>
-                                                        </a>
-                                                    </td>--%>
                                             </tr>
                                         </c:forEach>
                                         </tbody>
@@ -367,8 +337,6 @@
                                 <%--<a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>--%>
                                 <a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>
                             </c:if>
-                                <%--<a href="<%=request.getContextPath()%>/updateServiceServlet?sID=${ser.sID}" target="target_name"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Edit Your Service </button></a>--%>
-                                <%--<a href="<%=request.getContextPath()%>/deleteServiceServlet?sID=${ser.sID}"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button></a>--%>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>

@@ -34,8 +34,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
-    <%--    <!-- App favicon -->--%>
-    <%--    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">--%>
 
     <!-- Bootstrap Css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style"
@@ -50,13 +48,6 @@
 </head>
 
 <body data-sidebar="dark">
-
-
-<%
-    //Finally, add the session
-%>
-
-<!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
 <!-- Begin page -->
 <div id="layout-wrapper">
@@ -92,12 +83,10 @@
                         id="vertical-menu-btn">
                     <i class="fa fa-fw fa-bars"></i>
                 </button>
-
-
             </div>
 
-            <div class="d-flex">
 
+            <div class="d-flex">
                 <div class="dropdown d-inline-block d-lg-none ms-2">
                     <button type="button" class="btn header-item noti-icon waves-effect"
                             id="page-header-search-dropdown"
@@ -360,9 +349,6 @@
                                         <div class="mb-4">
                                             <i class="bx bx-map-pin text-primary display-4"></i>
                                         </div>
-                                        <%--<h3><%=serviceCatSummery.get("Foods")%>
-                                        </h3>
-                                        <p>Foods</p>--%>
                                     </div>
 
                                     <div class="table-responsive mt-4">
@@ -565,82 +551,7 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
-                       <%-- <div class="table-responsive mt-4">
-                            <table class="table align-middle table-nowrap">
-                                <tbody>
-                                <tr>
-                                    <td style="width: 30%">
-                                        <p class="mb-0"><%= topServiceslist.get(0).getName()%></p>
-                                    </td>
-                                    <td style="width: 25%">
-                                        <h5 class="mb-0"><%= topServiceslist.get(0).getCount()%>
-                                        </h5></td>
-                                    <td>
-                                        <div class="progress bg-transparent progress-sm">
-                                            <div class="progress-bar bg-primary rounded" role="progressbar"
-                                                 style="width: <%=((topServiceslist.get(0).getCount()/(float)servicesCount))*100%>%"
-                                                 aria-valuenow="" aria-valuemin="0"
-                                                 aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="mb-0"><%= topServiceslist.get(1).getName()%></p>
-                                    </td>
-                                    <td>
-                                        <h5 class="mb-0"><%= topServiceslist.get(1).getCount()%>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <div class="progress bg-transparent progress-sm">
-                                            <div class="progress-bar bg-success rounded" role="progressbar"
-                                                 style="width: <%=((topServiceslist.get(1).getCount()/(float)servicesCount))*100%>%"
-                                                 aria-valuenow="" aria-valuemin="0"
-                                                 aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="mb-0"><%= topServiceslist.get(2).getName()%></p>
-                                    </td>
-                                    <td>
-                                        <h5 class="mb-0"><%= topServiceslist.get(2).getCount()%>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <div class="progress bg-transparent progress-sm">
-                                            <div class="progress-bar bg-warning rounded" role="progressbar"
-                                                 style="width: <%=((topServiceslist.get(2).getCount()/(float)servicesCount))*100%>%"
-                                                 aria-valuenow="" aria-valuemin="0"
-                                                 aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="mb-0"><%= topServiceslist.get(3).getName()%></p>
-                                    </td>
-                                    <td>
-                                        <h5 class="mb-0"><%= topServiceslist.get(3).getCount()%>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <div class="progress bg-transparent progress-sm">
-                                            <div class="progress-bar bg-warning rounded" role="progressbar"
-                                                 style="width: <%=((topServiceslist.get(3).getCount()/(float)servicesCount))*100%>%"
-                                                 aria-valuenow="" aria-valuemin="0"
-                                                 aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>--%>
                     </div>
                 </div>
             </div>
@@ -690,8 +601,6 @@
         setTimeout(function(){ $('#errormodel').modal('show'); }, 100);
     </script>
         <%}%>
-
-
 </body>
 
 </html>

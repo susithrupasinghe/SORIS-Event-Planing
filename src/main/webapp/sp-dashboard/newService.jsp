@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Dell
+  User: Shavidini
   Date: 9/19/2021
   Time: 8:02 PM
   To change this template use File | Settings | File Templates.
@@ -17,8 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
-<%--    <!-- App favicon -->--%>
-<%--    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/dashboard/assets/images/favicon.ico">--%>
 
     <!-- Bootstrap Css -->
     <link href="<%=request.getContextPath()%>/assets/dashboard/assets/css/bootstrap.min.css" id="bootstrap-style"
@@ -33,8 +31,6 @@
 </head>
 
 <body data-sidebar="dark">
-
-<!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
 <!-- Begin page -->
 <div id="layout-wrapper">
@@ -259,11 +255,11 @@
                                     </div>
 
 
-                                    <%--                        <div class="card">--%>
+                                    <%--Upload Image--%>
                                     <div class="card-body">
                                         <h4 class="card-title mb-3">Service Images</h4>
 
-                                        <%--                                <form action="<%=request.getContextPath()%>/NewServiceServlet" method="post" class="dropzone">--%>
+
                                         <div class="fallback">
                                             <input  type="file" name="image" multiple required/>
                                         </div>
@@ -275,7 +271,7 @@
 
                                             <h4>Drop files here or click to upload.</h4>
                                         </div>
-                                        <%--                                </form>--%>
+
                                     </div>
 
                                     <div class="d-flex flex-wrap gap-2">
@@ -284,10 +280,7 @@
                                     </div>
                                 </div>
                             </form>
-
                         </div>
-
-                        <%--</div>--%>
                     </div>
                 </div>
                 <!-- end row -->
