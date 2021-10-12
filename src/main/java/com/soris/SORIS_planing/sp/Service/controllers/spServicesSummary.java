@@ -10,16 +10,27 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@WebServlet(name = "servicesSummaryServlet", value = "/servicesSummaryServlet")
-public class servicesSummaryServlet extends HttpServlet {
+@WebServlet(name = "spServicesSummary", value = "/spServicesSummary")
+public class spServicesSummary extends HttpServlet {
+
+    //Loggers
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+    //Start get method
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session=request.getSession(false);
 
+        //Check Session
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "sp"){
             String spID = (String) session.getAttribute("userid");
+
+            LOGGER.log(Level.INFO, "User is logged as service provider");
 
             try{
                 servicesSummaryModel summarySer = new servicesSummaryModel();

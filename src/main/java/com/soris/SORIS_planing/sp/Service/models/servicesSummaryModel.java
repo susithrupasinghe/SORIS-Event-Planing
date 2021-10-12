@@ -1,10 +1,5 @@
 package com.soris.SORIS_planing.sp.Service.models;
 
-
-import com.soris.SORIS_planing.sp.Service.models.topServicesModel;
-import com.soris.SORIS_planing.sp.Service.models.topServicesModel;
-import com.soris.SORIS_planing.dbUtil;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,7 +9,6 @@ import java.util.List;
 
 public class servicesSummaryModel extends dbInit{
 
-   /* private Statement stmt = null;*/
     private ResultSet rs;
 
     public servicesSummaryModel() throws SQLException, ClassNotFoundException {
@@ -38,6 +32,7 @@ public class servicesSummaryModel extends dbInit{
 
     }
 
+    //get services summery
     public HashMap<String, Integer> getSummeryOfServices(String spID){
 
         try {
@@ -61,7 +56,7 @@ public class servicesSummaryModel extends dbInit{
         }
     }
 
-
+    //services summery(category)
     public HashMap<String, Integer> getcatSumOfServices(String spID){
 
         try {
@@ -85,6 +80,7 @@ public class servicesSummaryModel extends dbInit{
         }
     }
 
+    //get top services
     public List<topServicesModel> getTopServices(String spID){
         List<topServicesModel> serviceList = new ArrayList<topServicesModel>();
 
@@ -111,6 +107,7 @@ public class servicesSummaryModel extends dbInit{
         }
     }
 
+    //get service provider address
     public String getAddress(String spID){
         try{
             String sql = String.format("SELECT address FROM serviceprovider WHERE spid = '"+spID+"'");
@@ -125,6 +122,7 @@ public class servicesSummaryModel extends dbInit{
         }
     }
 
+    //get service provide phone number
     public String getPhoneNum(String spID){
         try{
             String sql = String.format("SELECT contactno FROM serviceprovider WHERE spid = '"+spID+"'");
@@ -139,6 +137,7 @@ public class servicesSummaryModel extends dbInit{
         }
     }
 
+    //get service provider mail
     public String getMail(String spID){
         try{
             String sql = String.format("SELECT email FROM serviceprovider WHERE spid = '"+spID+"'");
