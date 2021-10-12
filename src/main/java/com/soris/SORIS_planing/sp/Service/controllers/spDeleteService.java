@@ -21,12 +21,12 @@ public class spDeleteService extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session=request.getSession(false);
 
+            //Check user log in as service provider
             if(session.getAttribute("userid") != null && session.getAttribute("role") == "sp"){
 
             LOGGER.log(Level.INFO, "User is logged as service provider");
 
             String sId = request.getParameter("sID");
-            System.out.println(sId);
 
             boolean isTrue;
 
