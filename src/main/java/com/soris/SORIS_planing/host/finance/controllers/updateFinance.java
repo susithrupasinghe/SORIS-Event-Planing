@@ -12,25 +12,29 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.*;
 
 @WebServlet(name = "updateFinance", value = "/updateFinance")
 public class updateFinance extends HttpServlet {
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        int fid=Integer.parseInt(request.getParameter("fid"));
+
         HttpSession session = request.getSession(false);
 
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
+            LOGGER.log(Level.INFO, "User is logged as host");
             String fid = request.getParameter("fid");
             int convertfid = Integer.parseInt(fid);
 
-//            int fid = 1;
             try {
                 updateFinanceModel updatemodel = new updateFinanceModel();
                 finance finance = updatemodel.financeDetails(convertfid);
                 request.setAttribute("fid",fid);
-//                request.setAttribute("eid", finance.getEid());
                 request.setAttribute("description", finance.getDescription());
                 request.setAttribute("expense", finance.isExpense());
                 request.setAttribute("income", finance.isIncome());
@@ -46,6 +50,7 @@ public class updateFinance extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            // get the updated finance details from parameters
             String fId = request.getParameter("fid");
             String description = request.getParameter("description");
             String amount = request.getParameter("amount");
@@ -69,11 +74,11 @@ public class updateFinance extends HttpServlet {
             isTrue = update.updateFinance(convertfId, description, convertAmount, Income, Expense);
             if(isTrue){
                 response.sendRedirect(request.getContextPath() +"/viewBudget");
-//                request.getRequestDispatcher(request.getContextPath() +"/viewBudget").forward(request,response);
+
             } else {
                 request.setAttribute("error","fail");
                 response.sendRedirect(request.getContextPath() +"/updateFinance?fid="+fId);
-//                request.getRequestDispatcher("/host-dashboard/finance/addFinance.jsp").forward(request,response);
+
             }
 
         }catch (SQLException e) {

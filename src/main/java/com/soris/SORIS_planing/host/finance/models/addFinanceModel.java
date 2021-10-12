@@ -1,7 +1,6 @@
 package com.soris.SORIS_planing.host.finance.models;
 
-import
-        java.sql.Connection;
+import java.sql.Connection;
 import com.soris.SORIS_planing.dbUtil;
 
 import java.sql.SQLException;
@@ -16,18 +15,8 @@ public class addFinanceModel extends dbInit{
        super();
 
     }
-
-//database connection
-//get data from servlet
-    //insert to database
-    //check success
-    //inform servlet
-
     public boolean addFinance(int eId, String description, double amount, boolean income, boolean expense) throws SQLException, ClassNotFoundException {
         try {
-
-            String sql = "Insert into finance(eid,description,amount,income,expense) values ('" + eId + "','" + description + "','" + amount + "','" + income + "','" + expense + "')";
-
             Statement stat = con.createStatement();
             String query = String.format("Insert into finance(eid,description,amount,income,expense) values ('%d','%s','%f',%b,%b)",eId,description,amount,income,expense);
             int count = stat.executeUpdate(query);
@@ -41,11 +30,7 @@ public class addFinanceModel extends dbInit{
             System.out.println(e);
             return false;
         }
-
         }
-
-        //input hid
-    //return event id and name
 
     public HashMap<String,String> getEventList(String hid){
         try {
@@ -61,13 +46,10 @@ public class addFinanceModel extends dbInit{
 
             return eventList;
 
-
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
-
-
     }
 
     }
