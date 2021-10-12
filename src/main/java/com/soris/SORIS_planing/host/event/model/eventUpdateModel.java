@@ -1,20 +1,23 @@
 package com.soris.SORIS_planing.host.event.model;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.soris.SORIS_planing.dbUtil;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class eventUpdateModel extends dbInit{
+    //read database and update
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public eventUpdateModel() throws SQLException, ClassNotFoundException {
        super();
+
     }
-    //return event details
+    //return event details related to one host user
     public List<event> eventList(int hid) throws SQLException {
         ArrayList<event> eList= new ArrayList<>();
 
@@ -54,13 +57,12 @@ public class eventUpdateModel extends dbInit{
         }
 
     }
-
+    // return details related to a single event
     public event eventDetails(int eid) throws SQLException {
-        int _eid= eid;
         event event= new event();
         try{
             Statement stmt= con.createStatement();
-            String sql="SELECT date,name,description,estimatedcost FROM event WHERE eid='"+_eid+"'";
+            String sql="SELECT date,name,description,estimatedcost FROM event WHERE eid='"+ eid +"'";
             ResultSet rs=stmt.executeQuery(sql);
             while (rs.next()){
                 event.setDate(rs.getString("date"));
@@ -80,15 +82,17 @@ public class eventUpdateModel extends dbInit{
 
 
     }
-
+    //update a row in event database
     public boolean eventUpdate(int eid,String date,String name,String description,double estimatedCost) throws SQLException {
         try {
             Statement stmt = con.createStatement();
             String sql = "UPDATE event SET date='" + date + "',name='" + name + "',description='" + description + "',estimatedcost='" + estimatedCost +  "' WHERE eid='" + eid + "'";
             int count = stmt.executeUpdate(sql);
             if (count > 0) {
+                LOGGER.log(Level.INFO, "Event updated successfully");
                 return true;
             } else {
+                LOGGER.log(Level.INFO, "Event update failed");
                 return false;
             }
         }catch (Exception e){

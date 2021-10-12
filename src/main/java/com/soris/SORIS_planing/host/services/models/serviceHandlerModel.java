@@ -12,12 +12,9 @@ import java.util.logging.Logger;
 
 public class serviceHandlerModel extends dbInit{
 
-    private final static Logger LOGGER =
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
-
     public serviceHandlerModel() throws SQLException, ClassNotFoundException {
        super();
+
     }
 
     public List<serviceModel> serviceListByCategory(String category){
