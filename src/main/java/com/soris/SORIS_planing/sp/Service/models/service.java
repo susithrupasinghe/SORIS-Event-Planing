@@ -1,6 +1,7 @@
 package com.soris.SORIS_planing.sp.Service.models;
 
 public class service {
+    //class created to hold data for service table in database
     //Variable declaration and initialization
     private int sID;
     private String name;
