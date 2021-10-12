@@ -9,12 +9,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class servicePageModel extends dbInit{
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public servicePageModel() throws SQLException, ClassNotFoundException {
-
        super();
+        LOGGER.log(Level.INFO, "DB connection constructor called");
     }
 
     public List<serviceModel> getAllServices(){
@@ -39,7 +43,7 @@ public class servicePageModel extends dbInit{
 
             return serviceList;
         } catch (Exception ex) {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return null;
         }
     }

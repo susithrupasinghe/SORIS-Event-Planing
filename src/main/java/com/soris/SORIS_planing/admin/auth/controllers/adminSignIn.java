@@ -11,6 +11,17 @@ import java.io.IOException;
 public class adminSignIn extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       try{
+           request.getRequestDispatcher("/auth/admin-signin.jsp").forward(request, response);
+       }
+       catch (Exception ex)
+       {
+           ex.printStackTrace();
+       }
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{

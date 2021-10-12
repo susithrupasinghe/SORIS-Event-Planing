@@ -11,7 +11,6 @@ import java.io.IOException;
 @WebServlet(name = "hostSignIn", value = "/hostSignIn")
 public class hostSignIn extends HttpServlet {
 
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
@@ -24,7 +23,6 @@ public class hostSignIn extends HttpServlet {
 
                 // User already logged in
                 response.sendRedirect(request.getContextPath() +"/eventList");
-
 
             }
             else {
