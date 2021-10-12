@@ -59,11 +59,10 @@ public class eventUpdateModel extends dbInit{
     }
     // return details related to a single event
     public event eventDetails(int eid) throws SQLException {
-        int _eid= eid;
         event event= new event();
         try{
             Statement stmt= con.createStatement();
-            String sql="SELECT date,name,description,estimatedcost FROM event WHERE eid='"+_eid+"'";
+            String sql="SELECT date,name,description,estimatedcost FROM event WHERE eid='"+ eid +"'";
             ResultSet rs=stmt.executeQuery(sql);
             while (rs.next()){
                 event.setDate(rs.getString("date"));
