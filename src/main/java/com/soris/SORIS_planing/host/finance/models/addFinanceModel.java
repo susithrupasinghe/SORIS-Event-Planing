@@ -1,7 +1,6 @@
 package com.soris.SORIS_planing.host.finance.models;
 
-import
-        java.sql.Connection;
+import java.sql.Connection;
 import com.soris.SORIS_planing.dbUtil;
 
 import java.sql.SQLException;
@@ -20,11 +19,7 @@ public class addFinanceModel {
 
     }
 
-//database connection
-//get data from servlet
-    //insert to database
-    //check success
-    //inform servlet
+
 
     public boolean addFinance(int eId, String description, double amount, boolean income, boolean expense) throws SQLException, ClassNotFoundException {
         try {
@@ -47,8 +42,7 @@ public class addFinanceModel {
 
         }
 
-        //input hid
-    //return event id and name
+
 
     public HashMap<String,String> getEventList(String hid){
         try {

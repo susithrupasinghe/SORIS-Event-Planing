@@ -54,20 +54,6 @@ public class deleteFinance extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        String fid = request.getParameter("fid");
-//        boolean isTrue;
-//
-//        isTrue = deleteFinanceModel.deleteFinance(fid);
-//
-//        if(isTrue == true) {
-//            RequestDispatcher dis = request.getRequestDispatcher("");
-//            dis.forward(request, response);
-//        } else {
-//
-//
-//
-//            RequestDispatcher dis2 = request.getRequestDispatcher("/index.jsp");
-//            dis2.forward(request, response);
-//        }
+
     }
 }

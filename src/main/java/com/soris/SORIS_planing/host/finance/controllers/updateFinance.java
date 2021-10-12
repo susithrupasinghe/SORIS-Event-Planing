@@ -18,19 +18,19 @@ public class updateFinance extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        int fid=Integer.parseInt(request.getParameter("fid"));
+
         HttpSession session = request.getSession(false);
 
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "host") {
             String fid = request.getParameter("fid");
             int convertfid = Integer.parseInt(fid);
 
-//            int fid = 1;
+
             try {
                 updateFinanceModel updatemodel = new updateFinanceModel();
                 finance finance = updatemodel.financeDetails(convertfid);
                 request.setAttribute("fid",fid);
-//                request.setAttribute("eid", finance.getEid());
+
                 request.setAttribute("description", finance.getDescription());
                 request.setAttribute("expense", finance.isExpense());
                 request.setAttribute("income", finance.isIncome());
@@ -69,11 +69,11 @@ public class updateFinance extends HttpServlet {
             isTrue = update.updateFinance(convertfId, description, convertAmount, Income, Expense);
             if(isTrue){
                 response.sendRedirect(request.getContextPath() +"/viewBudget");
-//                request.getRequestDispatcher(request.getContextPath() +"/viewBudget").forward(request,response);
+
             } else {
                 request.setAttribute("error","fail");
                 response.sendRedirect(request.getContextPath() +"/updateFinance?fid="+fId);
-//                request.getRequestDispatcher("/host-dashboard/finance/addFinance.jsp").forward(request,response);
+
             }
 
         }catch (SQLException e) {

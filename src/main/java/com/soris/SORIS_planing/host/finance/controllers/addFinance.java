@@ -65,7 +65,7 @@ public class addFinance extends HttpServlet {
             isTrue = finance.addFinance(convertEid,description,convertAmount,Income,Expense);
             if(isTrue ){
                 response.sendRedirect(request.getContextPath() + "/viewBudget");
-//                request.getRequestDispatcher( request.getContextPath() + "/viewBudget").forward(request,response);
+
             } else {
                 request.setAttribute("error","fail");
                 request.getRequestDispatcher(request.getContextPath() + "/addFinance").forward(request,response);
