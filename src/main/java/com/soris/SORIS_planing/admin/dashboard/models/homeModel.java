@@ -11,13 +11,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class homeModel {
-
-    private Connection con;
-
+public class homeModel extends dbInit{
+    
     public homeModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+        super();
 
     }
 
