@@ -84,11 +84,11 @@
                         </div>
 
                         <div class="p-2">
-                            <form class="form-horizontal" method="POST" action="<%=request.getContextPath()%>/adminsignin">
+                            <form class="form-horizontal custom-validation" method="POST" action="<%=request.getContextPath()%>/adminsignin">
 
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" name="uname" placeholder="Enter username" required>
+                                    <input type="email" class="form-control" parsley-type="email" id="username" name="uname" placeholder="Enter Email" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -135,6 +135,8 @@
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/simplebar/simplebar.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/node-waves/waves.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>

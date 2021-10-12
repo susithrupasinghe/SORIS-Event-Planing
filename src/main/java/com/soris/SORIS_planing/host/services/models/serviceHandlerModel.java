@@ -7,8 +7,13 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class serviceHandlerModel extends dbInit{
+
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public serviceHandlerModel() throws SQLException, ClassNotFoundException {
        super();
@@ -43,7 +48,7 @@ public class serviceHandlerModel extends dbInit{
             }
             return serviceList;
         } catch (Exception ex) {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return null;
         }
     }
@@ -72,7 +77,7 @@ public class serviceHandlerModel extends dbInit{
 
             return service;
         } catch (Exception ex) {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return null;
         }
 
@@ -96,7 +101,7 @@ public class serviceHandlerModel extends dbInit{
 
             return serviceProvider;
         } catch (Exception ex) {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return null;
         }
 
@@ -114,7 +119,7 @@ public class serviceHandlerModel extends dbInit{
         }
         catch (Exception ex)
         {
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return null;
         }
 
@@ -151,14 +156,11 @@ public class serviceHandlerModel extends dbInit{
             else {
                 return  false;
             }
-
         }
         catch (Exception ex){
-            System.out.println(ex);
+            LOGGER.log(Level.INFO, ex.getMessage());
             return false;
         }
-
-
     }
 
     public HashMap<String,String> getEventList(String hid){
@@ -172,16 +174,12 @@ public class serviceHandlerModel extends dbInit{
                 eventList.put(res.getString("eid"),res.getString("name"));
                 System.out.println(res.getString("name"));
             }
-
             return eventList;
-
 
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
-
-
     }
 
     public List<selectedServicesModel> getSelectedServices(String eid){

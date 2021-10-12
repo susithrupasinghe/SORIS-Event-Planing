@@ -6,12 +6,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class serviceUpdateModel extends dbInit{
+    private final static Logger LOGGER =
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public serviceUpdateModel() throws SQLException, ClassNotFoundException {
         super();
-
+        LOGGER.log(Level.INFO, "DB connection constructor called");
     }
 
     public void deteleServiceById(String id)
@@ -23,7 +27,7 @@ public class serviceUpdateModel extends dbInit{
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
+            LOGGER.log(Level.INFO, ex.getMessage());
         }
 
     }
@@ -36,7 +40,7 @@ public class serviceUpdateModel extends dbInit{
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
+            LOGGER.log(Level.INFO, ex.getMessage());
         }
     }
 }

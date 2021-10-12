@@ -17,7 +17,6 @@ public class eventCreationModel  extends  dbInit{
 
     public eventCreationModel() throws SQLException, ClassNotFoundException {
        super();
-
     }
 
     //add data to event table

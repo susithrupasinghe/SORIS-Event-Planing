@@ -126,11 +126,11 @@
                                 </div>
 
                                 <div class="mt-4">
-                                    <form method="post" action="<%=request.getContextPath()%>/spSignIn">
+                                    <form class="custom-validation" method="post" action="<%=request.getContextPath()%>/spSignIn">
 
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Email</label>
-                                            <input type="text" class="form-control" id="username" name="uname" placeholder="Enter Email" required>
+                                            <input type="email" class="form-control" id="username" parsley-type="email" name="uname" placeholder="Enter Email" required>
                                         </div>
 
                                         <div class="mb-3">
@@ -195,6 +195,8 @@
 
 <!-- auth-2-carousel init -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/auth-2-carousel.init.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
 
 <!-- App js -->
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/app.js"></script>
