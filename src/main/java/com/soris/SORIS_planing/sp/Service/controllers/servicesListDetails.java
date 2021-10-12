@@ -23,7 +23,7 @@ public class servicesListDetails extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
 
-        //Check Session
+        //Check user log in as service provider
         if(session.getAttribute("userid") != null && session.getAttribute("role") == "sp") {
             String spID = (String) session.getAttribute("userid");
 
