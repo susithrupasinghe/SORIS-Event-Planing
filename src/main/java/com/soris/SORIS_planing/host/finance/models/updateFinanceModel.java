@@ -7,13 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public class updateFinanceModel {
-
-    private Connection con;
+public class updateFinanceModel extends dbInit{
 
     public updateFinanceModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+        super();
+
     }
 
     public boolean updateFinance(int fid, String description, double amount, boolean income, boolean expense) throws SQLException {

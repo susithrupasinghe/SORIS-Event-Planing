@@ -7,12 +7,11 @@ import java.sql.ResultSet;
 
 import com.soris.SORIS_planing.dbUtil;
 
-public class deleteFinanceModel {
-    private  Connection con;
+public class deleteFinanceModel extends dbInit{
 
     public deleteFinanceModel() throws SQLException, ClassNotFoundException{
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+        super();
+
     }
     public boolean deleteFinance(String fid)
     {
