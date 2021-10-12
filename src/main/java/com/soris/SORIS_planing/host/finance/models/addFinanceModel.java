@@ -9,13 +9,10 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 
-public class addFinanceModel {
-
-    private Connection con;
+public class addFinanceModel extends dbInit{
 
     public addFinanceModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+       super();
 
     }
 

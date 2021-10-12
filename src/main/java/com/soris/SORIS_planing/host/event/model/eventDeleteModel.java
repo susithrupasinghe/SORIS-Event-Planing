@@ -6,12 +6,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class eventDeleteModel {
-    private Connection con;
+public class eventDeleteModel extends dbInit{
+
 
     public eventDeleteModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+        super();
+
     }
     public boolean eventDelete(String eid)
     {

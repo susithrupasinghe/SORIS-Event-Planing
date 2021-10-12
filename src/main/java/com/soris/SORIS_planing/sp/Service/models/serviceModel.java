@@ -10,15 +10,14 @@ import com.soris.SORIS_planing.dbUtil;
 
 import javax.servlet.http.Part;
 
-public class serviceModel extends Details {
+public class serviceModel extends dbInit{
     private boolean isSuccess = false;
-    private Connection con;
    /* private Statement stmt = null;*/
     private ResultSet rs;
 
     public serviceModel() throws SQLException, ClassNotFoundException {
-        dbUtil jdbcObj = dbUtil.getInstance();
-        this.con = jdbcObj.initializeDatabase();
+        super();
+
     }
 
     public boolean insertService(int spId, String servicetname, String category, double price, double discount, String description, Part img) {
@@ -122,7 +121,7 @@ public class serviceModel extends Details {
         return isSuccess;
     }
 
-    @Override
+
     String getName(String spID) {
         try{
            /* con = dbUtil.initializeDatabase();
