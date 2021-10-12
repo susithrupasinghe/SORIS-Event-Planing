@@ -12,7 +12,8 @@ public class updateFinanceModel {
     private Connection con;
 
     public updateFinanceModel() throws SQLException, ClassNotFoundException {
-        this.con = dbUtil.initializeDatabase();
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
     }
 
     public boolean updateFinance(int fid, String description, double amount, boolean income, boolean expense) throws SQLException {

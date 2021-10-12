@@ -15,8 +15,8 @@ public class addFinanceModel {
     private Connection con;
 
     public addFinanceModel() throws SQLException, ClassNotFoundException {
-        Connection con = dbUtil.initializeDatabase();
-        this.con = con;
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
 
     }
 
