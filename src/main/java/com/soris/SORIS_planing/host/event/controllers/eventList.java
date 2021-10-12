@@ -13,6 +13,7 @@ import com.soris.SORIS_planing.host.event.model.*;
 public class eventList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //if a host user is logged in create host dashboard with details of events related to user
         HttpSession session= request.getSession(false);
         if(session.getAttribute("userid") !=null && session.getAttribute("role")=="host")
         {
