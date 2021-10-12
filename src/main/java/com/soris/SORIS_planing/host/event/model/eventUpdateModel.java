@@ -15,7 +15,8 @@ public class eventUpdateModel {
 
 
     public eventUpdateModel() throws SQLException, ClassNotFoundException {
-        this.con= dbUtil.initializeDatabase();
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
     }
     //return event details
     public List<event> eventList(int hid) throws SQLException {

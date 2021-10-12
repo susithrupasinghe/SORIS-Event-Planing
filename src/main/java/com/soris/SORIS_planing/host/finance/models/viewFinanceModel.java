@@ -3,12 +3,19 @@ package com.soris.SORIS_planing.host.finance.models;
 import com.soris.SORIS_planing.dbUtil;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class viewFinanceModel {
+    private Connection con;
+
+    public viewFinanceModel() throws SQLException, ClassNotFoundException {
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
+    }
 
     public List<finance> getFinanceDetails(String eid){
         ArrayList <finance> fin = new ArrayList<>();
@@ -16,8 +23,8 @@ public class viewFinanceModel {
         int converteid = Integer.parseInt(eid);
 
         try{
-            Connection con = dbUtil.initializeDatabase();
-            Statement stat = con.createStatement();
+
+            Statement stat = this.con.createStatement();
             String sql = "SELECT fid,eid,description,expense,income,amount FROM finance WHERE eid='"+converteid+"'";
             ResultSet rs = stat.executeQuery(sql);
 

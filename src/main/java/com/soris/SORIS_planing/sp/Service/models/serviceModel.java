@@ -17,8 +17,8 @@ public class serviceModel extends Details {
     private ResultSet rs;
 
     public serviceModel() throws SQLException, ClassNotFoundException {
-        Connection con = dbUtil.initializeDatabase();
-        this.con = con;
+        dbUtil jdbcObj = dbUtil.getInstance();
+        this.con = jdbcObj.initializeDatabase();
     }
 
     public boolean insertService(int spId, String servicetname, String category, double price, double discount, String description, Part img) {
