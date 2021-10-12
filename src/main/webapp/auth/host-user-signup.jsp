@@ -93,7 +93,7 @@
                             </a>
                         </div>
                         <div class="p-2">
-                            <form class="needs-validation" novalidate method="post" action="<%=request.getContextPath()%>/hostSignUp">
+                            <form class="needs-validation custom-validation" novalidate method="post" action="<%=request.getContextPath()%>/hostSignUp">
 
                                 <div class="mb-3">
                                     <label for="userfname" class="form-label">First Name</label>
@@ -165,6 +165,8 @@
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/metismenu/metisMenu.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/simplebar/simplebar.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/node-waves/waves.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/libs/parsleyjs/parsley.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/dashboard/assets/js/pages/form-validation.init.js"></script>
 
 
 <!-- App js -->
